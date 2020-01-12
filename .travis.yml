@@ -2,9 +2,13 @@
 language: julia
 os:
   - linux
-  - osx
+addons:
+  apt:
+    packages:
+    - librsvg2-bin
 julia:
   - 1.0
+  - 1
   - nightly
 matrix:
   allow_failures:
