@@ -21,37 +21,48 @@ end
 
 struct FGConfig
     g::FlameGraph
-    fcolor!
+    fcolor
     fontsize::Int
 end
 
 include("svgwriter.jl")
 
-function view(fcolor!, data::Vector{UInt64}=Profile.fetch(); fontsize::Integer=12, kwargs...)
+"""
+    ProfileSVG.view([fcolor], data=Profile.fetch(); fontsize=12, kwargs...)
+
+View profiling results. See [FlameGraphs](https://github.com/timholy/FlameGraphs.jl)
+for options for `kwargs` and the default value of `fcolor`.
+"""
+function view(fcolor, data::Vector{UInt64}=Profile.fetch(); fontsize::Integer=12, kwargs...)
     g = flamegraph(data; kwargs...)
-    FGConfig(g, fcolor!, fontsize)
+    FGConfig(g, fcolor, fontsize)
 end
 function view(data::Vector{UInt64}=Profile.fetch(); fontsize::Integer=12, kwargs...)
     view(FlameGraphs.default_colors, data; fontsize=fontsize, kwargs...)
 end
 
+"""
+    ProfileSVG.save([fcolor], io, g=flamegraph(); kwargs...)
 
-function save(fcolor!, io::IO, g::FlameGraph; fontsize::Integer=12)
-    show(io, MIME("image/svg+xml"), FGConfig(g, fcolor!, fontsize))
+Save profile results as an SVG file. See [FlameGraphs](https://github.com/timholy/FlameGraphs.jl)
+for options for `kwargs` and the default value of `fcolor`.
+"""
+function save(fcolor, io::IO, g::FlameGraph; fontsize::Integer=12)
+    show(io, MIME("image/svg+xml"), FGConfig(g, fcolor, fontsize))
 end
-function save(fcolor!, filename::AbstractString, g::FlameGraph; kwargs...)
+function save(fcolor, filename::AbstractString, g::FlameGraph; kwargs...)
     open(filename, "w") do file
-        save(fcolor!, file, g; kwargs...)
+        save(fcolor, file, g; kwargs...)
     end
     return nothing
 end
-function save(fcolor!, io::IO; fontsize::Integer=12, kwargs...)
+function save(fcolor, io::IO; fontsize::Integer=12, kwargs...)
     g = flamegraph(; kwargs...)
-    save(fcolor!, io, g; fontsize=fontsize)
+    save(fcolor, io, g; fontsize=fontsize)
 end
-function save(fcolor!, filename::AbstractString; kwargs...)
+function save(fcolor, filename::AbstractString; kwargs...)
     open(filename, "w") do file
-        save(fcolor!, file; kwargs...)
+        save(fcolor, file; kwargs...)
     end
     return nothing
 end
@@ -63,7 +74,7 @@ Base.showable(::MIME"image/svg+xml", fg::FGConfig) = true
 
 
 function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
-    g, fcolor!, fontsize = fg.g, fg.fcolor!, fg.fontsize
+    g, fcolor, fontsize = fg.g, fg.fcolor, fg.fontsize
     ncols, nrows = length(g.data.span), FlameGraphs.depth(g)
     leftmargin = rightmargin = 10
     width = 1000
@@ -103,16 +114,16 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
         s
     end
 
-    function flamerects(fcolor!, io::IO, g, j, nextidx)
+    function flamerects(fcolor, io::IO, g, j, nextidx)
         ndata = g.data
-        thiscolor = fcolor!(nextidx, j, ndata)
+        thiscolor = fcolor(nextidx, j, ndata)
         y = height - j*ystep - botmargin
         xstart = (first(ndata.span)-1) * xstep + leftmargin
         xend   = ( last(ndata.span)-1) * xstep + leftmargin
         printrec(io, length(ndata.span), xstart, xend, y, ndata.sf, thiscolor, fontsize)
 
         for c in g
-            flamerects(fcolor!, io, c, j+1, nextidx)
+            flamerects(fcolor, io, c, j+1, nextidx)
         end
         return nothing
     end
@@ -121,7 +132,7 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     svgheader(io, fig_id, width=width, height=height)
 
     nextidx = fill(1, nrows)
-    flamerects(fcolor!, io, g, 1, nextidx)
+    flamerects(fcolor, io, g, 1, nextidx)
 
     svgfinish(io, fig_id)
 end
