@@ -10,9 +10,9 @@ ProfileSVG is looking for a maintainer who actually knows something about SVG an
 ## Purpose
 
 ProfileSVG allows you to export profiling data as an SVG file.
-It is also used to display profiling results in Jupyter/IJulia notebooks.
-It is essentially just an "export" package built on top of
-[FlameGraphs](https://github.com/timholy/FlameGraphs.jl).
+It can be used to display profiling results in Jupyter/IJulia notebooks,
+although the [ProfileVega](https://github.com/davidanthoff/ProfileVega.jl) package is
+recommended as a better-maintained viewer for Jupyter notebooks.
 
 An alternative visualization package is the GTK-based
 [ProfileView](https://github.com/timholy/ProfileView.jl).
@@ -20,6 +20,8 @@ That package offers more interactive features, like the ability to
 pan & zoom, as well as the ability to open source files by clicking on
 elements of the flame graph.
 
+ProfileSVG is essentially just an "export" package built on top of
+[FlameGraphs](https://github.com/timholy/FlameGraphs.jl).
 Among the Julia packages, ProfileView.jl currently has the most comprehensive
 tutorial on how to interpret a flame graph.
 
