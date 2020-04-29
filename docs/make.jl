@@ -1,17 +1,16 @@
 using Documenter, ProfileSVG
 
-makedocs(;
+makedocs(
+    clean = false,
     modules=[ProfileSVG],
-    format=Documenter.HTML(),
+    format=Documenter.HTML(prettyurls = get(ENV, "CI", nothing) == "true"),
+    sitename="ProfileSVG",
     pages=[
         "Home" => "index.md",
-    ],
-    repo="https://github.com/timholy/ProfileSVG.jl/blob/{commit}{path}#L{line}",
-    sitename="ProfileSVG.jl",
-    authors="Tim Holy <tim.holy@gmail.com>",
-    assets=String[],
+    ]
 )
 
-deploydocs(;
-    repo="github.com/timholy/ProfileSVG.jl",
+deploydocs(
+    repo="github.com/kimikage/ProfileSVG.jl.git",
+    push_preview = true
 )
