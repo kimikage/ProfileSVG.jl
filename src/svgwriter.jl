@@ -1,10 +1,14 @@
-const snapsvgjs = joinpath(@__DIR__, "..", "templates", "snap.svg-min.js")
+const snapsvgjs = joinpath(@__DIR__, "..", "deps", "snap.svg-min.js")
 const viewerjs = joinpath(@__DIR__, "viewer.js")
 
 function escape_script(js::AbstractString)
     s = replace(js, '\x0b' => "\\x0b")
     s = replace(s,  '\x0c' => "\\x0c")
     replace(s, "]]" => "] ]")
+end
+
+function modify_amd(js::AbstractString)
+    replace(js, "define([" => "define('ProfileSVG/snap.svg', [")
 end
 
 function svgheader(io::IO, fig_id::AbstractString; width=1200, height=706, font="Verdana")
@@ -47,7 +51,7 @@ end
 function svgfinish(io::IO, fig_id)
     println(io, "</g></g>")
     println(io, "<script><![CDATA[")
-    println(io, escape_script(read(snapsvgjs, String)))
+    println(io, modify_amd(escape_script(read(snapsvgjs, String))))
     println(io, "]]></script>")
     println(io, "<script><![CDATA[")
     println(io, escape_script(read(viewerjs, String)))

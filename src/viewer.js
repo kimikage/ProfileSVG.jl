@@ -1,6 +1,6 @@
 (function (glob, factory) {
     if (typeof define === 'function' && define.amd) {
-        define('ProfileSVG', ['Snap.svg'], function (Snap) {
+        define('ProfileSVG', ['ProfileSVG/snap.svg'], function (Snap) {
             return factory(Snap);
         });
     } else {
