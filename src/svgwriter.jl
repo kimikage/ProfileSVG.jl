@@ -49,6 +49,7 @@ function svgfinish(io::IO, fig_id)
                   factory(glob.Snap, glob.ProfileSVG);
               }
             })(window, function (Snap, ProfileSVG) {
+                'use strict';
                 var svg = Snap.select('svg').node;
                 var pt = svg.createSVGPoint();
 
@@ -129,7 +130,7 @@ function svgfinish(io::IO, fig_id)
                     ProfileSVG.move_and_zoom(fig.shift, pt.x, targetScale, fig, 400);
                     return false;
                 })
-                frame = fig.frame.node;
+                var frame = fig.frame.node;
                 if (frame.addEventListener) {
                     frame.addEventListener("mousewheel", MouseWheelHandler, false);
                     frame.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
