@@ -13,7 +13,7 @@ function svgheader(io::IO, fig_id::AbstractString; width=1200, height=706, font=
 <svg version="1.1" width="$width" height="$height" viewBox="0 0 $width $height"
      xmlns="http://www.w3.org/2000/svg" id="$fig_id">
 <defs>
-    <linearGradient id="background" y1="0" y2="1" x1="0" x2="0" >
+    <linearGradient id="$fig_id-background" y1="0" y2="1" x1="0" x2="0" >
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
@@ -22,11 +22,18 @@ function svgheader(io::IO, fig_id::AbstractString; width=1200, height=706, font=
     </clipPath>
 </defs>
 <style type="text/css">
-    rect[rx]:hover { stroke:black; stroke-width:1; }
-    text:hover { stroke:black; stroke-width:1; stroke-opacity:0.35; }
+    #$fig_id rect[rx]:hover {
+        stroke:black;
+        stroke-width:1;
+    }
+    #$fig_id text:hover {
+        stroke:black;
+        stroke-width:1;
+        stroke-opacity:0.35;
+    }
 </style>
 <g id="$fig_id-frame" clip-path="url(#$fig_id-image-frame)">
-<rect class="pvbackground" x="0.0" y="0" width="$(width).0" height="$(height).0" fill="url(#background)"  />
+<rect class="pvbackground" x="0.0" y="0" width="$(width).0" height="$(height).0" fill="url(#$fig_id-background)"  />
 <text class="pvbackground" text-anchor="middle" x="600" y="24" font-size="17" font-family="$(font)" fill="rgb(0,0,0)"  >Profile results</text>
 <text text-anchor="left" x="10" y="$y_msg" font-size="12" font-family="$(font)" fill="rgb(0,0,0)"  >Function:</text>
 <text text-anchor="" x="70" y="$y_msg" font-size="12" font-family="$(font)" fill="rgb(0,0,0)" id="$fig_id-details" > </text>
