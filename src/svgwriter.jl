@@ -2,7 +2,9 @@ const snapsvgjs = joinpath(@__DIR__, "..", "templates", "snap.svg-min.js")
 const viewerjs = joinpath(@__DIR__, "viewer.js")
 
 function escape_script(js::AbstractString)
-    return replace(js, "]]" => "] ]")
+    s = replace(js, '\x0b' => "\\x0b")
+    s = replace(s,  '\x0c' => "\\x0c")
+    replace(s, "]]" => "] ]")
 end
 
 function svgheader(io::IO, fig_id::AbstractString; width=1200, height=706, font="Verdana")
