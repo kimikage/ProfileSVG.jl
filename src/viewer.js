@@ -8,6 +8,37 @@
     }
 }(this, function (Snap) {
     'use strict';
+
+    var supportsPassive = false;
+    try {
+        var opts = Object.defineProperty({}, 'passive', {
+            get: function () {
+                supportsPassive = true;
+            }
+        });
+        window.addEventListener("testPassive", null, opts);
+        window.removeEventListener("testPassive", null, opts);
+    } catch (e) { // not supported
+    }
+
+    var stopper = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
+    var throttle = function (delay, filter, callback) {
+        var previousCall = new Date().getTime();
+        return function (e) {
+            var time = new Date().getTime();
+            if ((time - previousCall) >= delay) {
+                previousCall = time;
+                callback.apply(null, arguments);
+            }
+            filter(e);
+        };
+    };
+
+
     var ProfileSVG = {};
 
     var AVERAGE_CHAR_WIDTH = 6;
@@ -110,8 +141,6 @@
     ProfileSVG.initialize = function (figId) {
 
         var svg = Snap.select('#' + figId);
-        var pt = svg.node.createSVGPoint();
-
         var fig = {};
 
         fig.viewport = svg.select('#' + figId + '-viewport');
@@ -161,39 +190,21 @@
             });
         });
 
-        var throttle = function (delay, callback) {
-            var previousCall = new Date().getTime();
-            return function () {
-                var time = new Date().getTime();
-
-                if ((time - previousCall) >= delay) {
-                    previousCall = time;
-                    callback.apply(null, arguments);
-                } else {
-                    arguments[0].preventDefault();
-                }
-            };
-        };
-
-        var mouseWheelHandler = throttle(400, function (e) {
-            e.preventDefault();
-            var ev = window.event || e;
-            var delta = Math.max(-1, Math.min(1, (ev.wheelDelta || -ev.detail)));
-            pt.x = ev.clientX;
-            pt.y = ev.clientY;
-
+        var mouseWheelHandler = throttle(400, stopper, function (e) {
+            var delta = Math.max(-1, Math.min(1, e.deltaY));
+            var pt = svg.node.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            // Since the implementation of getScreenCTM() varies by browser and
+            // version, it often doesn't work as expected.
             pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
-            var targetScale = fig.scale + 0.2 * delta;
+            var targetScale = fig.scale - 0.2 * delta; // FIXME: prevent the negative scale
             ProfileSVG.moveAndZoom(fig.shift, pt.x, targetScale, fig, 400);
-            return false;
         });
-        var frameNode = fig.frame.node;
-        if (frameNode.addEventListener) {
-            frameNode.addEventListener("mousewheel", mouseWheelHandler, false);
-            frameNode.addEventListener("DOMMouseScroll", mouseWheelHandler, false);
-        } else {
-            frameNode.attachEvent("onmousewheel", mouseWheelHandler);
-        }
+
+        svg.node.addEventListener('wheel', mouseWheelHandler, supportsPassive ? {
+            passive: false
+        } : false);
 
         fig.viewport.drag();
     };
