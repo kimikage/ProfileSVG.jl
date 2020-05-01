@@ -84,36 +84,6 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     height = ceil(rowheight*nrows + botmargin + topmargin)
     xstep = (width - (leftmargin + rightmargin)) / ncols
     ystep = (height - (topmargin + botmargin)) / nrows
-    avgcharwidth = 6  # for Verdana 12 pt font
-
-    function printrec(io::IO, xstart, ystart, w, h, sf::StackFrame, rgb, fontsize)
-        x = xstart
-        y = ystart
-        info = "$(sf.func) in $(sf.file):$(sf.line)"
-        shortinfo = "$(sf.func) in $(basename(string(sf.file))):$(sf.line)"
-        info = eschtml(info)
-        shortinfo = eschtml(shortinfo)
-        #if avgcharwidth*3 > width
-        #    shortinfo = ""
-        #elseif length(shortinfo) * avgcharwidth > width
-        #    nchars = int(width/avgcharwidth)-2
-        #    shortinfo = eschtml(info[1:nchars] * "..")
-        #end
-        r = round(Integer, 255*red(rgb))
-        g = round(Integer, 255*green(rgb))
-        b = round(Integer, 255*blue(rgb))
-        print(io, """<rect vector-effect="non-scaling-stroke" x="$x" y="$y" width="$w" height="$h" fill="rgb($r,$g,$b)" rx="2" ry="2" data-shortinfo="$shortinfo" data-info="$info"/>\n""")
-        #if shortinfo != ""
-        println(io, """\n<text text-anchor="" x="$x" dx="4" y="$(y+11.5)" font-size="$fontsize" font-family="Verdana" fill="rgb(0,0,0)" ></text>""")
-        # end
-    end
-
-    function eschtml(str)
-        s = replace(str, '<' => "&lt;")
-        s = replace(s, '>' => "&gt;")
-        s = replace(s, '&' => "&amp;")
-        s
-    end
 
     function flamerects(fcolor, io::IO, g, j, nextidx)
         ndata = g.data
@@ -121,7 +91,7 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
         x = (first(ndata.span)-1) * xstep + leftmargin
         y = height - j*ystep - botmargin
         w = length(ndata.span) * xstep
-        printrec(io, x, y, w, ystep, ndata.sf, thiscolor, fontsize)
+        write_svgflamerect(io, x, y, w, ystep, ndata.sf, thiscolor, fontsize)
 
         for c in g
             flamerects(fcolor, io, c, j+1, nextidx)
@@ -130,12 +100,15 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     end
 
     fig_id = string("fig-", replace(string(uuid4()), "-" => ""))
-    svgheader(io, fig_id, width=width, height=height)
+
+    write_svgdeclaration(io)
+
+    write_svgheader(io, fig_id, width, height, "Verdana")
 
     nextidx = fill(1, nrows)
     flamerects(fcolor, io, g, 1, nextidx)
 
-    svgfinish(io, fig_id)
+    write_svgfooter(io, fig_id)
 end
 
 end # module

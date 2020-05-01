@@ -1,6 +1,13 @@
 const snapsvgjs = joinpath(@__DIR__, "..", "deps", "snap.svg-min.js")
 const viewerjs = joinpath(@__DIR__, "viewer.js")
 
+function escape_html(str::AbstractString)
+    s = replace(str, '<' => "&lt;")
+    s = replace(s, '>' => "&gt;")
+    s = replace(s, '&' => "&amp;")
+    s
+end
+
 function escape_script(js::AbstractString)
     s = replace(js, '\x0b' => "\\x0b")
     s = replace(s,  '\x0c' => "\\x0c")
@@ -11,11 +18,14 @@ function modify_amd(js::AbstractString)
     replace(js, "define([" => "define('ProfileSVG/snap.svg', [")
 end
 
-function svgheader(io::IO, fig_id::AbstractString; width=1200, height=706, font="Verdana")
+function write_svgdeclaration(io::IO)
+    println(io, """<?xml version="1.0" standalone="no"?>""")
+    println(io, """<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">""")
+end
 
+function write_svgheader(io::IO, fig_id, width, height, font)
     y_msg = height - 17
-    print(io, """<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    print(io, """
 <svg version="1.1" width="$width" height="$height" viewBox="0 0 $width $height"
      xmlns="http://www.w3.org/2000/svg" id="$fig_id">
 <defs>
@@ -47,8 +57,19 @@ function svgheader(io::IO, fig_id::AbstractString; width=1200, height=706, font=
 """)
 end
 
+function write_svgflamerect(io::IO, xstart, ystart, w, h, sf::StackFrame, rgb, fontsize)
+    x = xstart
+    y = ystart
+    info = escape_html("$(sf.func) in $(sf.file):$(sf.line)")
+    shortinfo = escape_html("$(sf.func) in $(basename(string(sf.file))):$(sf.line)")
+    r = round(Integer, 255*red(rgb))
+    g = round(Integer, 255*green(rgb))
+    b = round(Integer, 255*blue(rgb))
+    print(io, """<rect vector-effect="non-scaling-stroke" x="$x" y="$y" width="$w" height="$h" fill="rgb($r,$g,$b)" rx="2" ry="2" data-shortinfo="$shortinfo" data-info="$info"/>\n""")
+    println(io, """\n<text text-anchor="" x="$x" dx="4" y="$(y+11.5)" font-size="$fontsize" font-family="Verdana" fill="rgb(0,0,0)" ></text>""")
+end
 
-function svgfinish(io::IO, fig_id)
+function write_svgfooter(io::IO, fig_id)
     println(io, "</g></g>")
     println(io, "<script><![CDATA[")
     println(io, modify_amd(escape_script(read(snapsvgjs, String))))
