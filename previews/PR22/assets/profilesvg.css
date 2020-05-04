@@ -1,0 +1,8 @@
+article {
+  overflow-x: scroll;
+}
+
+article svg {
+  max-width: 100%;
+  min-width: 500px;
+}
