@@ -20,33 +20,33 @@ using Profile, ProfileSVG
 @profview profile_test(10)</code></pre><p>Then, you can get something like this:</p><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310"
-     xmlns="http://www.w3.org/2000/svg" id="fig-bcb0085cf50c467cb7e700397d36a3f1">
+     xmlns="http://www.w3.org/2000/svg" id="fig-747ba4a67de148e8baff77abf358a24a">
 <defs>
-    <linearGradient id="fig-bcb0085cf50c467cb7e700397d36a3f1-background" y1="0" y2="1" x1="0" x2="0" >
+    <linearGradient id="fig-747ba4a67de148e8baff77abf358a24a-background" y1="0" y2="1" x1="0" x2="0" >
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-bcb0085cf50c467cb7e700397d36a3f1-image-frame">
-      <rect id="fig-bcb0085cf50c467cb7e700397d36a3f1-clip-rect" x="0" y="0" width="1000" height="310" />
+    <clipPath id="fig-747ba4a67de148e8baff77abf358a24a-image-frame">
+      <rect id="fig-747ba4a67de148e8baff77abf358a24a-clip-rect" x="0" y="0" width="1000" height="310" />
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-bcb0085cf50c467cb7e700397d36a3f1 rect[rx]:hover {
+    #fig-747ba4a67de148e8baff77abf358a24a rect[rx]:hover {
         stroke:black;
         stroke-width:1;
     }
-    #fig-bcb0085cf50c467cb7e700397d36a3f1 text:hover {
+    #fig-747ba4a67de148e8baff77abf358a24a text:hover {
         stroke:black;
         stroke-width:1;
         stroke-opacity:0.35;
     }
 </style>
-<g id="fig-bcb0085cf50c467cb7e700397d36a3f1-frame" clip-path="url(#fig-bcb0085cf50c467cb7e700397d36a3f1-image-frame)">
-<rect class="pvbackground" x="0.0" y="0" width="1000.0" height="310.0" fill="url(#fig-bcb0085cf50c467cb7e700397d36a3f1-background)"  />
+<g id="fig-747ba4a67de148e8baff77abf358a24a-frame" clip-path="url(#fig-747ba4a67de148e8baff77abf358a24a-image-frame)">
+<rect class="pvbackground" x="0.0" y="0" width="1000.0" height="310.0" fill="url(#fig-747ba4a67de148e8baff77abf358a24a-background)"  />
 <text class="pvbackground" text-anchor="middle" x="600" y="24" font-size="17" font-family="Verdana" fill="rgb(0,0,0)"  >Profile results</text>
 <text text-anchor="left" x="10" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >Function:</text>
-<text text-anchor="" x="70" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="fig-bcb0085cf50c467cb7e700397d36a3f1-details" > </text>
-<g id="fig-bcb0085cf50c467cb7e700397d36a3f1-viewport" transform="scale(1)">
+<text text-anchor="" x="70" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="fig-747ba4a67de148e8baff77abf358a24a-details" > </text>
+<g id="fig-747ba4a67de148e8baff77abf358a24a-viewport" transform="scale(1)">
 <rect vector-effect="non-scaling-stroke" x="10.0" y="255.0" width="980.0" height="15.0" fill="rgb(232,112,221)" rx="2" ry="2" data-shortinfo=" in :-1" data-info=" in :-1"/>
 <text text-anchor="" x="10.0" dx="4" y="266.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" ></text>
 <rect vector-effect="non-scaling-stroke" x="10.0" y="240.0" width="980.0" height="15.0" fill="rgb(158,158,158)" rx="2" ry="2" data-shortinfo="eval in .\boot.jl:331" data-info="eval in .\boot.jl:331"/>
@@ -171,24 +171,24 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     'use strict';
     var ProfileSVG = {};
 
-    var avgcharwidth = 6;
-    var default_transition_time = 300;
-    var viewport_scale = 0.9;
+    var AVERAGE_CHAR_WIDTH = 6;
+    var DEFAULT_TRANSITION_TIME = 300;
+    var VIEWPORT_SCALE = 0.9;
 
-    var format_text = function (text, available_len) {
-        if (available_len < 3 * avgcharwidth) {
+    var formatText = function (text, availableWidth) {
+        if (availableWidth < 3 * AVERAGE_CHAR_WIDTH) {
             return "";
-        } else if (text.length * avgcharwidth > available_len) {
-            var nchars = Math.round(available_len / avgcharwidth) - 2;
+        } else if (text.length * AVERAGE_CHAR_WIDTH > availableWidth) {
+            var nchars = Math.round(availableWidth / AVERAGE_CHAR_WIDTH) - 2;
             return text.slice(0, nchars) + "..";
         }
         return text;
     };
 
     // Shift the view port to center on xc, then scale in the x direction
-    ProfileSVG.move_and_zoom = function (xc, xs, xScale, fig, delta_t) {
-        if (typeof delta_t === 'undefined') {
-            delta_t = default_transition_time;
+    ProfileSVG.moveAndZoom = function (xc, xs, xScale, fig, deltaT) {
+        if (typeof deltaT === 'undefined') {
+            deltaT = DEFAULT_TRANSITION_TIME;
         }
         if (typeof xs === 'undefined') {
             xs = xc;
@@ -200,22 +200,22 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         fig.scale = xScale;
         fig.shift = xc;
 
-        xScale *= viewport_scale;
+        xScale *= VIEWPORT_SCALE;
 
-        var oldxshift = -(oldShift - 0.5 * fig.clip_width);
-        var xshift = -(xc - 0.5 * fig.clip_width);
+        var oldXShift = -(oldShift - 0.5 * fig.clipWidth);
+        var xShift = -(xc - 0.5 * fig.clipWidth);
 
         fig.texts.forEach(function (text) {
             text.node.textContent = "";
         });
 
-        if (delta_t != 0) {
+        if (deltaT != 0) {
             Snap.animate(0, 1, function (step) {
 
                 var scale = oldScale + (xScale - oldScale) * step;
                 var rMatrix = new Snap.Matrix;
-                rMatrix.translate(oldxshift + (xshift - oldxshift) * step, 0);
-                rMatrix.scale(scale, 1, xs, fig.clip_middle);
+                rMatrix.translate(oldXShift + (xShift - oldXShift) * step, 0);
+                rMatrix.scale(scale, 1, xs, fig.clipMiddle);
                 fig.viewport.attr({
                     transform: rMatrix
                 });
@@ -226,7 +226,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     });
                 });
 
-            }, delta_t, null, function () {
+            }, deltaT, null, function () {
                 fig.rects.forEach(function (rect, i) {
                     var bbox = rect.getBBox();
                     var text = fig.texts[i];
@@ -235,14 +235,14 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     var tMatrix = new Snap.Matrix;
                     tMatrix.scale(1.0 / xScale, 1, bbox.x, bbox.y);
 
-                    text.node.textContent = format_text(shortinfo, bbox.w * xScale);
+                    text.node.textContent = formatText(shortinfo, bbox.w * xScale);
                     text.transform(tMatrix);
                 });
             });
         } else {
             var rMatrix = new Snap.Matrix;
-            rMatrix.translate(xshift, 0);
-            rMatrix.scale(xScale, 1, xs, fig.clip_middle);
+            rMatrix.translate(xShift, 0);
+            rMatrix.scale(xScale, 1, xs, fig.clipMiddle);
 
             fig.viewport.transform(rMatrix);
             fig.rects.forEach(function (rect, i) {
@@ -257,7 +257,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                 var tMatrix = new Snap.Matrix;
                 tMatrix.scale(1.0 / xScale, 1, bbox.x, bbox.y);
 
-                text.node.textContent = format_text(shortinfo, bbox.w * xScale);
+                text.node.textContent = formatText(shortinfo, bbox.w * xScale);
                 text.transform(tMatrix);
             });
         }
@@ -265,7 +265,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     };
 
     ProfileSVG.reset = function (fig) {
-        ProfileSVG.move_and_zoom(fig.viewport_cx, fig.viewport_cx, viewport_scale, fig);
+        ProfileSVG.moveAndZoom(fig.viewportCx, fig.viewportCx, VIEWPORT_SCALE, fig);
     };
 
     ProfileSVG.initialize = function (figId) {
@@ -278,24 +278,24 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         fig.viewport = svg.select('#' + figId + '-viewport');
         fig.frame = svg.select('#' + figId + '-frame');
 
-        fig.viewport_cx = fig.viewport.getBBox().cx;
+        fig.viewportCx = fig.viewport.getBBox().cx;
 
         fig.rects = fig.viewport.selectAll('rect');
         fig.texts = fig.viewport.selectAll('text');
         fig.clip = svg.select('#' + figId + '-clip-rect');
-        fig.clip_width = fig.clip.getBBox().w;
-        fig.clip_middle = fig.clip.getBBox().cy;
+        fig.clipWidth = fig.clip.getBBox().w;
+        fig.clipMiddle = fig.clip.getBBox().cy;
         fig.details = svg.select('#' + figId + '-details').node.firstChild;
 
         fig.scale = 1.0;
-        fig.shift = fig.viewport_cx;
+        fig.shift = fig.viewportCx;
 
         ProfileSVG.reset(fig);
 
         fig.rects.forEach(function (rect) {
             rect.dblclick(function () {
                     var bbox = rect.getBBox();
-                    ProfileSVG.move_and_zoom(bbox.cx, bbox.cx, fig.clip_width / bbox.w, fig);
+                    ProfileSVG.moveAndZoom(bbox.cx, bbox.cx, fig.clipWidth / bbox.w, fig);
                 })
                 .mouseover(function () {
                     fig.details.nodeValue = rect.node.getAttribute("data-info");
@@ -307,7 +307,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         fig.texts.forEach(function (text, i) {
             text.dblclick(function () {
                     var bbox = fig.rects[i].getBBox();
-                    ProfileSVG.move_and_zoom(bbox.cx, bbox.cx, fig.clip_width / bbox.w, fig);
+                    ProfileSVG.moveAndZoom(bbox.cx, bbox.cx, fig.clipWidth / bbox.w, fig);
                 })
                 .mouseover(function () {
                     fig.details.nodeValue = fig.rects[i].node.getAttribute("data-info");
@@ -322,7 +322,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             });
         });
 
-        function throttle(delay, callback) {
+        var throttle = function (delay, callback) {
             var previousCall = new Date().getTime();
             return function () {
                 var time = new Date().getTime();
@@ -334,26 +334,26 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     arguments[0].preventDefault();
                 }
             };
-        }
+        };
 
-        var MouseWheelHandler = throttle(400, function (e) {
+        var mouseWheelHandler = throttle(400, function (e) {
             e.preventDefault();
-            var e = window.event || e;
-            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-            pt.x = e.clientX;
-            pt.y = e.clientY;
+            var ev = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (ev.wheelDelta || -ev.detail)));
+            pt.x = ev.clientX;
+            pt.y = ev.clientY;
 
             pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
             var targetScale = fig.scale + 0.2 * delta;
-            ProfileSVG.move_and_zoom(fig.shift, pt.x, targetScale, fig, 400);
+            ProfileSVG.moveAndZoom(fig.shift, pt.x, targetScale, fig, 400);
             return false;
         });
         var frameNode = fig.frame.node;
         if (frameNode.addEventListener) {
-            frameNode.addEventListener("mousewheel", MouseWheelHandler, false);
-            frameNode.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+            frameNode.addEventListener("mousewheel", mouseWheelHandler, false);
+            frameNode.addEventListener("DOMMouseScroll", mouseWheelHandler, false);
         } else {
-            frameNode.attachEvent("onmousewheel", MouseWheelHandler);
+            frameNode.attachEvent("onmousewheel", mouseWheelHandler);
         }
 
         fig.viewport.drag();
@@ -366,10 +366,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-bcb0085cf50c467cb7e700397d36a3f1");
+        ProfileSVG.initialize("fig-747ba4a67de148e8baff77abf358a24a");
     });
 } else {
-    ProfileSVG.initialize("fig-bcb0085cf50c467cb7e700397d36a3f1");
+    ProfileSVG.initialize("fig-747ba4a67de148e8baff77abf358a24a");
 }
 ]]></script>
 </svg>
@@ -379,4 +379,4 @@ ProfileSVG.view()</code></pre><p>If you&#39;ve already collected profiling data 
 @profile profile_test(10);
 
 # Save a graph that looks like the Jupyter example above
-ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 06:12">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 07:21">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
