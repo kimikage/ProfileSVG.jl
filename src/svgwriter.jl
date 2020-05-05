@@ -78,16 +78,17 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
         """)
 end
 
-function write_svgflamerect(io::IO, xstart, ystart, w, h, sf::StackFrame, color)
+function write_svgflamerect(io::IO, xstart, ystart, w, h, shortinfo, dirinfo, color)
     x = simplify(xstart)
     y = simplify(ystart)
     yt = simplify(y + 11.5) # FIXME
     width = simplify(w)
     height = simplify(h)
-    info = escape_html("$(sf.func) in $(sf.file):$(sf.line)")
-    shortinfo = escape_html("$(sf.func) in $(basename(string(sf.file))):$(sf.line)")
-    println(io, """<rect x="$x" y="$y" width="$width" height="$height" fill="#$(hex(color))" rx="2" ry="2" data-shortinfo="$shortinfo" data-info="$info"/>""")
-    println(io, """<text x="$x" dx="4" y="$yt"></text>""")
+    sinfo = escape_html(shortinfo)
+    dinfo = escape_html(dirinfo)
+    println(io, """<rect x="$x" y="$y" width="$width" height="$height" fill="#$(hex(color))" """,
+                """rx="2" ry="2" data-dinfo="$dinfo"/>""")
+    println(io, """<text x="$x" dx="4" y="$yt">$sinfo</text>""")
 end
 
 function write_svgfooter(io::IO, fig_id)
