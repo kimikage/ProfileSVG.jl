@@ -91,7 +91,7 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
         x = (first(ndata.span)-1) * xstep + leftmargin
         y = height - j*ystep - botmargin
         w = length(ndata.span) * xstep
-        write_svgflamerect(io, x, y, w, ystep, ndata.sf, thiscolor, fontsize)
+        write_svgflamerect(io, x, y, w, ystep, ndata.sf, thiscolor)
 
         for c in g
             flamerects(fcolor, io, c, j+1, nextidx)
@@ -103,7 +103,7 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
 
     write_svgdeclaration(io)
 
-    write_svgheader(io, fig_id, width, height, "Verdana")
+    write_svgheader(io, fig_id, width, height, "Verdana", fontsize)
 
     nextidx = fill(1, nrows)
     flamerects(fcolor, io, g, 1, nextidx)
