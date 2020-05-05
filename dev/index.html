@@ -19,26 +19,34 @@ using Profile, ProfileSVG
 
 @profview profile_test(10)</code></pre><p>Then, you can get something like this:</p><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310" xmlns="http://www.w3.org/2000/svg" >
-<defs >
-    <linearGradient id="background" y1="0" y2="1" x1="0" x2="0" >
+<svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310"
+     xmlns="http://www.w3.org/2000/svg" id="fig-b0c79046ed4f4a9f86afc01b908bdd77">
+<defs>
+    <linearGradient id="fig-b0c79046ed4f4a9f86afc01b908bdd77-background" y1="0" y2="1" x1="0" x2="0" >
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-67f45225bcb348cc9d1d13386d69232f-image-frame">
-      <rect id="fig-67f45225bcb348cc9d1d13386d69232f-clip-rect" x="0" y="0" width="1000" height="310" />
+    <clipPath id="fig-b0c79046ed4f4a9f86afc01b908bdd77-image-frame">
+      <rect id="fig-b0c79046ed4f4a9f86afc01b908bdd77-clip-rect" x="0" y="0" width="1000" height="310" />
     </clipPath>
 </defs>
 <style type="text/css">
-    rect[rx]:hover { stroke:black; stroke-width:1; }
-    text:hover { stroke:black; stroke-width:1; stroke-opacity:0.35; }
+    #fig-b0c79046ed4f4a9f86afc01b908bdd77 rect[rx]:hover {
+        stroke:black;
+        stroke-width:1;
+    }
+    #fig-b0c79046ed4f4a9f86afc01b908bdd77 text:hover {
+        stroke:black;
+        stroke-width:1;
+        stroke-opacity:0.35;
+    }
 </style>
-<g id="fig-67f45225bcb348cc9d1d13386d69232f-frame" clip-path="url(#fig-67f45225bcb348cc9d1d13386d69232f-image-frame)">
-<rect class="pvbackground" x="0.0" y="0" width="1000.0" height="310.0" fill="url(#background)"  />
+<g id="fig-b0c79046ed4f4a9f86afc01b908bdd77-frame" clip-path="url(#fig-b0c79046ed4f4a9f86afc01b908bdd77-image-frame)">
+<rect class="pvbackground" x="0.0" y="0" width="1000.0" height="310.0" fill="url(#fig-b0c79046ed4f4a9f86afc01b908bdd77-background)"  />
 <text class="pvbackground" text-anchor="middle" x="600" y="24" font-size="17" font-family="Verdana" fill="rgb(0,0,0)"  >Profile results</text>
 <text text-anchor="left" x="10" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >Function:</text>
-<text text-anchor="" x="70" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="fig-67f45225bcb348cc9d1d13386d69232f-details" > </text>
-<g id="fig-67f45225bcb348cc9d1d13386d69232f-viewport" transform="scale(1)">
+<text text-anchor="" x="70" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="fig-b0c79046ed4f4a9f86afc01b908bdd77-details" > </text>
+<g id="fig-b0c79046ed4f4a9f86afc01b908bdd77-viewport" transform="scale(1)">
 <rect vector-effect="non-scaling-stroke" x="10.0" y="255.0" width="980.0" height="15.0" fill="rgb(232,112,221)" rx="2" ry="2" data-shortinfo=" in :-1" data-info=" in :-1"/>
 <text text-anchor="" x="10.0" dx="4" y="266.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" ></text>
 <rect vector-effect="non-scaling-stroke" x="10.0" y="240.0" width="980.0" height="15.0" fill="rgb(158,158,158)" rx="2" ry="2" data-shortinfo="eval in .\boot.jl:331" data-info="eval in .\boot.jl:331"/>
@@ -127,8 +135,9 @@ using Profile, ProfileSVG
 <text text-anchor="" x="785.8333333333334" dx="4" y="161.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" ></text>
 <rect vector-effect="non-scaling-stroke" x="785.8333333333334" y="135.0" width="204.16666666666669" height="15.0" fill="rgb(255,165,0)" rx="2" ry="2" data-shortinfo="Array in .\boot.jl:407" data-info="Array in .\boot.jl:407"/>
 <text text-anchor="" x="785.8333333333334" dx="4" y="146.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" ></text>
-    </g></g>
-    <script><![CDATA[(function(N){var k=/[\.\/]/,L=/\s*,\s*/,C=function(a,d){return a-d},a,v,y={n:{}},M=function(){for(var a=0,d=this.length;a<d;a++)if("undefined"!=typeof this[a])return this[a]},A=function(){for(var a=this.length;--a;)if("undefined"!=typeof this[a])return this[a]},w=function(k,d){k=String(k);var f=v,n=Array.prototype.slice.call(arguments,2),u=w.listeners(k),p=0,b,q=[],e={},l=[],r=a;l.firstDefined=M;l.lastDefined=A;a=k;for(var s=v=0,x=u.length;s<x;s++)"zIndex"in u[s]&&(q.push(u[s].zIndex),0>u[s].zIndex&&
+</g></g>
+<script><![CDATA[
+(function(N){var k=/[\.\/]/,L=/\s*,\s*/,C=function(a,d){return a-d},a,v,y={n:{}},M=function(){for(var a=0,d=this.length;a<d;a++)if("undefined"!=typeof this[a])return this[a]},A=function(){for(var a=this.length;--a;)if("undefined"!=typeof this[a])return this[a]},w=function(k,d){k=String(k);var f=v,n=Array.prototype.slice.call(arguments,2),u=w.listeners(k),p=0,b,q=[],e={},l=[],r=a;l.firstDefined=M;l.lastDefined=A;a=k;for(var s=v=0,x=u.length;s<x;s++)"zIndex"in u[s]&&(q.push(u[s].zIndex),0>u[s].zIndex&&
 (e[u[s].zIndex]=u[s]));for(q.sort(C);0>q[p];)if(b=e[q[p++] ],l.push(b.apply(d,n)),v)return v=f,l;for(s=0;s<x;s++)if(b=u[s],"zIndex"in b)if(b.zIndex==q[p]){l.push(b.apply(d,n));if(v)break;do if(p++,(b=e[q[p] ])&&l.push(b.apply(d,n)),v)break;while(b)}else e[b.zIndex]=b;else if(l.push(b.apply(d,n)),v)break;v=f;a=r;return l};w._events=y;w.listeners=function(a){a=a.split(k);var d=y,f,n,u,p,b,q,e,l=[d],r=[];u=0;for(p=a.length;u<p;u++){e=[];b=0;for(q=l.length;b<q;b++)for(d=l[b].n,f=[d[a[u] ],d["*"] ],n=2;n--;)if(d=
 f[n])e.push(d),r=r.concat(d.f||[]);l=e}return r};w.on=function(a,d){a=String(a);if("function"!=typeof d)return function(){};for(var f=a.split(L),n=0,u=f.length;n<u;n++)(function(a){a=a.split(k);for(var b=y,f,e=0,l=a.length;e<l;e++)b=b.n,b=b.hasOwnProperty(a[e])&&b[a[e] ]||(b[a[e] ]={n:{}});b.f=b.f||[];e=0;for(l=b.f.length;e<l;e++)if(b.f[e]==d){f=!0;break}!f&&b.f.push(d)})(f[n]);return function(a){+a==+a&&(d.zIndex=+a)}};w.f=function(a){var d=[].slice.call(arguments,1);return function(){w.apply(null,
 [a,null].concat(d).concat([].slice.call(arguments,0)))}};w.stop=function(){v=1};w.nt=function(k){return k?(new RegExp("(?:\\.|\\/|^)"+k+"(?:\\.|\\/|$)")).test(a):a};w.nts=function(){return a.split(k)};w.off=w.unbind=function(a,d){if(a){var f=a.split(L);if(1<f.length)for(var n=0,u=f.length;n<u;n++)w.off(f[n],d);else{for(var f=a.split(k),p,b,q,e,l=[y],n=0,u=f.length;n<u;n++)for(e=0;e<l.length;e+=q.length-2){q=[e,1];p=l[e].n;if("*"!=f[n])p[f[n] ]&&q.push(p[f[n] ]);else for(b in p)p.hasOwnProperty(b)&&
@@ -271,39 +280,43 @@ function(d){null==d&&(d=1);return a.format('<feColorMatrix type="matrix" values=
 d})};a.filter.saturate.toString=function(){return this()};a.filter.hueRotate=function(d){return a.format('<feColorMatrix type="hueRotate" values="{angle}"/>',{angle:d||0})};a.filter.hueRotate.toString=function(){return this()};a.filter.invert=function(d){null==d&&(d=1);return a.format('<feComponentTransfer><feFuncR type="table" tableValues="{amount} {amount2}"/><feFuncG type="table" tableValues="{amount} {amount2}"/><feFuncB type="table" tableValues="{amount} {amount2}"/></feComponentTransfer>',{amount:d,
 amount2:1-d})};a.filter.invert.toString=function(){return this()};a.filter.brightness=function(d){null==d&&(d=1);return a.format('<feComponentTransfer><feFuncR type="linear" slope="{amount}"/><feFuncG type="linear" slope="{amount}"/><feFuncB type="linear" slope="{amount}"/></feComponentTransfer>',{amount:d})};a.filter.brightness.toString=function(){return this()};a.filter.contrast=function(d){null==d&&(d=1);return a.format('<feComponentTransfer><feFuncR type="linear" slope="{amount}" intercept="{amount2}"/><feFuncG type="linear" slope="{amount}" intercept="{amount2}"/><feFuncB type="linear" slope="{amount}" intercept="{amount2}"/></feComponentTransfer>',
 {amount:d,amount2:0.5-d/2})};a.filter.contrast.toString=function(){return this()}});return C});
+
 ]]></script>
-    <script><![CDATA[
-        (function(glob, factory){
-    if (typeof define == "function" && define.amd) {
-        define("ProfileSVG", ["Snap.svg"], function (Snap){
+<script><![CDATA[
+(function (glob, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define('ProfileSVG', ['Snap.svg'], function (Snap) {
             return factory(Snap);
         });
-    }
-    else {
+    } else {
         glob.ProfileSVG = factory(glob.Snap);
     }
-}(this, function(Snap){
+}(this, function (Snap) {
+    'use strict';
     var ProfileSVG = {};
 
     var avgcharwidth = 6;
     var default_transition_time = 300;
     var viewport_scale = 0.9;
 
-    var format_text = function(text, available_len){
-        if (available_len < 3*avgcharwidth) {
+    var format_text = function (text, available_len) {
+        if (available_len < 3 * avgcharwidth) {
             return "";
-        }
-        else if (text.length*avgcharwidth > available_len) {
-            nchars = Math.round(available_len/avgcharwidth)-2;
-            return text.slice(0,nchars) + ".."
+        } else if (text.length * avgcharwidth > available_len) {
+            var nchars = Math.round(available_len / avgcharwidth) - 2;
+            return text.slice(0, nchars) + "..";
         }
         return text;
-    }
+    };
 
     // Shift the view port to center on xc, then scale in the x direction
-    ProfileSVG.move_and_zoom = function(xc, xs, xScale, fig, delta_t){
-        if (typeof delta_t === 'undefined') { delta_t = default_transition_time; }
-        if (typeof xs === 'undefined') {xs = xc;}
+    ProfileSVG.move_and_zoom = function (xc, xs, xScale, fig, delta_t) {
+        if (typeof delta_t === 'undefined') {
+            delta_t = default_transition_time;
+        }
+        if (typeof xs === 'undefined') {
+            xs = xc;
+        }
 
         var oldScale = fig.scale;
         var oldShift = fig.shift;
@@ -313,176 +326,176 @@ amount2:1-d})};a.filter.invert.toString=function(){return this()};a.filter.brigh
 
         xScale *= viewport_scale;
 
-        var oldxshift = -(oldShift - 0.5*fig.clip_width);
-        var xshift = -(xc - 0.5*fig.clip_width);
+        var oldxshift = -(oldShift - 0.5 * fig.clip_width);
+        var xshift = -(xc - 0.5 * fig.clip_width);
 
-        fig.texts.forEach(function(text){
+        fig.texts.forEach(function (text) {
             text.node.textContent = "";
         });
 
-        if (delta_t != 0){
-            Snap.animate(0, 1, function(step){
+        if (delta_t != 0) {
+            Snap.animate(0, 1, function (step) {
 
-                var scale = oldScale + (xScale - oldScale)*step
+                var scale = oldScale + (xScale - oldScale) * step;
                 var rMatrix = new Snap.Matrix;
-                rMatrix.translate(oldxshift + (xshift - oldxshift)*step, 0);
+                rMatrix.translate(oldxshift + (xshift - oldxshift) * step, 0);
                 rMatrix.scale(scale, 1, xs, fig.clip_middle);
                 fig.viewport.attr({
                     transform: rMatrix
-                })
-                fig.rects.forEach(function(rect){
+                });
+                fig.rects.forEach(function (rect) {
                     rect.attr({
-                        rx: 2/scale,
-                        ry: 2/scale
+                        rx: 2 / scale,
+                        ry: 2 / scale
                     });
-                })
+                });
 
-            }, delta_t, null, function(){
-                fig.rects.forEach(function(rect, i){
+            }, delta_t, null, function () {
+                fig.rects.forEach(function (rect, i) {
                     var bbox = rect.getBBox();
                     var text = fig.texts[i];
                     var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                     var tMatrix = new Snap.Matrix;
-                    tMatrix.scale(1.0/xScale, 1, bbox.x, bbox.y);
+                    tMatrix.scale(1.0 / xScale, 1, bbox.x, bbox.y);
 
-                    text.node.textContent = format_text(shortinfo, bbox.w*xScale);
+                    text.node.textContent = format_text(shortinfo, bbox.w * xScale);
                     text.transform(tMatrix);
                 });
             });
-        }
-        else {
+        } else {
             var rMatrix = new Snap.Matrix;
             rMatrix.translate(xshift, 0);
             rMatrix.scale(xScale, 1, xs, fig.clip_middle);
 
             fig.viewport.transform(rMatrix);
-            fig.rects.forEach(function(rect, i){
+            fig.rects.forEach(function (rect, i) {
                 rect.attr({
-                    rx: 2/xScale,
-                    ry: 2/xScale
+                    rx: 2 / xScale,
+                    ry: 2 / xScale
                 });
                 var bbox = rect.getBBox();
                 var text = fig.texts[i];
                 var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                 var tMatrix = new Snap.Matrix;
-                tMatrix.scale(1.0/xScale, 1, bbox.x, bbox.y);
+                tMatrix.scale(1.0 / xScale, 1, bbox.x, bbox.y);
 
-                text.node.textContent = format_text(shortinfo, bbox.w*xScale);
+                text.node.textContent = format_text(shortinfo, bbox.w * xScale);
                 text.transform(tMatrix);
             });
-       }
+        }
 
-    }
+    };
 
-    ProfileSVG.reset = function(fig) {
+    ProfileSVG.reset = function (fig) {
         ProfileSVG.move_and_zoom(fig.viewport_cx, fig.viewport_cx, viewport_scale, fig);
-    }
+    };
+
+    ProfileSVG.initialize = function (figId) {
+
+        var svg = Snap.select('#' + figId);
+        var pt = svg.node.createSVGPoint();
+
+        var fig = {};
+
+        fig.viewport = svg.select('#' + figId + '-viewport');
+        fig.frame = svg.select('#' + figId + '-frame');
+
+        fig.viewport_cx = fig.viewport.getBBox().cx;
+
+        fig.rects = fig.viewport.selectAll('rect');
+        fig.texts = fig.viewport.selectAll('text');
+        fig.clip = svg.select('#' + figId + '-clip-rect');
+        fig.clip_width = fig.clip.getBBox().w;
+        fig.clip_middle = fig.clip.getBBox().cy;
+        fig.details = svg.select('#' + figId + '-details').node.firstChild;
+
+        fig.scale = 1.0;
+        fig.shift = fig.viewport_cx;
+
+        ProfileSVG.reset(fig);
+
+        fig.rects.forEach(function (rect) {
+            rect.dblclick(function () {
+                    var bbox = rect.getBBox();
+                    ProfileSVG.move_and_zoom(bbox.cx, bbox.cx, fig.clip_width / bbox.w, fig);
+                })
+                .mouseover(function () {
+                    fig.details.nodeValue = rect.node.getAttribute("data-info");
+                })
+                .mouseout(function () {
+                    fig.details.nodeValue = "";
+                });
+        });
+        fig.texts.forEach(function (text, i) {
+            text.dblclick(function () {
+                    var bbox = fig.rects[i].getBBox();
+                    ProfileSVG.move_and_zoom(bbox.cx, bbox.cx, fig.clip_width / bbox.w, fig);
+                })
+                .mouseover(function () {
+                    fig.details.nodeValue = fig.rects[i].node.getAttribute("data-info");
+                })
+                .mouseout(function () {
+                    fig.details.nodeValue = "";
+                });
+        });
+        fig.frame.selectAll('.pvbackground').forEach(function (bg) {
+            bg.dblclick(function () {
+                ProfileSVG.reset(fig);
+            });
+        });
+
+        function throttle(delay, callback) {
+            var previousCall = new Date().getTime();
+            return function () {
+                var time = new Date().getTime();
+
+                if ((time - previousCall) >= delay) {
+                    previousCall = time;
+                    callback.apply(null, arguments);
+                } else {
+                    arguments[0].preventDefault();
+                }
+            };
+        }
+
+        var MouseWheelHandler = throttle(400, function (e) {
+            e.preventDefault();
+            var e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+
+            pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
+            var targetScale = fig.scale + 0.2 * delta;
+            ProfileSVG.move_and_zoom(fig.shift, pt.x, targetScale, fig, 400);
+            return false;
+        });
+        var frameNode = fig.frame.node;
+        if (frameNode.addEventListener) {
+            frameNode.addEventListener("mousewheel", MouseWheelHandler, false);
+            frameNode.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+        } else {
+            frameNode.attachEvent("onmousewheel", MouseWheelHandler);
+        }
+
+        fig.viewport.drag();
+    };
 
     return ProfileSVG;
 }));
 
-        (function (glob, factory) {
-            if (typeof require === "function" && typeof define === "function" && define.amd) {
-                require(["Snap.svg", "ProfileSVG"], function (Snap, ProfileSVG) {
-                    factory(Snap, ProfileSVG);
-                });
-          } else {
-              factory(glob.Snap, glob.ProfileSVG);
-          }
-        })(window, function (Snap, ProfileSVG) {
-            var svg = Snap.select('svg').node;
-            var pt = svg.createSVGPoint();
-
-            var fig = {};
-
-            fig.viewport = Snap.select('#fig-67f45225bcb348cc9d1d13386d69232f-viewport');
-            fig.frame = Snap.select('#fig-67f45225bcb348cc9d1d13386d69232f-frame');
-
-            fig.viewport_cx = fig.viewport.getBBox().cx;
-
-            fig.rects = Snap.selectAll('#fig-67f45225bcb348cc9d1d13386d69232f-viewport rect');
-            fig.texts = Snap.selectAll('#fig-67f45225bcb348cc9d1d13386d69232f-viewport text');
-            fig.clip = Snap.select('#fig-67f45225bcb348cc9d1d13386d69232f-clip-rect');
-            fig.clip_width  = fig.clip.getBBox().w;
-            fig.clip_middle = fig.clip.getBBox().cy;
-            fig.details = document.getElementById("fig-67f45225bcb348cc9d1d13386d69232f-details").firstChild;
-
-            fig.scale = 1.0;
-            fig.shift = fig.viewport_cx;
-
-            ProfileSVG.reset(fig)
-
-            fig.rects.forEach(function(rect, i){
-                rect.dblclick(function(){
-                    bbox = rect.getBBox();
-                    ProfileSVG.move_and_zoom(bbox.cx, bbox.cx, fig.clip_width/bbox.w, fig);
-                })
-                .mouseover(function(){
-                    fig.details.nodeValue = rect.node.getAttribute("data-info");
-                })
-                .mouseout(function(){
-                    fig.details.nodeValue = "";
-                });
-
-            })
-            fig.texts.forEach(function(text, i){
-                text.dblclick(function(){
-                    bbox = fig.rects[i].getBBox();
-                    ProfileSVG.move_and_zoom(bbox.cx, bbox.cx, fig.clip_width/bbox.w, fig);
-                })
-                .mouseover(function(){
-                    fig.details.nodeValue = fig.rects[i].node.getAttribute("data-info");
-                })
-                .mouseout(function(){
-                    fig.details.nodeValue = "";
-                });
-            })
-            Snap.selectAll("#fig-67f45225bcb348cc9d1d13386d69232f-frame .pvbackground").forEach(function(bg){
-               bg.dblclick(function(e){
-                   ProfileSVG.reset(fig);
-                });
-            });
-
-            function throttle(delay, callback) {
-                var previousCall = new Date().getTime();
-                return function() {
-                    var time = new Date().getTime();
-
-                    if ((time - previousCall) >= delay) {
-                        previousCall = time;
-                        callback.apply(null, arguments);
-                    }
-                    else {
-                        arguments[0].preventDefault();
-                    }
-                };
-            }
-
-            var MouseWheelHandler = throttle(400, function(e) {
-                e.preventDefault();
-                var e = window.event || e;
-                var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-                pt.x = e.clientX;
-                pt.y = e.clientY;
-
-                pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
-                var targetScale = fig.scale + 0.2*delta;
-                ProfileSVG.move_and_zoom(fig.shift, pt.x, targetScale, fig, 400);
-                return false;
-            })
-            frame = fig.frame.node;
-            if (frame.addEventListener) {
-                frame.addEventListener("mousewheel", MouseWheelHandler, false);
-                frame.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
-            }
-            else {
-                frame.attachEvent("onmousewheel", MouseWheelHandler);
-            }
-
-        fig.viewport.drag();
-}); ]]></script>
+]]></script>
+<script><![CDATA[
+if (typeof require === 'function' && define.amd) {
+    require(['ProfileSVG'], function (ProfileSVG) {
+        ProfileSVG.initialize("fig-b0c79046ed4f4a9f86afc01b908bdd77");
+    });
+} else {
+    ProfileSVG.initialize("fig-b0c79046ed4f4a9f86afc01b908bdd77");
+}
+]]></script>
 </svg>
 <p>Note that collected profiles can vary from run-to-run, so don&#39;t be alarmed if you get something different.</p><p><a href="reference/#ProfileSVG.@profview"><code>@profview f(args...)</code></a> is just shorthand for</p><pre><code class="language-julia">Profile.clear()
 @profile f(args...)
@@ -490,4 +503,4 @@ ProfileSVG.view()</code></pre><p>If you&#39;ve already collected profiling data 
 @profile profile_test(10);
 
 # Save a graph that looks like the Jupyter example above
-ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 04:38">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 05:08">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
