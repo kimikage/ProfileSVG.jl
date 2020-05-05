@@ -87,11 +87,22 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
 
     function flamerects(fcolor, io::IO, g, j, nextidx)
         ndata = g.data
+        sf = ndata.sf
         thiscolor = fcolor(nextidx, j, ndata)
         x = (first(ndata.span)-1) * xstep + leftmargin
         y = height - j*ystep - botmargin
         w = length(ndata.span) * xstep
-        write_svgflamerect(io, x, y, w, ystep, ndata.sf, thiscolor)
+        file = string(sf.file)
+        m = match(r"[^\\/]+$", file)
+        if m !== nothing
+            dirinfo = SubString(file, firstindex(file), m.offset - 1)
+            basename = m.match
+        else
+            dirinfo = ""
+            basename = file
+        end
+        shortinfo = "$(sf.func) in $basename:$(sf.line)"
+        write_svgflamerect(io, x, y, w, ystep, shortinfo, dirinfo, thiscolor)
 
         for c in g
             flamerects(fcolor, io, c, j+1, nextidx)

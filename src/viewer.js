@@ -55,6 +55,13 @@
         return text;
     };
 
+    var unescapeHtml = function (str) {
+        return str
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+    };
+
     // Shift the view port to center on xc, then scale in the x direction
     ProfileSVG.moveAndZoom = function (xc, xs, xScale, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
@@ -176,7 +183,12 @@
             var text = rect.nextElementSibling;
             var details = document.getElementById(fig.id + '-details');
             text.style.strokeWidth = '1';
-            details.textContent = rect.getAttribute("data-info");
+            var sinfo = rect.getAttribute('data-shortinfo');
+            var dir = rect.getAttribute('data-dinfo');
+            var i = sinfo.indexOf(' in ');
+            var func = sinfo.slice(0, i + 4);
+            var file = sinfo.slice(i + 4);
+            details.textContent = func + dir + file;
             details.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -187,10 +199,15 @@
             details.style.display = 'none';
         };
 
-        fig.viewport.selectAll('rect').forEach(function (rect) {
-            rect.node.addEventListener('dblclick', rectDblClickHandler, false);
-            rect.node.addEventListener('mouseover', rectMouseOverHandler, false);
-            rect.node.addEventListener('mouseout', rectMouseOutHandler, false);
+        fig.viewport.selectAll('rect').forEach(function (r) {
+            var rect = r.node;
+            var text = rect.nextElementSibling;
+            rect.setAttribute('data-shortinfo', unescapeHtml(text.textContent));
+            var dir = unescapeHtml(rect.getAttribute('data-dinfo'));
+            rect.setAttribute('data-dinfo', dir);
+            rect.addEventListener('dblclick', rectDblClickHandler, false);
+            rect.addEventListener('mouseover', rectMouseOverHandler, false);
+            rect.addEventListener('mouseout', rectMouseOutHandler, false);
         });
 
         svg.selectAll('.pvbackground').forEach(function (bg) {
