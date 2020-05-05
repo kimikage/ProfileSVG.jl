@@ -6,20 +6,20 @@
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-dbe82953f5ab4ce28b009d6aa5ba044a-image-frame">
-      <rect id="fig-dbe82953f5ab4ce28b009d6aa5ba044a-clip-rect" x="0" y="0" width="1000" height="310" />
+    <clipPath id="fig-429ee2cf892940d9a2e01552e7ab8044-image-frame">
+      <rect id="fig-429ee2cf892940d9a2e01552e7ab8044-clip-rect" x="0" y="0" width="1000" height="310" />
     </clipPath>
 </defs>
 <style type="text/css">
     rect[rx]:hover { stroke:black; stroke-width:1; }
     text:hover { stroke:black; stroke-width:1; stroke-opacity:0.35; }
 </style>
-<g id="fig-dbe82953f5ab4ce28b009d6aa5ba044a-frame" clip-path="url(#fig-dbe82953f5ab4ce28b009d6aa5ba044a-image-frame)">
+<g id="fig-429ee2cf892940d9a2e01552e7ab8044-frame" clip-path="url(#fig-429ee2cf892940d9a2e01552e7ab8044-image-frame)">
 <rect class="pvbackground" x="0.0" y="0" width="1000.0" height="310.0" fill="url(#background)"  />
 <text class="pvbackground" text-anchor="middle" x="600" y="24" font-size="17" font-family="Verdana" fill="rgb(0,0,0)"  >Profile results</text>
 <text text-anchor="left" x="10" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >Function:</text>
-<text text-anchor="" x="70" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="fig-dbe82953f5ab4ce28b009d6aa5ba044a-details" > </text>
-<g id="fig-dbe82953f5ab4ce28b009d6aa5ba044a-viewport" transform="scale(1)">
+<text text-anchor="" x="70" y="293" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="fig-429ee2cf892940d9a2e01552e7ab8044-details" > </text>
+<g id="fig-429ee2cf892940d9a2e01552e7ab8044-viewport" transform="scale(1)">
 <rect vector-effect="non-scaling-stroke" x="10.0" y="255.0" width="939.1666666666667" height="15.0" fill="rgb(232,112,221)" rx="2" ry="2" data-shortinfo=" in :-1" data-info=" in :-1"/>
 <text text-anchor="" x="14.0" y="266.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" ></text>
 <rect vector-effect="non-scaling-stroke" x="10.0" y="240.0" width="939.1666666666667" height="15.0" fill="rgb(158,158,158)" rx="2" ry="2" data-shortinfo="eval in .\boot.jl:331" data-info="eval in .\boot.jl:331"/>
@@ -378,17 +378,17 @@ amount2:1-d})};a.filter.invert.toString=function(){return this()};a.filter.brigh
 
             var fig = {};
 
-            fig.viewport = Snap.select('#fig-dbe82953f5ab4ce28b009d6aa5ba044a-viewport');
-            fig.frame = Snap.select('#fig-dbe82953f5ab4ce28b009d6aa5ba044a-frame');
+            fig.viewport = Snap.select('#fig-429ee2cf892940d9a2e01552e7ab8044-viewport');
+            fig.frame = Snap.select('#fig-429ee2cf892940d9a2e01552e7ab8044-frame');
 
             fig.viewport_cx = fig.viewport.getBBox().cx;
 
-            fig.rects = Snap.selectAll('#fig-dbe82953f5ab4ce28b009d6aa5ba044a-viewport rect');
-            fig.texts = Snap.selectAll('#fig-dbe82953f5ab4ce28b009d6aa5ba044a-viewport text');
-            fig.clip = Snap.select('#fig-dbe82953f5ab4ce28b009d6aa5ba044a-clip-rect');
+            fig.rects = Snap.selectAll('#fig-429ee2cf892940d9a2e01552e7ab8044-viewport rect');
+            fig.texts = Snap.selectAll('#fig-429ee2cf892940d9a2e01552e7ab8044-viewport text');
+            fig.clip = Snap.select('#fig-429ee2cf892940d9a2e01552e7ab8044-clip-rect');
             fig.clip_width  = fig.clip.getBBox().w;
             fig.clip_middle = fig.clip.getBBox().cy;
-            fig.details = document.getElementById("fig-dbe82953f5ab4ce28b009d6aa5ba044a-details").firstChild;
+            fig.details = document.getElementById("fig-429ee2cf892940d9a2e01552e7ab8044-details").firstChild;
 
             fig.scale = 1.0;
             fig.shift = fig.viewport_cx;
@@ -420,7 +420,7 @@ amount2:1-d})};a.filter.invert.toString=function(){return this()};a.filter.brigh
                     fig.details.nodeValue = "";
                 });
             })
-            Snap.selectAll("#fig-dbe82953f5ab4ce28b009d6aa5ba044a-frame .pvbackground").forEach(function(bg){
+            Snap.selectAll("#fig-429ee2cf892940d9a2e01552e7ab8044-frame .pvbackground").forEach(function(bg){
                bg.dblclick(function(e){
                    ProfileSVG.reset(fig);
                 });
