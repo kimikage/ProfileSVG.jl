@@ -86,8 +86,9 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     ystep = (height - (topmargin + botmargin)) / nrows
     avgcharwidth = 6  # for Verdana 12 pt font
 
-    function printrec(io::IO, samples, xstart, xend, y, sf::StackFrame, rgb, fontsize)
-        width = xend - xstart
+    function printrec(io::IO, xstart, ystart, w, h, sf::StackFrame, rgb, fontsize)
+        x = xstart
+        y = ystart
         info = "$(sf.func) in $(sf.file):$(sf.line)"
         shortinfo = "$(sf.func) in $(basename(string(sf.file))):$(sf.line)"
         info = eschtml(info)
@@ -101,9 +102,9 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
         r = round(Integer, 255*red(rgb))
         g = round(Integer, 255*green(rgb))
         b = round(Integer, 255*blue(rgb))
-        print(io, """<rect vector-effect="non-scaling-stroke" x="$xstart" y="$y" width="$width" height="$ystep" fill="rgb($r,$g,$b)" rx="2" ry="2" data-shortinfo="$shortinfo" data-info="$info"/>\n""")
+        print(io, """<rect vector-effect="non-scaling-stroke" x="$x" y="$y" width="$w" height="$h" fill="rgb($r,$g,$b)" rx="2" ry="2" data-shortinfo="$shortinfo" data-info="$info"/>\n""")
         #if shortinfo != ""
-        println(io, """\n<text text-anchor="" x="$(xstart+4)" y="$(y+11.5)" font-size="$fontsize" font-family="Verdana" fill="rgb(0,0,0)" ></text>""")
+        println(io, """\n<text text-anchor="" x="$x" dx="4" y="$(y+11.5)" font-size="$fontsize" font-family="Verdana" fill="rgb(0,0,0)" ></text>""")
         # end
     end
 
@@ -117,10 +118,10 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     function flamerects(fcolor, io::IO, g, j, nextidx)
         ndata = g.data
         thiscolor = fcolor(nextidx, j, ndata)
+        x = (first(ndata.span)-1) * xstep + leftmargin
         y = height - j*ystep - botmargin
-        xstart = (first(ndata.span)-1) * xstep + leftmargin
-        xend   = ( last(ndata.span)-1) * xstep + leftmargin
-        printrec(io, length(ndata.span), xstart, xend, y, ndata.sf, thiscolor, fontsize)
+        w = length(ndata.span) * xstep
+        printrec(io, x, y, w, ystep, ndata.sf, thiscolor, fontsize)
 
         for c in g
             flamerects(fcolor, io, c, j+1, nextidx)
