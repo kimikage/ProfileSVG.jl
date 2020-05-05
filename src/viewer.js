@@ -75,11 +75,14 @@
         var oldXShift = -(oldShift - 0.5 * fig.clipWidth);
         var xShift = -(xc - 0.5 * fig.clipWidth);
 
-        fig.texts.forEach(function (text) {
-            text.node.textContent = "";
-        });
+        var rects = fig.viewport.selectAll('rect');
 
         if (deltaT != 0) {
+            fig.viewport.selectAll('text').forEach(function (text) {
+                text.attr({
+                    display: 'none'
+                });
+            });
             Snap.animate(0, 1, function (step) {
 
                 var scale = oldScale + (xScale - oldScale) * step;
@@ -89,7 +92,7 @@
                 fig.viewport.attr({
                     transform: rMatrix
                 });
-                fig.rects.forEach(function (rect) {
+                rects.forEach(function (rect) {
                     rect.attr({
                         rx: 2 / scale,
                         ry: 2 / scale
@@ -97,9 +100,9 @@
                 });
 
             }, deltaT, null, function () {
-                fig.rects.forEach(function (rect, i) {
+                rects.forEach(function (rect) {
                     var bbox = rect.getBBox();
-                    var text = fig.texts[i];
+                    var text = Snap(rect.node.nextElementSibling);
                     var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                     var tMatrix = new Snap.Matrix;
@@ -107,6 +110,9 @@
 
                     text.node.textContent = formatText(shortinfo, bbox.w * xScale);
                     text.transform(tMatrix);
+                    text.attr({
+                        display: 'inherit'
+                    });
                 });
             });
         } else {
@@ -115,13 +121,13 @@
             rMatrix.scale(xScale, 1, xs, fig.clipMiddle);
 
             fig.viewport.transform(rMatrix);
-            fig.rects.forEach(function (rect, i) {
+            rects.forEach(function (rect) {
                 rect.attr({
                     rx: 2 / xScale,
                     ry: 2 / xScale
                 });
                 var bbox = rect.getBBox();
-                var text = fig.texts[i];
+                var text = Snap(rect.node.nextElementSibling);
                 var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                 var tMatrix = new Snap.Matrix;
@@ -129,6 +135,9 @@
 
                 text.node.textContent = formatText(shortinfo, bbox.w * xScale);
                 text.transform(tMatrix);
+                text.attr({
+                    display: 'inherit'
+                });
             });
         }
 
@@ -142,49 +151,49 @@
 
         var svg = Snap.select('#' + figId);
         var fig = {};
+        fig.id = figId;
 
         fig.viewport = svg.select('#' + figId + '-viewport');
-        fig.frame = svg.select('#' + figId + '-frame');
-
         fig.viewportCx = fig.viewport.getBBox().cx;
 
-        fig.rects = fig.viewport.selectAll('rect');
-        fig.texts = fig.viewport.selectAll('text');
-        fig.clip = svg.select('#' + figId + '-clip-rect');
-        fig.clipWidth = fig.clip.getBBox().w;
-        fig.clipMiddle = fig.clip.getBBox().cy;
-        fig.details = svg.select('#' + figId + '-details').node.firstChild;
+        var clip = svg.select('#' + figId + '-clip-rect');
+        fig.clipWidth = clip.getBBox().w;
+        fig.clipMiddle = clip.getBBox().cy;
 
         fig.scale = 1.0;
         fig.shift = fig.viewportCx;
 
         ProfileSVG.reset(fig);
 
-        fig.rects.forEach(function (rect) {
-            rect.dblclick(function () {
-                    var bbox = rect.getBBox();
-                    ProfileSVG.moveAndZoom(bbox.cx, bbox.cx, fig.clipWidth / bbox.w, fig);
-                })
-                .mouseover(function () {
-                    fig.details.nodeValue = rect.node.getAttribute("data-info");
-                })
-                .mouseout(function () {
-                    fig.details.nodeValue = "";
-                });
+        var rectDblClickHandler = function (e) {
+            var bbox = e.target.getBBox();
+            var cx = bbox.x + bbox.width / 2;
+            ProfileSVG.moveAndZoom(cx, cx, fig.clipWidth / bbox.width, fig);
+        };
+
+        var rectMouseOverHandler = function (e) {
+            var rect = e.target;
+            var text = rect.nextElementSibling;
+            var details = document.getElementById(fig.id + '-details');
+            text.style.strokeWidth = '1';
+            details.textContent = rect.getAttribute("data-info");
+            details.style.display = 'inherit';
+        };
+        var rectMouseOutHandler = function (e) {
+            var rect = e.target;
+            var text = rect.nextElementSibling;
+            var details = document.getElementById(fig.id + '-details');
+            text.style.strokeWidth = '0';
+            details.style.display = 'none';
+        };
+
+        fig.viewport.selectAll('rect').forEach(function (rect) {
+            rect.node.addEventListener('dblclick', rectDblClickHandler, false);
+            rect.node.addEventListener('mouseover', rectMouseOverHandler, false);
+            rect.node.addEventListener('mouseout', rectMouseOutHandler, false);
         });
-        fig.texts.forEach(function (text, i) {
-            text.dblclick(function () {
-                    var bbox = fig.rects[i].getBBox();
-                    ProfileSVG.moveAndZoom(bbox.cx, bbox.cx, fig.clipWidth / bbox.w, fig);
-                })
-                .mouseover(function () {
-                    fig.details.nodeValue = fig.rects[i].node.getAttribute("data-info");
-                })
-                .mouseout(function () {
-                    fig.details.nodeValue = "";
-                });
-        });
-        fig.frame.selectAll('.pvbackground').forEach(function (bg) {
+
+        svg.selectAll('.pvbackground').forEach(function (bg) {
             bg.dblclick(function () {
                 ProfileSVG.reset(fig);
             });

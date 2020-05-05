@@ -59,15 +59,14 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
                 vector-effect: non-scaling-stroke;
             }
             #$fig_id-viewport text {
+                pointer-events: none;
+                stroke: $fontcolorhex;
+                stroke-width: 0;
+                stroke-opacity: 0.35;
             }
             #$fig_id-viewport rect:hover {
                 stroke: $fontcolorhex;
                 stroke-width: 1;
-            }
-            #$fig_id-viewport text:hover {
-                stroke: $fontcolorhex;
-                stroke-width: 1;
-                stroke-opacity: 0.35;
             }
         </style>
         <g id="$fig_id-frame" clip-path="url(#$fig_id-image-frame)">
