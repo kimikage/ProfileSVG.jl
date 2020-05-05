@@ -3,47 +3,46 @@
 ProfileSVG.view(FlameColors())</code></pre><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310"
-     xmlns="http://www.w3.org/2000/svg" id="fig-1a6cff3250ae4c0dad2d15eb9c94d880">
+     xmlns="http://www.w3.org/2000/svg" id="fig-ee64c323425844a1976959eff0e4ff97">
 <defs>
-    <linearGradient id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-ee64c323425844a1976959eff0e4ff97-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-image-frame">
-      <rect id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-clip-rect" x="0" y="0" width="1000" height="310" />
+    <clipPath id="fig-ee64c323425844a1976959eff0e4ff97-image-frame">
+      <rect id="fig-ee64c323425844a1976959eff0e4ff97-clip-rect" x="0" y="0" width="1000" height="310" />
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-1a6cff3250ae4c0dad2d15eb9c94d880 text {
+    #fig-ee64c323425844a1976959eff0e4ff97 text {
         font-family: Verdana;
         font-size: 12px;
         fill: #000000;
     }
-    #fig-1a6cff3250ae4c0dad2d15eb9c94d880 text.pvbackground {
+    #fig-ee64c323425844a1976959eff0e4ff97 text.pvbackground {
         font-size: 17px;
         text-anchor: middle;
     }
-    #fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport rect {
+    #fig-ee64c323425844a1976959eff0e4ff97-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport text {
-    }
-    #fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport rect:hover {
+    #fig-ee64c323425844a1976959eff0e4ff97-viewport text {
+        pointer-events: none;
         stroke: #000000;
-        stroke-width: 1;
-    }
-    #fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport text:hover {
-        stroke: #000000;
-        stroke-width: 1;
+        stroke-width: 0;
         stroke-opacity: 0.35;
     }
+    #fig-ee64c323425844a1976959eff0e4ff97-viewport rect:hover {
+        stroke: #000000;
+        stroke-width: 1;
+    }
 </style>
-<g id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-frame" clip-path="url(#fig-1a6cff3250ae4c0dad2d15eb9c94d880-image-frame)">
-<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-1a6cff3250ae4c0dad2d15eb9c94d880-background)" />
+<g id="fig-ee64c323425844a1976959eff0e4ff97-frame" clip-path="url(#fig-ee64c323425844a1976959eff0e4ff97-image-frame)">
+<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-ee64c323425844a1976959eff0e4ff97-background)" />
 <text class="pvbackground" x="600" y="24">Profile results</text>
 <text x="10" y="293">Function:</text>
-<text x="70" y="293" id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-details"> </text>
-<g id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport" transform="scale(1)">
+<text x="70" y="293" id="fig-ee64c323425844a1976959eff0e4ff97-details"> </text>
+<g id="fig-ee64c323425844a1976959eff0e4ff97-viewport" transform="scale(1)">
 <rect x="10" y="255" width="980" height="15" fill="#E870DD" rx="2" ry="2" data-shortinfo=" in :-1" data-info=" in :-1"/>
 <text x="10" dx="4" y="266.5"></text>
 <rect x="10" y="240" width="980" height="15" fill="#9E9E9E" rx="2" ry="2" data-shortinfo="eval in .\boot.jl:331" data-info="eval in .\boot.jl:331"/>
@@ -233,11 +232,14 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         var oldXShift = -(oldShift - 0.5 * fig.clipWidth);
         var xShift = -(xc - 0.5 * fig.clipWidth);
 
-        fig.texts.forEach(function (text) {
-            text.node.textContent = "";
-        });
+        var rects = fig.viewport.selectAll('rect');
 
         if (deltaT != 0) {
+            fig.viewport.selectAll('text').forEach(function (text) {
+                text.attr({
+                    display: 'none'
+                });
+            });
             Snap.animate(0, 1, function (step) {
 
                 var scale = oldScale + (xScale - oldScale) * step;
@@ -247,7 +249,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                 fig.viewport.attr({
                     transform: rMatrix
                 });
-                fig.rects.forEach(function (rect) {
+                rects.forEach(function (rect) {
                     rect.attr({
                         rx: 2 / scale,
                         ry: 2 / scale
@@ -255,9 +257,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                 });
 
             }, deltaT, null, function () {
-                fig.rects.forEach(function (rect, i) {
+                rects.forEach(function (rect) {
                     var bbox = rect.getBBox();
-                    var text = fig.texts[i];
+                    var text = Snap(rect.node.nextElementSibling);
                     var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                     var tMatrix = new Snap.Matrix;
@@ -265,6 +267,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
                     text.node.textContent = formatText(shortinfo, bbox.w * xScale);
                     text.transform(tMatrix);
+                    text.attr({
+                        display: 'inherit'
+                    });
                 });
             });
         } else {
@@ -273,13 +278,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             rMatrix.scale(xScale, 1, xs, fig.clipMiddle);
 
             fig.viewport.transform(rMatrix);
-            fig.rects.forEach(function (rect, i) {
+            rects.forEach(function (rect) {
                 rect.attr({
                     rx: 2 / xScale,
                     ry: 2 / xScale
                 });
                 var bbox = rect.getBBox();
-                var text = fig.texts[i];
+                var text = Snap(rect.node.nextElementSibling);
                 var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                 var tMatrix = new Snap.Matrix;
@@ -287,6 +292,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
                 text.node.textContent = formatText(shortinfo, bbox.w * xScale);
                 text.transform(tMatrix);
+                text.attr({
+                    display: 'inherit'
+                });
             });
         }
 
@@ -300,49 +308,49 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var svg = Snap.select('#' + figId);
         var fig = {};
+        fig.id = figId;
 
         fig.viewport = svg.select('#' + figId + '-viewport');
-        fig.frame = svg.select('#' + figId + '-frame');
-
         fig.viewportCx = fig.viewport.getBBox().cx;
 
-        fig.rects = fig.viewport.selectAll('rect');
-        fig.texts = fig.viewport.selectAll('text');
-        fig.clip = svg.select('#' + figId + '-clip-rect');
-        fig.clipWidth = fig.clip.getBBox().w;
-        fig.clipMiddle = fig.clip.getBBox().cy;
-        fig.details = svg.select('#' + figId + '-details').node.firstChild;
+        var clip = svg.select('#' + figId + '-clip-rect');
+        fig.clipWidth = clip.getBBox().w;
+        fig.clipMiddle = clip.getBBox().cy;
 
         fig.scale = 1.0;
         fig.shift = fig.viewportCx;
 
         ProfileSVG.reset(fig);
 
-        fig.rects.forEach(function (rect) {
-            rect.dblclick(function () {
-                    var bbox = rect.getBBox();
-                    ProfileSVG.moveAndZoom(bbox.cx, bbox.cx, fig.clipWidth / bbox.w, fig);
-                })
-                .mouseover(function () {
-                    fig.details.nodeValue = rect.node.getAttribute("data-info");
-                })
-                .mouseout(function () {
-                    fig.details.nodeValue = "";
-                });
+        var rectDblClickHandler = function (e) {
+            var bbox = e.target.getBBox();
+            var cx = bbox.x + bbox.width / 2;
+            ProfileSVG.moveAndZoom(cx, cx, fig.clipWidth / bbox.width, fig);
+        };
+
+        var rectMouseOverHandler = function (e) {
+            var rect = e.target;
+            var text = rect.nextElementSibling;
+            var details = document.getElementById(fig.id + '-details');
+            text.style.strokeWidth = '1';
+            details.textContent = rect.getAttribute("data-info");
+            details.style.display = 'inherit';
+        };
+        var rectMouseOutHandler = function (e) {
+            var rect = e.target;
+            var text = rect.nextElementSibling;
+            var details = document.getElementById(fig.id + '-details');
+            text.style.strokeWidth = '0';
+            details.style.display = 'none';
+        };
+
+        fig.viewport.selectAll('rect').forEach(function (rect) {
+            rect.node.addEventListener('dblclick', rectDblClickHandler, false);
+            rect.node.addEventListener('mouseover', rectMouseOverHandler, false);
+            rect.node.addEventListener('mouseout', rectMouseOutHandler, false);
         });
-        fig.texts.forEach(function (text, i) {
-            text.dblclick(function () {
-                    var bbox = fig.rects[i].getBBox();
-                    ProfileSVG.moveAndZoom(bbox.cx, bbox.cx, fig.clipWidth / bbox.w, fig);
-                })
-                .mouseover(function () {
-                    fig.details.nodeValue = fig.rects[i].node.getAttribute("data-info");
-                })
-                .mouseout(function () {
-                    fig.details.nodeValue = "";
-                });
-        });
-        fig.frame.selectAll('.pvbackground').forEach(function (bg) {
+
+        svg.selectAll('.pvbackground').forEach(function (bg) {
             bg.dblclick(function () {
                 ProfileSVG.reset(fig);
             });
@@ -374,10 +382,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-1a6cff3250ae4c0dad2d15eb9c94d880");
+        ProfileSVG.initialize("fig-ee64c323425844a1976959eff0e4ff97");
     });
 } else {
-    ProfileSVG.initialize("fig-1a6cff3250ae4c0dad2d15eb9c94d880");
+    ProfileSVG.initialize("fig-ee64c323425844a1976959eff0e4ff97");
 }
 ]]></script>
 </svg>
@@ -385,47 +393,46 @@ if (typeof require === 'function' && define.amd) {
 ProfileSVG.view(StackFrameCategory())</code></pre><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310"
-     xmlns="http://www.w3.org/2000/svg" id="fig-dfd67daf30594023bb12785b52eff87d">
+     xmlns="http://www.w3.org/2000/svg" id="fig-958ab7b84d55408bbac3e5b40e9f7395">
 <defs>
-    <linearGradient id="fig-dfd67daf30594023bb12785b52eff87d-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-958ab7b84d55408bbac3e5b40e9f7395-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-dfd67daf30594023bb12785b52eff87d-image-frame">
-      <rect id="fig-dfd67daf30594023bb12785b52eff87d-clip-rect" x="0" y="0" width="1000" height="310" />
+    <clipPath id="fig-958ab7b84d55408bbac3e5b40e9f7395-image-frame">
+      <rect id="fig-958ab7b84d55408bbac3e5b40e9f7395-clip-rect" x="0" y="0" width="1000" height="310" />
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-dfd67daf30594023bb12785b52eff87d text {
+    #fig-958ab7b84d55408bbac3e5b40e9f7395 text {
         font-family: Verdana;
         font-size: 12px;
         fill: #000000;
     }
-    #fig-dfd67daf30594023bb12785b52eff87d text.pvbackground {
+    #fig-958ab7b84d55408bbac3e5b40e9f7395 text.pvbackground {
         font-size: 17px;
         text-anchor: middle;
     }
-    #fig-dfd67daf30594023bb12785b52eff87d-viewport rect {
+    #fig-958ab7b84d55408bbac3e5b40e9f7395-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-dfd67daf30594023bb12785b52eff87d-viewport text {
-    }
-    #fig-dfd67daf30594023bb12785b52eff87d-viewport rect:hover {
+    #fig-958ab7b84d55408bbac3e5b40e9f7395-viewport text {
+        pointer-events: none;
         stroke: #000000;
-        stroke-width: 1;
-    }
-    #fig-dfd67daf30594023bb12785b52eff87d-viewport text:hover {
-        stroke: #000000;
-        stroke-width: 1;
+        stroke-width: 0;
         stroke-opacity: 0.35;
     }
+    #fig-958ab7b84d55408bbac3e5b40e9f7395-viewport rect:hover {
+        stroke: #000000;
+        stroke-width: 1;
+    }
 </style>
-<g id="fig-dfd67daf30594023bb12785b52eff87d-frame" clip-path="url(#fig-dfd67daf30594023bb12785b52eff87d-image-frame)">
-<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-dfd67daf30594023bb12785b52eff87d-background)" />
+<g id="fig-958ab7b84d55408bbac3e5b40e9f7395-frame" clip-path="url(#fig-958ab7b84d55408bbac3e5b40e9f7395-image-frame)">
+<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-958ab7b84d55408bbac3e5b40e9f7395-background)" />
 <text class="pvbackground" x="600" y="24">Profile results</text>
 <text x="10" y="293">Function:</text>
-<text x="70" y="293" id="fig-dfd67daf30594023bb12785b52eff87d-details"> </text>
-<g id="fig-dfd67daf30594023bb12785b52eff87d-viewport" transform="scale(1)">
+<text x="70" y="293" id="fig-958ab7b84d55408bbac3e5b40e9f7395-details"> </text>
+<g id="fig-958ab7b84d55408bbac3e5b40e9f7395-viewport" transform="scale(1)">
 <rect x="10" y="255" width="980" height="15" fill="#FFA500" rx="2" ry="2" data-shortinfo=" in :-1" data-info=" in :-1"/>
 <text x="10" dx="4" y="266.5"></text>
 <rect x="10" y="240" width="980" height="15" fill="#4D4D4D" rx="2" ry="2" data-shortinfo="eval in .\boot.jl:331" data-info="eval in .\boot.jl:331"/>
@@ -615,11 +622,14 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         var oldXShift = -(oldShift - 0.5 * fig.clipWidth);
         var xShift = -(xc - 0.5 * fig.clipWidth);
 
-        fig.texts.forEach(function (text) {
-            text.node.textContent = "";
-        });
+        var rects = fig.viewport.selectAll('rect');
 
         if (deltaT != 0) {
+            fig.viewport.selectAll('text').forEach(function (text) {
+                text.attr({
+                    display: 'none'
+                });
+            });
             Snap.animate(0, 1, function (step) {
 
                 var scale = oldScale + (xScale - oldScale) * step;
@@ -629,7 +639,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                 fig.viewport.attr({
                     transform: rMatrix
                 });
-                fig.rects.forEach(function (rect) {
+                rects.forEach(function (rect) {
                     rect.attr({
                         rx: 2 / scale,
                         ry: 2 / scale
@@ -637,9 +647,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                 });
 
             }, deltaT, null, function () {
-                fig.rects.forEach(function (rect, i) {
+                rects.forEach(function (rect) {
                     var bbox = rect.getBBox();
-                    var text = fig.texts[i];
+                    var text = Snap(rect.node.nextElementSibling);
                     var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                     var tMatrix = new Snap.Matrix;
@@ -647,6 +657,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
                     text.node.textContent = formatText(shortinfo, bbox.w * xScale);
                     text.transform(tMatrix);
+                    text.attr({
+                        display: 'inherit'
+                    });
                 });
             });
         } else {
@@ -655,13 +668,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             rMatrix.scale(xScale, 1, xs, fig.clipMiddle);
 
             fig.viewport.transform(rMatrix);
-            fig.rects.forEach(function (rect, i) {
+            rects.forEach(function (rect) {
                 rect.attr({
                     rx: 2 / xScale,
                     ry: 2 / xScale
                 });
                 var bbox = rect.getBBox();
-                var text = fig.texts[i];
+                var text = Snap(rect.node.nextElementSibling);
                 var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                 var tMatrix = new Snap.Matrix;
@@ -669,6 +682,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
                 text.node.textContent = formatText(shortinfo, bbox.w * xScale);
                 text.transform(tMatrix);
+                text.attr({
+                    display: 'inherit'
+                });
             });
         }
 
@@ -682,49 +698,49 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var svg = Snap.select('#' + figId);
         var fig = {};
+        fig.id = figId;
 
         fig.viewport = svg.select('#' + figId + '-viewport');
-        fig.frame = svg.select('#' + figId + '-frame');
-
         fig.viewportCx = fig.viewport.getBBox().cx;
 
-        fig.rects = fig.viewport.selectAll('rect');
-        fig.texts = fig.viewport.selectAll('text');
-        fig.clip = svg.select('#' + figId + '-clip-rect');
-        fig.clipWidth = fig.clip.getBBox().w;
-        fig.clipMiddle = fig.clip.getBBox().cy;
-        fig.details = svg.select('#' + figId + '-details').node.firstChild;
+        var clip = svg.select('#' + figId + '-clip-rect');
+        fig.clipWidth = clip.getBBox().w;
+        fig.clipMiddle = clip.getBBox().cy;
 
         fig.scale = 1.0;
         fig.shift = fig.viewportCx;
 
         ProfileSVG.reset(fig);
 
-        fig.rects.forEach(function (rect) {
-            rect.dblclick(function () {
-                    var bbox = rect.getBBox();
-                    ProfileSVG.moveAndZoom(bbox.cx, bbox.cx, fig.clipWidth / bbox.w, fig);
-                })
-                .mouseover(function () {
-                    fig.details.nodeValue = rect.node.getAttribute("data-info");
-                })
-                .mouseout(function () {
-                    fig.details.nodeValue = "";
-                });
+        var rectDblClickHandler = function (e) {
+            var bbox = e.target.getBBox();
+            var cx = bbox.x + bbox.width / 2;
+            ProfileSVG.moveAndZoom(cx, cx, fig.clipWidth / bbox.width, fig);
+        };
+
+        var rectMouseOverHandler = function (e) {
+            var rect = e.target;
+            var text = rect.nextElementSibling;
+            var details = document.getElementById(fig.id + '-details');
+            text.style.strokeWidth = '1';
+            details.textContent = rect.getAttribute("data-info");
+            details.style.display = 'inherit';
+        };
+        var rectMouseOutHandler = function (e) {
+            var rect = e.target;
+            var text = rect.nextElementSibling;
+            var details = document.getElementById(fig.id + '-details');
+            text.style.strokeWidth = '0';
+            details.style.display = 'none';
+        };
+
+        fig.viewport.selectAll('rect').forEach(function (rect) {
+            rect.node.addEventListener('dblclick', rectDblClickHandler, false);
+            rect.node.addEventListener('mouseover', rectMouseOverHandler, false);
+            rect.node.addEventListener('mouseout', rectMouseOutHandler, false);
         });
-        fig.texts.forEach(function (text, i) {
-            text.dblclick(function () {
-                    var bbox = fig.rects[i].getBBox();
-                    ProfileSVG.moveAndZoom(bbox.cx, bbox.cx, fig.clipWidth / bbox.w, fig);
-                })
-                .mouseover(function () {
-                    fig.details.nodeValue = fig.rects[i].node.getAttribute("data-info");
-                })
-                .mouseout(function () {
-                    fig.details.nodeValue = "";
-                });
-        });
-        fig.frame.selectAll('.pvbackground').forEach(function (bg) {
+
+        svg.selectAll('.pvbackground').forEach(function (bg) {
             bg.dblclick(function () {
                 ProfileSVG.reset(fig);
             });
@@ -756,11 +772,11 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-dfd67daf30594023bb12785b52eff87d");
+        ProfileSVG.initialize("fig-958ab7b84d55408bbac3e5b40e9f7395");
     });
 } else {
-    ProfileSVG.initialize("fig-dfd67daf30594023bb12785b52eff87d");
+    ProfileSVG.initialize("fig-958ab7b84d55408bbac3e5b40e9f7395");
 }
 ]]></script>
 </svg>
-<p>In the default <code>StackFrameCategory</code> scheme, &quot;gray&quot; indicates time spent in <code>Core.Compiler</code> (mostly inference), &quot;dark gray&quot; in other <code>Core</code>, &quot;yellow&quot; in LLVM, &quot;orange&quot; in other <code>ccalls</code>, &quot;light blue&quot; in <code>Base</code>, and &quot;red&quot; is uncategorized (mostly package code).</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The <code>colorbg</code> and <code>colorfont</code> options of <code>FlameGraphs.FlameColors</code> and <code>FlameGraphs.StackFrameCategory</code> are currently not supported and ignored.</p></div></div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 08:28">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+<p>In the default <code>StackFrameCategory</code> scheme, &quot;gray&quot; indicates time spent in <code>Core.Compiler</code> (mostly inference), &quot;dark gray&quot; in other <code>Core</code>, &quot;yellow&quot; in LLVM, &quot;orange&quot; in other <code>ccalls</code>, &quot;light blue&quot; in <code>Base</code>, and &quot;red&quot; is uncategorized (mostly package code).</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The <code>colorbg</code> and <code>colorfont</code> options of <code>FlameGraphs.FlameColors</code> and <code>FlameGraphs.StackFrameCategory</code> are currently not supported and ignored.</p></div></div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 09:21">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
