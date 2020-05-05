@@ -20,47 +20,47 @@ using Profile, ProfileSVG
 @profview profile_test(10)</code></pre><p>Then, you can get something like this:</p><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310"
-     xmlns="http://www.w3.org/2000/svg" id="fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7">
+     xmlns="http://www.w3.org/2000/svg" id="fig-85ad01699c694dbeb04613e7eaf2e6ed">
 <defs>
-    <linearGradient id="fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-85ad01699c694dbeb04613e7eaf2e6ed-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-image-frame">
-      <rect id="fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-clip-rect" x="0" y="0" width="1000" height="310" />
+    <clipPath id="fig-85ad01699c694dbeb04613e7eaf2e6ed-image-frame">
+      <rect id="fig-85ad01699c694dbeb04613e7eaf2e6ed-clip-rect" x="0" y="0" width="1000" height="310" />
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7 text {
+    #fig-85ad01699c694dbeb04613e7eaf2e6ed text {
         font-family: Verdana;
         font-size: 12px;
         fill: #000000;
     }
-    #fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7 text.pvbackground {
+    #fig-85ad01699c694dbeb04613e7eaf2e6ed text.pvbackground {
         font-size: 17px;
         text-anchor: middle;
     }
-    #fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-viewport rect {
+    #fig-85ad01699c694dbeb04613e7eaf2e6ed-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-viewport text {
+    #fig-85ad01699c694dbeb04613e7eaf2e6ed-viewport text {
     }
-    #fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-viewport rect:hover {
+    #fig-85ad01699c694dbeb04613e7eaf2e6ed-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
-    #fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-viewport text:hover {
+    #fig-85ad01699c694dbeb04613e7eaf2e6ed-viewport text:hover {
         stroke: #000000;
         stroke-width: 1;
         stroke-opacity: 0.35;
     }
 </style>
-<g id="fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-frame" clip-path="url(#fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-image-frame)">
-<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-background)" />
+<g id="fig-85ad01699c694dbeb04613e7eaf2e6ed-frame" clip-path="url(#fig-85ad01699c694dbeb04613e7eaf2e6ed-image-frame)">
+<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-85ad01699c694dbeb04613e7eaf2e6ed-background)" />
 <text class="pvbackground" x="600" y="24">Profile results</text>
 <text x="10" y="293">Function:</text>
-<text x="70" y="293" id="fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-details"> </text>
-<g id="fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7-viewport" transform="scale(1)">
+<text x="70" y="293" id="fig-85ad01699c694dbeb04613e7eaf2e6ed-details"> </text>
+<g id="fig-85ad01699c694dbeb04613e7eaf2e6ed-viewport" transform="scale(1)">
 <rect x="10" y="255" width="980" height="15" fill="#E870DD" rx="2" ry="2" data-shortinfo=" in :-1" data-info=" in :-1"/>
 <text x="10" dx="4" y="266.5"></text>
 <rect x="10" y="240" width="980" height="15" fill="#9E9E9E" rx="2" ry="2" data-shortinfo="eval in .\boot.jl:331" data-info="eval in .\boot.jl:331"/>
@@ -183,6 +183,37 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     }
 }(this, function (Snap) {
     'use strict';
+
+    var supportsPassive = false;
+    try {
+        var opts = Object.defineProperty({}, 'passive', {
+            get: function () {
+                supportsPassive = true;
+            }
+        });
+        window.addEventListener("testPassive", null, opts);
+        window.removeEventListener("testPassive", null, opts);
+    } catch (e) { // not supported
+    }
+
+    var stopper = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
+    var throttle = function (delay, filter, callback) {
+        var previousCall = new Date().getTime();
+        return function (e) {
+            var time = new Date().getTime();
+            if ((time - previousCall) >= delay) {
+                previousCall = time;
+                callback.apply(null, arguments);
+            }
+            filter(e);
+        };
+    };
+
+
     var ProfileSVG = {};
 
     var AVERAGE_CHAR_WIDTH = 6;
@@ -285,8 +316,6 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     ProfileSVG.initialize = function (figId) {
 
         var svg = Snap.select('#' + figId);
-        var pt = svg.node.createSVGPoint();
-
         var fig = {};
 
         fig.viewport = svg.select('#' + figId + '-viewport');
@@ -336,39 +365,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             });
         });
 
-        var throttle = function (delay, callback) {
-            var previousCall = new Date().getTime();
-            return function () {
-                var time = new Date().getTime();
-
-                if ((time - previousCall) >= delay) {
-                    previousCall = time;
-                    callback.apply(null, arguments);
-                } else {
-                    arguments[0].preventDefault();
-                }
-            };
-        };
-
-        var mouseWheelHandler = throttle(400, function (e) {
-            e.preventDefault();
-            var ev = window.event || e;
-            var delta = Math.max(-1, Math.min(1, (ev.wheelDelta || -ev.detail)));
-            pt.x = ev.clientX;
-            pt.y = ev.clientY;
-
+        var mouseWheelHandler = throttle(400, stopper, function (e) {
+            var delta = Math.max(-1, Math.min(1, e.deltaY));
+            var pt = svg.node.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            // Since the implementation of getScreenCTM() varies by browser and
+            // version, it often doesn't work as expected.
             pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
-            var targetScale = fig.scale + 0.2 * delta;
+            var targetScale = fig.scale - 0.2 * delta; // FIXME: prevent the negative scale
             ProfileSVG.moveAndZoom(fig.shift, pt.x, targetScale, fig, 400);
-            return false;
         });
-        var frameNode = fig.frame.node;
-        if (frameNode.addEventListener) {
-            frameNode.addEventListener("mousewheel", mouseWheelHandler, false);
-            frameNode.addEventListener("DOMMouseScroll", mouseWheelHandler, false);
-        } else {
-            frameNode.attachEvent("onmousewheel", mouseWheelHandler);
-        }
+
+        svg.node.addEventListener('wheel', mouseWheelHandler, supportsPassive ? {
+            passive: false
+        } : false);
 
         fig.viewport.drag();
     };
@@ -380,10 +391,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7");
+        ProfileSVG.initialize("fig-85ad01699c694dbeb04613e7eaf2e6ed");
     });
 } else {
-    ProfileSVG.initialize("fig-d9f4b2fb8b3144c48b7d5f6eb0d396d7");
+    ProfileSVG.initialize("fig-85ad01699c694dbeb04613e7eaf2e6ed");
 }
 ]]></script>
 </svg>
@@ -393,4 +404,4 @@ ProfileSVG.view()</code></pre><p>If you&#39;ve already collected profiling data 
 @profile profile_test(10);
 
 # Save a graph that looks like the Jupyter example above
-ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 07:52">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 08:28">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

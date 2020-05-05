@@ -3,47 +3,47 @@
 ProfileSVG.view(FlameColors())</code></pre><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310"
-     xmlns="http://www.w3.org/2000/svg" id="fig-548b0c02df6b4074952adc0ad907eda2">
+     xmlns="http://www.w3.org/2000/svg" id="fig-1a6cff3250ae4c0dad2d15eb9c94d880">
 <defs>
-    <linearGradient id="fig-548b0c02df6b4074952adc0ad907eda2-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-548b0c02df6b4074952adc0ad907eda2-image-frame">
-      <rect id="fig-548b0c02df6b4074952adc0ad907eda2-clip-rect" x="0" y="0" width="1000" height="310" />
+    <clipPath id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-image-frame">
+      <rect id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-clip-rect" x="0" y="0" width="1000" height="310" />
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-548b0c02df6b4074952adc0ad907eda2 text {
+    #fig-1a6cff3250ae4c0dad2d15eb9c94d880 text {
         font-family: Verdana;
         font-size: 12px;
         fill: #000000;
     }
-    #fig-548b0c02df6b4074952adc0ad907eda2 text.pvbackground {
+    #fig-1a6cff3250ae4c0dad2d15eb9c94d880 text.pvbackground {
         font-size: 17px;
         text-anchor: middle;
     }
-    #fig-548b0c02df6b4074952adc0ad907eda2-viewport rect {
+    #fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-548b0c02df6b4074952adc0ad907eda2-viewport text {
+    #fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport text {
     }
-    #fig-548b0c02df6b4074952adc0ad907eda2-viewport rect:hover {
+    #fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
-    #fig-548b0c02df6b4074952adc0ad907eda2-viewport text:hover {
+    #fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport text:hover {
         stroke: #000000;
         stroke-width: 1;
         stroke-opacity: 0.35;
     }
 </style>
-<g id="fig-548b0c02df6b4074952adc0ad907eda2-frame" clip-path="url(#fig-548b0c02df6b4074952adc0ad907eda2-image-frame)">
-<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-548b0c02df6b4074952adc0ad907eda2-background)" />
+<g id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-frame" clip-path="url(#fig-1a6cff3250ae4c0dad2d15eb9c94d880-image-frame)">
+<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-1a6cff3250ae4c0dad2d15eb9c94d880-background)" />
 <text class="pvbackground" x="600" y="24">Profile results</text>
 <text x="10" y="293">Function:</text>
-<text x="70" y="293" id="fig-548b0c02df6b4074952adc0ad907eda2-details"> </text>
-<g id="fig-548b0c02df6b4074952adc0ad907eda2-viewport" transform="scale(1)">
+<text x="70" y="293" id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-details"> </text>
+<g id="fig-1a6cff3250ae4c0dad2d15eb9c94d880-viewport" transform="scale(1)">
 <rect x="10" y="255" width="980" height="15" fill="#E870DD" rx="2" ry="2" data-shortinfo=" in :-1" data-info=" in :-1"/>
 <text x="10" dx="4" y="266.5"></text>
 <rect x="10" y="240" width="980" height="15" fill="#9E9E9E" rx="2" ry="2" data-shortinfo="eval in .\boot.jl:331" data-info="eval in .\boot.jl:331"/>
@@ -166,6 +166,37 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     }
 }(this, function (Snap) {
     'use strict';
+
+    var supportsPassive = false;
+    try {
+        var opts = Object.defineProperty({}, 'passive', {
+            get: function () {
+                supportsPassive = true;
+            }
+        });
+        window.addEventListener("testPassive", null, opts);
+        window.removeEventListener("testPassive", null, opts);
+    } catch (e) { // not supported
+    }
+
+    var stopper = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
+    var throttle = function (delay, filter, callback) {
+        var previousCall = new Date().getTime();
+        return function (e) {
+            var time = new Date().getTime();
+            if ((time - previousCall) >= delay) {
+                previousCall = time;
+                callback.apply(null, arguments);
+            }
+            filter(e);
+        };
+    };
+
+
     var ProfileSVG = {};
 
     var AVERAGE_CHAR_WIDTH = 6;
@@ -268,8 +299,6 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     ProfileSVG.initialize = function (figId) {
 
         var svg = Snap.select('#' + figId);
-        var pt = svg.node.createSVGPoint();
-
         var fig = {};
 
         fig.viewport = svg.select('#' + figId + '-viewport');
@@ -319,39 +348,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             });
         });
 
-        var throttle = function (delay, callback) {
-            var previousCall = new Date().getTime();
-            return function () {
-                var time = new Date().getTime();
-
-                if ((time - previousCall) >= delay) {
-                    previousCall = time;
-                    callback.apply(null, arguments);
-                } else {
-                    arguments[0].preventDefault();
-                }
-            };
-        };
-
-        var mouseWheelHandler = throttle(400, function (e) {
-            e.preventDefault();
-            var ev = window.event || e;
-            var delta = Math.max(-1, Math.min(1, (ev.wheelDelta || -ev.detail)));
-            pt.x = ev.clientX;
-            pt.y = ev.clientY;
-
+        var mouseWheelHandler = throttle(400, stopper, function (e) {
+            var delta = Math.max(-1, Math.min(1, e.deltaY));
+            var pt = svg.node.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            // Since the implementation of getScreenCTM() varies by browser and
+            // version, it often doesn't work as expected.
             pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
-            var targetScale = fig.scale + 0.2 * delta;
+            var targetScale = fig.scale - 0.2 * delta; // FIXME: prevent the negative scale
             ProfileSVG.moveAndZoom(fig.shift, pt.x, targetScale, fig, 400);
-            return false;
         });
-        var frameNode = fig.frame.node;
-        if (frameNode.addEventListener) {
-            frameNode.addEventListener("mousewheel", mouseWheelHandler, false);
-            frameNode.addEventListener("DOMMouseScroll", mouseWheelHandler, false);
-        } else {
-            frameNode.attachEvent("onmousewheel", mouseWheelHandler);
-        }
+
+        svg.node.addEventListener('wheel', mouseWheelHandler, supportsPassive ? {
+            passive: false
+        } : false);
 
         fig.viewport.drag();
     };
@@ -363,10 +374,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-548b0c02df6b4074952adc0ad907eda2");
+        ProfileSVG.initialize("fig-1a6cff3250ae4c0dad2d15eb9c94d880");
     });
 } else {
-    ProfileSVG.initialize("fig-548b0c02df6b4074952adc0ad907eda2");
+    ProfileSVG.initialize("fig-1a6cff3250ae4c0dad2d15eb9c94d880");
 }
 ]]></script>
 </svg>
@@ -374,47 +385,47 @@ if (typeof require === 'function' && define.amd) {
 ProfileSVG.view(StackFrameCategory())</code></pre><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310"
-     xmlns="http://www.w3.org/2000/svg" id="fig-0980fffde3aa41d79022c6dada2d6469">
+     xmlns="http://www.w3.org/2000/svg" id="fig-dfd67daf30594023bb12785b52eff87d">
 <defs>
-    <linearGradient id="fig-0980fffde3aa41d79022c6dada2d6469-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-dfd67daf30594023bb12785b52eff87d-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-0980fffde3aa41d79022c6dada2d6469-image-frame">
-      <rect id="fig-0980fffde3aa41d79022c6dada2d6469-clip-rect" x="0" y="0" width="1000" height="310" />
+    <clipPath id="fig-dfd67daf30594023bb12785b52eff87d-image-frame">
+      <rect id="fig-dfd67daf30594023bb12785b52eff87d-clip-rect" x="0" y="0" width="1000" height="310" />
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-0980fffde3aa41d79022c6dada2d6469 text {
+    #fig-dfd67daf30594023bb12785b52eff87d text {
         font-family: Verdana;
         font-size: 12px;
         fill: #000000;
     }
-    #fig-0980fffde3aa41d79022c6dada2d6469 text.pvbackground {
+    #fig-dfd67daf30594023bb12785b52eff87d text.pvbackground {
         font-size: 17px;
         text-anchor: middle;
     }
-    #fig-0980fffde3aa41d79022c6dada2d6469-viewport rect {
+    #fig-dfd67daf30594023bb12785b52eff87d-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-0980fffde3aa41d79022c6dada2d6469-viewport text {
+    #fig-dfd67daf30594023bb12785b52eff87d-viewport text {
     }
-    #fig-0980fffde3aa41d79022c6dada2d6469-viewport rect:hover {
+    #fig-dfd67daf30594023bb12785b52eff87d-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
-    #fig-0980fffde3aa41d79022c6dada2d6469-viewport text:hover {
+    #fig-dfd67daf30594023bb12785b52eff87d-viewport text:hover {
         stroke: #000000;
         stroke-width: 1;
         stroke-opacity: 0.35;
     }
 </style>
-<g id="fig-0980fffde3aa41d79022c6dada2d6469-frame" clip-path="url(#fig-0980fffde3aa41d79022c6dada2d6469-image-frame)">
-<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-0980fffde3aa41d79022c6dada2d6469-background)" />
+<g id="fig-dfd67daf30594023bb12785b52eff87d-frame" clip-path="url(#fig-dfd67daf30594023bb12785b52eff87d-image-frame)">
+<rect class="pvbackground" x="0" y="0" width="1000" height="310" fill="url(#fig-dfd67daf30594023bb12785b52eff87d-background)" />
 <text class="pvbackground" x="600" y="24">Profile results</text>
 <text x="10" y="293">Function:</text>
-<text x="70" y="293" id="fig-0980fffde3aa41d79022c6dada2d6469-details"> </text>
-<g id="fig-0980fffde3aa41d79022c6dada2d6469-viewport" transform="scale(1)">
+<text x="70" y="293" id="fig-dfd67daf30594023bb12785b52eff87d-details"> </text>
+<g id="fig-dfd67daf30594023bb12785b52eff87d-viewport" transform="scale(1)">
 <rect x="10" y="255" width="980" height="15" fill="#FFA500" rx="2" ry="2" data-shortinfo=" in :-1" data-info=" in :-1"/>
 <text x="10" dx="4" y="266.5"></text>
 <rect x="10" y="240" width="980" height="15" fill="#4D4D4D" rx="2" ry="2" data-shortinfo="eval in .\boot.jl:331" data-info="eval in .\boot.jl:331"/>
@@ -537,6 +548,37 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     }
 }(this, function (Snap) {
     'use strict';
+
+    var supportsPassive = false;
+    try {
+        var opts = Object.defineProperty({}, 'passive', {
+            get: function () {
+                supportsPassive = true;
+            }
+        });
+        window.addEventListener("testPassive", null, opts);
+        window.removeEventListener("testPassive", null, opts);
+    } catch (e) { // not supported
+    }
+
+    var stopper = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
+    var throttle = function (delay, filter, callback) {
+        var previousCall = new Date().getTime();
+        return function (e) {
+            var time = new Date().getTime();
+            if ((time - previousCall) >= delay) {
+                previousCall = time;
+                callback.apply(null, arguments);
+            }
+            filter(e);
+        };
+    };
+
+
     var ProfileSVG = {};
 
     var AVERAGE_CHAR_WIDTH = 6;
@@ -639,8 +681,6 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     ProfileSVG.initialize = function (figId) {
 
         var svg = Snap.select('#' + figId);
-        var pt = svg.node.createSVGPoint();
-
         var fig = {};
 
         fig.viewport = svg.select('#' + figId + '-viewport');
@@ -690,39 +730,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             });
         });
 
-        var throttle = function (delay, callback) {
-            var previousCall = new Date().getTime();
-            return function () {
-                var time = new Date().getTime();
-
-                if ((time - previousCall) >= delay) {
-                    previousCall = time;
-                    callback.apply(null, arguments);
-                } else {
-                    arguments[0].preventDefault();
-                }
-            };
-        };
-
-        var mouseWheelHandler = throttle(400, function (e) {
-            e.preventDefault();
-            var ev = window.event || e;
-            var delta = Math.max(-1, Math.min(1, (ev.wheelDelta || -ev.detail)));
-            pt.x = ev.clientX;
-            pt.y = ev.clientY;
-
+        var mouseWheelHandler = throttle(400, stopper, function (e) {
+            var delta = Math.max(-1, Math.min(1, e.deltaY));
+            var pt = svg.node.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            // Since the implementation of getScreenCTM() varies by browser and
+            // version, it often doesn't work as expected.
             pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
-            var targetScale = fig.scale + 0.2 * delta;
+            var targetScale = fig.scale - 0.2 * delta; // FIXME: prevent the negative scale
             ProfileSVG.moveAndZoom(fig.shift, pt.x, targetScale, fig, 400);
-            return false;
         });
-        var frameNode = fig.frame.node;
-        if (frameNode.addEventListener) {
-            frameNode.addEventListener("mousewheel", mouseWheelHandler, false);
-            frameNode.addEventListener("DOMMouseScroll", mouseWheelHandler, false);
-        } else {
-            frameNode.attachEvent("onmousewheel", mouseWheelHandler);
-        }
+
+        svg.node.addEventListener('wheel', mouseWheelHandler, supportsPassive ? {
+            passive: false
+        } : false);
 
         fig.viewport.drag();
     };
@@ -734,11 +756,11 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-0980fffde3aa41d79022c6dada2d6469");
+        ProfileSVG.initialize("fig-dfd67daf30594023bb12785b52eff87d");
     });
 } else {
-    ProfileSVG.initialize("fig-0980fffde3aa41d79022c6dada2d6469");
+    ProfileSVG.initialize("fig-dfd67daf30594023bb12785b52eff87d");
 }
 ]]></script>
 </svg>
-<p>In the default <code>StackFrameCategory</code> scheme, &quot;gray&quot; indicates time spent in <code>Core.Compiler</code> (mostly inference), &quot;dark gray&quot; in other <code>Core</code>, &quot;yellow&quot; in LLVM, &quot;orange&quot; in other <code>ccalls</code>, &quot;light blue&quot; in <code>Base</code>, and &quot;red&quot; is uncategorized (mostly package code).</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The <code>colorbg</code> and <code>colorfont</code> options of <code>FlameGraphs.FlameColors</code> and <code>FlameGraphs.StackFrameCategory</code> are currently not supported and ignored.</p></div></div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 07:52">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+<p>In the default <code>StackFrameCategory</code> scheme, &quot;gray&quot; indicates time spent in <code>Core.Compiler</code> (mostly inference), &quot;dark gray&quot; in other <code>Core</code>, &quot;yellow&quot; in LLVM, &quot;orange&quot; in other <code>ccalls</code>, &quot;light blue&quot; in <code>Base</code>, and &quot;red&quot; is uncategorized (mostly package code).</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The <code>colorbg</code> and <code>colorfont</code> options of <code>FlameGraphs.FlameColors</code> and <code>FlameGraphs.StackFrameCategory</code> are currently not supported and ignored.</p></div></div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 5 May 2020 08:28">Tuesday 5 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
