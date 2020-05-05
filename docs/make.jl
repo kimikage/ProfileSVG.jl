@@ -3,10 +3,13 @@ using Documenter, ProfileSVG
 makedocs(
     clean = false,
     modules=[ProfileSVG],
-    format=Documenter.HTML(prettyurls = get(ENV, "CI", nothing) == "true"),
+    format=Documenter.HTML(prettyurls = get(ENV, "CI", nothing) == "true",
+                           assets = ["assets/profilesvg.css"]),
     sitename="ProfileSVG",
     pages=[
-        "Home" => "index.md",
+        "Introduction" => "index.md",
+        "Coloration Schemes" => "coloration-schemes.md",
+        "Reference" => "reference.md",
     ]
 )
 
