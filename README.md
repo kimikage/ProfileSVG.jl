@@ -1,11 +1,7 @@
 # ProfileSVG
 
-[![Build Status](https://travis-ci.com/timholy/ProfileSVG.jl.svg?branch=master)](https://travis-ci.com/timholy/ProfileSVG.jl)
-[![Codecov](https://codecov.io/gh/timholy/ProfileSVG.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/timholy/ProfileSVG.jl)
-
-## ProfileSVG needs a competent maintainer!
-
-ProfileSVG is looking for a maintainer who actually knows something about SVG and Javascript (unlike the current maintainer). Volunteers should file an issue.
+[![Build Status](https://travis-ci.com/kimikage/ProfileSVG.jl.svg?branch=master)](https://travis-ci.com/kimikage/ProfileSVG.jl)
+[![Codecov](https://codecov.io/gh/kimikage/ProfileSVG.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/kimikage/ProfileSVG.jl)
 
 ## Purpose
 
