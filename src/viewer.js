@@ -44,6 +44,8 @@
     var AVERAGE_CHAR_WIDTH = 6;
     var DEFAULT_TRANSITION_TIME = 300;
     var VIEWPORT_SCALE = 0.9;
+    var VIEWPORT_MARGIN_X = 20;
+    var ROUNDRECT_R = 2;
 
     var formatText = function (text, availableWidth) {
         if (availableWidth < 3 * AVERAGE_CHAR_WIDTH) {
@@ -62,25 +64,19 @@
             .replace(/&amp;/g, '&');
     };
 
-    // Shift the view port to center on xc, then scale in the x direction
-    ProfileSVG.moveAndZoom = function (xc, xs, xScale, fig, deltaT) {
+    ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, scaleOriginX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
         }
-        if (typeof xs === 'undefined') {
-            xs = xc;
+        if (typeof scaleOriginX === 'undefined') {
+            scaleOriginX = targetFocusX;
         }
 
-        var oldScale = fig.scale;
-        var oldShift = fig.shift;
+        var oldFocusX = fig.focusX;
+        var oldScaleX = fig.scaleX;
 
-        fig.scale = xScale;
-        fig.shift = xc;
-
-        xScale *= VIEWPORT_SCALE;
-
-        var oldXShift = -(oldShift - 0.5 * fig.clipWidth);
-        var xShift = -(xc - 0.5 * fig.clipWidth);
+        fig.focusX = targetFocusX;
+        fig.scaleX = targetScaleX;
 
         var rects = fig.viewport.selectAll('rect');
 
@@ -91,31 +87,30 @@
                 });
             });
             Snap.animate(0, 1, function (step) {
-
-                var scale = oldScale + (xScale - oldScale) * step;
+                var focusX = oldFocusX + (targetFocusX - oldFocusX) * step;
+                var scaleX = oldScaleX + (targetScaleX - oldScaleX) * step;
                 var rMatrix = new Snap.Matrix;
-                rMatrix.translate(oldXShift + (xShift - oldXShift) * step, 0);
-                rMatrix.scale(scale, 1, xs, fig.clipMiddle);
-                fig.viewport.attr({
-                    transform: rMatrix
-                });
+                rMatrix.translate(fig.cx - focusX, 0);
+                rMatrix.scale(scaleX, 1, scaleOriginX, fig.cy); // FIXME
+                fig.viewport.transform(rMatrix);
                 rects.forEach(function (rect) {
                     rect.attr({
-                        rx: 2 / scale,
-                        ry: 2 / scale
+                        rx: ROUNDRECT_R / scaleX,
+                        ry: ROUNDRECT_R
                     });
                 });
 
             }, deltaT, null, function () {
                 rects.forEach(function (rect) {
+                    var scaleX = targetScaleX;
                     var bbox = rect.getBBox();
                     var text = Snap(rect.node.nextElementSibling);
                     var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                     var tMatrix = new Snap.Matrix;
-                    tMatrix.scale(1.0 / xScale, 1, bbox.x, bbox.y);
+                    tMatrix.scale(1.0 / scaleX, 1, bbox.x, bbox.y);
 
-                    text.node.textContent = formatText(shortinfo, bbox.w * xScale);
+                    text.node.textContent = formatText(shortinfo, bbox.w * scaleX);
                     text.transform(tMatrix);
                     text.attr({
                         display: 'inherit'
@@ -123,24 +118,25 @@
                 });
             });
         } else {
+            var focusX = targetFocusX;
+            var scaleX = targetScaleX;
             var rMatrix = new Snap.Matrix;
-            rMatrix.translate(xShift, 0);
-            rMatrix.scale(xScale, 1, xs, fig.clipMiddle);
-
+            rMatrix.translate(fig.cx - focusX, 0);
+            rMatrix.scale(scaleX, 1, scaleOriginX, fig.cy);
             fig.viewport.transform(rMatrix);
             rects.forEach(function (rect) {
                 rect.attr({
-                    rx: 2 / xScale,
-                    ry: 2 / xScale
+                    rx: ROUNDRECT_R / scaleX,
+                    ry: ROUNDRECT_R
                 });
                 var bbox = rect.getBBox();
                 var text = Snap(rect.node.nextElementSibling);
                 var shortinfo = rect.node.getAttribute("data-shortinfo");
 
                 var tMatrix = new Snap.Matrix;
-                tMatrix.scale(1.0 / xScale, 1, bbox.x, bbox.y);
+                tMatrix.scale(1.0 / scaleX, 1, bbox.x, bbox.y);
 
-                text.node.textContent = formatText(shortinfo, bbox.w * xScale);
+                text.node.textContent = formatText(shortinfo, bbox.w * scaleX);
                 text.transform(tMatrix);
                 text.attr({
                     display: 'inherit'
@@ -151,7 +147,9 @@
     };
 
     ProfileSVG.reset = function (fig) {
-        ProfileSVG.moveAndZoom(fig.viewportCx, fig.viewportCx, VIEWPORT_SCALE, fig);
+        var w = fig.width - VIEWPORT_MARGIN_X;
+        var targetScaleX = fig.width / w * VIEWPORT_SCALE;
+        ProfileSVG.moveAndZoom(fig.cx, targetScaleX, fig.cx, fig);
     };
 
     ProfileSVG.initialize = function (figId) {
@@ -160,22 +158,27 @@
         var fig = {};
         fig.id = figId;
 
+        var bg = svg.select('#' + figId + '-bg');
+        var bbox = bg.getBBox();
+        fig.width = bbox.width;
+        fig.height = bbox.height;
+        fig.cx = fig.width / 2;
+        fig.cy = fig.height / 2;
+
         fig.viewport = svg.select('#' + figId + '-viewport');
-        fig.viewportCx = fig.viewport.getBBox().cx;
 
-        var clip = svg.select('#' + figId + '-clip-rect');
-        fig.clipWidth = clip.getBBox().w;
-        fig.clipMiddle = clip.getBBox().cy;
-
-        fig.scale = 1.0;
-        fig.shift = fig.viewportCx;
+        fig.scaleX = 1.0;
+        fig.scaleY = 1.0; // prepare for the future
+        fig.focusX = fig.cx; // center x in the raw (scaleX=1) coordinate space
+        fig.focusY = fig.cy; // center y in the raw (scaleY=1) coordinate space
 
         ProfileSVG.reset(fig);
 
         var rectDblClickHandler = function (e) {
             var bbox = e.target.getBBox();
             var cx = bbox.x + bbox.width / 2;
-            ProfileSVG.moveAndZoom(cx, cx, fig.clipWidth / bbox.width, fig);
+            var targetScaleX = fig.width / bbox.width * VIEWPORT_SCALE;
+            ProfileSVG.moveAndZoom(cx, targetScaleX, cx, fig);
         };
 
         var rectMouseOverHandler = function (e) {
@@ -210,10 +213,8 @@
             rect.addEventListener('mouseout', rectMouseOutHandler, false);
         });
 
-        svg.selectAll('.pvbackground').forEach(function (bg) {
-            bg.dblclick(function () {
-                ProfileSVG.reset(fig);
-            });
+        bg.dblclick(function () {
+            ProfileSVG.reset(fig);
         });
 
         var mouseWheelHandler = throttle(400, stopper, function (e) {
@@ -224,8 +225,8 @@
             // Since the implementation of getScreenCTM() varies by browser and
             // version, it often doesn't work as expected.
             pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
-            var targetScale = fig.scale - 0.2 * delta; // FIXME: prevent the negative scale
-            ProfileSVG.moveAndZoom(fig.shift, pt.x, targetScale, fig, 400);
+            var targetScaleX = fig.scaleX - 0.2 * delta; // FIXME: prevent the negative scale
+            ProfileSVG.moveAndZoom(fig.focusX, targetScaleX, pt.x, fig, 400);
         });
 
         svg.node.addEventListener('wheel', mouseWheelHandler, supportsPassive ? {

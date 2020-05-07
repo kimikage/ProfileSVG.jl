@@ -32,6 +32,7 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
     caption_size = 17 # FIXME
     y_msg = height - caption_size
     fontcolorhex = "#000000" # FIXME
+    bg_fill = """url(#$fig_id-background)"""
     print(io,
         """
         <svg version="1.1" width="$width" height="$height" viewBox="0 0 $width $height"
@@ -41,25 +42,28 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
                 <stop stop-color="#eeeeee" offset="5%" />
                 <stop stop-color="#eeeeb0" offset="95%" />
             </linearGradient>
-            <clipPath id="$fig_id-image-frame">
-              <rect id="$fig_id-clip-rect" x="0" y="0" width="$width" height="$height" />
+            <clipPath id="$fig_id-clip">
+                <rect x="0" y="0" width="$width" height="$height"/>
             </clipPath>
         </defs>
         <style type="text/css">
             #$fig_id text {
+                pointer-events: none;
                 font-family: $font;
                 font-size: $(fontsize)px;
                 fill: $fontcolorhex;
             }
-            #$fig_id text.pvbackground {
+            text#$fig_id-caption {
                 font-size: $(caption_size)px;
                 text-anchor: middle;
+            }
+            #$fig_id-bg {
+                fill: $bg_fill;
             }
             #$fig_id-viewport rect {
                 vector-effect: non-scaling-stroke;
             }
             #$fig_id-viewport text {
-                pointer-events: none;
                 stroke: $fontcolorhex;
                 stroke-width: 0;
                 stroke-opacity: 0.35;
@@ -69,9 +73,9 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
                 stroke-width: 1;
             }
         </style>
-        <g id="$fig_id-frame" clip-path="url(#$fig_id-image-frame)">
-        <rect class="pvbackground" x="0" y="0" width="$width" height="$height" fill="url(#$fig_id-background)" />
-        <text class="pvbackground" x="600" y="24">Profile results</text>
+        <g id="$fig_id-frame" clip-path="url(#$fig_id-clip)">
+        <rect id="$fig_id-bg" x="0" y="0" width="$width" height="$height"/>
+        <text id="$fig_id-caption" x="600" y="24">Profile results</text>
         <text x="10" y="$y_msg">Function:</text>
         <text x="70" y="$y_msg" id="$fig_id-details"> </text>
         <g id="$fig_id-viewport" transform="scale(1)">
@@ -86,8 +90,8 @@ function write_svgflamerect(io::IO, xstart, ystart, w, h, shortinfo, dirinfo, co
     height = simplify(h)
     sinfo = escape_html(shortinfo)
     dinfo = escape_html(dirinfo)
-    println(io, """<rect x="$x" y="$y" width="$width" height="$height" fill="#$(hex(color))" """,
-                """rx="2" ry="2" data-dinfo="$dinfo"/>""")
+    println(io, """<rect x="$x" y="$y" width="$width" height="$height" """,
+                """fill="#$(hex(color))" rx="2" data-dinfo="$dinfo"/>""")
     println(io, """<text x="$x" dx="4" y="$yt">$sinfo</text>""")
 end
 
