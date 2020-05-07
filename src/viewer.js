@@ -43,7 +43,10 @@
 
     var AVERAGE_CHAR_WIDTH = 6;
     var DEFAULT_TRANSITION_TIME = 300;
+    var ZOOM_STEP = 1.4;
     var VIEWPORT_SCALE = 0.9;
+    var VIEWPORT_MARGIN_X = 20;
+    var ROUNDRECT_R = 2;
 
     var formatText = function (text, availableWidth) {
         if (availableWidth < 3 * AVERAGE_CHAR_WIDTH) {
@@ -62,96 +65,87 @@
             .replace(/&amp;/g, '&');
     };
 
-    // Shift the view port to center on xc, then scale in the x direction
-    ProfileSVG.moveAndZoom = function (xc, xs, xScale, fig, deltaT) {
+    ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
         }
-        if (typeof xs === 'undefined') {
-            xs = xc;
-        }
 
-        var oldScale = fig.scale;
-        var oldShift = fig.shift;
+        var targetFocusY = fig.cy;
+        var targetScaleY = 1;
 
-        fig.scale = xScale;
-        fig.shift = xc;
+        // TODO: dynamically update the transformation while dragging
+        var mat = fig.viewport.node.transform.baseVal.consolidate().matrix;
 
-        xScale *= VIEWPORT_SCALE;
+        var oldScaleX = mat.a;
+        var oldScaleY = mat.d;
+        var oldE = mat.e;
+        var oldF = mat.f;
 
-        var oldXShift = -(oldShift - 0.5 * fig.clipWidth);
-        var xShift = -(xc - 0.5 * fig.clipWidth);
+        var targetE = fig.cx - targetScaleX * targetFocusX;
+        var targetF = fig.cy - targetScaleY * targetFocusY;
+
+        fig.focusX = targetFocusX;
+        fig.focusY = targetFocusY;
+        fig.scaleX = targetScaleX;
+        fig.scaleY = targetScaleY;
 
         var rects = fig.viewport.selectAll('rect');
 
+        var scaleViewport = function (step) {
+            var scaleX = oldScaleX + (targetScaleX - oldScaleX) * step;
+            var scaleY = oldScaleY + (targetScaleY - oldScaleY) * step;
+
+            var rMatrix = fig.viewport.node.transform.baseVal.consolidate().matrix;
+            rMatrix.a = scaleX;
+            rMatrix.d = scaleY;
+            rMatrix.e = oldE + (targetE - oldE) * step; // TransX
+            rMatrix.f = oldF + (targetF - oldF) * step; // TransY
+
+            rects.forEach(function (r) {
+                var rect = r.node;
+                rect.setAttribute('rx', Math.max(0.0, ROUNDRECT_R / scaleX));
+                rect.setAttribute('ry', Math.max(0.0, ROUNDRECT_R / scaleY));
+            });
+        };
+
+        var finish = function () {
+            scaleViewport(1);
+            var scaleXt = 1.0 / targetScaleX;
+            var scaleYt = 1.0 / targetScaleY;
+            rects.forEach(function (r) {
+                var rect = r.node;
+                var rectx = rect.x.baseVal.value;
+                var recty = rect.y.baseVal.value;
+                var rectw = rect.width.baseVal.value;
+                var text = rect.nextElementSibling;
+                var shortinfo = rect.getAttribute("data-shortinfo");
+
+                var tMatrix = text.transform.baseVal.getItem(0).matrix;
+                tMatrix.a = scaleXt;
+                tMatrix.d = scaleYt;
+                tMatrix.e = (1.0 - scaleXt) * rectx;
+                tMatrix.f = (1.0 - scaleYt) * recty;
+
+                text.textContent = formatText(shortinfo, rectw / scaleXt);
+                text.style.display = 'inherit';
+            });
+        };
+
         if (deltaT != 0) {
             fig.viewport.selectAll('text').forEach(function (text) {
-                text.attr({
-                    display: 'none'
-                });
+                text.node.style.display = 'none';
             });
-            Snap.animate(0, 1, function (step) {
-
-                var scale = oldScale + (xScale - oldScale) * step;
-                var rMatrix = new Snap.Matrix;
-                rMatrix.translate(oldXShift + (xShift - oldXShift) * step, 0);
-                rMatrix.scale(scale, 1, xs, fig.clipMiddle);
-                fig.viewport.attr({
-                    transform: rMatrix
-                });
-                rects.forEach(function (rect) {
-                    rect.attr({
-                        rx: 2 / scale,
-                        ry: 2 / scale
-                    });
-                });
-
-            }, deltaT, null, function () {
-                rects.forEach(function (rect) {
-                    var bbox = rect.getBBox();
-                    var text = Snap(rect.node.nextElementSibling);
-                    var shortinfo = rect.node.getAttribute("data-shortinfo");
-
-                    var tMatrix = new Snap.Matrix;
-                    tMatrix.scale(1.0 / xScale, 1, bbox.x, bbox.y);
-
-                    text.node.textContent = formatText(shortinfo, bbox.w * xScale);
-                    text.transform(tMatrix);
-                    text.attr({
-                        display: 'inherit'
-                    });
-                });
-            });
+            Snap.animate(0, 1, scaleViewport, deltaT, null, finish);
         } else {
-            var rMatrix = new Snap.Matrix;
-            rMatrix.translate(xShift, 0);
-            rMatrix.scale(xScale, 1, xs, fig.clipMiddle);
-
-            fig.viewport.transform(rMatrix);
-            rects.forEach(function (rect) {
-                rect.attr({
-                    rx: 2 / xScale,
-                    ry: 2 / xScale
-                });
-                var bbox = rect.getBBox();
-                var text = Snap(rect.node.nextElementSibling);
-                var shortinfo = rect.node.getAttribute("data-shortinfo");
-
-                var tMatrix = new Snap.Matrix;
-                tMatrix.scale(1.0 / xScale, 1, bbox.x, bbox.y);
-
-                text.node.textContent = formatText(shortinfo, bbox.w * xScale);
-                text.transform(tMatrix);
-                text.attr({
-                    display: 'inherit'
-                });
-            });
+            finish();
         }
 
     };
 
     ProfileSVG.reset = function (fig) {
-        ProfileSVG.moveAndZoom(fig.viewportCx, fig.viewportCx, VIEWPORT_SCALE, fig);
+        var w = fig.width - VIEWPORT_MARGIN_X;
+        var targetScaleX = fig.width / w * VIEWPORT_SCALE;
+        ProfileSVG.moveAndZoom(fig.cx, targetScaleX, fig);
     };
 
     ProfileSVG.initialize = function (figId) {
@@ -160,22 +154,27 @@
         var fig = {};
         fig.id = figId;
 
+        var bg = svg.select('#' + figId + '-bg');
+        var bbox = bg.getBBox();
+        fig.width = bbox.width;
+        fig.height = bbox.height;
+        fig.cx = fig.width / 2;
+        fig.cy = fig.height / 2;
+
         fig.viewport = svg.select('#' + figId + '-viewport');
-        fig.viewportCx = fig.viewport.getBBox().cx;
 
-        var clip = svg.select('#' + figId + '-clip-rect');
-        fig.clipWidth = clip.getBBox().w;
-        fig.clipMiddle = clip.getBBox().cy;
-
-        fig.scale = 1.0;
-        fig.shift = fig.viewportCx;
+        fig.scaleX = 1.0;
+        fig.scaleY = 1.0; // prepare for the future
+        fig.focusX = fig.cx; // center x in the raw (scaleX=1) coordinate space
+        fig.focusY = fig.cy; // center y in the raw (scaleY=1) coordinate space
 
         ProfileSVG.reset(fig);
 
         var rectDblClickHandler = function (e) {
             var bbox = e.target.getBBox();
             var cx = bbox.x + bbox.width / 2;
-            ProfileSVG.moveAndZoom(cx, cx, fig.clipWidth / bbox.width, fig);
+            var targetScaleX = fig.width / bbox.width * VIEWPORT_SCALE;
+            ProfileSVG.moveAndZoom(cx, targetScaleX, fig);
         };
 
         var rectMouseOverHandler = function (e) {
@@ -208,24 +207,31 @@
             rect.addEventListener('dblclick', rectDblClickHandler, false);
             rect.addEventListener('mouseover', rectMouseOverHandler, false);
             rect.addEventListener('mouseout', rectMouseOutHandler, false);
+            var transform = svg.node.createSVGTransform();
+            text.transform.baseVal.initialize(transform); // matrix(1, 0, 0, 1, 0, 0)
         });
 
-        svg.selectAll('.pvbackground').forEach(function (bg) {
-            bg.dblclick(function () {
-                ProfileSVG.reset(fig);
-            });
+        bg.dblclick(function () {
+            ProfileSVG.reset(fig);
         });
 
         var mouseWheelHandler = throttle(400, stopper, function (e) {
-            var delta = Math.max(-1, Math.min(1, e.deltaY));
-            var pt = svg.node.createSVGPoint();
-            pt.x = e.clientX;
-            pt.y = e.clientY;
-            // Since the implementation of getScreenCTM() varies by browser and
-            // version, it often doesn't work as expected.
-            pt.matrixTransform(fig.viewport.node.getScreenCTM().inverse());
-            var targetScale = fig.scale - 0.2 * delta; // FIXME: prevent the negative scale
-            ProfileSVG.moveAndZoom(fig.shift, pt.x, targetScale, fig, 400);
+            var delta = Math.round(e.deltaY * 100);
+            if (delta == 0) {
+                return;
+            }
+            var scale = delta < 0 ? ZOOM_STEP : 1 / ZOOM_STEP;
+
+            var clientRect = svg.node.getBoundingClientRect();
+            var mx = e.clientX - clientRect.left;
+            //var my = e.clientY - clientRect.top;
+            var ctm = svg.node.getCTM();
+            var x = ctm ? (mx - ctm.e) / ctm.a : mx;
+            //var y = ctm ? (my - ctm.f) / ctm.d : my;
+            var px = (x - fig.cx) / fig.scaleX + fig.focusX;
+            var targetScaleX = Math.max(fig.scaleX * scale, 0.01);
+            var targetFocusX = fig.scaleX / targetScaleX * (fig.focusX - px) + px;
+            ProfileSVG.moveAndZoom(targetFocusX, targetScaleX, fig, 400);
         });
 
         svg.node.addEventListener('wheel', mouseWheelHandler, supportsPassive ? {
