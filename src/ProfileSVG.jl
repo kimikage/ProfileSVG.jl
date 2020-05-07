@@ -84,43 +84,25 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     height = ceil(rowheight*nrows + botmargin + topmargin)
     xstep = (width - (leftmargin + rightmargin)) / ncols
     ystep = (height - (topmargin + botmargin)) / nrows
-    avgcharwidth = 6  # for Verdana 12 pt font
-
-    function printrec(io::IO, samples, xstart, xend, y, sf::StackFrame, rgb, fontsize)
-        width = xend - xstart
-        info = "$(sf.func) in $(sf.file):$(sf.line)"
-        shortinfo = "$(sf.func) in $(basename(string(sf.file))):$(sf.line)"
-        info = eschtml(info)
-        shortinfo = eschtml(shortinfo)
-        #if avgcharwidth*3 > width
-        #    shortinfo = ""
-        #elseif length(shortinfo) * avgcharwidth > width
-        #    nchars = int(width/avgcharwidth)-2
-        #    shortinfo = eschtml(info[1:nchars] * "..")
-        #end
-        r = round(Integer, 255*red(rgb))
-        g = round(Integer, 255*green(rgb))
-        b = round(Integer, 255*blue(rgb))
-        print(io, """<rect vector-effect="non-scaling-stroke" x="$xstart" y="$y" width="$width" height="$ystep" fill="rgb($r,$g,$b)" rx="2" ry="2" data-shortinfo="$shortinfo" data-info="$info"/>\n""")
-        #if shortinfo != ""
-        println(io, """\n<text text-anchor="" x="$(xstart+4)" y="$(y+11.5)" font-size="$fontsize" font-family="Verdana" fill="rgb(0,0,0)" ></text>""")
-        # end
-    end
-
-    function eschtml(str)
-        s = replace(str, '<' => "&lt;")
-        s = replace(s, '>' => "&gt;")
-        s = replace(s, '&' => "&amp;")
-        s
-    end
 
     function flamerects(fcolor, io::IO, g, j, nextidx)
         ndata = g.data
+        sf = ndata.sf
         thiscolor = fcolor(nextidx, j, ndata)
+        x = (first(ndata.span)-1) * xstep + leftmargin
         y = height - j*ystep - botmargin
-        xstart = (first(ndata.span)-1) * xstep + leftmargin
-        xend   = ( last(ndata.span)-1) * xstep + leftmargin
-        printrec(io, length(ndata.span), xstart, xend, y, ndata.sf, thiscolor, fontsize)
+        w = length(ndata.span) * xstep
+        file = string(sf.file)
+        m = match(r"[^\\/]+$", file)
+        if m !== nothing
+            dirinfo = SubString(file, firstindex(file), m.offset - 1)
+            basename = m.match
+        else
+            dirinfo = ""
+            basename = file
+        end
+        shortinfo = "$(sf.func) in $basename:$(sf.line)"
+        write_svgflamerect(io, x, y, w, ystep, shortinfo, dirinfo, thiscolor)
 
         for c in g
             flamerects(fcolor, io, c, j+1, nextidx)
@@ -129,12 +111,15 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     end
 
     fig_id = string("fig-", replace(string(uuid4()), "-" => ""))
-    svgheader(io, fig_id, width=width, height=height)
+
+    write_svgdeclaration(io)
+
+    write_svgheader(io, fig_id, width, height, "Verdana", fontsize)
 
     nextidx = fill(1, nrows)
     flamerects(fcolor, io, g, 1, nextidx)
 
-    svgfinish(io, fig_id)
+    write_svgfooter(io, fig_id)
 end
 
 end # module
