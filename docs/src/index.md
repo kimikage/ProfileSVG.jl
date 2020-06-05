@@ -41,6 +41,7 @@ end
 profile_test(1)   # run once to compile
 
 using Profile, ProfileSVG
+ProfileSVG.init() # hide
 
 @profview profile_test(10)
 nothing # hide
