@@ -9,6 +9,7 @@ makedocs(
     pages=[
         "Introduction" => "index.md",
         "Coloration Schemes" => "coloration-schemes.md",
+        "Other Options" => "other-options.md",
         "Reference" => "reference.md",
     ]
 )

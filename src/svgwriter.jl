@@ -29,7 +29,10 @@ function write_svgdeclaration(io::IO)
 end
 
 function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
-    caption_size = 17 # FIXME
+    caption_size = simplify(fontsize * 1.4)
+    x_cap = simplify(width * 0.5)
+    y_cap = simplify(fontsize * 2)
+    x_msg = simplify(fontsize * 0.8)
     y_msg = height - caption_size
     fontcolorhex = "#000000" # FIXME
     bg_fill = """url(#$fig_id-background)"""
@@ -75,9 +78,7 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
         </style>
         <g id="$fig_id-frame" clip-path="url(#$fig_id-clip)">
         <rect id="$fig_id-bg" x="0" y="0" width="$width" height="$height"/>
-        <text id="$fig_id-caption" x="600" y="24">Profile results</text>
-        <text x="10" y="$y_msg">Function:</text>
-        <text x="70" y="$y_msg" id="$fig_id-details"> </text>
+        <text id="$fig_id-caption" x="$x_cap" y="$y_cap">Profile results</text>
         <g id="$fig_id-viewport" transform="scale(1)">
         """)
 end
@@ -85,7 +86,7 @@ end
 function write_svgflamerect(io::IO, xstart, ystart, w, h, shortinfo, dirinfo, color)
     x = simplify(xstart)
     y = simplify(ystart)
-    yt = simplify(y + 11.5) # FIXME
+    yt = simplify(y + h * 0.75)
     width = simplify(w)
     height = simplify(h)
     sinfo = escape_html(shortinfo)

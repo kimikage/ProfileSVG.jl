@@ -1,3 +1,4 @@
+using FlameGraphs
 using Base.StackTraces: StackFrame
 
 function stackframe(func, file, line; C=false, inlined=false)
@@ -81,3 +82,5 @@ lidict = Dict{UInt64,StackFrame}(
     41 => stackframe(:similar, ".\\array.jl", 361),
     98 => stackframe(:jl_apply_generic, "gf.c", 2318, C=true),
     99 => stackframe(:jl_gc_collect, "gc.c", 3105, C=true))
+
+g = flamegraph(backtraces, lidict=lidict)

@@ -41,21 +41,29 @@
 
     var ProfileSVG = {};
 
-    var AVERAGE_CHAR_WIDTH = 6;
+    var NS_SVG = 'http://www.w3.org/2000/svg';
     var DEFAULT_TRANSITION_TIME = 300;
     var ZOOM_STEP = 1.4;
     var VIEWPORT_SCALE = 0.9;
     var VIEWPORT_MARGIN_X = 20;
     var ROUNDRECT_R = 2;
 
-    var formatText = function (text, availableWidth) {
-        if (availableWidth < 3 * AVERAGE_CHAR_WIDTH) {
-            return "";
-        } else if (text.length * AVERAGE_CHAR_WIDTH > availableWidth) {
-            var nchars = Math.round(availableWidth / AVERAGE_CHAR_WIDTH) - 2;
-            return text.slice(0, nchars) + "..";
+    var formatText = function (fig, text, availableWidth) {
+        if (availableWidth < 3 * fig.charWidthM) {
+            return '';
         }
-        return text;
+        var w = availableWidth;
+        var m = fig.charWidthM;
+        var n = fig.charWidthN;
+        var m2 = m * m;
+        var n2 = n * n;
+        var nc = 0.5 / n2 * (
+            (n - m) * Math.sqrt(n2 + (4 * w - 2 * m) * n + m2) + n2 + 2 * (w - m) * n + m2);
+        var nchars = Math.ceil(nc);
+        if (text.length <= nchars) {
+            return text;
+        }
+        return text.slice(0, nchars - 2) + '..';
     };
 
     var unescapeHtml = function (str) {
@@ -126,7 +134,7 @@
                 tMatrix.e = (1.0 - scaleXt) * rectx;
                 tMatrix.f = (1.0 - scaleYt) * recty;
 
-                text.textContent = formatText(shortinfo, rectw / scaleXt);
+                text.textContent = formatText(fig, shortinfo, rectw / scaleXt);
                 text.style.display = 'inherit';
             });
         };
@@ -168,6 +176,33 @@
         fig.focusX = fig.cx; // center x in the raw (scaleX=1) coordinate space
         fig.focusY = fig.cy; // center y in the raw (scaleY=1) coordinate space
 
+        var textBg = document.createElementNS(NS_SVG, 'rect');
+        var detail = document.createElementNS(NS_SVG, 'text');
+        detail.style.visibility = 'hidden';
+        detail.textContent = 'MOw';
+        fig.viewport.node.parentNode.appendChild(textBg);
+        fig.viewport.node.parentNode.appendChild(detail);
+        var mBBox = detail.getBBox();
+        fig.charWidthM = mBBox.width / 3;
+        detail.textContent = 'night';
+        var nBBox = detail.getBBox();
+        fig.charWidthN = nBBox.width / 5;
+        fig.textHeight = nBBox.height;
+        detail.style.display = 'none';
+        detail.style.visibility = 'visible';
+
+        detail.setAttribute('x', fig.charWidthM);
+        detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        textBg.setAttribute('fill', 'white'); // FIXME
+        textBg.setAttribute('fill-opacity', '0.8');
+        textBg.setAttribute('x', 0);
+        textBg.setAttribute('y', fig.height - fig.textHeight * 2);
+        textBg.setAttribute('width', fig.width);
+        textBg.setAttribute('height', fig.textHeight * 2);
+        textBg.style.display = 'none';
+
         ProfileSVG.reset(fig);
 
         var rectDblClickHandler = function (e) {
@@ -187,8 +222,9 @@
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
-            details.textContent = func + dir + file;
+            details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
             var rect = e.target;
@@ -196,6 +232,7 @@
             var details = document.getElementById(fig.id + '-details');
             text.style.strokeWidth = '0';
             details.style.display = 'none';
+            details.previousElementSibling.style.display = 'none';
         };
 
         fig.viewport.selectAll('rect').forEach(function (r) {

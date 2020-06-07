@@ -6,10 +6,12 @@ See the [FlameGraphs docmentation](https://timholy.github.io/FlameGraphs.jl/stab
 for details.
 
 ```@setup ex
-using Profile, ProfileSVG # hide
+using Profile, ProfileSVG
+ProfileSVG.init()
 include(joinpath("assets", "profile_test.jl"))
 Profile.clear()
 @profile (x -> log(x) * exp(x)).(fill(1.23, 10, 10))
+ProfileSVG.set_default(width=800)
 ```
 
 ## Default scheme
@@ -21,7 +23,7 @@ or
 ```@example ex
 using FlameGraphs
 ProfileSVG.view(FlameColors())
-ProfileSVG.view(FlameColors(), backtraces, lidict=lidict) # hide
+ProfileSVG.view(FlameColors(), g) # hide
 ```
 The default scheme uses cycling colors to distinguish different stack frames,
 while coloring runtime dispatch "red" and garbage-collection "orange". The
@@ -34,7 +36,7 @@ You can colorize the stack frames based on their category, or module-of-origin.
 ```@example ex
 using FlameGraphs
 ProfileSVG.view(StackFrameCategory())
-ProfileSVG.view(StackFrameCategory(), backtraces, lidict=lidict) # hide
+ProfileSVG.view(StackFrameCategory(), g) # hide
 ```
 In the default `StackFrameCategory` scheme, "gray" indicates time spent in
 `Core.Compiler` (mostly inference), "dark gray" in other `Core`, "yellow" in
