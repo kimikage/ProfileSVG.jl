@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Introduction · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/profilesvg.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Introduction</a><ul class="internal"><li><a class="tocitem" href="#Installation-1"><span>Installation</span></a></li><li><a class="tocitem" href="#Usage-1"><span>Usage</span></a></li><li><a class="tocitem" href="#Other-tools-for-displaying-profiles-1"><span>Other tools for displaying profiles</span></a></li></ul></li><li><a class="tocitem" href="coloration-schemes/">Coloration Schemes</a></li><li><a class="tocitem" href="reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Introduction</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Introduction</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/index.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="ProfileSVG-1"><a class="docs-heading-anchor" href="#ProfileSVG-1">ProfileSVG</a><a class="docs-heading-anchor-permalink" href="#ProfileSVG-1" title="Permalink"></a></h1><p>ProfileSVG allows you to export profiling data as an SVG file. It can be used to display profiling results in Jupyter/<a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> notebooks, <a href="https://junolab.org/">Juno</a> or any other SVG viewer.</p><h2 id="Installation-1"><a class="docs-heading-anchor" href="#Installation-1">Installation</a><a class="docs-heading-anchor-permalink" href="#Installation-1" title="Permalink"></a></h2><p>The package can be installed with the Julia package manager. Run:</p><pre><code class="language-julia">import Pkg
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Introduction · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/profilesvg.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Introduction</a><ul class="internal"><li><a class="tocitem" href="#Installation-1"><span>Installation</span></a></li><li><a class="tocitem" href="#Usage-1"><span>Usage</span></a></li><li><a class="tocitem" href="#Other-tools-for-displaying-profiles-1"><span>Other tools for displaying profiles</span></a></li></ul></li><li><a class="tocitem" href="coloration-schemes/">Coloration Schemes</a></li><li><a class="tocitem" href="other-options/">Other Options</a></li><li><a class="tocitem" href="reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Introduction</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Introduction</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/index.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="ProfileSVG-1"><a class="docs-heading-anchor" href="#ProfileSVG-1">ProfileSVG</a><a class="docs-heading-anchor-permalink" href="#ProfileSVG-1" title="Permalink"></a></h1><p>ProfileSVG allows you to export profiling data as an SVG file. It can be used to display profiling results in Jupyter/<a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> notebooks, <a href="https://junolab.org/">Juno</a> or any other SVG viewer.</p><h2 id="Installation-1"><a class="docs-heading-anchor" href="#Installation-1">Installation</a><a class="docs-heading-anchor-permalink" href="#Installation-1" title="Permalink"></a></h2><p>The package can be installed with the Julia package manager. Run:</p><pre><code class="language-julia">import Pkg
 Pkg.add(&quot;ProfileSVG&quot;)</code></pre><p>or, from the Julia REPL, type <code>]</code> to enter the Pkg REPL mode and run:</p><pre><code class="language-julia">pkg&gt; add ProfileSVG</code></pre><h2 id="Usage-1"><a class="docs-heading-anchor" href="#Usage-1">Usage</a><a class="docs-heading-anchor-permalink" href="#Usage-1" title="Permalink"></a></h2><h3 id="Displaying-profiles-1"><a class="docs-heading-anchor" href="#Displaying-profiles-1">Displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Displaying-profiles-1" title="Permalink"></a></h3><pre><code class="language-julia">using ProfileSVG
 @profview f(args...)</code></pre><p>where <code>f(args...)</code> is the operation you want to profile.</p><p>For example:</p><pre><code class="language-julia">function profile_test(n)
     for i = 1:n
@@ -19,138 +19,136 @@ using Profile, ProfileSVG
 
 @profview profile_test(10)</code></pre><p>Then, you can get something like this:</p><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" width="1000" height="310" viewBox="0 0 1000 310"
-     xmlns="http://www.w3.org/2000/svg" id="fig-b9d90f1961e14d02a448577f7397ad12">
+<svg version="1.1" width="960" height="316" viewBox="0 0 960 316"
+     xmlns="http://www.w3.org/2000/svg" id="fig-c0b50390727a415e9c61dc1aececd3ad">
 <defs>
-    <linearGradient id="fig-b9d90f1961e14d02a448577f7397ad12-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-c0b50390727a415e9c61dc1aececd3ad-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-b9d90f1961e14d02a448577f7397ad12-clip">
-        <rect x="0" y="0" width="1000" height="310"/>
+    <clipPath id="fig-c0b50390727a415e9c61dc1aececd3ad-clip">
+        <rect x="0" y="0" width="960" height="316"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-b9d90f1961e14d02a448577f7397ad12 text {
+    #fig-c0b50390727a415e9c61dc1aececd3ad text {
         pointer-events: none;
-        font-family: Verdana;
+        font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-b9d90f1961e14d02a448577f7397ad12-caption {
-        font-size: 17px;
+    text#fig-c0b50390727a415e9c61dc1aececd3ad-caption {
+        font-size: 16.8px;
         text-anchor: middle;
     }
-    #fig-b9d90f1961e14d02a448577f7397ad12-bg {
-        fill: url(#fig-b9d90f1961e14d02a448577f7397ad12-background);
+    #fig-c0b50390727a415e9c61dc1aececd3ad-bg {
+        fill: url(#fig-c0b50390727a415e9c61dc1aececd3ad-background);
     }
-    #fig-b9d90f1961e14d02a448577f7397ad12-viewport rect {
+    #fig-c0b50390727a415e9c61dc1aececd3ad-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-b9d90f1961e14d02a448577f7397ad12-viewport text {
+    #fig-c0b50390727a415e9c61dc1aececd3ad-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-b9d90f1961e14d02a448577f7397ad12-viewport rect:hover {
+    #fig-c0b50390727a415e9c61dc1aececd3ad-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-b9d90f1961e14d02a448577f7397ad12-frame" clip-path="url(#fig-b9d90f1961e14d02a448577f7397ad12-clip)">
-<rect id="fig-b9d90f1961e14d02a448577f7397ad12-bg" x="0" y="0" width="1000" height="310"/>
-<text id="fig-b9d90f1961e14d02a448577f7397ad12-caption" x="600" y="24">Profile results</text>
-<text x="10" y="293">Function:</text>
-<text x="70" y="293" id="fig-b9d90f1961e14d02a448577f7397ad12-details"> </text>
-<g id="fig-b9d90f1961e14d02a448577f7397ad12-viewport" transform="scale(1)">
-<rect x="10" y="255" width="980" height="15" fill="#E1B2FF" rx="2" data-dinfo=""/>
-<text x="10" dx="4" y="266.5"> in :-1</text>
-<rect x="10" y="240" width="980" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
-<text x="10" dx="4" y="251.5">eval in boot.jl:331</text>
-<rect x="10" y="225" width="367.5" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
-<text x="10" dx="4" y="236.5">profile_test in REPL[2]:3</text>
-<rect x="10" y="210" width="367.5" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="10" dx="4" y="221.5">randn in normal.jl:190</text>
-<rect x="10" y="195" width="367.5" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="10" dx="4" y="206.5">randn in normal.jl:184</text>
-<rect x="10" y="180" width="367.5" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="10" dx="4" y="191.5">randn! in normal.jl:173</text>
-<rect x="10" y="165" width="40.83" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
-<text x="10" dx="4" y="176.5">setindex! in array.jl:826</text>
-<rect x="50.83" y="165" width="326.67" height="15" fill="#6FDC91" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="176.5">randn in normal.jl:167</text>
-<rect x="50.83" y="150" width="204.17" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="161.5">randn in normal.jl:40</text>
-<rect x="50.83" y="135" width="204.17" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="146.5">rand in Random.jl:253</text>
-<rect x="50.83" y="120" width="204.17" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="131.5">rand in generation.jl:119</text>
-<rect x="50.83" y="105" width="204.17" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="116.5">rand in Random.jl:253</text>
-<rect x="50.83" y="90" width="122.5" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="101.5">rand in RNGs.jl:370</text>
-<rect x="50.83" y="75" width="122.5" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="86.5">reserve_1 in RNGs.jl:190</text>
-<rect x="50.83" y="60" width="40.83" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="71.5">gen_rand in RNGs.jl:186</text>
-<rect x="50.83" y="45" width="40.83" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="50.83" dx="4" y="56.5">dsfmt_fill_array_close1_open2! in DSFMT.jl:86</text>
-<rect x="91.67" y="60" width="81.67" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="91.67" dx="4" y="71.5">mt_empty in RNGs.jl:180</text>
-<rect x="91.67" y="45" width="81.67" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
-<text x="91.67" dx="4" y="56.5">getproperty in Base.jl:33</text>
-<rect x="173.33" y="90" width="81.67" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="173.33" dx="4" y="101.5">rand in RNGs.jl:371</text>
-<rect x="173.33" y="75" width="81.67" height="15" fill="#6FDC91" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="173.33" dx="4" y="86.5">rand_inbounds in RNGs.jl:366</text>
-<rect x="173.33" y="60" width="81.67" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="173.33" dx="4" y="71.5">rand_inbounds in RNGs.jl:362</text>
-<rect x="173.33" y="45" width="81.67" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="173.33" dx="4" y="56.5">mt_pop! in RNGs.jl:183</text>
-<rect x="173.33" y="30" width="81.67" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
-<text x="173.33" dx="4" y="41.5">+ in int.jl:53</text>
-<rect x="255" y="150" width="40.83" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="255" dx="4" y="161.5">randn in normal.jl:43</text>
-<rect x="255" y="135" width="40.83" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
-<text x="255" dx="4" y="146.5">* in promotion.jl:312</text>
-<rect x="255" y="120" width="40.83" height="15" fill="#2CA3FF" rx="2" data-dinfo=".\"/>
-<text x="255" dx="4" y="131.5">* in float.jl:405</text>
-<rect x="295.83" y="150" width="40.83" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="295.83" dx="4" y="161.5">randn in normal.jl:45</text>
-<rect x="295.83" y="135" width="40.83" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
-<text x="295.83" dx="4" y="146.5">randn_unlikely in normal.jl:58</text>
-<rect x="295.83" y="120" width="40.83" height="15" fill="#00B58B" rx="2" data-dinfo=".\special\"/>
-<text x="295.83" dx="4" y="131.5">exp in exp.jl:136</text>
-<rect x="295.83" y="105" width="40.83" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
-<text x="295.83" dx="4" y="116.5">- in float.jl:403</text>
-<rect x="377.5" y="225" width="408.33" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
-<text x="377.5" dx="4" y="236.5">profile_test in REPL[2]:5</text>
-<rect x="377.5" y="210" width="408.33" height="15" fill="#2CA3FF" rx="2" data-dinfo=".\"/>
-<text x="377.5" dx="4" y="221.5">mapslices##kw in abstractarray.jl:1972</text>
-<rect x="377.5" y="195" width="408.33" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
-<text x="377.5" dx="4" y="206.5">#mapslices#115 in abstractarray.jl:2029</text>
-<rect x="377.5" y="180" width="408.33" height="15" fill="#C5312F" rx="2" data-dinfo=".\"/>
-<text x="377.5" dx="4" y="191.5">inner_mapslices! in abstractarray.jl:2039</text>
-<rect x="377.5" y="165" width="326.67" height="15" fill="#F3004D" rx="2" data-dinfo=".\"/>
-<text x="377.5" dx="4" y="176.5">concatenate_setindex! in abstractarray.jl:2058</text>
-<rect x="377.5" y="150" width="163.33" height="15" fill="#C5312F" rx="2" data-dinfo=".\"/>
-<text x="377.5" dx="4" y="161.5">dotview in broadcast.jl:1138</text>
-<rect x="377.5" y="135" width="81.67" height="15" fill="#FFA400" rx="2" data-dinfo=".\"/>
-<text x="377.5" dx="4" y="146.5">maybeview in views.jl:124</text>
-<rect x="785.83" y="225" width="204.17" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
-<text x="785.83" dx="4" y="236.5">profile_test in REPL[2]:7</text>
-<rect x="785.83" y="210" width="204.17" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
-<text x="785.83" dx="4" y="221.5">mapslices##kw in abstractarray.jl:1972</text>
-<rect x="785.83" y="195" width="204.17" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
-<text x="785.83" dx="4" y="206.5">#mapslices#115 in abstractarray.jl:2018</text>
-<rect x="785.83" y="180" width="204.17" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
-<text x="785.83" dx="4" y="191.5">similar in abstractarray.jl:626</text>
-<rect x="785.83" y="165" width="204.17" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
-<text x="785.83" dx="4" y="176.5">similar in array.jl:361</text>
-<rect x="785.83" y="150" width="204.17" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
-<text x="785.83" dx="4" y="161.5">Array in boot.jl:415</text>
-<rect x="785.83" y="135" width="204.17" height="15" fill="#FFA000" rx="2" data-dinfo=".\"/>
-<text x="785.83" dx="4" y="146.5">Array in boot.jl:407</text>
+<g id="fig-c0b50390727a415e9c61dc1aececd3ad-frame" clip-path="url(#fig-c0b50390727a415e9c61dc1aececd3ad-clip)">
+<rect id="fig-c0b50390727a415e9c61dc1aececd3ad-bg" x="0" y="0" width="960" height="316"/>
+<text id="fig-c0b50390727a415e9c61dc1aececd3ad-caption" x="480" y="24">Profile results</text>
+<g id="fig-c0b50390727a415e9c61dc1aececd3ad-viewport" transform="scale(1)">
+<rect x="10" y="263" width="940" height="15" fill="#E1B2FF" rx="2" data-dinfo=""/>
+<text x="10" dx="4" y="274.25"> in :-1</text>
+<rect x="10" y="248" width="940" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<text x="10" dx="4" y="259.25">eval in boot.jl:331</text>
+<rect x="10" y="233" width="352.5" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
+<text x="10" dx="4" y="244.25">profile_test in REPL[2]:3</text>
+<rect x="10" y="218" width="352.5" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="10" dx="4" y="229.25">randn in normal.jl:190</text>
+<rect x="10" y="203" width="352.5" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="10" dx="4" y="214.25">randn in normal.jl:184</text>
+<rect x="10" y="188" width="352.5" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="10" dx="4" y="199.25">randn! in normal.jl:173</text>
+<rect x="10" y="173" width="39.17" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
+<text x="10" dx="4" y="184.25">setindex! in array.jl:826</text>
+<rect x="49.17" y="173" width="313.33" height="15" fill="#6FDC91" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="184.25">randn in normal.jl:167</text>
+<rect x="49.17" y="158" width="195.83" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="169.25">randn in normal.jl:40</text>
+<rect x="49.17" y="143" width="195.83" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="154.25">rand in Random.jl:253</text>
+<rect x="49.17" y="128" width="195.83" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="139.25">rand in generation.jl:119</text>
+<rect x="49.17" y="113" width="195.83" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="124.25">rand in Random.jl:253</text>
+<rect x="49.17" y="98" width="117.5" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="109.25">rand in RNGs.jl:370</text>
+<rect x="49.17" y="83" width="117.5" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="94.25">reserve_1 in RNGs.jl:190</text>
+<rect x="49.17" y="68" width="39.17" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="79.25">gen_rand in RNGs.jl:186</text>
+<rect x="49.17" y="53" width="39.17" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="49.17" dx="4" y="64.25">dsfmt_fill_array_close1_open2! in DSFMT.jl:86</text>
+<rect x="88.33" y="68" width="78.33" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="88.33" dx="4" y="79.25">mt_empty in RNGs.jl:180</text>
+<rect x="88.33" y="53" width="78.33" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<text x="88.33" dx="4" y="64.25">getproperty in Base.jl:33</text>
+<rect x="166.67" y="98" width="78.33" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="166.67" dx="4" y="109.25">rand in RNGs.jl:371</text>
+<rect x="166.67" y="83" width="78.33" height="15" fill="#6FDC91" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="166.67" dx="4" y="94.25">rand_inbounds in RNGs.jl:366</text>
+<rect x="166.67" y="68" width="78.33" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="166.67" dx="4" y="79.25">rand_inbounds in RNGs.jl:362</text>
+<rect x="166.67" y="53" width="78.33" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="166.67" dx="4" y="64.25">mt_pop! in RNGs.jl:183</text>
+<rect x="166.67" y="38" width="78.33" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<text x="166.67" dx="4" y="49.25">+ in int.jl:53</text>
+<rect x="245" y="158" width="39.17" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="245" dx="4" y="169.25">randn in normal.jl:43</text>
+<rect x="245" y="143" width="39.17" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<text x="245" dx="4" y="154.25">* in promotion.jl:312</text>
+<rect x="245" y="128" width="39.17" height="15" fill="#2CA3FF" rx="2" data-dinfo=".\"/>
+<text x="245" dx="4" y="139.25">* in float.jl:405</text>
+<rect x="284.17" y="158" width="39.17" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="284.17" dx="4" y="169.25">randn in normal.jl:45</text>
+<rect x="284.17" y="143" width="39.17" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<text x="284.17" dx="4" y="154.25">randn_unlikely in normal.jl:58</text>
+<rect x="284.17" y="128" width="39.17" height="15" fill="#00B58B" rx="2" data-dinfo=".\special\"/>
+<text x="284.17" dx="4" y="139.25">exp in exp.jl:136</text>
+<rect x="284.17" y="113" width="39.17" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<text x="284.17" dx="4" y="124.25">- in float.jl:403</text>
+<rect x="362.5" y="233" width="391.67" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<text x="362.5" dx="4" y="244.25">profile_test in REPL[2]:5</text>
+<rect x="362.5" y="218" width="391.67" height="15" fill="#2CA3FF" rx="2" data-dinfo=".\"/>
+<text x="362.5" dx="4" y="229.25">mapslices##kw in abstractarray.jl:1972</text>
+<rect x="362.5" y="203" width="391.67" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<text x="362.5" dx="4" y="214.25">#mapslices#115 in abstractarray.jl:2029</text>
+<rect x="362.5" y="188" width="391.67" height="15" fill="#C5312F" rx="2" data-dinfo=".\"/>
+<text x="362.5" dx="4" y="199.25">inner_mapslices! in abstractarray.jl:2039</text>
+<rect x="362.5" y="173" width="313.33" height="15" fill="#F3004D" rx="2" data-dinfo=".\"/>
+<text x="362.5" dx="4" y="184.25">concatenate_setindex! in abstractarray.jl:2058</text>
+<rect x="362.5" y="158" width="156.67" height="15" fill="#C5312F" rx="2" data-dinfo=".\"/>
+<text x="362.5" dx="4" y="169.25">dotview in broadcast.jl:1138</text>
+<rect x="362.5" y="143" width="78.33" height="15" fill="#FFA400" rx="2" data-dinfo=".\"/>
+<text x="362.5" dx="4" y="154.25">maybeview in views.jl:124</text>
+<rect x="754.17" y="233" width="195.83" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
+<text x="754.17" dx="4" y="244.25">profile_test in REPL[2]:7</text>
+<rect x="754.17" y="218" width="195.83" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<text x="754.17" dx="4" y="229.25">mapslices##kw in abstractarray.jl:1972</text>
+<rect x="754.17" y="203" width="195.83" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
+<text x="754.17" dx="4" y="214.25">#mapslices#115 in abstractarray.jl:2018</text>
+<rect x="754.17" y="188" width="195.83" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<text x="754.17" dx="4" y="199.25">similar in abstractarray.jl:626</text>
+<rect x="754.17" y="173" width="195.83" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<text x="754.17" dx="4" y="184.25">similar in array.jl:361</text>
+<rect x="754.17" y="158" width="195.83" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<text x="754.17" dx="4" y="169.25">Array in boot.jl:415</text>
+<rect x="754.17" y="143" width="195.83" height="15" fill="#FFA000" rx="2" data-dinfo=".\"/>
+<text x="754.17" dx="4" y="154.25">Array in boot.jl:407</text>
 </g></g>
 <script><![CDATA[
 // Snap.svg 0.3.0
@@ -218,21 +216,29 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
     var ProfileSVG = {};
 
-    var AVERAGE_CHAR_WIDTH = 6;
+    var NS_SVG = 'http://www.w3.org/2000/svg';
     var DEFAULT_TRANSITION_TIME = 300;
     var ZOOM_STEP = 1.4;
     var VIEWPORT_SCALE = 0.9;
     var VIEWPORT_MARGIN_X = 20;
     var ROUNDRECT_R = 2;
 
-    var formatText = function (text, availableWidth) {
-        if (availableWidth < 3 * AVERAGE_CHAR_WIDTH) {
-            return "";
-        } else if (text.length * AVERAGE_CHAR_WIDTH > availableWidth) {
-            var nchars = Math.round(availableWidth / AVERAGE_CHAR_WIDTH) - 2;
-            return text.slice(0, nchars) + "..";
+    var formatText = function (fig, text, availableWidth) {
+        if (availableWidth < 3 * fig.charWidthM) {
+            return '';
         }
-        return text;
+        var w = availableWidth;
+        var m = fig.charWidthM;
+        var n = fig.charWidthN;
+        var m2 = m * m;
+        var n2 = n * n;
+        var nc = 0.5 / n2 * (
+            (n - m) * Math.sqrt(n2 + (4 * w - 2 * m) * n + m2) + n2 + 2 * (w - m) * n + m2);
+        var nchars = Math.ceil(nc);
+        if (text.length <= nchars) {
+            return text;
+        }
+        return text.slice(0, nchars - 2) + '..';
     };
 
     var unescapeHtml = function (str) {
@@ -303,7 +309,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                 tMatrix.e = (1.0 - scaleXt) * rectx;
                 tMatrix.f = (1.0 - scaleYt) * recty;
 
-                text.textContent = formatText(shortinfo, rectw / scaleXt);
+                text.textContent = formatText(fig, shortinfo, rectw / scaleXt);
                 text.style.display = 'inherit';
             });
         };
@@ -345,6 +351,33 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         fig.focusX = fig.cx; // center x in the raw (scaleX=1) coordinate space
         fig.focusY = fig.cy; // center y in the raw (scaleY=1) coordinate space
 
+        var textBg = document.createElementNS(NS_SVG, 'rect');
+        var detail = document.createElementNS(NS_SVG, 'text');
+        detail.style.visibility = 'hidden';
+        detail.textContent = 'MOw';
+        fig.viewport.node.parentNode.appendChild(textBg);
+        fig.viewport.node.parentNode.appendChild(detail);
+        var mBBox = detail.getBBox();
+        fig.charWidthM = mBBox.width / 3;
+        detail.textContent = 'night';
+        var nBBox = detail.getBBox();
+        fig.charWidthN = nBBox.width / 5;
+        fig.textHeight = nBBox.height;
+        detail.style.display = 'none';
+        detail.style.visibility = 'visible';
+
+        detail.setAttribute('x', fig.charWidthM);
+        detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        textBg.setAttribute('fill', 'white'); // FIXME
+        textBg.setAttribute('fill-opacity', '0.8');
+        textBg.setAttribute('x', 0);
+        textBg.setAttribute('y', fig.height - fig.textHeight * 2);
+        textBg.setAttribute('width', fig.width);
+        textBg.setAttribute('height', fig.textHeight * 2);
+        textBg.style.display = 'none';
+
         ProfileSVG.reset(fig);
 
         var rectDblClickHandler = function (e) {
@@ -364,8 +397,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
-            details.textContent = func + dir + file;
+            details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
             var rect = e.target;
@@ -373,6 +407,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var details = document.getElementById(fig.id + '-details');
             text.style.strokeWidth = '0';
             details.style.display = 'none';
+            details.previousElementSibling.style.display = 'none';
         };
 
         fig.viewport.selectAll('rect').forEach(function (r) {
@@ -425,10 +460,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-b9d90f1961e14d02a448577f7397ad12");
+        ProfileSVG.initialize("fig-c0b50390727a415e9c61dc1aececd3ad");
     });
 } else {
-    ProfileSVG.initialize("fig-b9d90f1961e14d02a448577f7397ad12");
+    ProfileSVG.initialize("fig-c0b50390727a415e9c61dc1aececd3ad");
 }
 ]]></script>
 </svg>
@@ -438,4 +473,4 @@ ProfileSVG.view()</code></pre><p>If you&#39;ve already collected profiling data 
 @profile profile_test(10);
 
 # Save a graph that looks like the Jupyter example above
-ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 7 May 2020 10:32">Thursday 7 May 2020</span>. Using Julia version 1.4.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Sunday 7 June 2020 11:00">Sunday 7 June 2020</span>. Using Julia version 1.4.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
