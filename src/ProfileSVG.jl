@@ -35,15 +35,19 @@ struct FGConfig
     g::Union{FlameGraph, Nothing}
     graph_options::Dict{Symbol, Any}
     fcolor
-    width::Real
-    height::Real
-    font::AbstractString
-    fontsize::Real
+    maxdepth::Int
+    maxframes::Int
+    width::Float64
+    height::Float64
+    font::String
+    fontsize::Float64
 end
 
 function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   graph_options = nothing,
                   fcolor               = default_config.fcolor;
+                  maxdepth::Int        = default_config.maxdepth,
+                  maxframes::Int       = default_config.maxframes,
                   width::Real          = default_config.width,
                   height::Real         = default_config.height,
                   font::AbstractString = default_config.font,
@@ -51,7 +55,8 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   kwargs...)
 
     gopts = graph_options === nothing ? flamegraph_kwargs(kwargs) : graph_options
-    FGConfig(g, gopts, fcolor, width, height, font, fontsize)
+    FGConfig(g, gopts, fcolor,
+             maxdepth, maxframes, width, height, font, fontsize)
 end
 
 
@@ -64,6 +69,8 @@ function init()
     global default_config = FGConfig(nothing,
                                      Dict{Symbol, Any}(),
                                      FlameGraphs.default_colors,
+                                     maxdepth=50,
+                                     maxframes=2000,
                                      width=960,
                                      height=0,
                                      font="inherit",
@@ -96,6 +103,10 @@ include("svgwriter.jl")
 View profiling results.
 
 # keywords for SVG style
+- `maxdepth` (default: `50`)
+  - The maximum number of the rendered rows.
+- `maxframes` (default: `2000`)
+  - The maximum number of the rendered frames.
 - `width` (default: `960`)
   - The width of output SVG image in pixels.
 - `height` (default: `0`)
@@ -190,8 +201,12 @@ Base.showable(::MIME"image/svg+xml", fg::FGConfig) = true
 
 
 function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
-    g, fcolor = fg.g, fg.fcolor
-    ncols, nrows = length(g.data.span), FlameGraphs.depth(g)
+    ncols, nrows = length(fg.g.data.span), FlameGraphs.depth(fg.g)
+    if nrows > fg.maxdepth
+        @warn """The depth of this graph is $nrows, exceeding the `maxdepth` (=$(fg.maxdepth)).
+                 The deeper frames will be truncated."""
+        nrows = fg.maxdepth
+    end
     width = fg.width
     leftmargin = rightmargin = round(Int, width * 0.01)
     topmargin = botmargin = round(Int, max(width * 0.04, fg.fontsize * 3))
@@ -199,16 +214,17 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     xstep = (width - (leftmargin + rightmargin)) / ncols
     ystep = round(Int, fg.fontsize * 1.25)
 
-    if fg.height <= 0
-        height = ceil(ystep * nrows + botmargin + topmargin)
-    else
-        height = fg.height
-    end
+    height = fg.height > 0.0 ? fg.height : ystep * nrows + botmargin * 2.0
 
-    function flamerects(io::IO, g, j, nextidx)
+    function flamerects(io::IO, g::FlameGraph, j::Int, nextidx::Vector{Int})
+        j > fg.maxdepth && return
+        nextidx[end]
+        nextidx[end] > fg.maxframes && return
+        nextidx[end] += 1
+
         ndata = g.data
         sf = ndata.sf
-        color = fcolor(nextidx, j, ndata)
+        color = fg.fcolor(nextidx, j, ndata)::Color
         x = (first(ndata.span)-1) * xstep + leftmargin
         y = height - j * ystep - botmargin
         w = length(ndata.span) * xstep
@@ -227,7 +243,6 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
         for c in g
             flamerects(io, c, j + 1, nextidx)
         end
-        return nothing
     end
 
     fig_id = string("fig-", replace(string(uuid4()), "-" => ""))
@@ -236,8 +251,13 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
 
     write_svgheader(io, fig_id, width, height, fg.font, fg.fontsize)
 
-    nextidx = fill(1, nrows)
-    flamerects(io, g, 1, nextidx)
+    nextidx = fill(1, nrows + 1) # nextidx[end]: framecount
+    flamerects(io, fg.g, 1, nextidx)
+
+    if nextidx[end] > fg.maxframes
+        @warn """The maximum number of frames (`maxframes`=$(fg.maxframes)) is reached.
+                 Some frames were truncated."""
+    end
 
     write_svgfooter(io, fig_id)
 end

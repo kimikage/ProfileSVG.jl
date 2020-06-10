@@ -29,6 +29,8 @@ function write_svgdeclaration(io::IO)
 end
 
 function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
+    w = simplify(width)
+    h = simplify(height)
     caption_size = simplify(fontsize * 1.4)
     x_cap = simplify(width * 0.5)
     y_cap = simplify(fontsize * 2)
@@ -38,7 +40,7 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
     bg_fill = """url(#$fig_id-background)"""
     print(io,
         """
-        <svg version="1.1" width="$width" height="$height" viewBox="0 0 $width $height"
+        <svg version="1.1" width="$w" height="$h" viewBox="0 0 $w $h"
              xmlns="http://www.w3.org/2000/svg" id="$fig_id">
         <defs>
             <linearGradient id="$fig_id-background" y1="0" y2="1" x1="0" x2="0">
@@ -46,14 +48,14 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
                 <stop stop-color="#eeeeb0" offset="95%" />
             </linearGradient>
             <clipPath id="$fig_id-clip">
-                <rect x="0" y="0" width="$width" height="$height"/>
+                <rect x="0" y="0" width="$w" height="$h"/>
             </clipPath>
         </defs>
         <style type="text/css">
             #$fig_id text {
                 pointer-events: none;
                 font-family: $font;
-                font-size: $(fontsize)px;
+                font-size: $(simplify(fontsize))px;
                 fill: $fontcolorhex;
             }
             text#$fig_id-caption {
@@ -77,21 +79,21 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
             }
         </style>
         <g id="$fig_id-frame" clip-path="url(#$fig_id-clip)">
-        <rect id="$fig_id-bg" x="0" y="0" width="$width" height="$height"/>
+        <rect id="$fig_id-bg" x="0" y="0" width="$w" height="$h"/>
         <text id="$fig_id-caption" x="$x_cap" y="$y_cap">Profile results</text>
         <g id="$fig_id-viewport" transform="scale(1)">
         """)
 end
 
-function write_svgflamerect(io::IO, xstart, ystart, w, h, shortinfo, dirinfo, color)
+function write_svgflamerect(io::IO, xstart, ystart, width, height, shortinfo, dirinfo, color)
     x = simplify(xstart)
     y = simplify(ystart)
-    yt = simplify(y + h * 0.75)
-    width = simplify(w)
-    height = simplify(h)
+    yt = simplify(y + height * 0.75)
+    w = simplify(width)
+    h = simplify(height)
     sinfo = escape_html(shortinfo)
     dinfo = escape_html(dirinfo)
-    println(io, """<rect x="$x" y="$y" width="$width" height="$height" """,
+    println(io, """<rect x="$x" y="$y" width="$w" height="$h" """,
                 """fill="#$(hex(color))" rx="2" data-dinfo="$dinfo"/>""")
     println(io, """<text x="$x" dx="4" y="$yt">$sinfo</text>""")
 end

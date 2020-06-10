@@ -35,6 +35,17 @@ function profile_test(n)
     end
 end
 
+function count_element(pattern::Regex, svg::AbstractString)
+    n = 0
+    i = firstindex(svg)
+    while true
+        r = findnext(pattern, svg, i)
+        r === nothing && return n
+        n += 1
+        i = last(r)
+    end
+end
+
 @test detect_ambiguities(ProfileSVG, imported=true, recursive=true) == []
 
 @testset "view" begin
@@ -147,6 +158,18 @@ end
     rm(filename)
     @test svg_size(str) == ("960", "136")
     @test !has_filled_rect(str, "#FF0000")
+end
+
+@testset "size limitation" begin
+    io = IOBuffer()
+
+    @test_logs(
+        (:warn, r"The depth of this graph is 5, exceeding the `maxdepth` \(=4\)"),
+        (:warn, r"The maximum number of frames \(`maxframes`=8\) is reached"),
+        ProfileSVG.save(io, backtraces, C=true, lidict=lidict, maxdepth=4, maxframes=8))
+    str = String(take!(io))
+    @test occursin("""height="136" """, str)
+    @test count_element(r"<rect x=[^/]+/>", str) == 8
 end
 
 @testset "set_default" begin
