@@ -89,8 +89,8 @@ function write_svgflamerect(io::IO, xstart, ystart, width, height, shortinfo, di
     x = simplify(xstart)
     y = simplify(ystart)
     yt = simplify(y + height * 0.75)
-    w = simplify(width)
-    h = simplify(height)
+    w = simplify(simplify(width + xstart) - x)
+    h = simplify(simplify(height + ystart) - y)
     sinfo = escape_html(shortinfo)
     dinfo = escape_html(dirinfo)
     println(io, """<rect x="$x" y="$y" width="$w" height="$h" """,
