@@ -46,7 +46,7 @@ function count_element(pattern::Regex, svg::AbstractString)
     end
 end
 
-@test detect_ambiguities(ProfileSVG, imported=true, recursive=true) == []
+@test detect_ambiguities(ProfileSVG) == []
 
 @testset "view" begin
     sfc = StackFrameCategory()

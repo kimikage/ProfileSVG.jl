@@ -211,7 +211,8 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     leftmargin = rightmargin = round(Int, width * 0.01)
     topmargin = botmargin = round(Int, max(width * 0.04, fg.fontsize * 3))
 
-    xstep = (width - (leftmargin + rightmargin)) / ncols
+    idealwidth = width - (leftmargin + rightmargin)
+    xstep = Float64(rationalize(idealwidth / ncols, tol = 1 / ncols))
     ystep = round(Int, fg.fontsize * 1.25)
 
     height = fg.height > 0.0 ? fg.height : ystep * nrows + botmargin * 2.0
