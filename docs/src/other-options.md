@@ -61,6 +61,21 @@ Note that the actual rendering results depend on the viewer.
 ProfileSVG.view(font="'Times New Roman', serif", fontsize=16)
 ProfileSVG.view(g, font="'Times New Roman', serif", fontsize=16) # hide
 ```
+## `notext`
+
+The `notext` option specifies the visibility of overlaid texts on the frames. If
+the `notext` is `true`, the texts will be hidden by the interactive feature and
+the rendering load is significantly reduced.
+
+```@example ex
+ProfileSVG.view(notext=true)
+ProfileSVG.view(g, notext=true) # hide
+```
+
+!!! info
+    Even if you set `notext` to `true`, the text data themselves will be output,
+    and the texts will be displayed in non-interactive mode, i.e. as a still
+    image.
 
 ## Setting options as default
 You can specify the default values for options with

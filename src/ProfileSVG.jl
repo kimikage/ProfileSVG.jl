@@ -41,6 +41,7 @@ struct FGConfig
     height::Float64
     font::String
     fontsize::Float64
+    notext::Bool
 end
 
 function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
@@ -52,11 +53,12 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   height::Real         = default_config.height,
                   font::AbstractString = default_config.font,
                   fontsize::Real       = default_config.fontsize,
+                  notext::Bool         = default_config.notext,
                   kwargs...)
 
     gopts = graph_options === nothing ? flamegraph_kwargs(kwargs) : graph_options
     FGConfig(g, gopts, fcolor,
-             maxdepth, maxframes, width, height, font, fontsize)
+             maxdepth, maxframes, width, height, font, fontsize, notext)
 end
 
 
@@ -74,7 +76,8 @@ function init()
                                      width=960,
                                      height=0,
                                      font="inherit",
-                                     fontsize=12)
+                                     fontsize=12,
+                                     notext=false)
     nothing
 end
 
@@ -117,6 +120,9 @@ View profiling results.
     `font-family` property, i.e. you can use a comma-separated list.
 - `fontsize` (default: `12`)
   - The font size of texts for function information, in pixels (not points).
+- `notext` (default: `false`)
+  - If `true`, the texts overlaid on the frames will be hidden by the
+    interactive feature.
 
 # keywords for `flamegraph`
 - `lidict`
@@ -250,7 +256,7 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
 
     write_svgdeclaration(io)
 
-    write_svgheader(io, fig_id, width, height, fg.font, fg.fontsize)
+    write_svgheader(io, fig_id, width, height, fg.font, fg.fontsize, fg.notext)
 
     nextidx = fill(1, nrows + 1) # nextidx[end]: framecount
     flamerects(io, fg.g, 1, nextidx)

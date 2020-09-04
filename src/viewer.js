@@ -140,12 +140,16 @@
         };
 
         if (deltaT != 0) {
-            fig.viewport.selectAll('text').forEach(function (text) {
-                text.node.style.display = 'none';
-            });
-            Snap.animate(0, 1, scaleViewport, deltaT, null, finish);
+            if (!fig.notext) {
+                fig.viewport.selectAll('text').forEach(function (text) {
+                    text.node.style.display = 'none';
+                });
+            }
+            Snap.animate(0, 1, scaleViewport, deltaT, null, fig.notext ? null : finish);
         } else {
-            finish();
+            if (!fig.notext) {
+                finish();
+            }
         }
 
     };
@@ -170,6 +174,16 @@
         fig.cy = fig.height / 2;
 
         fig.viewport = svg.select('#' + figId + '-viewport');
+
+        var texts = fig.viewport.selectAll('text');
+        fig.notext = false;
+        if (texts[0]) {
+            fig.notext = getComputedStyle(texts[0].node).strokeOpacity == 0.0;
+            texts.forEach(function (text) {
+                text.node.style.display = 'none';
+            });
+        }
+        texts = null;
 
         fig.scaleX = 1.0;
         fig.scaleY = 1.0; // prepare for the future

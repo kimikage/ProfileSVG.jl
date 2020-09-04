@@ -28,7 +28,7 @@ function write_svgdeclaration(io::IO)
     println(io, """<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">""")
 end
 
-function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
+function write_svgheader(io::IO, fig_id, width, height, font, fontsize, notext)
     w = simplify(width)
     h = simplify(height)
     caption_size = simplify(fontsize * 1.4)
@@ -38,6 +38,7 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
     y_msg = height - caption_size
     fontcolorhex = "#000000" # FIXME
     bg_fill = """url(#$fig_id-background)"""
+    text_stroke_opacity = notext ? 0.0 : 0.35
     print(io,
         """
         <svg version="1.1" width="$w" height="$h" viewBox="0 0 $w $h"
@@ -71,7 +72,7 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize)
             #$fig_id-viewport text {
                 stroke: $fontcolorhex;
                 stroke-width: 0;
-                stroke-opacity: 0.35;
+                stroke-opacity: $text_stroke_opacity;
             }
             #$fig_id-viewport rect:hover {
                 stroke: $fontcolorhex;
