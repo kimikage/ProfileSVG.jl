@@ -2,47 +2,47 @@
 <html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Other Options · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../coloration-schemes/">Coloration Schemes</a></li><li class="is-active"><a class="tocitem" href>Other Options</a><ul class="internal"><li><a class="tocitem" href="#maxdepth-and-maxframes-1"><span><code>maxdepth</code> and <code>maxframes</code></span></a></li><li><a class="tocitem" href="#width-and-height-1"><span><code>width</code> and <code>height</code></span></a></li><li><a class="tocitem" href="#font-and-fontsize-1"><span><code>font</code> and <code>fontsize</code></span></a></li><li><a class="tocitem" href="#Setting-options-as-default-1"><span>Setting options as default</span></a></li></ul></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Other Options</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Other Options</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/other-options.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Other-Options-1"><a class="docs-heading-anchor" href="#Other-Options-1">Other Options</a><a class="docs-heading-anchor-permalink" href="#Other-Options-1" title="Permalink"></a></h1><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><h2 id="maxdepth-and-maxframes-1"><a class="docs-heading-anchor" href="#maxdepth-and-maxframes-1"><code>maxdepth</code> and <code>maxframes</code></a><a class="docs-heading-anchor-permalink" href="#maxdepth-and-maxframes-1" title="Permalink"></a></h2><p>The <code>maxdepth</code> option limits the maximum number of the rendered rows of graph. The frames deeper than <code>maxdepth</code> (i.e. away from the root) will be truncated.</p><p>The <code>maxframes</code> option limits the maximum number of the rendered frames. Since the frames are rendered in order of depth-first search, the frames to the right tend to be omitted.</p><p>When <code>maxdepth</code> and/or <code>maxframes</code> are reached, warnings will be displayed.</p><pre><code class="language-julia">ProfileSVG.view(maxdepth=7, maxframes=12)</code></pre><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="800" height="177" viewBox="0 0 800 177"
-     xmlns="http://www.w3.org/2000/svg" id="fig-c408c4019d674083a3f0377d4ea1d7dd">
+     xmlns="http://www.w3.org/2000/svg" id="fig-2744d7e1018f47e087a6cb298fb2ec98">
 <defs>
-    <linearGradient id="fig-c408c4019d674083a3f0377d4ea1d7dd-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-2744d7e1018f47e087a6cb298fb2ec98-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-c408c4019d674083a3f0377d4ea1d7dd-clip">
+    <clipPath id="fig-2744d7e1018f47e087a6cb298fb2ec98-clip">
         <rect x="0" y="0" width="800" height="177"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-c408c4019d674083a3f0377d4ea1d7dd text {
+    #fig-2744d7e1018f47e087a6cb298fb2ec98 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-c408c4019d674083a3f0377d4ea1d7dd-caption {
+    text#fig-2744d7e1018f47e087a6cb298fb2ec98-caption {
         font-size: 16.8px;
         text-anchor: middle;
     }
-    #fig-c408c4019d674083a3f0377d4ea1d7dd-bg {
-        fill: url(#fig-c408c4019d674083a3f0377d4ea1d7dd-background);
+    #fig-2744d7e1018f47e087a6cb298fb2ec98-bg {
+        fill: url(#fig-2744d7e1018f47e087a6cb298fb2ec98-background);
     }
-    #fig-c408c4019d674083a3f0377d4ea1d7dd-viewport rect {
+    #fig-2744d7e1018f47e087a6cb298fb2ec98-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-c408c4019d674083a3f0377d4ea1d7dd-viewport text {
+    #fig-2744d7e1018f47e087a6cb298fb2ec98-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-c408c4019d674083a3f0377d4ea1d7dd-viewport rect:hover {
+    #fig-2744d7e1018f47e087a6cb298fb2ec98-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-c408c4019d674083a3f0377d4ea1d7dd-frame" clip-path="url(#fig-c408c4019d674083a3f0377d4ea1d7dd-clip)">
-<rect id="fig-c408c4019d674083a3f0377d4ea1d7dd-bg" x="0" y="0" width="800" height="177"/>
-<text id="fig-c408c4019d674083a3f0377d4ea1d7dd-caption" x="400" y="24">Profile results</text>
-<g id="fig-c408c4019d674083a3f0377d4ea1d7dd-viewport" transform="scale(1)">
+<g id="fig-2744d7e1018f47e087a6cb298fb2ec98-frame" clip-path="url(#fig-2744d7e1018f47e087a6cb298fb2ec98-clip)">
+<rect id="fig-2744d7e1018f47e087a6cb298fb2ec98-bg" x="0" y="0" width="800" height="177"/>
+<text id="fig-2744d7e1018f47e087a6cb298fb2ec98-caption" x="400" y="24">Profile results</text>
+<g id="fig-2744d7e1018f47e087a6cb298fb2ec98-viewport" transform="scale(1)">
 <rect x="8" y="126" width="784" height="15" fill="#E1B2FF" rx="2" data-dinfo=""/>
 <text x="8" dx="4" y="137.25"> in :-1</text>
 <rect x="8" y="111" width="784" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
@@ -378,57 +378,57 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-c408c4019d674083a3f0377d4ea1d7dd");
+        ProfileSVG.initialize("fig-2744d7e1018f47e087a6cb298fb2ec98");
     });
 } else {
-    ProfileSVG.initialize("fig-c408c4019d674083a3f0377d4ea1d7dd");
+    ProfileSVG.initialize("fig-2744d7e1018f47e087a6cb298fb2ec98");
 }
 ]]></script>
 </svg>
 <div class="admonition is-warning"><header class="admonition-header">Warning</header><div class="admonition-body"><p>The graphs with many frames require a lot of memory and CPU resources, especially when using interactive features. Instead of raising the <code>maxframes</code> option, consider reducing the graph size using the <code>filter</code> option etc.</p></div></div><h2 id="width-and-height-1"><a class="docs-heading-anchor" href="#width-and-height-1"><code>width</code> and <code>height</code></a><a class="docs-heading-anchor-permalink" href="#width-and-height-1" title="Permalink"></a></h2><p>The <code>width</code> and <code>height</code> options specify the size of the SVG image in pixels. However, the actual display scale depends on the viewer.</p><p>If you set the <code>height</code> to <code>0</code>, it will be calculated automatically according to the graph. As shown below, cropping can occur when the height of the graph exceeds the manually specified <code>height</code>. When the interactive feature is available, you can display the cropped area by dragging the graph.</p><pre><code class="language-julia">ProfileSVG.view(width=400, height=200)</code></pre><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="400" height="200" viewBox="0 0 400 200"
-     xmlns="http://www.w3.org/2000/svg" id="fig-a6154eec71c046c69704f9b678a194fe">
+     xmlns="http://www.w3.org/2000/svg" id="fig-52f1580e788c499baa350b1c2026fd49">
 <defs>
-    <linearGradient id="fig-a6154eec71c046c69704f9b678a194fe-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-52f1580e788c499baa350b1c2026fd49-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-a6154eec71c046c69704f9b678a194fe-clip">
+    <clipPath id="fig-52f1580e788c499baa350b1c2026fd49-clip">
         <rect x="0" y="0" width="400" height="200"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-a6154eec71c046c69704f9b678a194fe text {
+    #fig-52f1580e788c499baa350b1c2026fd49 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-a6154eec71c046c69704f9b678a194fe-caption {
+    text#fig-52f1580e788c499baa350b1c2026fd49-caption {
         font-size: 16.8px;
         text-anchor: middle;
     }
-    #fig-a6154eec71c046c69704f9b678a194fe-bg {
-        fill: url(#fig-a6154eec71c046c69704f9b678a194fe-background);
+    #fig-52f1580e788c499baa350b1c2026fd49-bg {
+        fill: url(#fig-52f1580e788c499baa350b1c2026fd49-background);
     }
-    #fig-a6154eec71c046c69704f9b678a194fe-viewport rect {
+    #fig-52f1580e788c499baa350b1c2026fd49-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-a6154eec71c046c69704f9b678a194fe-viewport text {
+    #fig-52f1580e788c499baa350b1c2026fd49-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-a6154eec71c046c69704f9b678a194fe-viewport rect:hover {
+    #fig-52f1580e788c499baa350b1c2026fd49-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-a6154eec71c046c69704f9b678a194fe-frame" clip-path="url(#fig-a6154eec71c046c69704f9b678a194fe-clip)">
-<rect id="fig-a6154eec71c046c69704f9b678a194fe-bg" x="0" y="0" width="400" height="200"/>
-<text id="fig-a6154eec71c046c69704f9b678a194fe-caption" x="200" y="24">Profile results</text>
-<g id="fig-a6154eec71c046c69704f9b678a194fe-viewport" transform="scale(1)">
+<g id="fig-52f1580e788c499baa350b1c2026fd49-frame" clip-path="url(#fig-52f1580e788c499baa350b1c2026fd49-clip)">
+<rect id="fig-52f1580e788c499baa350b1c2026fd49-bg" x="0" y="0" width="400" height="200"/>
+<text id="fig-52f1580e788c499baa350b1c2026fd49-caption" x="200" y="24">Profile results</text>
+<g id="fig-52f1580e788c499baa350b1c2026fd49-viewport" transform="scale(1)">
 <rect x="4" y="149" width="392" height="15" fill="#E1B2FF" rx="2" data-dinfo=""/>
 <text x="4" dx="4" y="160.25"> in :-1</text>
 <rect x="4" y="134" width="392" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
@@ -457,13 +457,13 @@ if (typeof require === 'function' && define.amd) {
 <text x="20.33" dx="4" y="-4.75">rand in RNGs.jl:370</text>
 <rect x="20.33" y="-31" width="49" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="20.33" dx="4" y="-19.75">reserve_1 in RNGs.jl:190</text>
-<rect x="20.33" y="-46" width="16.33" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="20.33" y="-46" width="16.34" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="20.33" dx="4" y="-34.75">gen_rand in RNGs.jl:186</text>
-<rect x="20.33" y="-61" width="16.33" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="20.33" y="-61" width="16.34" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="20.33" dx="4" y="-49.75">dsfmt_fill_array_close1_open2! in DSFMT.jl:86</text>
-<rect x="36.67" y="-46" width="32.67" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="36.67" y="-46" width="32.66" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="36.67" dx="4" y="-34.75">mt_empty in RNGs.jl:180</text>
-<rect x="36.67" y="-61" width="32.67" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="36.67" y="-61" width="32.66" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
 <text x="36.67" dx="4" y="-49.75">getproperty in Base.jl:33</text>
 <rect x="69.33" y="-16" width="32.67" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="69.33" dx="4" y="-4.75">rand in RNGs.jl:371</text>
@@ -481,13 +481,13 @@ if (typeof require === 'function' && define.amd) {
 <text x="102" dx="4" y="40.25">* in promotion.jl:312</text>
 <rect x="102" y="14" width="16.33" height="15" fill="#2CA3FF" rx="2" data-dinfo=".\"/>
 <text x="102" dx="4" y="25.25">* in float.jl:405</text>
-<rect x="118.33" y="44" width="16.33" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="118.33" y="44" width="16.34" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="118.33" dx="4" y="55.25">randn in normal.jl:45</text>
-<rect x="118.33" y="29" width="16.33" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="118.33" y="29" width="16.34" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="118.33" dx="4" y="40.25">randn_unlikely in normal.jl:58</text>
-<rect x="118.33" y="14" width="16.33" height="15" fill="#00B58B" rx="2" data-dinfo=".\special\"/>
+<rect x="118.33" y="14" width="16.34" height="15" fill="#00B58B" rx="2" data-dinfo=".\special\"/>
 <text x="118.33" dx="4" y="25.25">exp in exp.jl:136</text>
-<rect x="118.33" y="-1" width="16.33" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="118.33" y="-1" width="16.34" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
 <text x="118.33" dx="4" y="10.25">- in float.jl:403</text>
 <rect x="151" y="119" width="163.33" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
 <text x="151" dx="4" y="130.25">profile_test in REPL[2]:5</text>
@@ -828,57 +828,57 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-a6154eec71c046c69704f9b678a194fe");
+        ProfileSVG.initialize("fig-52f1580e788c499baa350b1c2026fd49");
     });
 } else {
-    ProfileSVG.initialize("fig-a6154eec71c046c69704f9b678a194fe");
+    ProfileSVG.initialize("fig-52f1580e788c499baa350b1c2026fd49");
 }
 ]]></script>
 </svg>
 <h2 id="font-and-fontsize-1"><a class="docs-heading-anchor" href="#font-and-fontsize-1"><code>font</code> and <code>fontsize</code></a><a class="docs-heading-anchor-permalink" href="#font-and-fontsize-1" title="Permalink"></a></h2><p>The <code>font</code> option specifies the font family names for texts. This setting is used as the CSS font-family property, i.e. you can use a comma-separated list and quotes are required around the names which are not valid CSS identifiers.</p><p>The <code>fontsize</code> option specifies the font size in pixels.</p><p>Note that the actual rendering results depend on the viewer.</p><pre><code class="language-julia">ProfileSVG.view(font=&quot;&#39;Times New Roman&#39;, serif&quot;, fontsize=16)</code></pre><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="800" height="416" viewBox="0 0 800 416"
-     xmlns="http://www.w3.org/2000/svg" id="fig-108d7e77643c42efb5fa81d47c154471">
+     xmlns="http://www.w3.org/2000/svg" id="fig-770f34b0d9fc4de491a9071405794277">
 <defs>
-    <linearGradient id="fig-108d7e77643c42efb5fa81d47c154471-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-770f34b0d9fc4de491a9071405794277-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-108d7e77643c42efb5fa81d47c154471-clip">
+    <clipPath id="fig-770f34b0d9fc4de491a9071405794277-clip">
         <rect x="0" y="0" width="800" height="416"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-108d7e77643c42efb5fa81d47c154471 text {
+    #fig-770f34b0d9fc4de491a9071405794277 text {
         pointer-events: none;
         font-family: 'Times New Roman', serif;
         font-size: 16px;
         fill: #000000;
     }
-    text#fig-108d7e77643c42efb5fa81d47c154471-caption {
+    text#fig-770f34b0d9fc4de491a9071405794277-caption {
         font-size: 22.4px;
         text-anchor: middle;
     }
-    #fig-108d7e77643c42efb5fa81d47c154471-bg {
-        fill: url(#fig-108d7e77643c42efb5fa81d47c154471-background);
+    #fig-770f34b0d9fc4de491a9071405794277-bg {
+        fill: url(#fig-770f34b0d9fc4de491a9071405794277-background);
     }
-    #fig-108d7e77643c42efb5fa81d47c154471-viewport rect {
+    #fig-770f34b0d9fc4de491a9071405794277-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-108d7e77643c42efb5fa81d47c154471-viewport text {
+    #fig-770f34b0d9fc4de491a9071405794277-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-108d7e77643c42efb5fa81d47c154471-viewport rect:hover {
+    #fig-770f34b0d9fc4de491a9071405794277-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-108d7e77643c42efb5fa81d47c154471-frame" clip-path="url(#fig-108d7e77643c42efb5fa81d47c154471-clip)">
-<rect id="fig-108d7e77643c42efb5fa81d47c154471-bg" x="0" y="0" width="800" height="416"/>
-<text id="fig-108d7e77643c42efb5fa81d47c154471-caption" x="400" y="32">Profile results</text>
-<g id="fig-108d7e77643c42efb5fa81d47c154471-viewport" transform="scale(1)">
+<g id="fig-770f34b0d9fc4de491a9071405794277-frame" clip-path="url(#fig-770f34b0d9fc4de491a9071405794277-clip)">
+<rect id="fig-770f34b0d9fc4de491a9071405794277-bg" x="0" y="0" width="800" height="416"/>
+<text id="fig-770f34b0d9fc4de491a9071405794277-caption" x="400" y="32">Profile results</text>
+<g id="fig-770f34b0d9fc4de491a9071405794277-viewport" transform="scale(1)">
 <rect x="8" y="348" width="784" height="20" fill="#E1B2FF" rx="2" data-dinfo=""/>
 <text x="8" dx="4" y="363"> in :-1</text>
 <rect x="8" y="328" width="784" height="20" fill="#00B58B" rx="2" data-dinfo=".\"/>
@@ -907,13 +907,13 @@ if (typeof require === 'function' && define.amd) {
 <text x="40.67" dx="4" y="143">rand in RNGs.jl:370</text>
 <rect x="40.67" y="108" width="98" height="20" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="40.67" dx="4" y="123">reserve_1 in RNGs.jl:190</text>
-<rect x="40.67" y="88" width="32.67" height="20" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="40.67" y="88" width="32.66" height="20" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="40.67" dx="4" y="103">gen_rand in RNGs.jl:186</text>
-<rect x="40.67" y="68" width="32.67" height="20" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="40.67" y="68" width="32.66" height="20" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="40.67" dx="4" y="83">dsfmt_fill_array_close1_open2! in DSFMT.jl:86</text>
-<rect x="73.33" y="88" width="65.33" height="20" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="73.33" y="88" width="65.34" height="20" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="73.33" dx="4" y="103">mt_empty in RNGs.jl:180</text>
-<rect x="73.33" y="68" width="65.33" height="20" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="73.33" y="68" width="65.34" height="20" fill="#6FDC91" rx="2" data-dinfo=".\"/>
 <text x="73.33" dx="4" y="83">getproperty in Base.jl:33</text>
 <rect x="138.67" y="128" width="65.33" height="20" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="138.67" dx="4" y="143">rand in RNGs.jl:371</text>
@@ -931,13 +931,13 @@ if (typeof require === 'function' && define.amd) {
 <text x="204" dx="4" y="203">* in promotion.jl:312</text>
 <rect x="204" y="168" width="32.67" height="20" fill="#2CA3FF" rx="2" data-dinfo=".\"/>
 <text x="204" dx="4" y="183">* in float.jl:405</text>
-<rect x="236.67" y="208" width="32.67" height="20" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="236.67" y="208" width="32.66" height="20" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="236.67" dx="4" y="223">randn in normal.jl:45</text>
-<rect x="236.67" y="188" width="32.67" height="20" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="236.67" y="188" width="32.66" height="20" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="236.67" dx="4" y="203">randn_unlikely in normal.jl:58</text>
-<rect x="236.67" y="168" width="32.67" height="20" fill="#00B58B" rx="2" data-dinfo=".\special\"/>
+<rect x="236.67" y="168" width="32.66" height="20" fill="#00B58B" rx="2" data-dinfo=".\special\"/>
 <text x="236.67" dx="4" y="183">exp in exp.jl:136</text>
-<rect x="236.67" y="148" width="32.67" height="20" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="236.67" y="148" width="32.66" height="20" fill="#6FDC91" rx="2" data-dinfo=".\"/>
 <text x="236.67" dx="4" y="163">- in float.jl:403</text>
 <rect x="302" y="308" width="326.67" height="20" fill="#6FDC91" rx="2" data-dinfo=".\"/>
 <text x="302" dx="4" y="323">profile_test in REPL[2]:5</text>
@@ -1278,10 +1278,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-108d7e77643c42efb5fa81d47c154471");
+        ProfileSVG.initialize("fig-770f34b0d9fc4de491a9071405794277");
     });
 } else {
-    ProfileSVG.initialize("fig-108d7e77643c42efb5fa81d47c154471");
+    ProfileSVG.initialize("fig-770f34b0d9fc4de491a9071405794277");
 }
 ]]></script>
 </svg>
@@ -1289,47 +1289,47 @@ if (typeof require === 'function' && define.amd) {
 ProfileSVG.view(width=300)</code></pre><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="300" height="208" viewBox="0 0 300 208"
-     xmlns="http://www.w3.org/2000/svg" id="fig-7cc8f1517ddd4f63a533a8a771e16235">
+     xmlns="http://www.w3.org/2000/svg" id="fig-17fc570014a34cb8926521f1e377251d">
 <defs>
-    <linearGradient id="fig-7cc8f1517ddd4f63a533a8a771e16235-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-17fc570014a34cb8926521f1e377251d-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-7cc8f1517ddd4f63a533a8a771e16235-clip">
+    <clipPath id="fig-17fc570014a34cb8926521f1e377251d-clip">
         <rect x="0" y="0" width="300" height="208"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-7cc8f1517ddd4f63a533a8a771e16235 text {
+    #fig-17fc570014a34cb8926521f1e377251d text {
         pointer-events: none;
         font-family: inherit;
         font-size: 8px;
         fill: #000000;
     }
-    text#fig-7cc8f1517ddd4f63a533a8a771e16235-caption {
+    text#fig-17fc570014a34cb8926521f1e377251d-caption {
         font-size: 11.2px;
         text-anchor: middle;
     }
-    #fig-7cc8f1517ddd4f63a533a8a771e16235-bg {
-        fill: url(#fig-7cc8f1517ddd4f63a533a8a771e16235-background);
+    #fig-17fc570014a34cb8926521f1e377251d-bg {
+        fill: url(#fig-17fc570014a34cb8926521f1e377251d-background);
     }
-    #fig-7cc8f1517ddd4f63a533a8a771e16235-viewport rect {
+    #fig-17fc570014a34cb8926521f1e377251d-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-7cc8f1517ddd4f63a533a8a771e16235-viewport text {
+    #fig-17fc570014a34cb8926521f1e377251d-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-7cc8f1517ddd4f63a533a8a771e16235-viewport rect:hover {
+    #fig-17fc570014a34cb8926521f1e377251d-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-7cc8f1517ddd4f63a533a8a771e16235-frame" clip-path="url(#fig-7cc8f1517ddd4f63a533a8a771e16235-clip)">
-<rect id="fig-7cc8f1517ddd4f63a533a8a771e16235-bg" x="0" y="0" width="300" height="208"/>
-<text id="fig-7cc8f1517ddd4f63a533a8a771e16235-caption" x="150" y="16">Profile results</text>
-<g id="fig-7cc8f1517ddd4f63a533a8a771e16235-viewport" transform="scale(1)">
+<g id="fig-17fc570014a34cb8926521f1e377251d-frame" clip-path="url(#fig-17fc570014a34cb8926521f1e377251d-clip)">
+<rect id="fig-17fc570014a34cb8926521f1e377251d-bg" x="0" y="0" width="300" height="208"/>
+<text id="fig-17fc570014a34cb8926521f1e377251d-caption" x="150" y="16">Profile results</text>
+<g id="fig-17fc570014a34cb8926521f1e377251d-viewport" transform="scale(1)">
 <rect x="3" y="174" width="294" height="10" fill="#FFA500" rx="2" data-dinfo=""/>
 <text x="3" dx="4" y="181.5"> in :-1</text>
 <rect x="3" y="164" width="294" height="10" fill="#4D4D4D" rx="2" data-dinfo=".\"/>
@@ -1729,11 +1729,11 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-7cc8f1517ddd4f63a533a8a771e16235");
+        ProfileSVG.initialize("fig-17fc570014a34cb8926521f1e377251d");
     });
 } else {
-    ProfileSVG.initialize("fig-7cc8f1517ddd4f63a533a8a771e16235");
+    ProfileSVG.initialize("fig-17fc570014a34cb8926521f1e377251d");
 }
 ]]></script>
 </svg>
-</article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../coloration-schemes/">« Coloration Schemes</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 10 June 2020 13:18">Wednesday 10 June 2020</span>. Using Julia version 1.4.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../coloration-schemes/">« Coloration Schemes</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 4 September 2020 11:57">Friday 4 September 2020</span>. Using Julia version 1.5.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
