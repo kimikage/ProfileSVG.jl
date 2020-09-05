@@ -62,6 +62,7 @@ end
     @test fg.height == 0
     @test fg.font == "inherit"
     @test fg.fontsize == 12
+    @test fg.notext == false
 
     fg = ProfileSVG.view(backtraces,
                           C=true, lidict=lidict, fontsize=12.34, unknown=missing)
@@ -73,6 +74,7 @@ end
     @test fg.height == 0
     @test fg.font == "inherit"
     @test fg.fontsize == 12.34
+    @test fg.notext == false
 
     g = flamegraph(backtraces, lidict=lidict)
 
@@ -84,8 +86,9 @@ end
     @test fg.height == 123.4
     @test fg.font == "inherit"
     @test fg.fontsize == 12
+    @test fg.notext == false
 
-    fg = ProfileSVG.view(g, C=true, font="serif", unknown=false)
+    fg = ProfileSVG.view(g, C=true, font="serif", notext=true, unknown=false)
     @test FlameGraphs.depth(fg.g) == 4 # `C` option does not affect the graph
     @test fg.fcolor isa FlameColors
     @test fg.graph_options[:C] == true
@@ -93,6 +96,7 @@ end
     @test fg.height == 0
     @test fg.font == "serif"
     @test fg.fontsize == 12
+    @test fg.notext == true
 end
 
 @testset "save" begin
@@ -148,12 +152,12 @@ end
     @test svg_size(str) == ("960", "123.4")
     @test has_filled_rect(str, "#FF0000")
 
-    ProfileSVG.save(io, g, C=true, font="serif", unknown=false)
+    ProfileSVG.save(io, g, C=true, font="serif", notext=true, unknown=false)
     str = String(take!(io))
     @test svg_size(str) == ("960", "136")
     @test !has_filled_rect(str, "#FF0000")
     filename = tempname()
-    ProfileSVG.save(filename, g, C=true, font="serif", unknown=false)
+    ProfileSVG.save(filename, g, C=true, font="serif", notext=true, unknown=false)
     str = read(filename, String)
     rm(filename)
     @test svg_size(str) == ("960", "136")
@@ -187,6 +191,7 @@ end
     @test fgc.height == 567.8
     @test fgc.font == "inherit"
     @test fgc.fontsize == 12
+    @test fgc.notext == false
 
     ProfileSVG.set_default(fontsize=9)
     fgc = ProfileSVG.view(backtraces,
@@ -199,6 +204,7 @@ end
     @test fgc.height == 567.8
     @test fgc.font == "inherit"
     @test fgc.fontsize == 9
+    @test fgc.notext == false
 
     ProfileSVG.init()
     fgc = ProfileSVG.view(backtraces,
@@ -211,6 +217,7 @@ end
     @test fgc.height == 0
     @test fgc.font == "inherit"
     @test fgc.fontsize == 12
+    @test fgc.notext == false
 end
 
 # For these tests to work you need `rsvg-convert` installed.
