@@ -20,47 +20,47 @@ using Profile, ProfileSVG
 @profview profile_test(10)</code></pre><p>Then, you can get something like this:</p><?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="960" height="316" viewBox="0 0 960 316"
-     xmlns="http://www.w3.org/2000/svg" id="fig-a41c7ebd85cc40c89d5dce3aeb326d77">
+     xmlns="http://www.w3.org/2000/svg" id="fig-895fe8d7eae84395a938f78bbf3e8d7e">
 <defs>
-    <linearGradient id="fig-a41c7ebd85cc40c89d5dce3aeb326d77-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-895fe8d7eae84395a938f78bbf3e8d7e-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-a41c7ebd85cc40c89d5dce3aeb326d77-clip">
+    <clipPath id="fig-895fe8d7eae84395a938f78bbf3e8d7e-clip">
         <rect x="0" y="0" width="960" height="316"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-a41c7ebd85cc40c89d5dce3aeb326d77 text {
+    #fig-895fe8d7eae84395a938f78bbf3e8d7e text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-a41c7ebd85cc40c89d5dce3aeb326d77-caption {
+    text#fig-895fe8d7eae84395a938f78bbf3e8d7e-caption {
         font-size: 16.8px;
         text-anchor: middle;
     }
-    #fig-a41c7ebd85cc40c89d5dce3aeb326d77-bg {
-        fill: url(#fig-a41c7ebd85cc40c89d5dce3aeb326d77-background);
+    #fig-895fe8d7eae84395a938f78bbf3e8d7e-bg {
+        fill: url(#fig-895fe8d7eae84395a938f78bbf3e8d7e-background);
     }
-    #fig-a41c7ebd85cc40c89d5dce3aeb326d77-viewport rect {
+    #fig-895fe8d7eae84395a938f78bbf3e8d7e-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-a41c7ebd85cc40c89d5dce3aeb326d77-viewport text {
+    #fig-895fe8d7eae84395a938f78bbf3e8d7e-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-a41c7ebd85cc40c89d5dce3aeb326d77-viewport rect:hover {
+    #fig-895fe8d7eae84395a938f78bbf3e8d7e-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-a41c7ebd85cc40c89d5dce3aeb326d77-frame" clip-path="url(#fig-a41c7ebd85cc40c89d5dce3aeb326d77-clip)">
-<rect id="fig-a41c7ebd85cc40c89d5dce3aeb326d77-bg" x="0" y="0" width="960" height="316"/>
-<text id="fig-a41c7ebd85cc40c89d5dce3aeb326d77-caption" x="480" y="24">Profile results</text>
-<g id="fig-a41c7ebd85cc40c89d5dce3aeb326d77-viewport" transform="scale(1)">
+<g id="fig-895fe8d7eae84395a938f78bbf3e8d7e-frame" clip-path="url(#fig-895fe8d7eae84395a938f78bbf3e8d7e-clip)">
+<rect id="fig-895fe8d7eae84395a938f78bbf3e8d7e-bg" x="0" y="0" width="960" height="316"/>
+<text id="fig-895fe8d7eae84395a938f78bbf3e8d7e-caption" x="480" y="24">Profile results</text>
+<g id="fig-895fe8d7eae84395a938f78bbf3e8d7e-viewport" transform="scale(1)">
 <rect x="10" y="263" width="940.8" height="15" fill="#E1B2FF" rx="2" data-dinfo=""/>
 <text x="10" dx="4" y="274.25"> in :-1</text>
 <rect x="10" y="248" width="940.8" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
@@ -315,12 +315,16 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         };
 
         if (deltaT != 0) {
-            fig.viewport.selectAll('text').forEach(function (text) {
-                text.node.style.display = 'none';
-            });
-            Snap.animate(0, 1, scaleViewport, deltaT, null, finish);
+            if (!fig.notext) {
+                fig.viewport.selectAll('text').forEach(function (text) {
+                    text.node.style.display = 'none';
+                });
+            }
+            Snap.animate(0, 1, scaleViewport, deltaT, null, fig.notext ? null : finish);
         } else {
-            finish();
+            if (!fig.notext) {
+                finish();
+            }
         }
 
     };
@@ -345,6 +349,16 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         fig.cy = fig.height / 2;
 
         fig.viewport = svg.select('#' + figId + '-viewport');
+
+        var texts = fig.viewport.selectAll('text');
+        fig.notext = false;
+        if (texts[0]) {
+            fig.notext = getComputedStyle(texts[0].node).strokeOpacity == 0.0;
+            texts.forEach(function (text) {
+                text.node.style.display = 'none';
+            });
+        }
+        texts = null;
 
         fig.scaleX = 1.0;
         fig.scaleY = 1.0; // prepare for the future
@@ -460,10 +474,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-a41c7ebd85cc40c89d5dce3aeb326d77");
+        ProfileSVG.initialize("fig-895fe8d7eae84395a938f78bbf3e8d7e");
     });
 } else {
-    ProfileSVG.initialize("fig-a41c7ebd85cc40c89d5dce3aeb326d77");
+    ProfileSVG.initialize("fig-895fe8d7eae84395a938f78bbf3e8d7e");
 }
 ]]></script>
 </svg>
@@ -473,4 +487,4 @@ ProfileSVG.view()</code></pre><p>If you&#39;ve already collected profiling data 
 @profile profile_test(10);
 
 # Save a graph that looks like the Jupyter example above
-ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 4 September 2020 11:57">Friday 4 September 2020</span>. Using Julia version 1.5.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles-1"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles-1">Other tools for displaying profiles</a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles-1" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Saturday 5 September 2020 10:29">Saturday 5 September 2020</span>. Using Julia version 1.5.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

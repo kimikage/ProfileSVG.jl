@@ -1,47 +1,47 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="960" height="316" viewBox="0 0 960 316"
-     xmlns="http://www.w3.org/2000/svg" id="fig-c2758f2b0ae34e918b6b3b2e37c346d4">
+     xmlns="http://www.w3.org/2000/svg" id="fig-6fb13a87d78d4381ba6438dc510b8221">
 <defs>
-    <linearGradient id="fig-c2758f2b0ae34e918b6b3b2e37c346d4-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-6fb13a87d78d4381ba6438dc510b8221-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-c2758f2b0ae34e918b6b3b2e37c346d4-clip">
+    <clipPath id="fig-6fb13a87d78d4381ba6438dc510b8221-clip">
         <rect x="0" y="0" width="960" height="316"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-c2758f2b0ae34e918b6b3b2e37c346d4 text {
+    #fig-6fb13a87d78d4381ba6438dc510b8221 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-c2758f2b0ae34e918b6b3b2e37c346d4-caption {
+    text#fig-6fb13a87d78d4381ba6438dc510b8221-caption {
         font-size: 16.8px;
         text-anchor: middle;
     }
-    #fig-c2758f2b0ae34e918b6b3b2e37c346d4-bg {
-        fill: url(#fig-c2758f2b0ae34e918b6b3b2e37c346d4-background);
+    #fig-6fb13a87d78d4381ba6438dc510b8221-bg {
+        fill: url(#fig-6fb13a87d78d4381ba6438dc510b8221-background);
     }
-    #fig-c2758f2b0ae34e918b6b3b2e37c346d4-viewport rect {
+    #fig-6fb13a87d78d4381ba6438dc510b8221-viewport rect {
         vector-effect: non-scaling-stroke;
     }
-    #fig-c2758f2b0ae34e918b6b3b2e37c346d4-viewport text {
+    #fig-6fb13a87d78d4381ba6438dc510b8221-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-c2758f2b0ae34e918b6b3b2e37c346d4-viewport rect:hover {
+    #fig-6fb13a87d78d4381ba6438dc510b8221-viewport rect:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-c2758f2b0ae34e918b6b3b2e37c346d4-frame" clip-path="url(#fig-c2758f2b0ae34e918b6b3b2e37c346d4-clip)">
-<rect id="fig-c2758f2b0ae34e918b6b3b2e37c346d4-bg" x="0" y="0" width="960" height="316"/>
-<text id="fig-c2758f2b0ae34e918b6b3b2e37c346d4-caption" x="480" y="24">Profile results</text>
-<g id="fig-c2758f2b0ae34e918b6b3b2e37c346d4-viewport" transform="scale(1)">
+<g id="fig-6fb13a87d78d4381ba6438dc510b8221-frame" clip-path="url(#fig-6fb13a87d78d4381ba6438dc510b8221-clip)">
+<rect id="fig-6fb13a87d78d4381ba6438dc510b8221-bg" x="0" y="0" width="960" height="316"/>
+<text id="fig-6fb13a87d78d4381ba6438dc510b8221-caption" x="480" y="24">Profile results</text>
+<g id="fig-6fb13a87d78d4381ba6438dc510b8221-viewport" transform="scale(1)">
 <rect x="10" y="263" width="940.8" height="15" fill="#E1B2FF" rx="2" data-dinfo=""/>
 <text x="10" dx="4" y="274.25"> in :-1</text>
 <rect x="10" y="248" width="940.8" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
@@ -296,12 +296,16 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         };
 
         if (deltaT != 0) {
-            fig.viewport.selectAll('text').forEach(function (text) {
-                text.node.style.display = 'none';
-            });
-            Snap.animate(0, 1, scaleViewport, deltaT, null, finish);
+            if (!fig.notext) {
+                fig.viewport.selectAll('text').forEach(function (text) {
+                    text.node.style.display = 'none';
+                });
+            }
+            Snap.animate(0, 1, scaleViewport, deltaT, null, fig.notext ? null : finish);
         } else {
-            finish();
+            if (!fig.notext) {
+                finish();
+            }
         }
 
     };
@@ -326,6 +330,16 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         fig.cy = fig.height / 2;
 
         fig.viewport = svg.select('#' + figId + '-viewport');
+
+        var texts = fig.viewport.selectAll('text');
+        fig.notext = false;
+        if (texts[0]) {
+            fig.notext = getComputedStyle(texts[0].node).strokeOpacity == 0.0;
+            texts.forEach(function (text) {
+                text.node.style.display = 'none';
+            });
+        }
+        texts = null;
 
         fig.scaleX = 1.0;
         fig.scaleY = 1.0; // prepare for the future
@@ -441,10 +455,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-c2758f2b0ae34e918b6b3b2e37c346d4");
+        ProfileSVG.initialize("fig-6fb13a87d78d4381ba6438dc510b8221");
     });
 } else {
-    ProfileSVG.initialize("fig-c2758f2b0ae34e918b6b3b2e37c346d4");
+    ProfileSVG.initialize("fig-6fb13a87d78d4381ba6438dc510b8221");
 }
 ]]></script>
 </svg>
