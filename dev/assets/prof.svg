@@ -1,134 +1,134 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" width="960" height="316" viewBox="0 0 960 316"
-     xmlns="http://www.w3.org/2000/svg" id="fig-6fb13a87d78d4381ba6438dc510b8221">
+     xmlns="http://www.w3.org/2000/svg" id="fig-679d71c843dd4a0fafc587a909605313">
 <defs>
-    <linearGradient id="fig-6fb13a87d78d4381ba6438dc510b8221-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-679d71c843dd4a0fafc587a909605313-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-6fb13a87d78d4381ba6438dc510b8221-clip">
+    <clipPath id="fig-679d71c843dd4a0fafc587a909605313-clip">
         <rect x="0" y="0" width="960" height="316"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-6fb13a87d78d4381ba6438dc510b8221 text {
+    #fig-679d71c843dd4a0fafc587a909605313 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-6fb13a87d78d4381ba6438dc510b8221-caption {
+    text#fig-679d71c843dd4a0fafc587a909605313-caption {
         font-size: 16.8px;
         text-anchor: middle;
     }
-    #fig-6fb13a87d78d4381ba6438dc510b8221-bg {
-        fill: url(#fig-6fb13a87d78d4381ba6438dc510b8221-background);
+    #fig-679d71c843dd4a0fafc587a909605313-bg {
+        fill: url(#fig-679d71c843dd4a0fafc587a909605313-background);
     }
-    #fig-6fb13a87d78d4381ba6438dc510b8221-viewport rect {
+    #fig-679d71c843dd4a0fafc587a909605313-viewport rect, #fig-679d71c843dd4a0fafc587a909605313-viewport path {
         vector-effect: non-scaling-stroke;
     }
-    #fig-6fb13a87d78d4381ba6438dc510b8221-viewport text {
+    #fig-679d71c843dd4a0fafc587a909605313-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-6fb13a87d78d4381ba6438dc510b8221-viewport rect:hover {
+    #fig-679d71c843dd4a0fafc587a909605313-viewport rect:hover, #fig-679d71c843dd4a0fafc587a909605313-viewport path:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-6fb13a87d78d4381ba6438dc510b8221-frame" clip-path="url(#fig-6fb13a87d78d4381ba6438dc510b8221-clip)">
-<rect id="fig-6fb13a87d78d4381ba6438dc510b8221-bg" x="0" y="0" width="960" height="316"/>
-<text id="fig-6fb13a87d78d4381ba6438dc510b8221-caption" x="480" y="24">Profile results</text>
-<g id="fig-6fb13a87d78d4381ba6438dc510b8221-viewport" transform="scale(1)">
-<rect x="10" y="263" width="940.8" height="15" fill="#E1B2FF" rx="2" data-dinfo=""/>
+<g id="fig-679d71c843dd4a0fafc587a909605313-frame" clip-path="url(#fig-679d71c843dd4a0fafc587a909605313-clip)">
+<rect id="fig-679d71c843dd4a0fafc587a909605313-bg" x="0" y="0" width="960" height="316"/>
+<text id="fig-679d71c843dd4a0fafc587a909605313-caption" x="480" y="24">Profile results</text>
+<g id="fig-679d71c843dd4a0fafc587a909605313-viewport" transform="scale(1)">
+<rect x="10" y="263" width="940.8" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="10" dx="4" y="274.25"> in :-1</text>
-<rect x="10" y="248" width="940.8" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<rect x="10" y="248" width="940.8" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
 <text x="10" dx="4" y="259.25">eval in boot.jl:331</text>
-<rect x="10" y="233" width="352.8" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
+<rect x="10" y="233" width="352.8" height="15" rx="2" fill="#E1B2FF" data-dinfo=".\"/>
 <text x="10" dx="4" y="244.25">profile_test in REPL[2]:3</text>
-<rect x="10" y="218" width="352.8" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="10" y="218" width="352.8" height="15" rx="2" fill="#00B58B" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="10" dx="4" y="229.25">randn in normal.jl:190</text>
-<rect x="10" y="203" width="352.8" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="10" y="203" width="352.8" height="15" rx="2" fill="#E1B2FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="10" dx="4" y="214.25">randn in normal.jl:184</text>
-<rect x="10" y="188" width="352.8" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="10" y="188" width="352.8" height="15" rx="2" fill="#00B58B" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="10" dx="4" y="199.25">randn! in normal.jl:173</text>
-<rect x="10" y="173" width="39.2" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
+<rect x="10" y="173" width="39.2" height="15" rx="2" fill="#E1B2FF" data-dinfo=".\"/>
 <text x="10" dx="4" y="184.25">setindex! in array.jl:826</text>
-<rect x="49.2" y="173" width="313.6" height="15" fill="#6FDC91" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="173" width="313.6" height="15" rx="2" fill="#6FDC91" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="184.25">randn in normal.jl:167</text>
-<rect x="49.2" y="158" width="196" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="158" width="196" height="15" rx="2" fill="#00B58B" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="169.25">randn in normal.jl:40</text>
-<rect x="49.2" y="143" width="196" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="143" width="196" height="15" rx="2" fill="#E1B2FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="154.25">rand in Random.jl:253</text>
-<rect x="49.2" y="128" width="196" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="128" width="196" height="15" rx="2" fill="#00B58B" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="139.25">rand in generation.jl:119</text>
-<rect x="49.2" y="113" width="196" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="113" width="196" height="15" rx="2" fill="#E1B2FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="124.25">rand in Random.jl:253</text>
-<rect x="49.2" y="98" width="117.6" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="98" width="117.6" height="15" rx="2" fill="#00B58B" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="109.25">rand in RNGs.jl:370</text>
-<rect x="49.2" y="83" width="117.6" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="83" width="117.6" height="15" rx="2" fill="#E1B2FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="94.25">reserve_1 in RNGs.jl:190</text>
-<rect x="49.2" y="68" width="39.2" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="68" width="39.2" height="15" rx="2" fill="#00B58B" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="79.25">gen_rand in RNGs.jl:186</text>
-<rect x="49.2" y="53" width="39.2" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="49.2" y="53" width="39.2" height="15" rx="2" fill="#E1B2FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="49.2" dx="4" y="64.25">dsfmt_fill_array_close1_open2! in DSFMT.jl:86</text>
-<rect x="88.4" y="68" width="78.4" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="88.4" y="68" width="78.4" height="15" rx="2" fill="#2CA3FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="88.4" dx="4" y="79.25">mt_empty in RNGs.jl:180</text>
-<rect x="88.4" y="53" width="78.4" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="88.4" y="53" width="78.4" height="15" rx="2" fill="#6FDC91" data-dinfo=".\"/>
 <text x="88.4" dx="4" y="64.25">getproperty in Base.jl:33</text>
-<rect x="166.8" y="98" width="78.4" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="166.8" y="98" width="78.4" height="15" rx="2" fill="#2CA3FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="166.8" dx="4" y="109.25">rand in RNGs.jl:371</text>
-<rect x="166.8" y="83" width="78.4" height="15" fill="#6FDC91" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="166.8" y="83" width="78.4" height="15" rx="2" fill="#6FDC91" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="166.8" dx="4" y="94.25">rand_inbounds in RNGs.jl:366</text>
-<rect x="166.8" y="68" width="78.4" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="166.8" y="68" width="78.4" height="15" rx="2" fill="#00B58B" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="166.8" dx="4" y="79.25">rand_inbounds in RNGs.jl:362</text>
-<rect x="166.8" y="53" width="78.4" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="166.8" y="53" width="78.4" height="15" rx="2" fill="#E1B2FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="166.8" dx="4" y="64.25">mt_pop! in RNGs.jl:183</text>
-<rect x="166.8" y="38" width="78.4" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<rect x="166.8" y="38" width="78.4" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
 <text x="166.8" dx="4" y="49.25">+ in int.jl:53</text>
-<rect x="245.2" y="158" width="39.2" height="15" fill="#2CA3FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="245.2" y="158" width="39.2" height="15" rx="2" fill="#2CA3FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="245.2" dx="4" y="169.25">randn in normal.jl:43</text>
-<rect x="245.2" y="143" width="39.2" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="245.2" y="143" width="39.2" height="15" rx="2" fill="#6FDC91" data-dinfo=".\"/>
 <text x="245.2" dx="4" y="154.25">* in promotion.jl:312</text>
-<rect x="245.2" y="128" width="39.2" height="15" fill="#2CA3FF" rx="2" data-dinfo=".\"/>
+<rect x="245.2" y="128" width="39.2" height="15" rx="2" fill="#2CA3FF" data-dinfo=".\"/>
 <text x="245.2" dx="4" y="139.25">* in float.jl:405</text>
-<rect x="284.4" y="158" width="39.2" height="15" fill="#00B58B" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="284.4" y="158" width="39.2" height="15" rx="2" fill="#00B58B" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="284.4" dx="4" y="169.25">randn in normal.jl:45</text>
-<rect x="284.4" y="143" width="39.2" height="15" fill="#E1B2FF" rx="2" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
+<rect x="284.4" y="143" width="39.2" height="15" rx="2" fill="#E1B2FF" data-dinfo="D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\Random\src\"/>
 <text x="284.4" dx="4" y="154.25">randn_unlikely in normal.jl:58</text>
-<rect x="284.4" y="128" width="39.2" height="15" fill="#00B58B" rx="2" data-dinfo=".\special\"/>
+<rect x="284.4" y="128" width="39.2" height="15" rx="2" fill="#00B58B" data-dinfo=".\special\"/>
 <text x="284.4" dx="4" y="139.25">exp in exp.jl:136</text>
-<rect x="284.4" y="113" width="39.2" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="284.4" y="113" width="39.2" height="15" rx="2" fill="#6FDC91" data-dinfo=".\"/>
 <text x="284.4" dx="4" y="124.25">- in float.jl:403</text>
-<rect x="362.8" y="233" width="392" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="362.8" y="233" width="392" height="15" rx="2" fill="#6FDC91" data-dinfo=".\"/>
 <text x="362.8" dx="4" y="244.25">profile_test in REPL[2]:5</text>
-<rect x="362.8" y="218" width="392" height="15" fill="#2CA3FF" rx="2" data-dinfo=".\"/>
+<rect x="362.8" y="218" width="392" height="15" rx="2" fill="#2CA3FF" data-dinfo=".\"/>
 <text x="362.8" dx="4" y="229.25">mapslices##kw in abstractarray.jl:1972</text>
-<rect x="362.8" y="203" width="392" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="362.8" y="203" width="392" height="15" rx="2" fill="#6FDC91" data-dinfo=".\"/>
 <text x="362.8" dx="4" y="214.25">#mapslices#115 in abstractarray.jl:2029</text>
-<rect x="362.8" y="188" width="392" height="15" fill="#C5312F" rx="2" data-dinfo=".\"/>
+<rect x="362.8" y="188" width="392" height="15" rx="2" fill="#C5312F" data-dinfo=".\"/>
 <text x="362.8" dx="4" y="199.25">inner_mapslices! in abstractarray.jl:2039</text>
-<rect x="362.8" y="173" width="313.6" height="15" fill="#F3004D" rx="2" data-dinfo=".\"/>
+<rect x="362.8" y="173" width="313.6" height="15" rx="2" fill="#F3004D" data-dinfo=".\"/>
 <text x="362.8" dx="4" y="184.25">concatenate_setindex! in abstractarray.jl:2058</text>
-<rect x="362.8" y="158" width="156.8" height="15" fill="#C5312F" rx="2" data-dinfo=".\"/>
+<rect x="362.8" y="158" width="156.8" height="15" rx="2" fill="#C5312F" data-dinfo=".\"/>
 <text x="362.8" dx="4" y="169.25">dotview in broadcast.jl:1138</text>
-<rect x="362.8" y="143" width="78.4" height="15" fill="#FFA400" rx="2" data-dinfo=".\"/>
+<rect x="362.8" y="143" width="78.4" height="15" rx="2" fill="#FFA400" data-dinfo=".\"/>
 <text x="362.8" dx="4" y="154.25">maybeview in views.jl:124</text>
-<rect x="754.8" y="233" width="196" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
+<rect x="754.8" y="233" width="196" height="15" rx="2" fill="#E1B2FF" data-dinfo=".\"/>
 <text x="754.8" dx="4" y="244.25">profile_test in REPL[2]:7</text>
-<rect x="754.8" y="218" width="196" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<rect x="754.8" y="218" width="196" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
 <text x="754.8" dx="4" y="229.25">mapslices##kw in abstractarray.jl:1972</text>
-<rect x="754.8" y="203" width="196" height="15" fill="#E1B2FF" rx="2" data-dinfo=".\"/>
+<rect x="754.8" y="203" width="196" height="15" rx="2" fill="#E1B2FF" data-dinfo=".\"/>
 <text x="754.8" dx="4" y="214.25">#mapslices#115 in abstractarray.jl:2018</text>
-<rect x="754.8" y="188" width="196" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<rect x="754.8" y="188" width="196" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
 <text x="754.8" dx="4" y="199.25">similar in abstractarray.jl:626</text>
-<rect x="754.8" y="173" width="196" height="15" fill="#6FDC91" rx="2" data-dinfo=".\"/>
+<rect x="754.8" y="173" width="196" height="15" rx="2" fill="#6FDC91" data-dinfo=".\"/>
 <text x="754.8" dx="4" y="184.25">similar in array.jl:361</text>
-<rect x="754.8" y="158" width="196" height="15" fill="#00B58B" rx="2" data-dinfo=".\"/>
+<rect x="754.8" y="158" width="196" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
 <text x="754.8" dx="4" y="169.25">Array in boot.jl:415</text>
-<rect x="754.8" y="143" width="196" height="15" fill="#FFA000" rx="2" data-dinfo=".\"/>
+<rect x="754.8" y="143" width="196" height="15" rx="2" fill="#FFA000" data-dinfo=".\"/>
 <text x="754.8" dx="4" y="154.25">Array in boot.jl:407</text>
 </g></g>
 <script><![CDATA[
@@ -169,7 +169,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     try {
         var opts = Object.defineProperty({}, 'passive', {
             get: function () {
-                supportsPassive = true;
+                return supportsPassive = true;
             }
         });
         window.addEventListener("testPassive", null, opts);
@@ -202,7 +202,6 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
     var ZOOM_STEP = 1.4;
     var VIEWPORT_SCALE = 0.9;
     var VIEWPORT_MARGIN_X = 20;
-    var ROUNDRECT_R = 2;
 
     var formatText = function (fig, text, availableWidth) {
         if (availableWidth < 3 * fig.charWidthM) {
@@ -253,7 +252,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         fig.scaleX = targetScaleX;
         fig.scaleY = targetScaleY;
 
-        var rects = fig.viewport.selectAll('rect');
+        var rects = undefined;
+        var pathrects = undefined;
+        if (fig.roundradius > 0) {
+            rects = fig.viewport.selectAll('rect');
+        } else {
+            pathrects = fig.viewport.selectAll('path');
+        }
 
         var scaleViewport = function (step) {
             var scaleX = oldScaleX + (targetScaleX - oldScaleX) * step;
@@ -265,34 +270,52 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             rMatrix.e = oldE + (targetE - oldE) * step; // TransX
             rMatrix.f = oldF + (targetF - oldF) * step; // TransY
 
-            rects.forEach(function (r) {
-                var rect = r.node;
-                rect.setAttribute('rx', Math.max(0.0, ROUNDRECT_R / scaleX));
-                rect.setAttribute('ry', Math.max(0.0, ROUNDRECT_R / scaleY));
-            });
+            if (rects) {
+                rects.forEach(function (r) {
+                    var rect = r.node;
+                    rect.setAttribute('rx', Math.max(0.0, fig.roundradius / scaleX));
+                    rect.setAttribute('ry', Math.max(0.0, fig.roundradius / scaleY));
+                });
+            }
         };
 
         var finish = function () {
             scaleViewport(1);
             var scaleXt = 1.0 / targetScaleX;
             var scaleYt = 1.0 / targetScaleY;
-            rects.forEach(function (r) {
-                var rect = r.node;
-                var rectx = rect.x.baseVal.value;
-                var recty = rect.y.baseVal.value;
-                var rectw = rect.width.baseVal.value;
-                var text = rect.nextElementSibling;
-                var shortinfo = rect.getAttribute("data-shortinfo");
-
+            var updateText = function (text, x, y, w, shortinfo) {
                 var tMatrix = text.transform.baseVal.getItem(0).matrix;
                 tMatrix.a = scaleXt;
                 tMatrix.d = scaleYt;
-                tMatrix.e = (1.0 - scaleXt) * rectx;
-                tMatrix.f = (1.0 - scaleYt) * recty;
+                tMatrix.e = (1.0 - scaleXt) * x;
+                tMatrix.f = (1.0 - scaleYt) * y;
 
-                text.textContent = formatText(fig, shortinfo, rectw / scaleXt);
+                text.firstChild.nodeValue = formatText(fig, shortinfo, w / scaleXt);
                 text.style.display = 'inherit';
-            });
+            };
+            if (rects) {
+                rects.forEach(function (r) {
+                    var rect = r.node;
+                    var x = rect.x.baseVal.value;
+                    var y = rect.y.baseVal.value;
+                    var w = rect.width.baseVal.value;
+                    var shortinfo = rect.getAttribute('data-shortinfo');
+                    updateText(rect.nextElementSibling, x, y, w, shortinfo);
+                });
+            }
+            if (pathrects) {
+                pathrects.forEach(function (p) {
+                    var path = p.node;
+                    // The API compatibility of path segments is problematic.
+                    var d = path.getAttribute('d');
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var x = Number(values[1]);
+                    var y = Number(values[2]);
+                    var w = Number(values[3]);
+                    var shortinfo = path.getAttribute('data-shortinfo');
+                    updateText(path.nextElementSibling, x, y, w, shortinfo);
+                });
+            }
         };
 
         if (deltaT != 0) {
@@ -340,6 +363,12 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             });
         }
         texts = null;
+
+        fig.roundradius = 0.0;
+        var rect = fig.viewport.select('rect');
+        if (rect) {
+            fig.roundradius = rect.node.rx.baseVal.value;
+        }
 
         fig.scaleX = 1.0;
         fig.scaleY = 1.0; // prepare for the future
@@ -405,7 +434,8 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             details.previousElementSibling.style.display = 'none';
         };
 
-        fig.viewport.selectAll('rect').forEach(function (r) {
+        var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
+        rects.forEach(function (r) {
             var rect = r.node;
             var text = rect.nextElementSibling;
             rect.setAttribute('data-shortinfo', unescapeHtml(text.textContent));
@@ -417,6 +447,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var transform = svg.node.createSVGTransform();
             text.transform.baseVal.initialize(transform); // matrix(1, 0, 0, 1, 0, 0)
         });
+        rects = null;
 
         bg.dblclick(function () {
             ProfileSVG.reset(fig);
@@ -455,10 +486,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-6fb13a87d78d4381ba6438dc510b8221");
+        ProfileSVG.initialize("fig-679d71c843dd4a0fafc587a909605313");
     });
 } else {
-    ProfileSVG.initialize("fig-6fb13a87d78d4381ba6438dc510b8221");
+    ProfileSVG.initialize("fig-679d71c843dd4a0fafc587a909605313");
 }
 ]]></script>
 </svg>
