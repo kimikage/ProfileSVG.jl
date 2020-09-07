@@ -47,6 +47,19 @@ ProfileSVG.view(width=400, height=200)
 ProfileSVG.view(g, width=400, height=200) # hide
 ```
 
+## `roundradius`
+The `raoundradius` option specifies the rounding radius of the corners of each
+frame in pixels.
+
+```@example ex
+ProfileSVG.view(roundradius=6)
+ProfileSVG.view(g, roundradius=6) # hide
+```
+
+!!! tip
+    By setting `roundradius` to `0`, the size of the output SVG file can be
+    reduced slightly.
+
 ## `font` and `fontsize`
 
 The `font` option specifies the font family names for texts. This setting is
@@ -84,7 +97,7 @@ You can specify the default values for options with
 You can also reset the settings with [`ProfileSVG.init`](@ref).
 
 ```@example ex
-ProfileSVG.set_default(StackFrameCategory(), fontsize=8)
+ProfileSVG.set_default(StackFrameCategory(), roundradius=0, fontsize=8)
 ProfileSVG.view(width=300)
 ProfileSVG.view(g, width=300) # hide
 ```

@@ -66,7 +66,7 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize, notext)
             #$fig_id-bg {
                 fill: $bg_fill;
             }
-            #$fig_id-viewport rect {
+            #$fig_id-viewport rect, #$fig_id-viewport path {
                 vector-effect: non-scaling-stroke;
             }
             #$fig_id-viewport text {
@@ -74,7 +74,7 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize, notext)
                 stroke-width: 0;
                 stroke-opacity: $text_stroke_opacity;
             }
-            #$fig_id-viewport rect:hover {
+            #$fig_id-viewport rect:hover, #$fig_id-viewport path:hover {
                 stroke: $fontcolorhex;
                 stroke-width: 1;
             }
@@ -86,16 +86,22 @@ function write_svgheader(io::IO, fig_id, width, height, font, fontsize, notext)
         """)
 end
 
-function write_svgflamerect(io::IO, xstart, ystart, width, height, shortinfo, dirinfo, color)
+function write_svgflamerect(io::IO, xstart, ystart, width, height, roundradius,
+                            shortinfo, dirinfo, color)
     x = simplify(xstart)
     y = simplify(ystart)
     yt = simplify(y + height * 0.75)
     w = simplify(simplify(width + xstart) - x)
     h = simplify(simplify(height + ystart) - y)
+    r = simplify(roundradius)
     sinfo = escape_html(shortinfo)
     dinfo = escape_html(dirinfo)
-    println(io, """<rect x="$x" y="$y" width="$w" height="$h" """,
-                """fill="#$(hex(color))" rx="2" data-dinfo="$dinfo"/>""")
+    if r > zero(r)
+        print(io, """<rect x="$x" y="$y" width="$w" height="$h" rx="$r" """)
+    else
+        print(io, """<path d="M$x,$(y)v$(h)h$(w)v-$(h)z" """)
+    end
+    println(io, """fill="#$(hex(color))" data-dinfo="$dinfo"/>""")
     println(io, """<text x="$x" dx="4" y="$yt">$sinfo</text>""")
 end
 

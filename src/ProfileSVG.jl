@@ -39,6 +39,7 @@ struct FGConfig
     maxframes::Int
     width::Float64
     height::Float64
+    roundradius::Float64
     font::String
     fontsize::Float64
     notext::Bool
@@ -51,6 +52,7 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   maxframes::Int       = default_config.maxframes,
                   width::Real          = default_config.width,
                   height::Real         = default_config.height,
+                  roundradius::Real    = default_config.roundradius,
                   font::AbstractString = default_config.font,
                   fontsize::Real       = default_config.fontsize,
                   notext::Bool         = default_config.notext,
@@ -58,7 +60,7 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
 
     gopts = graph_options === nothing ? flamegraph_kwargs(kwargs) : graph_options
     FGConfig(g, gopts, fcolor,
-             maxdepth, maxframes, width, height, font, fontsize, notext)
+             maxdepth, maxframes, width, height, roundradius, font, fontsize, notext)
 end
 
 
@@ -75,6 +77,7 @@ function init()
                                      maxframes=2000,
                                      width=960,
                                      height=0,
+                                     roundradius=2,
                                      font="inherit",
                                      fontsize=12,
                                      notext=false)
@@ -115,6 +118,8 @@ View profiling results.
 - `height` (default: `0`)
   - The height of output SVG image in pixels. If you set the height to `0`, it
     will be calculated automatically according to the graph.
+- `roundradius` (default: `2`)
+  - The rounding radius of the corners of each frame in pixels.
 - `font` (default: `"inherit"`)
   - The font family names for texts. This setting is used as the CSS
     `font-family` property, i.e. you can use a comma-separated list.
@@ -235,6 +240,7 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
         x = (first(ndata.span)-1) * xstep + leftmargin
         y = height - j * ystep - botmargin
         w = length(ndata.span) * xstep
+        r = fg.roundradius
         file = string(sf.file)
         m = match(r"[^\\/]+$", file)
         if m !== nothing
@@ -245,7 +251,7 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
             basename = file
         end
         shortinfo = "$(sf.func) in $basename:$(sf.line)"
-        write_svgflamerect(io, x, y, w, ystep, shortinfo, dirinfo, color)
+        write_svgflamerect(io, x, y, w, ystep, r, shortinfo, dirinfo, color)
 
         for c in g
             flamerects(io, c, j + 1, nextidx)
