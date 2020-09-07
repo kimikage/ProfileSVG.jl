@@ -13,7 +13,7 @@
     try {
         var opts = Object.defineProperty({}, 'passive', {
             get: function () {
-                supportsPassive = true;
+                return supportsPassive = true;
             }
         });
         window.addEventListener("testPassive", null, opts);
@@ -46,7 +46,6 @@
     var ZOOM_STEP = 1.4;
     var VIEWPORT_SCALE = 0.9;
     var VIEWPORT_MARGIN_X = 20;
-    var ROUNDRECT_R = 2;
 
     var formatText = function (fig, text, availableWidth) {
         if (availableWidth < 3 * fig.charWidthM) {
@@ -97,7 +96,13 @@
         fig.scaleX = targetScaleX;
         fig.scaleY = targetScaleY;
 
-        var rects = fig.viewport.selectAll('rect');
+        var rects = undefined;
+        var pathrects = undefined;
+        if (fig.roundradius > 0) {
+            rects = fig.viewport.selectAll('rect');
+        } else {
+            pathrects = fig.viewport.selectAll('path');
+        }
 
         var scaleViewport = function (step) {
             var scaleX = oldScaleX + (targetScaleX - oldScaleX) * step;
@@ -109,34 +114,52 @@
             rMatrix.e = oldE + (targetE - oldE) * step; // TransX
             rMatrix.f = oldF + (targetF - oldF) * step; // TransY
 
-            rects.forEach(function (r) {
-                var rect = r.node;
-                rect.setAttribute('rx', Math.max(0.0, ROUNDRECT_R / scaleX));
-                rect.setAttribute('ry', Math.max(0.0, ROUNDRECT_R / scaleY));
-            });
+            if (rects) {
+                rects.forEach(function (r) {
+                    var rect = r.node;
+                    rect.setAttribute('rx', Math.max(0.0, fig.roundradius / scaleX));
+                    rect.setAttribute('ry', Math.max(0.0, fig.roundradius / scaleY));
+                });
+            }
         };
 
         var finish = function () {
             scaleViewport(1);
             var scaleXt = 1.0 / targetScaleX;
             var scaleYt = 1.0 / targetScaleY;
-            rects.forEach(function (r) {
-                var rect = r.node;
-                var rectx = rect.x.baseVal.value;
-                var recty = rect.y.baseVal.value;
-                var rectw = rect.width.baseVal.value;
-                var text = rect.nextElementSibling;
-                var shortinfo = rect.getAttribute("data-shortinfo");
-
+            var updateText = function (text, x, y, w, shortinfo) {
                 var tMatrix = text.transform.baseVal.getItem(0).matrix;
                 tMatrix.a = scaleXt;
                 tMatrix.d = scaleYt;
-                tMatrix.e = (1.0 - scaleXt) * rectx;
-                tMatrix.f = (1.0 - scaleYt) * recty;
+                tMatrix.e = (1.0 - scaleXt) * x;
+                tMatrix.f = (1.0 - scaleYt) * y;
 
-                text.textContent = formatText(fig, shortinfo, rectw / scaleXt);
+                text.firstChild.nodeValue = formatText(fig, shortinfo, w / scaleXt);
                 text.style.display = 'inherit';
-            });
+            };
+            if (rects) {
+                rects.forEach(function (r) {
+                    var rect = r.node;
+                    var x = rect.x.baseVal.value;
+                    var y = rect.y.baseVal.value;
+                    var w = rect.width.baseVal.value;
+                    var shortinfo = rect.getAttribute('data-shortinfo');
+                    updateText(rect.nextElementSibling, x, y, w, shortinfo);
+                });
+            }
+            if (pathrects) {
+                pathrects.forEach(function (p) {
+                    var path = p.node;
+                    // The API compatibility of path segments is problematic.
+                    var d = path.getAttribute('d');
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var x = Number(values[1]);
+                    var y = Number(values[2]);
+                    var w = Number(values[3]);
+                    var shortinfo = path.getAttribute('data-shortinfo');
+                    updateText(path.nextElementSibling, x, y, w, shortinfo);
+                });
+            }
         };
 
         if (deltaT != 0) {
@@ -184,6 +207,12 @@
             });
         }
         texts = null;
+
+        fig.roundradius = 0.0;
+        var rect = fig.viewport.select('rect');
+        if (rect) {
+            fig.roundradius = rect.node.rx.baseVal.value;
+        }
 
         fig.scaleX = 1.0;
         fig.scaleY = 1.0; // prepare for the future
@@ -249,7 +278,8 @@
             details.previousElementSibling.style.display = 'none';
         };
 
-        fig.viewport.selectAll('rect').forEach(function (r) {
+        var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
+        rects.forEach(function (r) {
             var rect = r.node;
             var text = rect.nextElementSibling;
             rect.setAttribute('data-shortinfo', unescapeHtml(text.textContent));
@@ -261,6 +291,7 @@
             var transform = svg.node.createSVGTransform();
             text.transform.baseVal.initialize(transform); // matrix(1, 0, 0, 1, 0, 0)
         });
+        rects = null;
 
         bg.dblclick(function () {
             ProfileSVG.reset(fig);

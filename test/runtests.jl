@@ -60,6 +60,7 @@ end
     @test fg.graph_options[:lidict] == lidict
     @test fg.width == 123.4
     @test fg.height == 0
+    @test fg.roundradius == 2
     @test fg.font == "inherit"
     @test fg.fontsize == 12
     @test fg.notext == false
@@ -72,18 +73,20 @@ end
     @test fg.graph_options[:lidict] == lidict
     @test fg.width == 960
     @test fg.height == 0
+    @test fg.roundradius == 2
     @test fg.font == "inherit"
     @test fg.fontsize == 12.34
     @test fg.notext == false
 
     g = flamegraph(backtraces, lidict=lidict)
 
-    fg = ProfileSVG.view(sfc, g, C=true, height=123.4, unknown=true)
+    fg = ProfileSVG.view(sfc, g, C=true, height=123.4, roundradius=0, unknown=true)
     @test FlameGraphs.depth(fg.g) == 4 # `C` option does not affect the graph
     @test fg.fcolor isa StackFrameCategory
     @test fg.graph_options[:C] == true
     @test fg.width == 960
     @test fg.height == 123.4
+    @test fg.roundradius == 0
     @test fg.font == "inherit"
     @test fg.fontsize == 12
     @test fg.notext == false
@@ -94,6 +97,7 @@ end
     @test fg.graph_options[:C] == true
     @test fg.width == 960
     @test fg.height == 0
+    @test fg.roundradius == 2
     @test fg.font == "serif"
     @test fg.fontsize == 12
     @test fg.notext == true
@@ -111,12 +115,16 @@ end
     function has_filled_rect(str, color)
         occursin(Regex("""<rect[^/]+fill="$color" """), str)
     end
+    function has_filled_path(str, color)
+        occursin(Regex("""<path[^/]+fill="$color" """), str)
+    end
 
     ProfileSVG.save(sfc, io, backtraces,
                     C=true, lidict=lidict, width=123.4, unknown=nothing)
     str = String(take!(io))
     @test svg_size(str) == ("123.4", "147")
     @test has_filled_rect(str, "#FF0000")
+    @test !has_filled_path(str, "#FF0000")
     filename = tempname()
     ProfileSVG.save(sfc, filename, backtraces,
                     C=true, lidict=lidict, width=123.4, unknown=nothing)
@@ -124,12 +132,14 @@ end
     rm(filename)
     @test svg_size(str) == ("123.4", "147")
     @test has_filled_rect(str, "#FF0000")
+    @test !has_filled_path(str, "#FF0000")
 
     ProfileSVG.save(io, backtraces,
                     C=true, lidict=lidict, fontsize=12.34, unknown=missing)
     str = String(take!(io))
     @test svg_size(str) == ("960", "151")
     @test !has_filled_rect(str, "#FF0000")
+    @test !has_filled_path(str, "#FF0000")
     filename = tempname()
     ProfileSVG.save(filename, backtraces,
                     C=true, lidict=lidict, fontsize=12.34, unknown=missing)
@@ -137,31 +147,36 @@ end
     rm(filename)
     @test svg_size(str) == ("960", "151")
     @test !has_filled_rect(str, "#FF0000")
+    @test !has_filled_path(str, "#FF0000")
 
 
     g = flamegraph(backtraces, lidict=lidict)
 
-    ProfileSVG.save(sfc, io, g, C=true, height=123.4, unknown=true)
+    ProfileSVG.save(sfc, io, g, C=true, height=123.4, roundradius=0, unknown=true)
     str = String(take!(io))
     @test svg_size(str) == ("960", "123.4")
-    @test has_filled_rect(str, "#FF0000")
+    @test !has_filled_rect(str, "#FF0000")
+    @test has_filled_path(str, "#FF0000")
     filename = tempname()
-    ProfileSVG.save(sfc, filename, g, C=true, height=123.4, unknown=true)
+    ProfileSVG.save(sfc, filename, g, C=true, height=123.4, roundradius=0, unknown=true)
     str = read(filename, String)
     rm(filename)
     @test svg_size(str) == ("960", "123.4")
-    @test has_filled_rect(str, "#FF0000")
+    @test !has_filled_rect(str, "#FF0000")
+    @test has_filled_path(str, "#FF0000")
 
     ProfileSVG.save(io, g, C=true, font="serif", notext=true, unknown=false)
     str = String(take!(io))
     @test svg_size(str) == ("960", "136")
     @test !has_filled_rect(str, "#FF0000")
+    @test !has_filled_path(str, "#FF0000")
     filename = tempname()
     ProfileSVG.save(filename, g, C=true, font="serif", notext=true, unknown=false)
     str = read(filename, String)
     rm(filename)
     @test svg_size(str) == ("960", "136")
     @test !has_filled_rect(str, "#FF0000")
+    @test !has_filled_path(str, "#FF0000")
 end
 
 @testset "size limitation" begin
@@ -189,6 +204,7 @@ end
     @test fgc.graph_options[:lidict] == lidict
     @test fgc.width == 123.4
     @test fgc.height == 567.8
+    @test fgc.roundradius == 2
     @test fgc.font == "inherit"
     @test fgc.fontsize == 12
     @test fgc.notext == false
@@ -202,6 +218,7 @@ end
     @test fgc.graph_options[:lidict] == lidict
     @test fgc.width == 123.4
     @test fgc.height == 567.8
+    @test fgc.roundradius == 2
     @test fgc.font == "inherit"
     @test fgc.fontsize == 9
     @test fgc.notext == false
@@ -215,6 +232,7 @@ end
     @test fgc.graph_options[:lidict] == lidict
     @test fgc.width == 123.4
     @test fgc.height == 0
+    @test fgc.roundradius == 2
     @test fgc.font == "inherit"
     @test fgc.fontsize == 12
     @test fgc.notext == false
