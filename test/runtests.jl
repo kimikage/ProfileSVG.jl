@@ -48,12 +48,20 @@ end
 
 @test detect_ambiguities(ProfileSVG) == []
 
+@testset "showable" begin
+    fg = ProfileSVG.view(backtraces, lidict=lidict)
+    @test Base.showable(MIME"image/svg+xml"(), fg)
+    @test Base.showable(MIME"text/html"(), fg)
+
+    @test !Base.showable(MIME"image/svg+xml"(), ProfileSVG.default_config)
+    @test !Base.showable(MIME"text/html"(), ProfileSVG.default_config)
+end
+
 @testset "view" begin
     sfc = StackFrameCategory()
 
     fg = ProfileSVG.view(sfc, backtraces,
                           C=true, lidict=lidict, width=123.4, unknown=nothing)
-    @test Base.showable(MIME"image/svg+xml"(), fg)
     @test FlameGraphs.depth(fg.g) == 5
     @test fg.fcolor isa StackFrameCategory
     @test fg.graph_options[:C] == true
@@ -189,6 +197,14 @@ end
     str = String(take!(io))
     @test occursin("""height="136" """, str)
     @test count_element(r"<rect x=[^/]+/>", str) == 8
+end
+
+@testset "show as html" begin
+    io = IOBuffer()
+    fg = ProfileSVG.view(backtraces, lidict=lidict)
+    show(io, "text/html", fg)
+    str = String(take!(io))
+    @test occursin(r"<html>.+(?=</html>)"s, str)
 end
 
 @testset "set_default" begin

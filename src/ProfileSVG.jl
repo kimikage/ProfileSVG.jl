@@ -168,18 +168,18 @@ of `kwargs`.
 function save(fcolor, io::IO, data::Vector{<:Unsigned}=Profile.fetch(); kwargs...)
     gopts = flamegraph_kwargs(kwargs)
     g = flamegraph(data; gopts...)
-    show(io, MIME("image/svg+xml"), FGConfig(g, gopts, fcolor; kwargs...))
+    show(io, MIME"image/svg+xml"(), FGConfig(g, gopts, fcolor; kwargs...))
 end
 function save(fcolor, io::IO, g::FlameGraph; kwargs...)
-    show(io, MIME("image/svg+xml"), FGConfig(g, nothing, fcolor; kwargs...))
+    show(io, MIME"image/svg+xml"(), FGConfig(g, nothing, fcolor; kwargs...))
 end
 function save(io::IO, data::Vector{<:Unsigned}=Profile.fetch(); kwargs...)
     gopts = flamegraph_kwargs(kwargs)
     g = flamegraph(data; gopts...)
-    show(io, MIME("image/svg+xml"), FGConfig(g, gopts; kwargs...))
+    show(io, MIME"image/svg+xml"(), FGConfig(g, gopts; kwargs...))
 end
 function save(io::IO, g::FlameGraph; kwargs...)
-    show(io, MIME("image/svg+xml"), FGConfig(g; kwargs...))
+    show(io, MIME"image/svg+xml"(), FGConfig(g; kwargs...))
 end
 
 function save(fcolor, filename::AbstractString, data::Vector{<:Unsigned}=Profile.fetch(); kwargs...)
@@ -208,10 +208,33 @@ function save(filename::AbstractString, g::FlameGraph; kwargs...)
 end
 
 
-Base.showable(::MIME"image/svg+xml", fg::FGConfig) = true
+Base.showable(::MIME"image/svg+xml", fg::FGConfig) = fg.g !== nothing
 
+# If html embedding does not work, redefine the following method to return `false`.
+Base.showable(::MIME"text/html", fg::FGConfig) = fg.g !== nothing
 
-function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
+function Base.show(io::IO, mime::Union{MIME"image/svg+xml", MIME"text/html"}, fg::FGConfig)
+    if mime isa MIME"text/html"
+        print(io, """
+            <!DOCTYPE html>
+            <html>
+            <body>
+            """)
+    else
+        write_svgdeclaration(io)
+    end
+
+    show_flamegraph_body(io, fg)
+
+    if mime isa MIME"text/html"
+        print(io, """
+            </body>
+            </html>
+            """)
+    end
+end
+
+function show_flamegraph_body(io::IO, fg::FGConfig)
     ncols, nrows = length(fg.g.data.span), FlameGraphs.depth(fg.g)
     if nrows > fg.maxdepth
         @warn """The depth of this graph is $nrows, exceeding the `maxdepth` (=$(fg.maxdepth)).
@@ -259,8 +282,6 @@ function Base.show(io::IO, ::MIME"image/svg+xml", fg::FGConfig)
     end
 
     fig_id = string("fig-", replace(string(uuid4()), "-" => ""))
-
-    write_svgdeclaration(io)
 
     write_svgheader(io, fig_id, width, height, fg.font, fg.fontsize, fg.notext)
 
