@@ -1,49 +1,50 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Coloration Schemes · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li class="is-active"><a class="tocitem" href>Coloration Schemes</a><ul class="internal"><li><a class="tocitem" href="#Default-scheme-1"><span>Default scheme</span></a></li><li><a class="tocitem" href="#Stack-frame-category-1"><span>Stack frame category</span></a></li></ul></li><li><a class="tocitem" href="../other-options/">Other Options</a></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Coloration Schemes</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Coloration Schemes</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/coloration-schemes.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Coloration-Schemes-1"><a class="docs-heading-anchor" href="#Coloration-Schemes-1">Coloration Schemes</a><a class="docs-heading-anchor-permalink" href="#Coloration-Schemes-1" title="Permalink"></a></h1><p>The output color of ProfileSVG can be customized with the functions provided by the <a href="https://timholy.github.io/FlameGraphs.jl/stable/"><code>FlameGraphs</code></a> package. See the <a href="https://timholy.github.io/FlameGraphs.jl/stable/#Rendering-a-flame-graph-1">FlameGraphs docmentation</a> for details.</p><h2 id="Default-scheme-1"><a class="docs-heading-anchor" href="#Default-scheme-1">Default scheme</a><a class="docs-heading-anchor-permalink" href="#Default-scheme-1" title="Permalink"></a></h2><pre><code class="language-julia">ProfileSVG.view()</code></pre><p>or</p><pre><code class="language-julia">using FlameGraphs
-ProfileSVG.view(FlameColors())</code></pre><?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Coloration Schemes · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li class="is-active"><a class="tocitem" href>Coloration Schemes</a><ul class="internal"><li><a class="tocitem" href="#Default-scheme"><span>Default scheme</span></a></li><li><a class="tocitem" href="#Stack-frame-category"><span>Stack frame category</span></a></li></ul></li><li><a class="tocitem" href="../other-options/">Other Options</a></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Coloration Schemes</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Coloration Schemes</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/coloration-schemes.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Coloration-Schemes"><a class="docs-heading-anchor" href="#Coloration-Schemes">Coloration Schemes</a><a id="Coloration-Schemes-1"></a><a class="docs-heading-anchor-permalink" href="#Coloration-Schemes" title="Permalink"></a></h1><p>The output color of ProfileSVG can be customized with the functions provided by the <a href="https://timholy.github.io/FlameGraphs.jl/stable/"><code>FlameGraphs</code></a> package. See the <a href="https://timholy.github.io/FlameGraphs.jl/stable/#Rendering-a-flame-graph-1">FlameGraphs docmentation</a> for details.</p><h2 id="Default-scheme"><a class="docs-heading-anchor" href="#Default-scheme">Default scheme</a><a id="Default-scheme-1"></a><a class="docs-heading-anchor-permalink" href="#Default-scheme" title="Permalink"></a></h2><pre><code class="language-julia">ProfileSVG.view()</code></pre><p>or</p><pre><code class="language-julia">using FlameGraphs
+ProfileSVG.view(FlameColors())</code></pre><!DOCTYPE html>
+<html>
+<body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-f86b6900c60a4d26b840ce4293b46f55">
+     xmlns="http://www.w3.org/2000/svg" id="fig-819ee0f845fa4fba910570f7b0ce4811">
 <defs>
-    <linearGradient id="fig-f86b6900c60a4d26b840ce4293b46f55-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-819ee0f845fa4fba910570f7b0ce4811-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-f86b6900c60a4d26b840ce4293b46f55-clip">
+    <clipPath id="fig-819ee0f845fa4fba910570f7b0ce4811-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-f86b6900c60a4d26b840ce4293b46f55 text {
+    #fig-819ee0f845fa4fba910570f7b0ce4811 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-f86b6900c60a4d26b840ce4293b46f55-caption {
+    text#fig-819ee0f845fa4fba910570f7b0ce4811-caption {
         font-size: 16.8px;
         text-anchor: middle;
     }
-    #fig-f86b6900c60a4d26b840ce4293b46f55-bg {
-        fill: url(#fig-f86b6900c60a4d26b840ce4293b46f55-background);
+    #fig-819ee0f845fa4fba910570f7b0ce4811-bg {
+        fill: url(#fig-819ee0f845fa4fba910570f7b0ce4811-background);
     }
-    #fig-f86b6900c60a4d26b840ce4293b46f55-viewport rect, #fig-f86b6900c60a4d26b840ce4293b46f55-viewport path {
+    #fig-819ee0f845fa4fba910570f7b0ce4811-viewport rect, #fig-819ee0f845fa4fba910570f7b0ce4811-viewport path {
         vector-effect: non-scaling-stroke;
     }
-    #fig-f86b6900c60a4d26b840ce4293b46f55-viewport text {
+    #fig-819ee0f845fa4fba910570f7b0ce4811-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-f86b6900c60a4d26b840ce4293b46f55-viewport rect:hover, #fig-f86b6900c60a4d26b840ce4293b46f55-viewport path:hover {
+    #fig-819ee0f845fa4fba910570f7b0ce4811-viewport rect:hover, #fig-819ee0f845fa4fba910570f7b0ce4811-viewport path:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-f86b6900c60a4d26b840ce4293b46f55-frame" clip-path="url(#fig-f86b6900c60a4d26b840ce4293b46f55-clip)">
-<rect id="fig-f86b6900c60a4d26b840ce4293b46f55-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-f86b6900c60a4d26b840ce4293b46f55-caption" x="400" y="24">Profile results</text>
-<g id="fig-f86b6900c60a4d26b840ce4293b46f55-viewport" transform="scale(1)">
+<g id="fig-819ee0f845fa4fba910570f7b0ce4811-frame" clip-path="url(#fig-819ee0f845fa4fba910570f7b0ce4811-clip)">
+<rect id="fig-819ee0f845fa4fba910570f7b0ce4811-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-819ee0f845fa4fba910570f7b0ce4811-caption" x="400" y="24">Profile results</text>
+<g id="fig-819ee0f845fa4fba910570f7b0ce4811-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -488,58 +489,61 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-f86b6900c60a4d26b840ce4293b46f55");
+        ProfileSVG.initialize("fig-819ee0f845fa4fba910570f7b0ce4811");
     });
 } else {
-    ProfileSVG.initialize("fig-f86b6900c60a4d26b840ce4293b46f55");
+    ProfileSVG.initialize("fig-819ee0f845fa4fba910570f7b0ce4811");
 }
 ]]></script>
 </svg>
-<p>The default scheme uses cycling colors to distinguish different stack frames, while coloring runtime dispatch &quot;red&quot; and garbage-collection &quot;orange&quot;. The run-time dispatch (aka, dynamic dispatch, run-time method lookup, or a virtual call) often has a significant impact on performance.</p><h2 id="Stack-frame-category-1"><a class="docs-heading-anchor" href="#Stack-frame-category-1">Stack frame category</a><a class="docs-heading-anchor-permalink" href="#Stack-frame-category-1" title="Permalink"></a></h2><p>You can colorize the stack frames based on their category, or module-of-origin.</p><pre><code class="language-julia">using FlameGraphs
-ProfileSVG.view(StackFrameCategory())</code></pre><?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+</body>
+</html>
+<p>The default scheme uses cycling colors to distinguish different stack frames, while coloring runtime dispatch &quot;red&quot; and garbage-collection &quot;orange&quot;. The run-time dispatch (aka, dynamic dispatch, run-time method lookup, or a virtual call) often has a significant impact on performance.</p><h2 id="Stack-frame-category"><a class="docs-heading-anchor" href="#Stack-frame-category">Stack frame category</a><a id="Stack-frame-category-1"></a><a class="docs-heading-anchor-permalink" href="#Stack-frame-category" title="Permalink"></a></h2><p>You can colorize the stack frames based on their category, or module-of-origin.</p><pre><code class="language-julia">using FlameGraphs
+ProfileSVG.view(StackFrameCategory())</code></pre><!DOCTYPE html>
+<html>
+<body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-7e3c215649984b129b07d9d4acb0fc0b">
+     xmlns="http://www.w3.org/2000/svg" id="fig-ddc156e52fb3473f900c2faab7cd248c">
 <defs>
-    <linearGradient id="fig-7e3c215649984b129b07d9d4acb0fc0b-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-ddc156e52fb3473f900c2faab7cd248c-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-7e3c215649984b129b07d9d4acb0fc0b-clip">
+    <clipPath id="fig-ddc156e52fb3473f900c2faab7cd248c-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-7e3c215649984b129b07d9d4acb0fc0b text {
+    #fig-ddc156e52fb3473f900c2faab7cd248c text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-7e3c215649984b129b07d9d4acb0fc0b-caption {
+    text#fig-ddc156e52fb3473f900c2faab7cd248c-caption {
         font-size: 16.8px;
         text-anchor: middle;
     }
-    #fig-7e3c215649984b129b07d9d4acb0fc0b-bg {
-        fill: url(#fig-7e3c215649984b129b07d9d4acb0fc0b-background);
+    #fig-ddc156e52fb3473f900c2faab7cd248c-bg {
+        fill: url(#fig-ddc156e52fb3473f900c2faab7cd248c-background);
     }
-    #fig-7e3c215649984b129b07d9d4acb0fc0b-viewport rect, #fig-7e3c215649984b129b07d9d4acb0fc0b-viewport path {
+    #fig-ddc156e52fb3473f900c2faab7cd248c-viewport rect, #fig-ddc156e52fb3473f900c2faab7cd248c-viewport path {
         vector-effect: non-scaling-stroke;
     }
-    #fig-7e3c215649984b129b07d9d4acb0fc0b-viewport text {
+    #fig-ddc156e52fb3473f900c2faab7cd248c-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-7e3c215649984b129b07d9d4acb0fc0b-viewport rect:hover, #fig-7e3c215649984b129b07d9d4acb0fc0b-viewport path:hover {
+    #fig-ddc156e52fb3473f900c2faab7cd248c-viewport rect:hover, #fig-ddc156e52fb3473f900c2faab7cd248c-viewport path:hover {
         stroke: #000000;
         stroke-width: 1;
     }
 </style>
-<g id="fig-7e3c215649984b129b07d9d4acb0fc0b-frame" clip-path="url(#fig-7e3c215649984b129b07d9d4acb0fc0b-clip)">
-<rect id="fig-7e3c215649984b129b07d9d4acb0fc0b-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-7e3c215649984b129b07d9d4acb0fc0b-caption" x="400" y="24">Profile results</text>
-<g id="fig-7e3c215649984b129b07d9d4acb0fc0b-viewport" transform="scale(1)">
+<g id="fig-ddc156e52fb3473f900c2faab7cd248c-frame" clip-path="url(#fig-ddc156e52fb3473f900c2faab7cd248c-clip)">
+<rect id="fig-ddc156e52fb3473f900c2faab7cd248c-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-ddc156e52fb3473f900c2faab7cd248c-caption" x="400" y="24">Profile results</text>
+<g id="fig-ddc156e52fb3473f900c2faab7cd248c-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#FFA500" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#4D4D4D" data-dinfo=".\"/>
@@ -984,11 +988,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-7e3c215649984b129b07d9d4acb0fc0b");
+        ProfileSVG.initialize("fig-ddc156e52fb3473f900c2faab7cd248c");
     });
 } else {
-    ProfileSVG.initialize("fig-7e3c215649984b129b07d9d4acb0fc0b");
+    ProfileSVG.initialize("fig-ddc156e52fb3473f900c2faab7cd248c");
 }
 ]]></script>
 </svg>
-<p>In the default <code>StackFrameCategory</code> scheme, &quot;gray&quot; indicates time spent in <code>Core.Compiler</code> (mostly inference), &quot;dark gray&quot; in other <code>Core</code>, &quot;yellow&quot; in LLVM, &quot;orange&quot; in other <code>ccalls</code>, &quot;light blue&quot; in <code>Base</code>, and &quot;red&quot; is uncategorized (mostly package code).</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The <code>colorbg</code> and <code>colorfont</code> options of <code>FlameGraphs.FlameColors</code> and <code>FlameGraphs.StackFrameCategory</code> are currently not supported and ignored.</p></div></div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../other-options/">Other Options »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 2 October 2020 23:17">Friday 2 October 2020</span>. Using Julia version 1.5.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</body>
+</html>
+<p>In the default <code>StackFrameCategory</code> scheme, &quot;gray&quot; indicates time spent in <code>Core.Compiler</code> (mostly inference), &quot;dark gray&quot; in other <code>Core</code>, &quot;yellow&quot; in LLVM, &quot;orange&quot; in other <code>ccalls</code>, &quot;light blue&quot; in <code>Base</code>, and &quot;red&quot; is uncategorized (mostly package code).</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The <code>colorbg</code> and <code>colorfont</code> options of <code>FlameGraphs.FlameColors</code> and <code>FlameGraphs.StackFrameCategory</code> are currently not supported and ignored.</p></div></div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../other-options/">Other Options »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 10 November 2020 12:16">Tuesday 10 November 2020</span>. Using Julia version 1.5.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
