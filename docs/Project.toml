@@ -5,4 +5,4 @@ FlameGraphs = "08572546-2f56-4bcf-ba4e-bab62c3a3f89"
 Profile = "9abbd945-dff8-562f-b5e8-e1ebf5ef1b79"
 
 [compat]
-Documenter = "0.24"
+Documenter = "0.25"
