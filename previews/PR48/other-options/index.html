@@ -1,54 +1,55 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Other Options · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../coloration-schemes/">Coloration Schemes</a></li><li class="is-active"><a class="tocitem" href>Other Options</a><ul class="internal"><li><a class="tocitem" href="#maxdepth-and-maxframes-1"><span><code>maxdepth</code> and <code>maxframes</code></span></a></li><li><a class="tocitem" href="#width-and-height-1"><span><code>width</code> and <code>height</code></span></a></li><li><a class="tocitem" href="#roundradius-1"><span><code>roundradius</code></span></a></li><li><a class="tocitem" href="#font-and-fontsize-1"><span><code>font</code> and <code>fontsize</code></span></a></li><li><a class="tocitem" href="#notext-1"><span><code>notext</code></span></a></li><li><a class="tocitem" href="#Setting-options-as-default-1"><span>Setting options as default</span></a></li></ul></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Other Options</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Other Options</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/other-options.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Other-Options-1"><a class="docs-heading-anchor" href="#Other-Options-1">Other Options</a><a class="docs-heading-anchor-permalink" href="#Other-Options-1" title="Permalink"></a></h1><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><h2 id="maxdepth-and-maxframes-1"><a class="docs-heading-anchor" href="#maxdepth-and-maxframes-1"><code>maxdepth</code> and <code>maxframes</code></a><a class="docs-heading-anchor-permalink" href="#maxdepth-and-maxframes-1" title="Permalink"></a></h2><p>The <code>maxdepth</code> option limits the maximum number of the rendered rows of graph. The frames deeper than <code>maxdepth</code> (i.e. away from the root) will be truncated.</p><p>The <code>maxframes</code> option limits the maximum number of the rendered frames. Since the frames are rendered in order of depth-first search, the frames to the right tend to be omitted.</p><p>When <code>maxdepth</code> and/or <code>maxframes</code> are reached, warnings will be displayed.</p><pre><code class="language-julia">ProfileSVG.view(maxdepth=7, maxframes=12)</code></pre><?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Other Options · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../coloration-schemes/">Coloration Schemes</a></li><li class="is-active"><a class="tocitem" href>Other Options</a><ul class="internal"><li><a class="tocitem" href="#maxdepth-and-maxframes"><span><code>maxdepth</code> and <code>maxframes</code></span></a></li><li><a class="tocitem" href="#width-and-height"><span><code>width</code> and <code>height</code></span></a></li><li><a class="tocitem" href="#roundradius"><span><code>roundradius</code></span></a></li><li><a class="tocitem" href="#font-and-fontsize"><span><code>font</code> and <code>fontsize</code></span></a></li><li><a class="tocitem" href="#notext"><span><code>notext</code></span></a></li><li><a class="tocitem" href="#Setting-options-as-default"><span>Setting options as default</span></a></li></ul></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Other Options</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Other Options</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/other-options.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Other-Options"><a class="docs-heading-anchor" href="#Other-Options">Other Options</a><a id="Other-Options-1"></a><a class="docs-heading-anchor-permalink" href="#Other-Options" title="Permalink"></a></h1><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><h2 id="maxdepth-and-maxframes"><a class="docs-heading-anchor" href="#maxdepth-and-maxframes"><code>maxdepth</code> and <code>maxframes</code></a><a id="maxdepth-and-maxframes-1"></a><a class="docs-heading-anchor-permalink" href="#maxdepth-and-maxframes" title="Permalink"></a></h2><p>The <code>maxdepth</code> option limits the maximum number of the rendered rows of graph. The frames deeper than <code>maxdepth</code> (i.e. away from the root) will be truncated.</p><p>The <code>maxframes</code> option limits the maximum number of the rendered frames. Since the frames are rendered in order of depth-first search, the frames to the right tend to be omitted.</p><p>When <code>maxdepth</code> and/or <code>maxframes</code> are reached, warnings will be displayed.</p><pre><code class="language-julia">ProfileSVG.view(maxdepth=7, maxframes=12)</code></pre><!DOCTYPE html>
+<html>
+<body>
 <svg version="1.1" width="800" height="177" viewBox="0 0 800 177"
-     xmlns="http://www.w3.org/2000/svg" id="fig-fbd6fe92d67b49cda776a17874628e3b">
+     xmlns="http://www.w3.org/2000/svg" id="fig-076b77e1bd9b41e79a8901638bc27981">
 <defs>
-    <clipPath id="fig-fbd6fe92d67b49cda776a17874628e3b-clip">
+    <clipPath id="fig-076b77e1bd9b41e79a8901638bc27981-clip">
         <rect x="0" y="0" width="800" height="177"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-fbd6fe92d67b49cda776a17874628e3b text {
+    #fig-076b77e1bd9b41e79a8901638bc27981 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-fbd6fe92d67b49cda776a17874628e3b-caption {
+    text#fig-076b77e1bd9b41e79a8901638bc27981-caption {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-fbd6fe92d67b49cda776a17874628e3b-bg {
+    #fig-076b77e1bd9b41e79a8901638bc27981-bg {
         fill: #FFFFFF;
     }
-    #fig-fbd6fe92d67b49cda776a17874628e3b-viewport rect, #fig-fbd6fe92d67b49cda776a17874628e3b-viewport path {
+    #fig-076b77e1bd9b41e79a8901638bc27981-viewport rect, #fig-076b77e1bd9b41e79a8901638bc27981-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-fbd6fe92d67b49cda776a17874628e3b-viewport text {
+    #fig-076b77e1bd9b41e79a8901638bc27981-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-fbd6fe92d67b49cda776a17874628e3b-viewport rect:hover, #fig-fbd6fe92d67b49cda776a17874628e3b-viewport path:hover {
+    #fig-076b77e1bd9b41e79a8901638bc27981-viewport rect:hover, #fig-076b77e1bd9b41e79a8901638bc27981-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-fbd6fe92d67b49cda776a17874628e3b-viewport + rect {
+    #fig-076b77e1bd9b41e79a8901638bc27981-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-fbd6fe92d67b49cda776a17874628e3b-details{
+    text#fig-076b77e1bd9b41e79a8901638bc27981-details{
         fill: #000000;
     }
 </style>
-<g id="fig-fbd6fe92d67b49cda776a17874628e3b-frame" clip-path="url(#fig-fbd6fe92d67b49cda776a17874628e3b-clip)">
-<rect id="fig-fbd6fe92d67b49cda776a17874628e3b-bg" x="0" y="0" width="800" height="177"/>
-<text id="fig-fbd6fe92d67b49cda776a17874628e3b-caption" x="400" y="24">Profile results</text>
-<g id="fig-fbd6fe92d67b49cda776a17874628e3b-viewport" transform="scale(1)">
+<g id="fig-076b77e1bd9b41e79a8901638bc27981-frame" clip-path="url(#fig-076b77e1bd9b41e79a8901638bc27981-clip)">
+<rect id="fig-076b77e1bd9b41e79a8901638bc27981-bg" x="0" y="0" width="800" height="177"/>
+<text id="fig-076b77e1bd9b41e79a8901638bc27981-caption" x="400" y="24">Profile results</text>
+<g id="fig-076b77e1bd9b41e79a8901638bc27981-viewport" transform="scale(1)">
 <rect x="8" y="126" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="137.25"> in :-1</text>
 <rect x="8" y="111" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -447,63 +448,66 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-fbd6fe92d67b49cda776a17874628e3b");
+        ProfileSVG.initialize("fig-076b77e1bd9b41e79a8901638bc27981");
     });
 } else {
-    ProfileSVG.initialize("fig-fbd6fe92d67b49cda776a17874628e3b");
+    ProfileSVG.initialize("fig-076b77e1bd9b41e79a8901638bc27981");
 }
 ]]></script>
 </svg>
-<div class="admonition is-warning"><header class="admonition-header">Warning</header><div class="admonition-body"><p>The graphs with many frames require a lot of memory and CPU resources, especially when using interactive features. Instead of raising the <code>maxframes</code> option, consider reducing the graph size using the <code>filter</code> option etc.</p></div></div><h2 id="width-and-height-1"><a class="docs-heading-anchor" href="#width-and-height-1"><code>width</code> and <code>height</code></a><a class="docs-heading-anchor-permalink" href="#width-and-height-1" title="Permalink"></a></h2><p>The <code>width</code> and <code>height</code> options specify the size of the SVG image in pixels. However, the actual display scale depends on the viewer.</p><p>If you set the <code>height</code> to <code>0</code>, it will be calculated automatically according to the graph. As shown below, cropping can occur when the height of the graph exceeds the manually specified <code>height</code>. When the interactive feature is available, you can display the cropped area by dragging the graph.</p><pre><code class="language-julia">ProfileSVG.view(width=400, height=200)</code></pre><?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+</body>
+</html>
+<div class="admonition is-warning"><header class="admonition-header">Warning</header><div class="admonition-body"><p>The graphs with many frames require a lot of memory and CPU resources, especially when using interactive features. Instead of raising the <code>maxframes</code> option, consider reducing the graph size using the <code>filter</code> option etc.</p></div></div><h2 id="width-and-height"><a class="docs-heading-anchor" href="#width-and-height"><code>width</code> and <code>height</code></a><a id="width-and-height-1"></a><a class="docs-heading-anchor-permalink" href="#width-and-height" title="Permalink"></a></h2><p>The <code>width</code> and <code>height</code> options specify the size of the SVG image in pixels. However, the actual display scale depends on the viewer.</p><p>If you set the <code>height</code> to <code>0</code>, it will be calculated automatically according to the graph. As shown below, cropping can occur when the height of the graph exceeds the manually specified <code>height</code>. When the interactive feature is available, you can display the cropped area by dragging the graph.</p><pre><code class="language-julia">ProfileSVG.view(width=400, height=200)</code></pre><!DOCTYPE html>
+<html>
+<body>
 <svg version="1.1" width="400" height="200" viewBox="0 0 400 200"
-     xmlns="http://www.w3.org/2000/svg" id="fig-9e97fe20b6024744bcf0f75e6bd2f2b6">
+     xmlns="http://www.w3.org/2000/svg" id="fig-d514adffaf2b402eade97f77ed8e894e">
 <defs>
-    <clipPath id="fig-9e97fe20b6024744bcf0f75e6bd2f2b6-clip">
+    <clipPath id="fig-d514adffaf2b402eade97f77ed8e894e-clip">
         <rect x="0" y="0" width="400" height="200"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-9e97fe20b6024744bcf0f75e6bd2f2b6 text {
+    #fig-d514adffaf2b402eade97f77ed8e894e text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-9e97fe20b6024744bcf0f75e6bd2f2b6-caption {
+    text#fig-d514adffaf2b402eade97f77ed8e894e-caption {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-9e97fe20b6024744bcf0f75e6bd2f2b6-bg {
+    #fig-d514adffaf2b402eade97f77ed8e894e-bg {
         fill: #FFFFFF;
     }
-    #fig-9e97fe20b6024744bcf0f75e6bd2f2b6-viewport rect, #fig-9e97fe20b6024744bcf0f75e6bd2f2b6-viewport path {
+    #fig-d514adffaf2b402eade97f77ed8e894e-viewport rect, #fig-d514adffaf2b402eade97f77ed8e894e-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-9e97fe20b6024744bcf0f75e6bd2f2b6-viewport text {
+    #fig-d514adffaf2b402eade97f77ed8e894e-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-9e97fe20b6024744bcf0f75e6bd2f2b6-viewport rect:hover, #fig-9e97fe20b6024744bcf0f75e6bd2f2b6-viewport path:hover {
+    #fig-d514adffaf2b402eade97f77ed8e894e-viewport rect:hover, #fig-d514adffaf2b402eade97f77ed8e894e-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-9e97fe20b6024744bcf0f75e6bd2f2b6-viewport + rect {
+    #fig-d514adffaf2b402eade97f77ed8e894e-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-9e97fe20b6024744bcf0f75e6bd2f2b6-details{
+    text#fig-d514adffaf2b402eade97f77ed8e894e-details{
         fill: #000000;
     }
 </style>
-<g id="fig-9e97fe20b6024744bcf0f75e6bd2f2b6-frame" clip-path="url(#fig-9e97fe20b6024744bcf0f75e6bd2f2b6-clip)">
-<rect id="fig-9e97fe20b6024744bcf0f75e6bd2f2b6-bg" x="0" y="0" width="400" height="200"/>
-<text id="fig-9e97fe20b6024744bcf0f75e6bd2f2b6-caption" x="200" y="24">Profile results</text>
-<g id="fig-9e97fe20b6024744bcf0f75e6bd2f2b6-viewport" transform="scale(1)">
+<g id="fig-d514adffaf2b402eade97f77ed8e894e-frame" clip-path="url(#fig-d514adffaf2b402eade97f77ed8e894e-clip)">
+<rect id="fig-d514adffaf2b402eade97f77ed8e894e-bg" x="0" y="0" width="400" height="200"/>
+<text id="fig-d514adffaf2b402eade97f77ed8e894e-caption" x="200" y="24">Profile results</text>
+<g id="fig-d514adffaf2b402eade97f77ed8e894e-viewport" transform="scale(1)">
 <rect x="4" y="149" width="392" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="4" dx="4" y="160.25"> in :-1</text>
 <rect x="4" y="134" width="392" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -966,63 +970,66 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-9e97fe20b6024744bcf0f75e6bd2f2b6");
+        ProfileSVG.initialize("fig-d514adffaf2b402eade97f77ed8e894e");
     });
 } else {
-    ProfileSVG.initialize("fig-9e97fe20b6024744bcf0f75e6bd2f2b6");
+    ProfileSVG.initialize("fig-d514adffaf2b402eade97f77ed8e894e");
 }
 ]]></script>
 </svg>
-<h2 id="roundradius-1"><a class="docs-heading-anchor" href="#roundradius-1"><code>roundradius</code></a><a class="docs-heading-anchor-permalink" href="#roundradius-1" title="Permalink"></a></h2><p>The <code>raoundradius</code> option specifies the rounding radius of the corners of each frame in pixels.</p><pre><code class="language-julia">ProfileSVG.view(roundradius=6)</code></pre><?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+</body>
+</html>
+<h2 id="roundradius"><a class="docs-heading-anchor" href="#roundradius"><code>roundradius</code></a><a id="roundradius-1"></a><a class="docs-heading-anchor-permalink" href="#roundradius" title="Permalink"></a></h2><p>The <code>raoundradius</code> option specifies the rounding radius of the corners of each frame in pixels.</p><pre><code class="language-julia">ProfileSVG.view(roundradius=6)</code></pre><!DOCTYPE html>
+<html>
+<body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-0204c0d00dc9435a97a1f27987b9f30f">
+     xmlns="http://www.w3.org/2000/svg" id="fig-bb4ed666123e45a89ef8c2adcc321f51">
 <defs>
-    <clipPath id="fig-0204c0d00dc9435a97a1f27987b9f30f-clip">
+    <clipPath id="fig-bb4ed666123e45a89ef8c2adcc321f51-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-0204c0d00dc9435a97a1f27987b9f30f text {
+    #fig-bb4ed666123e45a89ef8c2adcc321f51 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-0204c0d00dc9435a97a1f27987b9f30f-caption {
+    text#fig-bb4ed666123e45a89ef8c2adcc321f51-caption {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-0204c0d00dc9435a97a1f27987b9f30f-bg {
+    #fig-bb4ed666123e45a89ef8c2adcc321f51-bg {
         fill: #FFFFFF;
     }
-    #fig-0204c0d00dc9435a97a1f27987b9f30f-viewport rect, #fig-0204c0d00dc9435a97a1f27987b9f30f-viewport path {
+    #fig-bb4ed666123e45a89ef8c2adcc321f51-viewport rect, #fig-bb4ed666123e45a89ef8c2adcc321f51-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-0204c0d00dc9435a97a1f27987b9f30f-viewport text {
+    #fig-bb4ed666123e45a89ef8c2adcc321f51-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-0204c0d00dc9435a97a1f27987b9f30f-viewport rect:hover, #fig-0204c0d00dc9435a97a1f27987b9f30f-viewport path:hover {
+    #fig-bb4ed666123e45a89ef8c2adcc321f51-viewport rect:hover, #fig-bb4ed666123e45a89ef8c2adcc321f51-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-0204c0d00dc9435a97a1f27987b9f30f-viewport + rect {
+    #fig-bb4ed666123e45a89ef8c2adcc321f51-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-0204c0d00dc9435a97a1f27987b9f30f-details{
+    text#fig-bb4ed666123e45a89ef8c2adcc321f51-details{
         fill: #000000;
     }
 </style>
-<g id="fig-0204c0d00dc9435a97a1f27987b9f30f-frame" clip-path="url(#fig-0204c0d00dc9435a97a1f27987b9f30f-clip)">
-<rect id="fig-0204c0d00dc9435a97a1f27987b9f30f-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-0204c0d00dc9435a97a1f27987b9f30f-caption" x="400" y="24">Profile results</text>
-<g id="fig-0204c0d00dc9435a97a1f27987b9f30f-viewport" transform="scale(1)">
+<g id="fig-bb4ed666123e45a89ef8c2adcc321f51-frame" clip-path="url(#fig-bb4ed666123e45a89ef8c2adcc321f51-clip)">
+<rect id="fig-bb4ed666123e45a89ef8c2adcc321f51-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-bb4ed666123e45a89ef8c2adcc321f51-caption" x="400" y="24">Profile results</text>
+<g id="fig-bb4ed666123e45a89ef8c2adcc321f51-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="6" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="6" fill="#00B58B" data-dinfo=".\"/>
@@ -1485,63 +1492,66 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-0204c0d00dc9435a97a1f27987b9f30f");
+        ProfileSVG.initialize("fig-bb4ed666123e45a89ef8c2adcc321f51");
     });
 } else {
-    ProfileSVG.initialize("fig-0204c0d00dc9435a97a1f27987b9f30f");
+    ProfileSVG.initialize("fig-bb4ed666123e45a89ef8c2adcc321f51");
 }
 ]]></script>
 </svg>
-<div class="admonition is-success"><header class="admonition-header">Tip</header><div class="admonition-body"><p>By setting <code>roundradius</code> to <code>0</code>, the size of the output SVG file can be reduced slightly.</p></div></div><h2 id="font-and-fontsize-1"><a class="docs-heading-anchor" href="#font-and-fontsize-1"><code>font</code> and <code>fontsize</code></a><a class="docs-heading-anchor-permalink" href="#font-and-fontsize-1" title="Permalink"></a></h2><p>The <code>font</code> option specifies the font family names for texts. This setting is used as the CSS font-family property, i.e. you can use a comma-separated list and quotes are required around the names which are not valid CSS identifiers.</p><p>The <code>fontsize</code> option specifies the font size in pixels.</p><p>Note that the actual rendering results depend on the viewer.</p><pre><code class="language-julia">ProfileSVG.view(font=&quot;&#39;Times New Roman&#39;, serif&quot;, fontsize=16)</code></pre><?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+</body>
+</html>
+<div class="admonition is-success"><header class="admonition-header">Tip</header><div class="admonition-body"><p>By setting <code>roundradius</code> to <code>0</code>, the size of the output SVG file can be reduced slightly.</p></div></div><h2 id="font-and-fontsize"><a class="docs-heading-anchor" href="#font-and-fontsize"><code>font</code> and <code>fontsize</code></a><a id="font-and-fontsize-1"></a><a class="docs-heading-anchor-permalink" href="#font-and-fontsize" title="Permalink"></a></h2><p>The <code>font</code> option specifies the font family names for texts. This setting is used as the CSS font-family property, i.e. you can use a comma-separated list and quotes are required around the names which are not valid CSS identifiers.</p><p>The <code>fontsize</code> option specifies the font size in pixels.</p><p>Note that the actual rendering results depend on the viewer.</p><pre><code class="language-julia">ProfileSVG.view(font=&quot;&#39;Times New Roman&#39;, serif&quot;, fontsize=16)</code></pre><!DOCTYPE html>
+<html>
+<body>
 <svg version="1.1" width="800" height="416" viewBox="0 0 800 416"
-     xmlns="http://www.w3.org/2000/svg" id="fig-a64c4243ede644cebc6fd06e872cd72f">
+     xmlns="http://www.w3.org/2000/svg" id="fig-f08f6a602a614bd4b698c82d7ee4b07b">
 <defs>
-    <clipPath id="fig-a64c4243ede644cebc6fd06e872cd72f-clip">
+    <clipPath id="fig-f08f6a602a614bd4b698c82d7ee4b07b-clip">
         <rect x="0" y="0" width="800" height="416"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-a64c4243ede644cebc6fd06e872cd72f text {
+    #fig-f08f6a602a614bd4b698c82d7ee4b07b text {
         pointer-events: none;
         font-family: 'Times New Roman', serif;
         font-size: 16px;
         fill: #000000;
     }
-    text#fig-a64c4243ede644cebc6fd06e872cd72f-caption {
+    text#fig-f08f6a602a614bd4b698c82d7ee4b07b-caption {
         font-size: 22.4px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-a64c4243ede644cebc6fd06e872cd72f-bg {
+    #fig-f08f6a602a614bd4b698c82d7ee4b07b-bg {
         fill: #FFFFFF;
     }
-    #fig-a64c4243ede644cebc6fd06e872cd72f-viewport rect, #fig-a64c4243ede644cebc6fd06e872cd72f-viewport path {
+    #fig-f08f6a602a614bd4b698c82d7ee4b07b-viewport rect, #fig-f08f6a602a614bd4b698c82d7ee4b07b-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-a64c4243ede644cebc6fd06e872cd72f-viewport text {
+    #fig-f08f6a602a614bd4b698c82d7ee4b07b-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-a64c4243ede644cebc6fd06e872cd72f-viewport rect:hover, #fig-a64c4243ede644cebc6fd06e872cd72f-viewport path:hover {
+    #fig-f08f6a602a614bd4b698c82d7ee4b07b-viewport rect:hover, #fig-f08f6a602a614bd4b698c82d7ee4b07b-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-a64c4243ede644cebc6fd06e872cd72f-viewport + rect {
+    #fig-f08f6a602a614bd4b698c82d7ee4b07b-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-a64c4243ede644cebc6fd06e872cd72f-details{
+    text#fig-f08f6a602a614bd4b698c82d7ee4b07b-details{
         fill: #000000;
     }
 </style>
-<g id="fig-a64c4243ede644cebc6fd06e872cd72f-frame" clip-path="url(#fig-a64c4243ede644cebc6fd06e872cd72f-clip)">
-<rect id="fig-a64c4243ede644cebc6fd06e872cd72f-bg" x="0" y="0" width="800" height="416"/>
-<text id="fig-a64c4243ede644cebc6fd06e872cd72f-caption" x="400" y="32">Profile results</text>
-<g id="fig-a64c4243ede644cebc6fd06e872cd72f-viewport" transform="scale(1)">
+<g id="fig-f08f6a602a614bd4b698c82d7ee4b07b-frame" clip-path="url(#fig-f08f6a602a614bd4b698c82d7ee4b07b-clip)">
+<rect id="fig-f08f6a602a614bd4b698c82d7ee4b07b-bg" x="0" y="0" width="800" height="416"/>
+<text id="fig-f08f6a602a614bd4b698c82d7ee4b07b-caption" x="400" y="32">Profile results</text>
+<g id="fig-f08f6a602a614bd4b698c82d7ee4b07b-viewport" transform="scale(1)">
 <rect x="8" y="348" width="784" height="20" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="363"> in :-1</text>
 <rect x="8" y="328" width="784" height="20" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -2004,63 +2014,66 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-a64c4243ede644cebc6fd06e872cd72f");
+        ProfileSVG.initialize("fig-f08f6a602a614bd4b698c82d7ee4b07b");
     });
 } else {
-    ProfileSVG.initialize("fig-a64c4243ede644cebc6fd06e872cd72f");
+    ProfileSVG.initialize("fig-f08f6a602a614bd4b698c82d7ee4b07b");
 }
 ]]></script>
 </svg>
-<h2 id="notext-1"><a class="docs-heading-anchor" href="#notext-1"><code>notext</code></a><a class="docs-heading-anchor-permalink" href="#notext-1" title="Permalink"></a></h2><p>The <code>notext</code> option specifies the visibility of overlaid texts on the frames. If the <code>notext</code> is <code>true</code>, the texts will be hidden by the interactive feature and the rendering load is significantly reduced.</p><pre><code class="language-julia">ProfileSVG.view(notext=true)</code></pre><?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+</body>
+</html>
+<h2 id="notext"><a class="docs-heading-anchor" href="#notext"><code>notext</code></a><a id="notext-1"></a><a class="docs-heading-anchor-permalink" href="#notext" title="Permalink"></a></h2><p>The <code>notext</code> option specifies the visibility of overlaid texts on the frames. If the <code>notext</code> is <code>true</code>, the texts will be hidden by the interactive feature and the rendering load is significantly reduced.</p><pre><code class="language-julia">ProfileSVG.view(notext=true)</code></pre><!DOCTYPE html>
+<html>
+<body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-bbb69bc11d52415695894286a9023017">
+     xmlns="http://www.w3.org/2000/svg" id="fig-d61b1856e6b646638d6ff8054e6cf29a">
 <defs>
-    <clipPath id="fig-bbb69bc11d52415695894286a9023017-clip">
+    <clipPath id="fig-d61b1856e6b646638d6ff8054e6cf29a-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-bbb69bc11d52415695894286a9023017 text {
+    #fig-d61b1856e6b646638d6ff8054e6cf29a text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-bbb69bc11d52415695894286a9023017-caption {
+    text#fig-d61b1856e6b646638d6ff8054e6cf29a-caption {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-bbb69bc11d52415695894286a9023017-bg {
+    #fig-d61b1856e6b646638d6ff8054e6cf29a-bg {
         fill: #FFFFFF;
     }
-    #fig-bbb69bc11d52415695894286a9023017-viewport rect, #fig-bbb69bc11d52415695894286a9023017-viewport path {
+    #fig-d61b1856e6b646638d6ff8054e6cf29a-viewport rect, #fig-d61b1856e6b646638d6ff8054e6cf29a-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-bbb69bc11d52415695894286a9023017-viewport text {
+    #fig-d61b1856e6b646638d6ff8054e6cf29a-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.0;
     }
-    #fig-bbb69bc11d52415695894286a9023017-viewport rect:hover, #fig-bbb69bc11d52415695894286a9023017-viewport path:hover {
+    #fig-d61b1856e6b646638d6ff8054e6cf29a-viewport rect:hover, #fig-d61b1856e6b646638d6ff8054e6cf29a-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-bbb69bc11d52415695894286a9023017-viewport + rect {
+    #fig-d61b1856e6b646638d6ff8054e6cf29a-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-bbb69bc11d52415695894286a9023017-details{
+    text#fig-d61b1856e6b646638d6ff8054e6cf29a-details{
         fill: #000000;
     }
 </style>
-<g id="fig-bbb69bc11d52415695894286a9023017-frame" clip-path="url(#fig-bbb69bc11d52415695894286a9023017-clip)">
-<rect id="fig-bbb69bc11d52415695894286a9023017-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-bbb69bc11d52415695894286a9023017-caption" x="400" y="24">Profile results</text>
-<g id="fig-bbb69bc11d52415695894286a9023017-viewport" transform="scale(1)">
+<g id="fig-d61b1856e6b646638d6ff8054e6cf29a-frame" clip-path="url(#fig-d61b1856e6b646638d6ff8054e6cf29a-clip)">
+<rect id="fig-d61b1856e6b646638d6ff8054e6cf29a-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-d61b1856e6b646638d6ff8054e6cf29a-caption" x="400" y="24">Profile results</text>
+<g id="fig-d61b1856e6b646638d6ff8054e6cf29a-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -2523,64 +2536,67 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-bbb69bc11d52415695894286a9023017");
+        ProfileSVG.initialize("fig-d61b1856e6b646638d6ff8054e6cf29a");
     });
 } else {
-    ProfileSVG.initialize("fig-bbb69bc11d52415695894286a9023017");
+    ProfileSVG.initialize("fig-d61b1856e6b646638d6ff8054e6cf29a");
 }
 ]]></script>
 </svg>
-<div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>Even if you set <code>notext</code> to <code>true</code>, the text data themselves will be output, and the texts will be displayed in non-interactive mode, i.e. as a still image.</p></div></div><h2 id="Setting-options-as-default-1"><a class="docs-heading-anchor" href="#Setting-options-as-default-1">Setting options as default</a><a class="docs-heading-anchor-permalink" href="#Setting-options-as-default-1" title="Permalink"></a></h2><p>You can specify the default values for options with <a href="../reference/#ProfileSVG.set_default"><code>ProfileSVG.set_default</code></a>.</p><p>You can also reset the settings with <a href="../reference/#ProfileSVG.init"><code>ProfileSVG.init</code></a>.</p><pre><code class="language-julia">ProfileSVG.set_default(StackFrameCategory(), roundradius=0, fontsize=8)
-ProfileSVG.view(width=300)</code></pre><?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+</body>
+</html>
+<div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>Even if you set <code>notext</code> to <code>true</code>, the text data themselves will be output, and the texts will be displayed in non-interactive mode, i.e. as a still image.</p></div></div><h2 id="Setting-options-as-default"><a class="docs-heading-anchor" href="#Setting-options-as-default">Setting options as default</a><a id="Setting-options-as-default-1"></a><a class="docs-heading-anchor-permalink" href="#Setting-options-as-default" title="Permalink"></a></h2><p>You can specify the default values for options with <a href="../reference/#ProfileSVG.set_default"><code>ProfileSVG.set_default</code></a>.</p><p>You can also reset the settings with <a href="../reference/#ProfileSVG.init"><code>ProfileSVG.init</code></a>.</p><pre><code class="language-julia">ProfileSVG.set_default(StackFrameCategory(), roundradius=0, fontsize=8)
+ProfileSVG.view(width=300)</code></pre><!DOCTYPE html>
+<html>
+<body>
 <svg version="1.1" width="300" height="208" viewBox="0 0 300 208"
-     xmlns="http://www.w3.org/2000/svg" id="fig-e8ecd4071b7a4be9a672b11395378274">
+     xmlns="http://www.w3.org/2000/svg" id="fig-866c51034e5249c091a5ec301aa779ce">
 <defs>
-    <clipPath id="fig-e8ecd4071b7a4be9a672b11395378274-clip">
+    <clipPath id="fig-866c51034e5249c091a5ec301aa779ce-clip">
         <rect x="0" y="0" width="300" height="208"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-e8ecd4071b7a4be9a672b11395378274 text {
+    #fig-866c51034e5249c091a5ec301aa779ce text {
         pointer-events: none;
         font-family: inherit;
         font-size: 8px;
         fill: #000000;
     }
-    text#fig-e8ecd4071b7a4be9a672b11395378274-caption {
+    text#fig-866c51034e5249c091a5ec301aa779ce-caption {
         font-size: 11.2px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-e8ecd4071b7a4be9a672b11395378274-bg {
+    #fig-866c51034e5249c091a5ec301aa779ce-bg {
         fill: #FFFFFF;
     }
-    #fig-e8ecd4071b7a4be9a672b11395378274-viewport rect, #fig-e8ecd4071b7a4be9a672b11395378274-viewport path {
+    #fig-866c51034e5249c091a5ec301aa779ce-viewport rect, #fig-866c51034e5249c091a5ec301aa779ce-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-e8ecd4071b7a4be9a672b11395378274-viewport text {
+    #fig-866c51034e5249c091a5ec301aa779ce-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-e8ecd4071b7a4be9a672b11395378274-viewport rect:hover, #fig-e8ecd4071b7a4be9a672b11395378274-viewport path:hover {
+    #fig-866c51034e5249c091a5ec301aa779ce-viewport rect:hover, #fig-866c51034e5249c091a5ec301aa779ce-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-e8ecd4071b7a4be9a672b11395378274-viewport + rect {
+    #fig-866c51034e5249c091a5ec301aa779ce-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-e8ecd4071b7a4be9a672b11395378274-details{
+    text#fig-866c51034e5249c091a5ec301aa779ce-details{
         fill: #000000;
     }
 </style>
-<g id="fig-e8ecd4071b7a4be9a672b11395378274-frame" clip-path="url(#fig-e8ecd4071b7a4be9a672b11395378274-clip)">
-<rect id="fig-e8ecd4071b7a4be9a672b11395378274-bg" x="0" y="0" width="300" height="208"/>
-<text id="fig-e8ecd4071b7a4be9a672b11395378274-caption" x="150" y="16">Profile results</text>
-<g id="fig-e8ecd4071b7a4be9a672b11395378274-viewport" transform="scale(1)">
+<g id="fig-866c51034e5249c091a5ec301aa779ce-frame" clip-path="url(#fig-866c51034e5249c091a5ec301aa779ce-clip)">
+<rect id="fig-866c51034e5249c091a5ec301aa779ce-bg" x="0" y="0" width="300" height="208"/>
+<text id="fig-866c51034e5249c091a5ec301aa779ce-caption" x="150" y="16">Profile results</text>
+<g id="fig-866c51034e5249c091a5ec301aa779ce-viewport" transform="scale(1)">
 <path d="M3,174v10h294v-10z" fill="#FFA500" data-dinfo=""/>
 <text x="3" dx="4" y="181.5"> in :-1</text>
 <path d="M3,164v10h294v-10z" fill="#4D4D4D" data-dinfo=".\"/>
@@ -3043,11 +3059,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-e8ecd4071b7a4be9a672b11395378274");
+        ProfileSVG.initialize("fig-866c51034e5249c091a5ec301aa779ce");
     });
 } else {
-    ProfileSVG.initialize("fig-e8ecd4071b7a4be9a672b11395378274");
+    ProfileSVG.initialize("fig-866c51034e5249c091a5ec301aa779ce");
 }
 ]]></script>
 </svg>
-</article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../coloration-schemes/">« Coloration Schemes</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 8 September 2020 11:26">Tuesday 8 September 2020</span>. Using Julia version 1.5.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</body>
+</html>
+</article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../coloration-schemes/">« Coloration Schemes</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 11 November 2020 12:07">Wednesday 11 November 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
