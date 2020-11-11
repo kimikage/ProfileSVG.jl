@@ -3,8 +3,8 @@
 
 [![Docs Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://kimikage.github.io/ProfileSVG.jl/stable)
 [![Docs Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://kimikage.github.io/ProfileSVG.jl/dev)
+[![CI](https://github.com/kimikage/ProfileSVG.jl/workflows/CI/badge.svg)](https://github.com/kimikage/ProfileSVG.jl/actions?query=workflow%3ACI)
 [![PkgEval](https://juliaci.github.io/NanosoldierReports/pkgeval_badges/P/ProfileSVG.svg)](https://juliaci.github.io/NanosoldierReports/pkgeval_badges/report.html)
-[![Build Status](https://travis-ci.com/kimikage/ProfileSVG.jl.svg?branch=master)](https://travis-ci.com/kimikage/ProfileSVG.jl)
 [![Codecov](https://codecov.io/gh/kimikage/ProfileSVG.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/kimikage/ProfileSVG.jl)
 
 ## Purpose

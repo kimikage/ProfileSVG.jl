@@ -1,5 +1,6 @@
 using ProfileSVG
 using Test
+using Profile
 
 using FlameGraphs
 using Base.StackTraces: StackFrame
@@ -257,6 +258,7 @@ end
 # For these tests to work you need `rsvg-convert` installed.
 # On Ubuntu this is `sudo apt install librsvg2-bin`.
 @testset "profview" begin
+    Profile.init(n=10000) # prevent stack overflow (on 32-bit systems)
     profile_test(1)   # to compile
     @profview profile_test(10)
 
