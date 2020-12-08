@@ -35,6 +35,9 @@ struct FGConfig
     g::Union{FlameGraph, Nothing}
     graph_options::Dict{Symbol, Any}
     fcolor
+    bgcolor::Symbol
+    fontcolor::Symbol
+    frameopacity::Float64
     maxdepth::Int
     maxframes::Int
     width::Float64
@@ -48,6 +51,9 @@ end
 function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   graph_options = nothing,
                   fcolor               = default_config.fcolor;
+                  bgcolor::Symbol      = default_config.bgcolor,
+                  fontcolor::Symbol    = default_config.fontcolor,
+                  frameopacity::Real   = default_config.frameopacity,
                   maxdepth::Int        = default_config.maxdepth,
                   maxframes::Int       = default_config.maxframes,
                   width::Real          = default_config.width,
@@ -60,6 +66,7 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
 
     gopts = graph_options === nothing ? flamegraph_kwargs(kwargs) : graph_options
     FGConfig(g, gopts, fcolor,
+             bgcolor, fontcolor, frameopacity,
              maxdepth, maxframes, width, height, roundradius, font, fontsize, notext)
 end
 
@@ -73,6 +80,9 @@ function init()
     global default_config = FGConfig(nothing,
                                      Dict{Symbol, Any}(),
                                      FlameGraphs.default_colors,
+                                     bgcolor=:fcolor,
+                                     fontcolor=:fcolor,
+                                     frameopacity=1,
                                      maxdepth=50,
                                      maxframes=2000,
                                      width=960,
@@ -109,6 +119,12 @@ include("svgwriter.jl")
 View profiling results.
 
 # keywords for SVG style
+- `bgcolor` (default: `:fcolor`)
+  - The background style. One of `:fcolor`/`:classic`/`:transparent`.
+- `fontcolor` (default: `:fcolor`)
+  - The font color style. One of `:fcolor`/`:classic`/`:currentcolor`/`:bw`.
+- `frameopacity` (default: `1`)
+  - The opacity of frames in [0, 1].
 - `maxdepth` (default: `50`)
   - The maximum number of the rendered rows.
 - `maxframes` (default: `2000`)
@@ -260,6 +276,7 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
         ndata = g.data
         sf = ndata.sf
         color = fg.fcolor(nextidx, j, ndata)::Color
+        bw = fg.fontcolor === :bw
         x = (first(ndata.span)-1) * xstep + leftmargin
         y = height - j * ystep - botmargin
         w = length(ndata.span) * xstep
@@ -274,7 +291,7 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
             basename = file
         end
         shortinfo = "$(sf.func) in $basename:$(sf.line)"
-        write_svgflamerect(io, x, y, w, ystep, r, shortinfo, dirinfo, color)
+        write_svgflamerect(io, x, y, w, ystep, r, shortinfo, dirinfo, color, bw)
 
         for c in g
             flamerects(io, c, j + 1, nextidx)
@@ -283,7 +300,9 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
 
     fig_id = string("fig-", replace(string(uuid4()), "-" => ""))
 
-    write_svgheader(io, fig_id, width, height, fg.font, fg.fontsize, fg.notext)
+    write_svgheader(io, fig_id, width, height,
+                    bgcolor(fg), fontcolor(fg), fg.frameopacity,
+                    fg.font, fg.fontsize, fg.notext)
 
     nextidx = fill(1, nrows + 1) # nextidx[end]: framecount
     flamerects(io, fg.g, 1, nextidx)
@@ -294,6 +313,20 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
     end
 
     write_svgfooter(io, fig_id)
+end
+
+function bgcolor(fg)
+    fg.bgcolor === :fcolor && return "#" * hex(fg.fcolor(:bg))
+    fg.bgcolor === :transparent && return "transparent"
+    fg.bgcolor === :classic && return ""
+    return "white"
+end
+
+function fontcolor(fg)
+    fg.fontcolor === :fcolor && return "#" * hex(fg.fcolor(:font))
+    fg.fontcolor === :currentcolor && return "currentcolor"
+    fg.fontcolor === :bw && return ""
+    return "black"
 end
 
 __init__() = init()

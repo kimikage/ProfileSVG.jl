@@ -4,6 +4,7 @@ using Profile
 
 using FlameGraphs
 using Base.StackTraces: StackFrame
+using Colors
 
 function stackframe(func, file, line; C=false, inlined=false)
     StackFrame(Symbol(func), Symbol(file), line, nothing, C, inlined, 0)
@@ -67,6 +68,9 @@ end
     @test fg.fcolor isa StackFrameCategory
     @test fg.graph_options[:C] == true
     @test fg.graph_options[:lidict] == lidict
+    @test fg.bgcolor == :fcolor
+    @test fg.fontcolor == :fcolor
+    @test fg.frameopacity == 1.0
     @test fg.width == 123.4
     @test fg.height == 0
     @test fg.roundradius == 2
@@ -186,6 +190,122 @@ end
     @test svg_size(str) == ("960", "136")
     @test !has_filled_rect(str, "#FF0000")
     @test !has_filled_path(str, "#FF0000")
+end
+
+@testset "color schemes" begin
+    g = flamegraph(backtraces, lidict=lidict)
+
+    io = IOBuffer()
+    fcolor = FlameColors(colorbg=colorant"steelblue", colorfont=colorant"lightyellow")
+
+    modcat(mod) = nothing
+    loccat(sf) = occursin("f1", string(sf.func)) ? colorant"navy" : colorant"powderblue"
+    sfc = StackFrameCategory(modcat, loccat, colorant"dimgray", colorant"red")
+
+    function bgcolor(str)
+        m = match(r"#fig-\w+-bg {([^}]+)", str)
+        m === nothing && return m
+        m = match(r"fill: ([^;]+);\n", m[1])
+        m === nothing && return m
+        color1 = m[1]
+
+        m = match(r"#fig-\w+-viewport \+ rect {([^}]+)", str)
+        m === nothing && return m
+        m = match(r"fill: ([^;]+);\n", m[1])
+        m === nothing && return m
+        color2 = m[1]
+        return color1 == color2 ? color1 : nothing
+    end
+
+    function fontcolor(str)
+        m = match(r"#fig-\w+ text {([^}]+)", str)
+        m === nothing && return m
+        m = match(r"fill: ([^;]+);\n", m[1])
+        m === nothing && return m
+        color1 = m[1]
+
+        m = match(r"#fig-\w+-viewport text {([^}]+)", str)
+        m === nothing && return m
+        m = match(r"stroke: ([^;]+);\n", m[1])
+        m === nothing && return m
+        color2 = m[1]
+
+        m = match(r"#fig-\w+-viewport path:hover {([^}]+)", str)
+        m === nothing && return m
+        m = match(r"stroke: ([^;]+);\n", m[1])
+        m === nothing && return m
+        color3 = m[1]
+        return color1 == color2 == color3 ? color1 : nothing
+    end
+
+    function captioncolor(str)
+        m = match(r"text#fig-\w+-caption {([^}]+)", str)
+        m === nothing && return m
+        m = match(r"fill: ([^;]+);\n", m[1])
+        m === nothing && return m
+        return m[1]
+    end
+
+    function opacity(str)
+        m = match(r"#fig-\w+-viewport path {([^}]+)", str)
+        m === nothing && return m
+        m = match(r"fill-opacity: ([^;]+);\n", m[1])
+        m === nothing && return m
+        opacity1 = m[1]
+
+        m = match(r"#fig-\w+-viewport path:hover {([^}]+)", str)
+        m === nothing && return m
+        m = match(r"fill-opacity: ([^;]+);\n", m[1])
+        m === nothing && return m
+        opacity2 = m[1]
+        return (opacity1, opacity2)
+    end
+
+    ProfileSVG.save(io, g)
+    str = String(take!(io))
+    @test bgcolor(str) == "#FFFFFF"
+    @test fontcolor(str) == "#000000"
+    @test captioncolor(str) == "#000000"
+    @test opacity(str) == ("1", "0.75")
+
+    ProfileSVG.save(fcolor, io, g, frameopacity=0.4f0)
+    str = String(take!(io))
+    @test bgcolor(str) == "#4682B4"
+    @test fontcolor(str) == "#FFFFE0"
+    @test captioncolor(str) == "#FFFFE0"
+    @test opacity(str) == ("0.4", "0.65")
+
+    ProfileSVG.save(sfc, io, g, bgcolor=:classic, fontcolor=:classic, frameopacity=0.75)
+    str = String(take!(io))
+    @test occursin("<linearGradient", str)
+    @test bgcolor(str) != "#FFFFFF"
+    @test fontcolor(str) == "black"
+    @test captioncolor(str) == "black"
+    @test opacity(str) == ("0.75", "1")
+
+    ProfileSVG.save(io, g, bgcolor=:transparent, fontcolor=:currentcolor, frameopacity=0.9)
+    str = String(take!(io))
+    @test bgcolor(str) == "transparent"
+    @test fontcolor(str) == "currentcolor"
+    @test opacity(str) == ("0.9", "0.65")
+
+    ProfileSVG.save(sfc, io, g, bgcolor=:unknown, fontcolor=:bw)
+    str = String(take!(io))
+    @test bgcolor(str) == "white"
+    @test fontcolor(str) == "black"
+    @test captioncolor(str) == "black"
+    @test opacity(str) == ("1", "0.75")
+    @test count_element(r"<text [^/]+class=\"w\">", str) == 2
+
+    ProfileSVG.save(fcolor, io, g, fontcolor=:bw)
+    str = String(take!(io))
+    @test bgcolor(str) == "#4682B4"
+    @test fontcolor(str) == "black"
+    @test captioncolor(str) == "white"
+    @test opacity(str) == ("1", "0.75")
+    @test count_element(r"<text [^/]+class=\"w\">", str) == 5
+
+    @test_throws TypeError ProfileSVG.save(sfc, io, g, bgcolor=colorant"black")
 end
 
 @testset "size limitation" begin

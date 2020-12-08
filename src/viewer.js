@@ -72,6 +72,21 @@
             .replace(/&amp;/g, '&');
     };
 
+    var isDarkColor = function (c) {
+        var m = c.match(/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)/);
+        if (m) {
+            return m[1] * 299 + m[2] * 587 + m[3] * 114 < 255 * 650;
+        }
+        m = c.match(/^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})/i);
+        if (m) {
+            var r = parseInt(m[1], 16);
+            var g = parseInt(m[2], 16);
+            var b = parseInt(m[3], 16);
+            return r * 299 + g * 587 + b * 114 < 255 * 650;
+        }
+        return true;
+    };
+
     ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
@@ -152,7 +167,7 @@
                     var path = p.node;
                     // The API compatibility of path segments is problematic.
                     var d = path.getAttribute('d');
-                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+(-?[\d.]+)[^h]+h\s*([\d.]+)/);
                     var x = Number(values[1]);
                     var y = Number(values[2]);
                     var w = Number(values[3]);
@@ -234,16 +249,19 @@
         detail.style.display = 'none';
         detail.style.visibility = 'visible';
 
-        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
-        textBg.setAttribute('fill', 'white'); // FIXME
-        textBg.setAttribute('fill-opacity', '0.8');
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
         textBg.setAttribute('width', fig.width);
         textBg.setAttribute('height', fig.textHeight * 2);
+        var textBgFill = getComputedStyle(textBg).fill;
+        if (textBgFill == "rgba(0, 0, 0, 0)" || textBgFill == "transparent") {
+            var isDark = isDarkColor(getComputedStyle(detail).fill);
+            textBg.style.fill = isDark ? 'white' : 'black';
+        }
         textBg.style.display = 'none';
 
         ProfileSVG.reset(fig);
