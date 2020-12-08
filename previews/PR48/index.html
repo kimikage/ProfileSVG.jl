@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Introduction · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script><link href="assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Introduction</a><ul class="internal"><li><a class="tocitem" href="#Installation"><span>Installation</span></a></li><li><a class="tocitem" href="#Usage"><span>Usage</span></a></li><li><a class="tocitem" href="#Other-tools-for-displaying-profiles"><span>Other tools for displaying profiles</span></a></li></ul></li><li><a class="tocitem" href="coloration-schemes/">Coloration Schemes</a></li><li><a class="tocitem" href="other-options/">Other Options</a></li><li><a class="tocitem" href="reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Introduction</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Introduction</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/index.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="ProfileSVG"><a class="docs-heading-anchor" href="#ProfileSVG">ProfileSVG</a><a id="ProfileSVG-1"></a><a class="docs-heading-anchor-permalink" href="#ProfileSVG" title="Permalink"></a></h1><p>ProfileSVG allows you to export profiling data as an SVG file. It can be used to display profiling results in Jupyter/<a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> notebooks, <a href="https://junolab.org/">Juno</a> or any other SVG viewer.</p><h2 id="Installation"><a class="docs-heading-anchor" href="#Installation">Installation</a><a id="Installation-1"></a><a class="docs-heading-anchor-permalink" href="#Installation" title="Permalink"></a></h2><p>The package can be installed with the Julia package manager. Run:</p><pre><code class="language-julia">import Pkg
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Introduction · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script><link href="assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Introduction</a><ul class="internal"><li><a class="tocitem" href="#Installation"><span>Installation</span></a></li><li><a class="tocitem" href="#Usage"><span>Usage</span></a></li><li><a class="tocitem" href="#Other-tools-for-displaying-profiles"><span>Other tools for displaying profiles</span></a></li></ul></li><li><a class="tocitem" href="coloration-schemes/">Coloration Schemes</a></li><li><a class="tocitem" href="other-options/">Other Options</a></li><li><a class="tocitem" href="reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Introduction</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Introduction</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/index.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="ProfileSVG"><a class="docs-heading-anchor" href="#ProfileSVG">ProfileSVG</a><a id="ProfileSVG-1"></a><a class="docs-heading-anchor-permalink" href="#ProfileSVG" title="Permalink"></a></h1><p>ProfileSVG allows you to export profiling data as an SVG file. It can be used to display profiling results in Jupyter/<a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> notebooks, <a href="https://junolab.org/">Juno</a> or any other SVG viewer.</p><h2 id="Installation"><a class="docs-heading-anchor" href="#Installation">Installation</a><a id="Installation-1"></a><a class="docs-heading-anchor-permalink" href="#Installation" title="Permalink"></a></h2><p>The package can be installed with the Julia package manager. Run:</p><pre><code class="language-julia">import Pkg
 Pkg.add(&quot;ProfileSVG&quot;)</code></pre><p>or, from the Julia REPL, type <code>]</code> to enter the Pkg REPL mode and run:</p><pre><code class="language-julia">pkg&gt; add ProfileSVG</code></pre><h2 id="Usage"><a class="docs-heading-anchor" href="#Usage">Usage</a><a id="Usage-1"></a><a class="docs-heading-anchor-permalink" href="#Usage" title="Permalink"></a></h2><h3 id="Displaying-profiles"><a class="docs-heading-anchor" href="#Displaying-profiles">Displaying profiles</a><a id="Displaying-profiles-1"></a><a class="docs-heading-anchor-permalink" href="#Displaying-profiles" title="Permalink"></a></h3><pre><code class="language-julia">using ProfileSVG
 @profview f(args...)</code></pre><p>where <code>f(args...)</code> is the operation you want to profile.</p><p>For example:</p><pre><code class="language-julia">function profile_test(n)
     for i = 1:n
@@ -21,53 +21,53 @@ using Profile, ProfileSVG
 <html>
 <body>
 <svg version="1.1" width="960" height="316" viewBox="0 0 960 316"
-     xmlns="http://www.w3.org/2000/svg" id="fig-980c1ff32031487f878fe85a2b58fef2">
+     xmlns="http://www.w3.org/2000/svg" id="fig-b3bd1312580247d099268008809f70e0">
 <defs>
-    <clipPath id="fig-980c1ff32031487f878fe85a2b58fef2-clip">
+    <clipPath id="fig-b3bd1312580247d099268008809f70e0-clip">
         <rect x="0" y="0" width="960" height="316"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-980c1ff32031487f878fe85a2b58fef2 text {
+    #fig-b3bd1312580247d099268008809f70e0 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-980c1ff32031487f878fe85a2b58fef2-caption {
+    text#fig-b3bd1312580247d099268008809f70e0-caption {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-980c1ff32031487f878fe85a2b58fef2-bg {
+    #fig-b3bd1312580247d099268008809f70e0-bg {
         fill: #FFFFFF;
     }
-    #fig-980c1ff32031487f878fe85a2b58fef2-viewport rect, #fig-980c1ff32031487f878fe85a2b58fef2-viewport path {
+    #fig-b3bd1312580247d099268008809f70e0-viewport rect, #fig-b3bd1312580247d099268008809f70e0-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-980c1ff32031487f878fe85a2b58fef2-viewport text {
+    #fig-b3bd1312580247d099268008809f70e0-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-980c1ff32031487f878fe85a2b58fef2-viewport rect:hover, #fig-980c1ff32031487f878fe85a2b58fef2-viewport path:hover {
+    #fig-b3bd1312580247d099268008809f70e0-viewport rect:hover, #fig-b3bd1312580247d099268008809f70e0-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-980c1ff32031487f878fe85a2b58fef2-viewport + rect {
+    #fig-b3bd1312580247d099268008809f70e0-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-980c1ff32031487f878fe85a2b58fef2-details{
+    text#fig-b3bd1312580247d099268008809f70e0-details{
         fill: #000000;
     }
 </style>
-<g id="fig-980c1ff32031487f878fe85a2b58fef2-frame" clip-path="url(#fig-980c1ff32031487f878fe85a2b58fef2-clip)">
-<rect id="fig-980c1ff32031487f878fe85a2b58fef2-bg" x="0" y="0" width="960" height="316"/>
-<text id="fig-980c1ff32031487f878fe85a2b58fef2-caption" x="480" y="24">Profile results</text>
-<g id="fig-980c1ff32031487f878fe85a2b58fef2-viewport" transform="scale(1)">
+<g id="fig-b3bd1312580247d099268008809f70e0-frame" clip-path="url(#fig-b3bd1312580247d099268008809f70e0-clip)">
+<rect id="fig-b3bd1312580247d099268008809f70e0-bg" x="0" y="0" width="960" height="316"/>
+<text id="fig-b3bd1312580247d099268008809f70e0-caption" x="480" y="24">Profile results</text>
+<g id="fig-b3bd1312580247d099268008809f70e0-viewport" transform="scale(1)">
 <rect x="10" y="263" width="940.8" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="10" dx="4" y="274.25"> in :-1</text>
 <rect x="10" y="248" width="940.8" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -530,10 +530,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-980c1ff32031487f878fe85a2b58fef2");
+        ProfileSVG.initialize("fig-b3bd1312580247d099268008809f70e0");
     });
 } else {
-    ProfileSVG.initialize("fig-980c1ff32031487f878fe85a2b58fef2");
+    ProfileSVG.initialize("fig-b3bd1312580247d099268008809f70e0");
 }
 ]]></script>
 </svg>
@@ -545,4 +545,4 @@ ProfileSVG.view()</code></pre><p>If you&#39;ve already collected profiling data 
 @profile profile_test(10);
 
 # Save a graph that looks like the Jupyter example above
-ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles">Other tools for displaying profiles</a><a id="Other-tools-for-displaying-profiles-1"></a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 11 November 2020 12:07">Wednesday 11 November 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ProfileSVG.save(joinpath(&quot;assets&quot;, &quot;prof.svg&quot;))</code></pre><p><img src="assets/prof.svg" alt="Exported Profile"/> Note that the exported SVG files include the script for interactive features, but some viewers (browsers) do not support the script. In particular, when loading the SVG image from an HTML <code>&lt;img&gt;</code> element (as above), the interactive features are usually disabled.</p><h2 id="Other-tools-for-displaying-profiles"><a class="docs-heading-anchor" href="#Other-tools-for-displaying-profiles">Other tools for displaying profiles</a><a id="Other-tools-for-displaying-profiles-1"></a><a class="docs-heading-anchor-permalink" href="#Other-tools-for-displaying-profiles" title="Permalink"></a></h2><ul><li><a href="https://github.com/timholy/ProfileView.jl">ProfileView</a>, a graphical user interface (GUI) based on <a href="https://github.com/JuliaGraphics/Gtk.jl">Gtk</a>.</li><li><a href="https://github.com/davidanthoff/ProfileVega.jl">ProfileVega</a>, a <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> front-end, which supports exporting profiling data as a Vega-Lite figure.</li><li><a href="https://junolab.org/">Juno</a>, a development environment, which supports <a href="http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1">profile visualization</a> as an &quot;in-editor&quot; chart.</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="coloration-schemes/">Coloration Schemes »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 8 December 2020 09:23">Tuesday 8 December 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
