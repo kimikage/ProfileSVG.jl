@@ -1,49 +1,55 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Other Options · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../coloration-schemes/">Coloration Schemes</a></li><li class="is-active"><a class="tocitem" href>Other Options</a><ul class="internal"><li><a class="tocitem" href="#maxdepth-and-maxframes"><span><code>maxdepth</code> and <code>maxframes</code></span></a></li><li><a class="tocitem" href="#width-and-height"><span><code>width</code> and <code>height</code></span></a></li><li><a class="tocitem" href="#roundradius"><span><code>roundradius</code></span></a></li><li><a class="tocitem" href="#font-and-fontsize"><span><code>font</code> and <code>fontsize</code></span></a></li><li><a class="tocitem" href="#notext"><span><code>notext</code></span></a></li><li><a class="tocitem" href="#Setting-options-as-default"><span>Setting options as default</span></a></li></ul></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Other Options</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Other Options</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/other-options.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Other-Options"><a class="docs-heading-anchor" href="#Other-Options">Other Options</a><a id="Other-Options-1"></a><a class="docs-heading-anchor-permalink" href="#Other-Options" title="Permalink"></a></h1><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><h2 id="maxdepth-and-maxframes"><a class="docs-heading-anchor" href="#maxdepth-and-maxframes"><code>maxdepth</code> and <code>maxframes</code></a><a id="maxdepth-and-maxframes-1"></a><a class="docs-heading-anchor-permalink" href="#maxdepth-and-maxframes" title="Permalink"></a></h2><p>The <code>maxdepth</code> option limits the maximum number of the rendered rows of graph. The frames deeper than <code>maxdepth</code> (i.e. away from the root) will be truncated.</p><p>The <code>maxframes</code> option limits the maximum number of the rendered frames. Since the frames are rendered in order of depth-first search, the frames to the right tend to be omitted.</p><p>When <code>maxdepth</code> and/or <code>maxframes</code> are reached, warnings will be displayed.</p><pre><code class="language-julia">ProfileSVG.view(maxdepth=7, maxframes=12)</code></pre><!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Other Options · ProfileSVG</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">ProfileSVG</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../coloration-schemes/">Coloration Schemes</a></li><li class="is-active"><a class="tocitem" href>Other Options</a><ul class="internal"><li><a class="tocitem" href="#maxdepth-and-maxframes"><span><code>maxdepth</code> and <code>maxframes</code></span></a></li><li><a class="tocitem" href="#width-and-height"><span><code>width</code> and <code>height</code></span></a></li><li><a class="tocitem" href="#roundradius"><span><code>roundradius</code></span></a></li><li><a class="tocitem" href="#font-and-fontsize"><span><code>font</code> and <code>fontsize</code></span></a></li><li><a class="tocitem" href="#notext"><span><code>notext</code></span></a></li><li><a class="tocitem" href="#Setting-options-as-default"><span>Setting options as default</span></a></li></ul></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Other Options</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Other Options</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/other-options.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Other-Options"><a class="docs-heading-anchor" href="#Other-Options">Other Options</a><a id="Other-Options-1"></a><a class="docs-heading-anchor-permalink" href="#Other-Options" title="Permalink"></a></h1><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><h2 id="maxdepth-and-maxframes"><a class="docs-heading-anchor" href="#maxdepth-and-maxframes"><code>maxdepth</code> and <code>maxframes</code></a><a id="maxdepth-and-maxframes-1"></a><a class="docs-heading-anchor-permalink" href="#maxdepth-and-maxframes" title="Permalink"></a></h2><p>The <code>maxdepth</code> option limits the maximum number of the rendered rows of graph. The frames deeper than <code>maxdepth</code> (i.e. away from the root) will be truncated.</p><p>The <code>maxframes</code> option limits the maximum number of the rendered frames. Since the frames are rendered in order of depth-first search, the frames to the right tend to be omitted.</p><p>When <code>maxdepth</code> and/or <code>maxframes</code> are reached, warnings will be displayed.</p><pre><code class="language-julia">ProfileSVG.view(maxdepth=7, maxframes=12)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="177" viewBox="0 0 800 177"
-     xmlns="http://www.w3.org/2000/svg" id="fig-e81aa8c625bd4b36bb8e88af3c8c31f4">
+     xmlns="http://www.w3.org/2000/svg" id="fig-91bfcb288e524644976933cf3901ed51">
 <defs>
-    <linearGradient id="fig-e81aa8c625bd4b36bb8e88af3c8c31f4-background" y1="0" y2="1" x1="0" x2="0">
-        <stop stop-color="#eeeeee" offset="5%" />
-        <stop stop-color="#eeeeb0" offset="95%" />
-    </linearGradient>
-    <clipPath id="fig-e81aa8c625bd4b36bb8e88af3c8c31f4-clip">
+    <clipPath id="fig-91bfcb288e524644976933cf3901ed51-clip">
         <rect x="0" y="0" width="800" height="177"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-e81aa8c625bd4b36bb8e88af3c8c31f4 text {
+    #fig-91bfcb288e524644976933cf3901ed51 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-e81aa8c625bd4b36bb8e88af3c8c31f4-caption {
+    text#fig-91bfcb288e524644976933cf3901ed51-caption {
         font-size: 16.8px;
+        fill: #000000;
         text-anchor: middle;
     }
-    #fig-e81aa8c625bd4b36bb8e88af3c8c31f4-bg {
-        fill: url(#fig-e81aa8c625bd4b36bb8e88af3c8c31f4-background);
+    #fig-91bfcb288e524644976933cf3901ed51-bg {
+        fill: #FFFFFF;
     }
-    #fig-e81aa8c625bd4b36bb8e88af3c8c31f4-viewport rect, #fig-e81aa8c625bd4b36bb8e88af3c8c31f4-viewport path {
+    #fig-91bfcb288e524644976933cf3901ed51-viewport rect, #fig-91bfcb288e524644976933cf3901ed51-viewport path {
         vector-effect: non-scaling-stroke;
+        fill-opacity: 1;
     }
-    #fig-e81aa8c625bd4b36bb8e88af3c8c31f4-viewport text {
+    #fig-91bfcb288e524644976933cf3901ed51-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-e81aa8c625bd4b36bb8e88af3c8c31f4-viewport rect:hover, #fig-e81aa8c625bd4b36bb8e88af3c8c31f4-viewport path:hover {
+    #fig-91bfcb288e524644976933cf3901ed51-viewport rect:hover, #fig-91bfcb288e524644976933cf3901ed51-viewport path:hover {
+        fill-opacity: 0.75;
         stroke: #000000;
-        stroke-width: 1;
+        stroke-width: 0.5;
+    }
+    #fig-91bfcb288e524644976933cf3901ed51-viewport + rect {
+        fill: #FFFFFF;
+        opacity: 0.8;
+    }
+    text#fig-91bfcb288e524644976933cf3901ed51-details{
+        fill: #000000;
     }
 </style>
-<g id="fig-e81aa8c625bd4b36bb8e88af3c8c31f4-frame" clip-path="url(#fig-e81aa8c625bd4b36bb8e88af3c8c31f4-clip)">
-<rect id="fig-e81aa8c625bd4b36bb8e88af3c8c31f4-bg" x="0" y="0" width="800" height="177"/>
-<text id="fig-e81aa8c625bd4b36bb8e88af3c8c31f4-caption" x="400" y="24">Profile results</text>
-<g id="fig-e81aa8c625bd4b36bb8e88af3c8c31f4-viewport" transform="scale(1)">
+<g id="fig-91bfcb288e524644976933cf3901ed51-frame" clip-path="url(#fig-91bfcb288e524644976933cf3901ed51-clip)">
+<rect id="fig-91bfcb288e524644976933cf3901ed51-bg" x="0" y="0" width="800" height="177"/>
+<text id="fig-91bfcb288e524644976933cf3901ed51-caption" x="400" y="24">Profile results</text>
+<g id="fig-91bfcb288e524644976933cf3901ed51-viewport" transform="scale(1)">
 <rect x="8" y="126" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="137.25"> in :-1</text>
 <rect x="8" y="111" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -166,6 +172,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             .replace(/&amp;/g, '&');
     };
 
+    var isDarkColor = function (c) {
+        var m = c.match(/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)/);
+        if (m) {
+            return m[1] * 299 + m[2] * 587 + m[3] * 114 < 255 * 650;
+        }
+        m = c.match(/^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})/i);
+        if (m) {
+            var r = parseInt(m[1], 16);
+            var g = parseInt(m[2], 16);
+            var b = parseInt(m[3], 16);
+            return r * 299 + g * 587 + b * 114 < 255 * 650;
+        }
+        return true;
+    };
+
     ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
@@ -246,7 +267,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     var path = p.node;
                     // The API compatibility of path segments is problematic.
                     var d = path.getAttribute('d');
-                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+(-?[\d.]+)[^h]+h\s*([\d.]+)/);
                     var x = Number(values[1]);
                     var y = Number(values[2]);
                     var w = Number(values[3]);
@@ -328,16 +349,19 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.style.display = 'none';
         detail.style.visibility = 'visible';
 
-        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
-        textBg.setAttribute('fill', 'white'); // FIXME
-        textBg.setAttribute('fill-opacity', '0.8');
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
         textBg.setAttribute('width', fig.width);
         textBg.setAttribute('height', fig.textHeight * 2);
+        var textBgFill = getComputedStyle(textBg).fill;
+        if (textBgFill == "rgba(0, 0, 0, 0)" || textBgFill == "transparent") {
+            var isDark = isDarkColor(getComputedStyle(detail).fill);
+            textBg.style.fill = isDark ? 'white' : 'black';
+        }
         textBg.style.display = 'none';
 
         ProfileSVG.reset(fig);
@@ -424,10 +448,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-e81aa8c625bd4b36bb8e88af3c8c31f4");
+        ProfileSVG.initialize("fig-91bfcb288e524644976933cf3901ed51");
     });
 } else {
-    ProfileSVG.initialize("fig-e81aa8c625bd4b36bb8e88af3c8c31f4");
+    ProfileSVG.initialize("fig-91bfcb288e524644976933cf3901ed51");
 }
 ]]></script>
 </svg>
@@ -437,47 +461,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="400" height="200" viewBox="0 0 400 200"
-     xmlns="http://www.w3.org/2000/svg" id="fig-2b1d1fa456f54b5989abda36b5afddf4">
+     xmlns="http://www.w3.org/2000/svg" id="fig-5804bab8d7ed4dcdaf964f1c41e13234">
 <defs>
-    <linearGradient id="fig-2b1d1fa456f54b5989abda36b5afddf4-background" y1="0" y2="1" x1="0" x2="0">
-        <stop stop-color="#eeeeee" offset="5%" />
-        <stop stop-color="#eeeeb0" offset="95%" />
-    </linearGradient>
-    <clipPath id="fig-2b1d1fa456f54b5989abda36b5afddf4-clip">
+    <clipPath id="fig-5804bab8d7ed4dcdaf964f1c41e13234-clip">
         <rect x="0" y="0" width="400" height="200"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-2b1d1fa456f54b5989abda36b5afddf4 text {
+    #fig-5804bab8d7ed4dcdaf964f1c41e13234 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-2b1d1fa456f54b5989abda36b5afddf4-caption {
+    text#fig-5804bab8d7ed4dcdaf964f1c41e13234-caption {
         font-size: 16.8px;
+        fill: #000000;
         text-anchor: middle;
     }
-    #fig-2b1d1fa456f54b5989abda36b5afddf4-bg {
-        fill: url(#fig-2b1d1fa456f54b5989abda36b5afddf4-background);
+    #fig-5804bab8d7ed4dcdaf964f1c41e13234-bg {
+        fill: #FFFFFF;
     }
-    #fig-2b1d1fa456f54b5989abda36b5afddf4-viewport rect, #fig-2b1d1fa456f54b5989abda36b5afddf4-viewport path {
+    #fig-5804bab8d7ed4dcdaf964f1c41e13234-viewport rect, #fig-5804bab8d7ed4dcdaf964f1c41e13234-viewport path {
         vector-effect: non-scaling-stroke;
+        fill-opacity: 1;
     }
-    #fig-2b1d1fa456f54b5989abda36b5afddf4-viewport text {
+    #fig-5804bab8d7ed4dcdaf964f1c41e13234-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-2b1d1fa456f54b5989abda36b5afddf4-viewport rect:hover, #fig-2b1d1fa456f54b5989abda36b5afddf4-viewport path:hover {
+    #fig-5804bab8d7ed4dcdaf964f1c41e13234-viewport rect:hover, #fig-5804bab8d7ed4dcdaf964f1c41e13234-viewport path:hover {
+        fill-opacity: 0.75;
         stroke: #000000;
-        stroke-width: 1;
+        stroke-width: 0.5;
+    }
+    #fig-5804bab8d7ed4dcdaf964f1c41e13234-viewport + rect {
+        fill: #FFFFFF;
+        opacity: 0.8;
+    }
+    text#fig-5804bab8d7ed4dcdaf964f1c41e13234-details{
+        fill: #000000;
     }
 </style>
-<g id="fig-2b1d1fa456f54b5989abda36b5afddf4-frame" clip-path="url(#fig-2b1d1fa456f54b5989abda36b5afddf4-clip)">
-<rect id="fig-2b1d1fa456f54b5989abda36b5afddf4-bg" x="0" y="0" width="400" height="200"/>
-<text id="fig-2b1d1fa456f54b5989abda36b5afddf4-caption" x="200" y="24">Profile results</text>
-<g id="fig-2b1d1fa456f54b5989abda36b5afddf4-viewport" transform="scale(1)">
+<g id="fig-5804bab8d7ed4dcdaf964f1c41e13234-frame" clip-path="url(#fig-5804bab8d7ed4dcdaf964f1c41e13234-clip)">
+<rect id="fig-5804bab8d7ed4dcdaf964f1c41e13234-bg" x="0" y="0" width="400" height="200"/>
+<text id="fig-5804bab8d7ed4dcdaf964f1c41e13234-caption" x="200" y="24">Profile results</text>
+<g id="fig-5804bab8d7ed4dcdaf964f1c41e13234-viewport" transform="scale(1)">
 <rect x="4" y="149" width="392" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="4" dx="4" y="160.25"> in :-1</text>
 <rect x="4" y="134" width="392" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -664,6 +694,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             .replace(/&amp;/g, '&');
     };
 
+    var isDarkColor = function (c) {
+        var m = c.match(/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)/);
+        if (m) {
+            return m[1] * 299 + m[2] * 587 + m[3] * 114 < 255 * 650;
+        }
+        m = c.match(/^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})/i);
+        if (m) {
+            var r = parseInt(m[1], 16);
+            var g = parseInt(m[2], 16);
+            var b = parseInt(m[3], 16);
+            return r * 299 + g * 587 + b * 114 < 255 * 650;
+        }
+        return true;
+    };
+
     ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
@@ -744,7 +789,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     var path = p.node;
                     // The API compatibility of path segments is problematic.
                     var d = path.getAttribute('d');
-                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+(-?[\d.]+)[^h]+h\s*([\d.]+)/);
                     var x = Number(values[1]);
                     var y = Number(values[2]);
                     var w = Number(values[3]);
@@ -826,16 +871,19 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.style.display = 'none';
         detail.style.visibility = 'visible';
 
-        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
-        textBg.setAttribute('fill', 'white'); // FIXME
-        textBg.setAttribute('fill-opacity', '0.8');
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
         textBg.setAttribute('width', fig.width);
         textBg.setAttribute('height', fig.textHeight * 2);
+        var textBgFill = getComputedStyle(textBg).fill;
+        if (textBgFill == "rgba(0, 0, 0, 0)" || textBgFill == "transparent") {
+            var isDark = isDarkColor(getComputedStyle(detail).fill);
+            textBg.style.fill = isDark ? 'white' : 'black';
+        }
         textBg.style.display = 'none';
 
         ProfileSVG.reset(fig);
@@ -922,10 +970,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-2b1d1fa456f54b5989abda36b5afddf4");
+        ProfileSVG.initialize("fig-5804bab8d7ed4dcdaf964f1c41e13234");
     });
 } else {
-    ProfileSVG.initialize("fig-2b1d1fa456f54b5989abda36b5afddf4");
+    ProfileSVG.initialize("fig-5804bab8d7ed4dcdaf964f1c41e13234");
 }
 ]]></script>
 </svg>
@@ -935,47 +983,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-6e81b46d17614735b1bcadeb38259b6e">
+     xmlns="http://www.w3.org/2000/svg" id="fig-13f82eea6c0e43f19d700b9305ccedf3">
 <defs>
-    <linearGradient id="fig-6e81b46d17614735b1bcadeb38259b6e-background" y1="0" y2="1" x1="0" x2="0">
-        <stop stop-color="#eeeeee" offset="5%" />
-        <stop stop-color="#eeeeb0" offset="95%" />
-    </linearGradient>
-    <clipPath id="fig-6e81b46d17614735b1bcadeb38259b6e-clip">
+    <clipPath id="fig-13f82eea6c0e43f19d700b9305ccedf3-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-6e81b46d17614735b1bcadeb38259b6e text {
+    #fig-13f82eea6c0e43f19d700b9305ccedf3 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-6e81b46d17614735b1bcadeb38259b6e-caption {
+    text#fig-13f82eea6c0e43f19d700b9305ccedf3-caption {
         font-size: 16.8px;
+        fill: #000000;
         text-anchor: middle;
     }
-    #fig-6e81b46d17614735b1bcadeb38259b6e-bg {
-        fill: url(#fig-6e81b46d17614735b1bcadeb38259b6e-background);
+    #fig-13f82eea6c0e43f19d700b9305ccedf3-bg {
+        fill: #FFFFFF;
     }
-    #fig-6e81b46d17614735b1bcadeb38259b6e-viewport rect, #fig-6e81b46d17614735b1bcadeb38259b6e-viewport path {
+    #fig-13f82eea6c0e43f19d700b9305ccedf3-viewport rect, #fig-13f82eea6c0e43f19d700b9305ccedf3-viewport path {
         vector-effect: non-scaling-stroke;
+        fill-opacity: 1;
     }
-    #fig-6e81b46d17614735b1bcadeb38259b6e-viewport text {
+    #fig-13f82eea6c0e43f19d700b9305ccedf3-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-6e81b46d17614735b1bcadeb38259b6e-viewport rect:hover, #fig-6e81b46d17614735b1bcadeb38259b6e-viewport path:hover {
+    #fig-13f82eea6c0e43f19d700b9305ccedf3-viewport rect:hover, #fig-13f82eea6c0e43f19d700b9305ccedf3-viewport path:hover {
+        fill-opacity: 0.75;
         stroke: #000000;
-        stroke-width: 1;
+        stroke-width: 0.5;
+    }
+    #fig-13f82eea6c0e43f19d700b9305ccedf3-viewport + rect {
+        fill: #FFFFFF;
+        opacity: 0.8;
+    }
+    text#fig-13f82eea6c0e43f19d700b9305ccedf3-details{
+        fill: #000000;
     }
 </style>
-<g id="fig-6e81b46d17614735b1bcadeb38259b6e-frame" clip-path="url(#fig-6e81b46d17614735b1bcadeb38259b6e-clip)">
-<rect id="fig-6e81b46d17614735b1bcadeb38259b6e-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-6e81b46d17614735b1bcadeb38259b6e-caption" x="400" y="24">Profile results</text>
-<g id="fig-6e81b46d17614735b1bcadeb38259b6e-viewport" transform="scale(1)">
+<g id="fig-13f82eea6c0e43f19d700b9305ccedf3-frame" clip-path="url(#fig-13f82eea6c0e43f19d700b9305ccedf3-clip)">
+<rect id="fig-13f82eea6c0e43f19d700b9305ccedf3-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-13f82eea6c0e43f19d700b9305ccedf3-caption" x="400" y="24">Profile results</text>
+<g id="fig-13f82eea6c0e43f19d700b9305ccedf3-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="6" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="6" fill="#00B58B" data-dinfo=".\"/>
@@ -1162,6 +1216,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             .replace(/&amp;/g, '&');
     };
 
+    var isDarkColor = function (c) {
+        var m = c.match(/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)/);
+        if (m) {
+            return m[1] * 299 + m[2] * 587 + m[3] * 114 < 255 * 650;
+        }
+        m = c.match(/^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})/i);
+        if (m) {
+            var r = parseInt(m[1], 16);
+            var g = parseInt(m[2], 16);
+            var b = parseInt(m[3], 16);
+            return r * 299 + g * 587 + b * 114 < 255 * 650;
+        }
+        return true;
+    };
+
     ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
@@ -1242,7 +1311,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     var path = p.node;
                     // The API compatibility of path segments is problematic.
                     var d = path.getAttribute('d');
-                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+(-?[\d.]+)[^h]+h\s*([\d.]+)/);
                     var x = Number(values[1]);
                     var y = Number(values[2]);
                     var w = Number(values[3]);
@@ -1324,16 +1393,19 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.style.display = 'none';
         detail.style.visibility = 'visible';
 
-        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
-        textBg.setAttribute('fill', 'white'); // FIXME
-        textBg.setAttribute('fill-opacity', '0.8');
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
         textBg.setAttribute('width', fig.width);
         textBg.setAttribute('height', fig.textHeight * 2);
+        var textBgFill = getComputedStyle(textBg).fill;
+        if (textBgFill == "rgba(0, 0, 0, 0)" || textBgFill == "transparent") {
+            var isDark = isDarkColor(getComputedStyle(detail).fill);
+            textBg.style.fill = isDark ? 'white' : 'black';
+        }
         textBg.style.display = 'none';
 
         ProfileSVG.reset(fig);
@@ -1420,10 +1492,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-6e81b46d17614735b1bcadeb38259b6e");
+        ProfileSVG.initialize("fig-13f82eea6c0e43f19d700b9305ccedf3");
     });
 } else {
-    ProfileSVG.initialize("fig-6e81b46d17614735b1bcadeb38259b6e");
+    ProfileSVG.initialize("fig-13f82eea6c0e43f19d700b9305ccedf3");
 }
 ]]></script>
 </svg>
@@ -1433,47 +1505,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="416" viewBox="0 0 800 416"
-     xmlns="http://www.w3.org/2000/svg" id="fig-33e5ebef72134a56adcf64eb6891772d">
+     xmlns="http://www.w3.org/2000/svg" id="fig-1e4aaef0a951423681fcea112ac94666">
 <defs>
-    <linearGradient id="fig-33e5ebef72134a56adcf64eb6891772d-background" y1="0" y2="1" x1="0" x2="0">
-        <stop stop-color="#eeeeee" offset="5%" />
-        <stop stop-color="#eeeeb0" offset="95%" />
-    </linearGradient>
-    <clipPath id="fig-33e5ebef72134a56adcf64eb6891772d-clip">
+    <clipPath id="fig-1e4aaef0a951423681fcea112ac94666-clip">
         <rect x="0" y="0" width="800" height="416"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-33e5ebef72134a56adcf64eb6891772d text {
+    #fig-1e4aaef0a951423681fcea112ac94666 text {
         pointer-events: none;
         font-family: 'Times New Roman', serif;
         font-size: 16px;
         fill: #000000;
     }
-    text#fig-33e5ebef72134a56adcf64eb6891772d-caption {
+    text#fig-1e4aaef0a951423681fcea112ac94666-caption {
         font-size: 22.4px;
+        fill: #000000;
         text-anchor: middle;
     }
-    #fig-33e5ebef72134a56adcf64eb6891772d-bg {
-        fill: url(#fig-33e5ebef72134a56adcf64eb6891772d-background);
+    #fig-1e4aaef0a951423681fcea112ac94666-bg {
+        fill: #FFFFFF;
     }
-    #fig-33e5ebef72134a56adcf64eb6891772d-viewport rect, #fig-33e5ebef72134a56adcf64eb6891772d-viewport path {
+    #fig-1e4aaef0a951423681fcea112ac94666-viewport rect, #fig-1e4aaef0a951423681fcea112ac94666-viewport path {
         vector-effect: non-scaling-stroke;
+        fill-opacity: 1;
     }
-    #fig-33e5ebef72134a56adcf64eb6891772d-viewport text {
+    #fig-1e4aaef0a951423681fcea112ac94666-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-33e5ebef72134a56adcf64eb6891772d-viewport rect:hover, #fig-33e5ebef72134a56adcf64eb6891772d-viewport path:hover {
+    #fig-1e4aaef0a951423681fcea112ac94666-viewport rect:hover, #fig-1e4aaef0a951423681fcea112ac94666-viewport path:hover {
+        fill-opacity: 0.75;
         stroke: #000000;
-        stroke-width: 1;
+        stroke-width: 0.5;
+    }
+    #fig-1e4aaef0a951423681fcea112ac94666-viewport + rect {
+        fill: #FFFFFF;
+        opacity: 0.8;
+    }
+    text#fig-1e4aaef0a951423681fcea112ac94666-details{
+        fill: #000000;
     }
 </style>
-<g id="fig-33e5ebef72134a56adcf64eb6891772d-frame" clip-path="url(#fig-33e5ebef72134a56adcf64eb6891772d-clip)">
-<rect id="fig-33e5ebef72134a56adcf64eb6891772d-bg" x="0" y="0" width="800" height="416"/>
-<text id="fig-33e5ebef72134a56adcf64eb6891772d-caption" x="400" y="32">Profile results</text>
-<g id="fig-33e5ebef72134a56adcf64eb6891772d-viewport" transform="scale(1)">
+<g id="fig-1e4aaef0a951423681fcea112ac94666-frame" clip-path="url(#fig-1e4aaef0a951423681fcea112ac94666-clip)">
+<rect id="fig-1e4aaef0a951423681fcea112ac94666-bg" x="0" y="0" width="800" height="416"/>
+<text id="fig-1e4aaef0a951423681fcea112ac94666-caption" x="400" y="32">Profile results</text>
+<g id="fig-1e4aaef0a951423681fcea112ac94666-viewport" transform="scale(1)">
 <rect x="8" y="348" width="784" height="20" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="363"> in :-1</text>
 <rect x="8" y="328" width="784" height="20" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -1660,6 +1738,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             .replace(/&amp;/g, '&');
     };
 
+    var isDarkColor = function (c) {
+        var m = c.match(/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)/);
+        if (m) {
+            return m[1] * 299 + m[2] * 587 + m[3] * 114 < 255 * 650;
+        }
+        m = c.match(/^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})/i);
+        if (m) {
+            var r = parseInt(m[1], 16);
+            var g = parseInt(m[2], 16);
+            var b = parseInt(m[3], 16);
+            return r * 299 + g * 587 + b * 114 < 255 * 650;
+        }
+        return true;
+    };
+
     ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
@@ -1740,7 +1833,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     var path = p.node;
                     // The API compatibility of path segments is problematic.
                     var d = path.getAttribute('d');
-                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+(-?[\d.]+)[^h]+h\s*([\d.]+)/);
                     var x = Number(values[1]);
                     var y = Number(values[2]);
                     var w = Number(values[3]);
@@ -1822,16 +1915,19 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.style.display = 'none';
         detail.style.visibility = 'visible';
 
-        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
-        textBg.setAttribute('fill', 'white'); // FIXME
-        textBg.setAttribute('fill-opacity', '0.8');
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
         textBg.setAttribute('width', fig.width);
         textBg.setAttribute('height', fig.textHeight * 2);
+        var textBgFill = getComputedStyle(textBg).fill;
+        if (textBgFill == "rgba(0, 0, 0, 0)" || textBgFill == "transparent") {
+            var isDark = isDarkColor(getComputedStyle(detail).fill);
+            textBg.style.fill = isDark ? 'white' : 'black';
+        }
         textBg.style.display = 'none';
 
         ProfileSVG.reset(fig);
@@ -1918,10 +2014,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-33e5ebef72134a56adcf64eb6891772d");
+        ProfileSVG.initialize("fig-1e4aaef0a951423681fcea112ac94666");
     });
 } else {
-    ProfileSVG.initialize("fig-33e5ebef72134a56adcf64eb6891772d");
+    ProfileSVG.initialize("fig-1e4aaef0a951423681fcea112ac94666");
 }
 ]]></script>
 </svg>
@@ -1931,47 +2027,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-30ed574394044391afb3501013b58086">
+     xmlns="http://www.w3.org/2000/svg" id="fig-5ee87da832b643a78d7336bd6953cc59">
 <defs>
-    <linearGradient id="fig-30ed574394044391afb3501013b58086-background" y1="0" y2="1" x1="0" x2="0">
-        <stop stop-color="#eeeeee" offset="5%" />
-        <stop stop-color="#eeeeb0" offset="95%" />
-    </linearGradient>
-    <clipPath id="fig-30ed574394044391afb3501013b58086-clip">
+    <clipPath id="fig-5ee87da832b643a78d7336bd6953cc59-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-30ed574394044391afb3501013b58086 text {
+    #fig-5ee87da832b643a78d7336bd6953cc59 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-30ed574394044391afb3501013b58086-caption {
+    text#fig-5ee87da832b643a78d7336bd6953cc59-caption {
         font-size: 16.8px;
+        fill: #000000;
         text-anchor: middle;
     }
-    #fig-30ed574394044391afb3501013b58086-bg {
-        fill: url(#fig-30ed574394044391afb3501013b58086-background);
+    #fig-5ee87da832b643a78d7336bd6953cc59-bg {
+        fill: #FFFFFF;
     }
-    #fig-30ed574394044391afb3501013b58086-viewport rect, #fig-30ed574394044391afb3501013b58086-viewport path {
+    #fig-5ee87da832b643a78d7336bd6953cc59-viewport rect, #fig-5ee87da832b643a78d7336bd6953cc59-viewport path {
         vector-effect: non-scaling-stroke;
+        fill-opacity: 1;
     }
-    #fig-30ed574394044391afb3501013b58086-viewport text {
+    #fig-5ee87da832b643a78d7336bd6953cc59-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.0;
     }
-    #fig-30ed574394044391afb3501013b58086-viewport rect:hover, #fig-30ed574394044391afb3501013b58086-viewport path:hover {
+    #fig-5ee87da832b643a78d7336bd6953cc59-viewport rect:hover, #fig-5ee87da832b643a78d7336bd6953cc59-viewport path:hover {
+        fill-opacity: 0.75;
         stroke: #000000;
-        stroke-width: 1;
+        stroke-width: 0.5;
+    }
+    #fig-5ee87da832b643a78d7336bd6953cc59-viewport + rect {
+        fill: #FFFFFF;
+        opacity: 0.8;
+    }
+    text#fig-5ee87da832b643a78d7336bd6953cc59-details{
+        fill: #000000;
     }
 </style>
-<g id="fig-30ed574394044391afb3501013b58086-frame" clip-path="url(#fig-30ed574394044391afb3501013b58086-clip)">
-<rect id="fig-30ed574394044391afb3501013b58086-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-30ed574394044391afb3501013b58086-caption" x="400" y="24">Profile results</text>
-<g id="fig-30ed574394044391afb3501013b58086-viewport" transform="scale(1)">
+<g id="fig-5ee87da832b643a78d7336bd6953cc59-frame" clip-path="url(#fig-5ee87da832b643a78d7336bd6953cc59-clip)">
+<rect id="fig-5ee87da832b643a78d7336bd6953cc59-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-5ee87da832b643a78d7336bd6953cc59-caption" x="400" y="24">Profile results</text>
+<g id="fig-5ee87da832b643a78d7336bd6953cc59-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -2158,6 +2260,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             .replace(/&amp;/g, '&');
     };
 
+    var isDarkColor = function (c) {
+        var m = c.match(/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)/);
+        if (m) {
+            return m[1] * 299 + m[2] * 587 + m[3] * 114 < 255 * 650;
+        }
+        m = c.match(/^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})/i);
+        if (m) {
+            var r = parseInt(m[1], 16);
+            var g = parseInt(m[2], 16);
+            var b = parseInt(m[3], 16);
+            return r * 299 + g * 587 + b * 114 < 255 * 650;
+        }
+        return true;
+    };
+
     ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
@@ -2238,7 +2355,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     var path = p.node;
                     // The API compatibility of path segments is problematic.
                     var d = path.getAttribute('d');
-                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+(-?[\d.]+)[^h]+h\s*([\d.]+)/);
                     var x = Number(values[1]);
                     var y = Number(values[2]);
                     var w = Number(values[3]);
@@ -2320,16 +2437,19 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.style.display = 'none';
         detail.style.visibility = 'visible';
 
-        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
-        textBg.setAttribute('fill', 'white'); // FIXME
-        textBg.setAttribute('fill-opacity', '0.8');
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
         textBg.setAttribute('width', fig.width);
         textBg.setAttribute('height', fig.textHeight * 2);
+        var textBgFill = getComputedStyle(textBg).fill;
+        if (textBgFill == "rgba(0, 0, 0, 0)" || textBgFill == "transparent") {
+            var isDark = isDarkColor(getComputedStyle(detail).fill);
+            textBg.style.fill = isDark ? 'white' : 'black';
+        }
         textBg.style.display = 'none';
 
         ProfileSVG.reset(fig);
@@ -2416,10 +2536,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-30ed574394044391afb3501013b58086");
+        ProfileSVG.initialize("fig-5ee87da832b643a78d7336bd6953cc59");
     });
 } else {
-    ProfileSVG.initialize("fig-30ed574394044391afb3501013b58086");
+    ProfileSVG.initialize("fig-5ee87da832b643a78d7336bd6953cc59");
 }
 ]]></script>
 </svg>
@@ -2430,47 +2550,53 @@ ProfileSVG.view(width=300)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="300" height="208" viewBox="0 0 300 208"
-     xmlns="http://www.w3.org/2000/svg" id="fig-bd5e66f4b4fb4a939fdb017bce5562d1">
+     xmlns="http://www.w3.org/2000/svg" id="fig-7e3409d24e9f4d8eaaf34dfaabab8e37">
 <defs>
-    <linearGradient id="fig-bd5e66f4b4fb4a939fdb017bce5562d1-background" y1="0" y2="1" x1="0" x2="0">
-        <stop stop-color="#eeeeee" offset="5%" />
-        <stop stop-color="#eeeeb0" offset="95%" />
-    </linearGradient>
-    <clipPath id="fig-bd5e66f4b4fb4a939fdb017bce5562d1-clip">
+    <clipPath id="fig-7e3409d24e9f4d8eaaf34dfaabab8e37-clip">
         <rect x="0" y="0" width="300" height="208"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-bd5e66f4b4fb4a939fdb017bce5562d1 text {
+    #fig-7e3409d24e9f4d8eaaf34dfaabab8e37 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 8px;
         fill: #000000;
     }
-    text#fig-bd5e66f4b4fb4a939fdb017bce5562d1-caption {
+    text#fig-7e3409d24e9f4d8eaaf34dfaabab8e37-caption {
         font-size: 11.2px;
+        fill: #000000;
         text-anchor: middle;
     }
-    #fig-bd5e66f4b4fb4a939fdb017bce5562d1-bg {
-        fill: url(#fig-bd5e66f4b4fb4a939fdb017bce5562d1-background);
+    #fig-7e3409d24e9f4d8eaaf34dfaabab8e37-bg {
+        fill: #FFFFFF;
     }
-    #fig-bd5e66f4b4fb4a939fdb017bce5562d1-viewport rect, #fig-bd5e66f4b4fb4a939fdb017bce5562d1-viewport path {
+    #fig-7e3409d24e9f4d8eaaf34dfaabab8e37-viewport rect, #fig-7e3409d24e9f4d8eaaf34dfaabab8e37-viewport path {
         vector-effect: non-scaling-stroke;
+        fill-opacity: 1;
     }
-    #fig-bd5e66f4b4fb4a939fdb017bce5562d1-viewport text {
+    #fig-7e3409d24e9f4d8eaaf34dfaabab8e37-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-bd5e66f4b4fb4a939fdb017bce5562d1-viewport rect:hover, #fig-bd5e66f4b4fb4a939fdb017bce5562d1-viewport path:hover {
+    #fig-7e3409d24e9f4d8eaaf34dfaabab8e37-viewport rect:hover, #fig-7e3409d24e9f4d8eaaf34dfaabab8e37-viewport path:hover {
+        fill-opacity: 0.75;
         stroke: #000000;
-        stroke-width: 1;
+        stroke-width: 0.5;
+    }
+    #fig-7e3409d24e9f4d8eaaf34dfaabab8e37-viewport + rect {
+        fill: #FFFFFF;
+        opacity: 0.8;
+    }
+    text#fig-7e3409d24e9f4d8eaaf34dfaabab8e37-details{
+        fill: #000000;
     }
 </style>
-<g id="fig-bd5e66f4b4fb4a939fdb017bce5562d1-frame" clip-path="url(#fig-bd5e66f4b4fb4a939fdb017bce5562d1-clip)">
-<rect id="fig-bd5e66f4b4fb4a939fdb017bce5562d1-bg" x="0" y="0" width="300" height="208"/>
-<text id="fig-bd5e66f4b4fb4a939fdb017bce5562d1-caption" x="150" y="16">Profile results</text>
-<g id="fig-bd5e66f4b4fb4a939fdb017bce5562d1-viewport" transform="scale(1)">
+<g id="fig-7e3409d24e9f4d8eaaf34dfaabab8e37-frame" clip-path="url(#fig-7e3409d24e9f4d8eaaf34dfaabab8e37-clip)">
+<rect id="fig-7e3409d24e9f4d8eaaf34dfaabab8e37-bg" x="0" y="0" width="300" height="208"/>
+<text id="fig-7e3409d24e9f4d8eaaf34dfaabab8e37-caption" x="150" y="16">Profile results</text>
+<g id="fig-7e3409d24e9f4d8eaaf34dfaabab8e37-viewport" transform="scale(1)">
 <path d="M3,174v10h294v-10z" fill="#FFA500" data-dinfo=""/>
 <text x="3" dx="4" y="181.5"> in :-1</text>
 <path d="M3,164v10h294v-10z" fill="#4D4D4D" data-dinfo=".\"/>
@@ -2657,6 +2783,21 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             .replace(/&amp;/g, '&');
     };
 
+    var isDarkColor = function (c) {
+        var m = c.match(/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)/);
+        if (m) {
+            return m[1] * 299 + m[2] * 587 + m[3] * 114 < 255 * 650;
+        }
+        m = c.match(/^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})/i);
+        if (m) {
+            var r = parseInt(m[1], 16);
+            var g = parseInt(m[2], 16);
+            var b = parseInt(m[3], 16);
+            return r * 299 + g * 587 + b * 114 < 255 * 650;
+        }
+        return true;
+    };
+
     ProfileSVG.moveAndZoom = function (targetFocusX, targetScaleX, fig, deltaT) {
         if (typeof deltaT === 'undefined') {
             deltaT = DEFAULT_TRANSITION_TIME;
@@ -2737,7 +2878,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
                     var path = p.node;
                     // The API compatibility of path segments is problematic.
                     var d = path.getAttribute('d');
-                    var values = d.match(/^M\s*([\d.]+)[\s,]+([\d.]+)[^h]+h\s*([\d.]+)/);
+                    var values = d.match(/^M\s*([\d.]+)[\s,]+(-?[\d.]+)[^h]+h\s*([\d.]+)/);
                     var x = Number(values[1]);
                     var y = Number(values[2]);
                     var w = Number(values[3]);
@@ -2819,16 +2960,19 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.style.display = 'none';
         detail.style.visibility = 'visible';
 
-        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('id', figId + '-details');
+        detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
-        textBg.setAttribute('fill', 'white'); // FIXME
-        textBg.setAttribute('fill-opacity', '0.8');
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
         textBg.setAttribute('width', fig.width);
         textBg.setAttribute('height', fig.textHeight * 2);
+        var textBgFill = getComputedStyle(textBg).fill;
+        if (textBgFill == "rgba(0, 0, 0, 0)" || textBgFill == "transparent") {
+            var isDark = isDarkColor(getComputedStyle(detail).fill);
+            textBg.style.fill = isDark ? 'white' : 'black';
+        }
         textBg.style.display = 'none';
 
         ProfileSVG.reset(fig);
@@ -2915,13 +3059,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-bd5e66f4b4fb4a939fdb017bce5562d1");
+        ProfileSVG.initialize("fig-7e3409d24e9f4d8eaaf34dfaabab8e37");
     });
 } else {
-    ProfileSVG.initialize("fig-bd5e66f4b4fb4a939fdb017bce5562d1");
+    ProfileSVG.initialize("fig-7e3409d24e9f4d8eaaf34dfaabab8e37");
 }
 ]]></script>
 </svg>
 </body>
 </html>
-</article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../coloration-schemes/">« Coloration Schemes</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 11 November 2020 07:38">Wednesday 11 November 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../coloration-schemes/">« Coloration Schemes</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 8 December 2020 09:45">Tuesday 8 December 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
