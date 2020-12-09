@@ -2,7 +2,7 @@
 
 ProfileSVG allows you to export profiling data as an SVG file. It can be used to
 display profiling results in Jupyter/[IJulia](https://github.com/JuliaLang/IJulia.jl)
-notebooks, [Juno](https://junolab.org/) or any other SVG viewer.
+notebooks, [Pluto](https://github.com/fonsp/Pluto.jl) or any other SVG viewer.
 
 ## Installation
 The package can be installed with the Julia package manager. Run:
@@ -63,6 +63,14 @@ ProfileSVG.view()
 If you've already collected profiling data with `@profile`, or if you want to
 customize the output, you can call [`ProfileSVG.view`](@ref) directly.
 
+!!! info "Using ProfileSVG within VSCode"
+    VS Code with Julia Extension has a
+    [profile viewing feature](https://www.julia-vscode.org/docs/stable/release-notes/v0_17/#Profile-viewing-support-1).
+    On the other hand, you can also display the SVG output of ProfileSVG in the
+    Plot Pane in VS Code. Since `@profview` has a name collision with the
+    Julia extension for VS Code, you need to explicitly specify
+    [`ProfileSVG.@profview`](@ref) or use [`ProfileSVG.view`](@ref).
+
 ### Exporting to SVG file
 
 Even if you don't use graphical front-ends such as Jupyter, you might want to
@@ -85,11 +93,14 @@ loading the SVG image from an HTML `<img>` element (as above), the interactive
 features are usually disabled.
 
 ## Other tools for displaying profiles
-- [ProfileView](https://github.com/timholy/ProfileView.jl), a graphical user
-  interface (GUI) based on [Gtk](https://github.com/JuliaGraphics/Gtk.jl).
+- VS Code with [Julia extension](https://www.julia-vscode.org/), a development
+  environment, which supports
+  [profile visualization](https://www.julia-vscode.org/docs/stable/release-notes/v0_17/#Profile-viewing-support-1).
+- [PProf](https://github.com/JuliaPerf/PProf.jl), a web-based profile GUI
+  explorer, implemented as a wrapper around
+  [google/pprof](https://github.com/google/pprof).
+- [ProfileView](https://github.com/timholy/ProfileView.jl), a GUI based on
+  [Gtk](https://github.com/JuliaGraphics/Gtk.jl).
 - [ProfileVega](https://github.com/davidanthoff/ProfileVega.jl), a
   [Vega-Lite](https://vega.github.io/vega-lite/) front-end, which supports
   exporting profiling data as a Vega-Lite figure.
-- [Juno](https://junolab.org/), a development environment, which supports
-  [profile visualization](http://docs.junolab.org/stable/man/juno_frontend/#Profiler-1)
-  as an "in-editor" chart.
