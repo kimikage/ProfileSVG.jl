@@ -63,7 +63,7 @@ end
     sfc = StackFrameCategory()
 
     fg = ProfileSVG.view(sfc, backtraces,
-                          C=true, lidict=lidict, width=123.4, unknown=nothing)
+                         C=true, lidict=lidict, width=123.4, unknown=nothing)
     @test FlameGraphs.depth(fg.g) == 5
     @test fg.fcolor isa StackFrameCategory
     @test fg.graph_options[:C] == true
@@ -71,6 +71,7 @@ end
     @test fg.bgcolor == :fcolor
     @test fg.fontcolor == :fcolor
     @test fg.frameopacity == 1.0
+    @test fg.yflip == false
     @test fg.width == 123.4
     @test fg.height == 0
     @test fg.roundradius == 2
@@ -79,11 +80,12 @@ end
     @test fg.notext == false
 
     fg = ProfileSVG.view(backtraces,
-                          C=true, lidict=lidict, fontsize=12.34, unknown=missing)
+                         C=true, lidict=lidict, fontsize=12.34, unknown=missing)
     @test FlameGraphs.depth(fg.g) == 5
     @test fg.fcolor isa FlameColors
     @test fg.graph_options[:C] == true
     @test fg.graph_options[:lidict] == lidict
+    @test fg.yflip == false
     @test fg.width == 960
     @test fg.height == 0
     @test fg.roundradius == 2
@@ -97,6 +99,7 @@ end
     @test FlameGraphs.depth(fg.g) == 4 # `C` option does not affect the graph
     @test fg.fcolor isa StackFrameCategory
     @test fg.graph_options[:C] == true
+    @test fg.yflip == false
     @test fg.width == 960
     @test fg.height == 123.4
     @test fg.roundradius == 0
@@ -104,10 +107,11 @@ end
     @test fg.fontsize == 12
     @test fg.notext == false
 
-    fg = ProfileSVG.view(g, C=true, font="serif", notext=true, unknown=false)
+    fg = ProfileSVG.view(g, C=true, yflip=true, font="serif", notext=true, unknown=false)
     @test FlameGraphs.depth(fg.g) == 4 # `C` option does not affect the graph
     @test fg.fcolor isa FlameColors
     @test fg.graph_options[:C] == true
+    @test fg.yflip == true
     @test fg.width == 960
     @test fg.height == 0
     @test fg.roundradius == 2
@@ -178,13 +182,15 @@ end
     @test !has_filled_rect(str, "#FF0000")
     @test has_filled_path(str, "#FF0000")
 
-    ProfileSVG.save(io, g, C=true, font="serif", notext=true, unknown=false)
+    ProfileSVG.save(io, g,
+                    C=true, yflip=true, font="serif", notext=true, unknown=false)
     str = String(take!(io))
     @test svg_size(str) == ("960", "136")
     @test !has_filled_rect(str, "#FF0000")
     @test !has_filled_path(str, "#FF0000")
     filename = tempname()
-    ProfileSVG.save(filename, g, C=true, font="serif", notext=true, unknown=false)
+    ProfileSVG.save(filename, g,
+                    C=true, yflip=true, font="serif", notext=true, unknown=false)
     str = read(filename, String)
     rm(filename)
     @test svg_size(str) == ("960", "136")
@@ -339,6 +345,7 @@ end
     @test fgc.fcolor isa StackFrameCategory
     @test fgc.graph_options[:C] == false
     @test fgc.graph_options[:lidict] == lidict
+    @test fgc.yflip == false
     @test fgc.width == 123.4
     @test fgc.height == 567.8
     @test fgc.roundradius == 2
@@ -353,6 +360,7 @@ end
     @test fgc.fcolor isa StackFrameCategory
     @test fgc.graph_options[:C] == true
     @test fgc.graph_options[:lidict] == lidict
+    @test fgc.yflip == false
     @test fgc.width == 123.4
     @test fgc.height == 567.8
     @test fgc.roundradius == 2
@@ -367,6 +375,7 @@ end
     @test fgc.fcolor isa FlameColors
     @test fgc.graph_options[:C] == true
     @test fgc.graph_options[:lidict] == lidict
+    @test fgc.yflip == false
     @test fgc.width == 123.4
     @test fgc.height == 0
     @test fgc.roundradius == 2

@@ -11,6 +11,16 @@ Profile.clear()
 ProfileSVG.set_default(width=800)
 ```
 
+## `yflip`
+The `yflip` option inverts the depth direction. It defaults to `false` and a
+"flame" graph with upward depth will be rendered. By setting `yflip` to `true`,
+a "icicle" graph with downward depth will be rendered.
+
+```@example ex
+ProfileSVG.view(yflip=true)
+ProfileSVG.view(g, yflip=true) # hide
+```
+
 ## `maxdepth` and `maxframes`
 The `maxdepth` option limits the maximum number of the rendered rows of graph.
 The frames deeper than `maxdepth` (i.e. away from the root) will be truncated.

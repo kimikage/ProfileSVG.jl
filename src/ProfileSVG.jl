@@ -38,6 +38,7 @@ struct FGConfig
     bgcolor::Symbol
     fontcolor::Symbol
     frameopacity::Float64
+    yflip::Bool
     maxdepth::Int
     maxframes::Int
     width::Float64
@@ -54,6 +55,7 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   bgcolor::Symbol      = default_config.bgcolor,
                   fontcolor::Symbol    = default_config.fontcolor,
                   frameopacity::Real   = default_config.frameopacity,
+                  yflip::Bool          = default_config.yflip,
                   maxdepth::Int        = default_config.maxdepth,
                   maxframes::Int       = default_config.maxframes,
                   width::Real          = default_config.width,
@@ -67,7 +69,7 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
     gopts = graph_options === nothing ? flamegraph_kwargs(kwargs) : graph_options
     FGConfig(g, gopts, fcolor,
              bgcolor, fontcolor, frameopacity,
-             maxdepth, maxframes, width, height, roundradius, font, fontsize, notext)
+             yflip, maxdepth, maxframes, width, height, roundradius, font, fontsize, notext)
 end
 
 
@@ -83,6 +85,7 @@ function init()
                                      bgcolor=:fcolor,
                                      fontcolor=:fcolor,
                                      frameopacity=1,
+                                     yflip=false,
                                      maxdepth=50,
                                      maxframes=2000,
                                      width=960,
@@ -125,6 +128,8 @@ View profiling results.
   - The font color style. One of `:fcolor`/`:classic`/`:currentcolor`/`:bw`.
 - `frameopacity` (default: `1`)
   - The opacity of frames in [0, 1].
+- `yflip` (default: `false`)
+  - If `true`, the "icicle" graph will be rendered.
 - `maxdepth` (default: `50`)
   - The maximum number of the rendered rows.
 - `maxframes` (default: `2000`)
@@ -278,7 +283,11 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
         color = fg.fcolor(nextidx, j, ndata)::Color
         bw = fg.fontcolor === :bw
         x = (first(ndata.span)-1) * xstep + leftmargin
-        y = height - j * ystep - botmargin
+        if fg.yflip
+            y = topmargin + (j - 1) * ystep
+        else
+            y = height - j * ystep - botmargin
+        end
         w = length(ndata.span) * xstep
         r = fg.roundradius
         file = string(sf.file)
