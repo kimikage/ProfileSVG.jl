@@ -100,6 +100,44 @@ ProfileSVG.view(g, notext=true) # hide
     and the texts will be displayed in non-interactive mode, i.e. as a still
     image.
 
+## `timeunit` and `delay`
+
+The `timeunit` option specifies the time unit for displaying the duration (span)
+of active block.
+One of the following symbols is available for `timeunit`:
+- `:none` (default)
+  - disabling the duration display
+- `:s`, `:ms`, `:us`, or `:µs`
+  - using the physical time unit
+- others (e.g. `:ticks`)
+  - using the discrete sampling count
+
+The `delay` option specifies the delay between backtraces, in seconds. The value
+will be used for the conversion from the discrete sampling count to the physical
+time. If a non-positive number is specified, the current setting in the return
+value of `Profile.init()` will be used.
+
+```@example ex
+ProfileSVG.view(timeunit=:ticks)
+ProfileSVG.view(g, timeunit=:ticks) # hide
+```
+
+```@example ex
+Profile.init(delay=1e-4)
+ProfileSVG.view(timeunit=:ms)
+ProfileSVG.view(g, timeunit=:ms) # hide
+```
+
+```@example ex
+ProfileSVG.view(timeunit=:µs, delay=3e-4)
+ProfileSVG.view(g, timeunit=:µs, delay=3e-4) # hide
+```
+
+!!! info
+    The physical time displayed is an approximate value, and does not generally
+    match the measurement time by `@time` etc. The discrepancies may also occur
+    if the profiling environment and the viewing environment are different.
+
 ## Setting options as default
 You can specify the default values for options with
 [`ProfileSVG.set_default`](@ref).

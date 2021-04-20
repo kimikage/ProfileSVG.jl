@@ -62,6 +62,7 @@ end
 @testset "view" begin
     sfc = StackFrameCategory()
 
+    Profile.init(delay=0.002)
     fg = ProfileSVG.view(sfc, backtraces,
                          C=true, lidict=lidict, width=123.4, unknown=nothing)
     @test FlameGraphs.depth(fg.g) == 5
@@ -78,6 +79,10 @@ end
     @test fg.font == "inherit"
     @test fg.fontsize == 12
     @test fg.notext == false
+    @test fg.timeunit == :none
+    @test fg.delay == 0.002
+
+    Profile.init(delay=0.001)
 
     fg = ProfileSVG.view(backtraces,
                          C=true, lidict=lidict, fontsize=12.34, unknown=missing)
@@ -92,10 +97,13 @@ end
     @test fg.font == "inherit"
     @test fg.fontsize == 12.34
     @test fg.notext == false
+    @test fg.timeunit == :none
+    @test fg.delay == 0.001
 
     g = flamegraph(backtraces, lidict=lidict)
 
-    fg = ProfileSVG.view(sfc, g, C=true, height=123.4, roundradius=0, unknown=true)
+    fg = ProfileSVG.view(sfc, g, C=true, height=123.4, roundradius=0, timeunit=:ms,
+                         unknown=true)
     @test FlameGraphs.depth(fg.g) == 4 # `C` option does not affect the graph
     @test fg.fcolor isa StackFrameCategory
     @test fg.graph_options[:C] == true
@@ -106,8 +114,11 @@ end
     @test fg.font == "inherit"
     @test fg.fontsize == 12
     @test fg.notext == false
+    @test fg.timeunit == :ms
+    @test fg.delay == 0.001
 
-    fg = ProfileSVG.view(g, C=true, yflip=true, font="serif", notext=true, unknown=false)
+    fg = ProfileSVG.view(g, C=true, yflip=true, font="serif", notext=true, delay=0.01,
+                         unknown=false)
     @test FlameGraphs.depth(fg.g) == 4 # `C` option does not affect the graph
     @test fg.fcolor isa FlameColors
     @test fg.graph_options[:C] == true
@@ -118,6 +129,8 @@ end
     @test fg.font == "serif"
     @test fg.fontsize == 12
     @test fg.notext == true
+    @test fg.timeunit == :none
+    @test fg.delay == 0.01
 end
 
 @testset "save" begin
@@ -336,7 +349,7 @@ end
 
 @testset "set_default" begin
     sfc = StackFrameCategory()
-
+    Profile.init(delay=0.001)
     ProfileSVG.set_default(sfc, C=true, height=567.8)
 
     fgc = ProfileSVG.view(sfc, backtraces,
@@ -352,8 +365,10 @@ end
     @test fgc.font == "inherit"
     @test fgc.fontsize == 12
     @test fgc.notext == false
+    @test fgc.timeunit == :none
+    @test fgc.delay == 0.001
 
-    ProfileSVG.set_default(fontsize=9)
+    ProfileSVG.set_default(fontsize=9, delay=0.01)
     fgc = ProfileSVG.view(backtraces,
                           lidict=lidict, width=123.4, unknown=nothing)
     @test FlameGraphs.depth(fgc.g) == 5
@@ -367,6 +382,8 @@ end
     @test fgc.font == "inherit"
     @test fgc.fontsize == 9
     @test fgc.notext == false
+    @test fgc.timeunit == :none
+    @test fgc.delay == 0.01
 
     ProfileSVG.init()
     fgc = ProfileSVG.view(backtraces,
@@ -382,6 +399,8 @@ end
     @test fgc.font == "inherit"
     @test fgc.fontsize == 12
     @test fgc.notext == false
+    @test fgc.timeunit == :none
+    @test fgc.delay == 0.001
 end
 
 # For these tests to work you need `rsvg-convert` installed.

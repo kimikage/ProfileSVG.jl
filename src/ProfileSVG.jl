@@ -47,6 +47,8 @@ struct FGConfig
     font::String
     fontsize::Float64
     notext::Bool
+    timeunit::Symbol
+    delay::Float64
 end
 
 function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
@@ -64,12 +66,16 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   font::AbstractString = default_config.font,
                   fontsize::Real       = default_config.fontsize,
                   notext::Bool         = default_config.notext,
+                  timeunit::Symbol     = default_config.timeunit,
+                  delay::Real          = default_config.delay,
                   kwargs...)
 
     gopts = graph_options === nothing ? flamegraph_kwargs(kwargs) : graph_options
+    delay = g === nothing || delay > 0 ? delay : last(Profile.init())
     FGConfig(g, gopts, fcolor,
              bgcolor, fontcolor, frameopacity,
-             yflip, maxdepth, maxframes, width, height, roundradius, font, fontsize, notext)
+             yflip, maxdepth, maxframes, width, height, roundradius,
+             font, fontsize, notext, timeunit, delay)
 end
 
 
@@ -93,7 +99,9 @@ function init()
                                      roundradius=2,
                                      font="inherit",
                                      fontsize=12,
-                                     notext=false)
+                                     notext=false,
+                                     timeunit=:none,
+                                     delay=0.0)
     nothing
 end
 
@@ -149,6 +157,12 @@ View profiling results.
 - `notext` (default: `false`)
   - If `true`, the texts overlaid on the frames will be hidden by the
     interactive feature.
+- `timeunit` (default: `:none`)
+  - If `:s`, `:ms`, `:us`, or `:µs` is specified, the duration of the block will
+    be displayed in the lower right corner in the specified unit.
+- `delay` (default: `0.0`)
+  - The delay between backtraces, in seconds. If a non-positive number is
+    specified, the current setting in `Profile.init()` will be used.
 
 # keywords for `flamegraph`
 - `lidict`
@@ -274,7 +288,6 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
 
     function flamerects(io::IO, g::FlameGraph, j::Int, nextidx::Vector{Int})
         j > fg.maxdepth && return
-        nextidx[end]
         nextidx[end] > fg.maxframes && return
         nextidx[end] += 1
 
@@ -311,7 +324,7 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
 
     write_svgheader(io, fig_id, width, height,
                     bgcolor(fg), fontcolor(fg), fg.frameopacity,
-                    fg.font, fg.fontsize, fg.notext)
+                    fg.font, fg.fontsize, fg.notext, xstep, fg.timeunit, fg.delay)
 
     nextidx = fill(1, nrows + 1) # nextidx[end]: framecount
     flamerects(io, fg.g, 1, nextidx)

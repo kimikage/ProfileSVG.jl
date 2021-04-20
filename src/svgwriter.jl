@@ -32,7 +32,7 @@ end
 
 function write_svgheader(io::IO, fig_id, width, height,
                          bgcolor, fontcolor, frameopacity,
-                         font, fontsize, notext)
+                         font, fontsize, notext, xstep, timeunit, delay)
     w = simplify(width)
     h = simplify(height)
     caption_size = simplify(fontsize * 1.4)
@@ -113,13 +113,16 @@ function write_svgheader(io::IO, fig_id, width, height,
                 stroke: white;
             }
         """)
+    dataxstep = timeunit !== :none ? " data-xstep=\"$xstep\"" : ""
+    datatunit = timeunit !== :none ? " data-tunit=\"$timeunit\"" : ""
+    datadelay = timeunit !== :none ? " data-delay=\"$delay\"" : ""
     print(io,
         """
         </style>
         <g id="$fig_id-frame" clip-path="url(#$fig_id-clip)">
         <rect id="$fig_id-bg" x="0" y="0" width="$w" height="$h"/>
         <text id="$fig_id-caption" x="$x_cap" y="$y_cap">Profile results</text>
-        <g id="$fig_id-viewport" transform="scale(1)">
+        <g id="$fig_id-viewport" transform="scale(1)"$dataxstep$datatunit$datadelay>
         """)
 end
 
