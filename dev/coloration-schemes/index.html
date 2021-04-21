@@ -4,53 +4,53 @@ ProfileSVG.view(FlameColors())</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-248804b0ed2b4ecfb0c5ce893263b0a8">
+     xmlns="http://www.w3.org/2000/svg" id="fig-d22fcbbfa1084d1ba1570e8b006c8bd9">
 <defs>
-    <clipPath id="fig-248804b0ed2b4ecfb0c5ce893263b0a8-clip">
+    <clipPath id="fig-d22fcbbfa1084d1ba1570e8b006c8bd9-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-248804b0ed2b4ecfb0c5ce893263b0a8 text {
+    #fig-d22fcbbfa1084d1ba1570e8b006c8bd9 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-248804b0ed2b4ecfb0c5ce893263b0a8-caption {
+    text#fig-d22fcbbfa1084d1ba1570e8b006c8bd9-caption {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-248804b0ed2b4ecfb0c5ce893263b0a8-bg {
+    #fig-d22fcbbfa1084d1ba1570e8b006c8bd9-bg {
         fill: #FFFFFF;
     }
-    #fig-248804b0ed2b4ecfb0c5ce893263b0a8-viewport rect, #fig-248804b0ed2b4ecfb0c5ce893263b0a8-viewport path {
+    #fig-d22fcbbfa1084d1ba1570e8b006c8bd9-viewport rect, #fig-d22fcbbfa1084d1ba1570e8b006c8bd9-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-248804b0ed2b4ecfb0c5ce893263b0a8-viewport text {
+    #fig-d22fcbbfa1084d1ba1570e8b006c8bd9-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-248804b0ed2b4ecfb0c5ce893263b0a8-viewport rect:hover, #fig-248804b0ed2b4ecfb0c5ce893263b0a8-viewport path:hover {
+    #fig-d22fcbbfa1084d1ba1570e8b006c8bd9-viewport rect:hover, #fig-d22fcbbfa1084d1ba1570e8b006c8bd9-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-248804b0ed2b4ecfb0c5ce893263b0a8-viewport + rect {
+    #fig-d22fcbbfa1084d1ba1570e8b006c8bd9-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-248804b0ed2b4ecfb0c5ce893263b0a8-details{
+    text#fig-d22fcbbfa1084d1ba1570e8b006c8bd9-details{
         fill: #000000;
     }
 </style>
-<g id="fig-248804b0ed2b4ecfb0c5ce893263b0a8-frame" clip-path="url(#fig-248804b0ed2b4ecfb0c5ce893263b0a8-clip)">
-<rect id="fig-248804b0ed2b4ecfb0c5ce893263b0a8-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-248804b0ed2b4ecfb0c5ce893263b0a8-caption" x="400" y="24">Profile results</text>
-<g id="fig-248804b0ed2b4ecfb0c5ce893263b0a8-viewport" transform="scale(1)">
+<g id="fig-d22fcbbfa1084d1ba1570e8b006c8bd9-frame" clip-path="url(#fig-d22fcbbfa1084d1ba1570e8b006c8bd9-clip)">
+<rect id="fig-d22fcbbfa1084d1ba1570e8b006c8bd9-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-d22fcbbfa1084d1ba1570e8b006c8bd9-caption" x="400" y="24">Profile results</text>
+<g id="fig-d22fcbbfa1084d1ba1570e8b006c8bd9-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -378,6 +378,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         fig.viewport = svg.select('#' + figId + '-viewport');
 
+        fig.xstep = fig.viewport.node.getAttribute('data-xstep');
+        fig.tunit = fig.viewport.node.getAttribute('data-tunit');
+        fig.delay = fig.viewport.node.getAttribute('data-delay');
+
         var texts = fig.viewport.selectAll('text');
         fig.notext = false;
         if (texts[0]) {
@@ -401,10 +405,12 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var textBg = document.createElementNS(NS_SVG, 'rect');
         var detail = document.createElementNS(NS_SVG, 'text');
+        var time = document.createElementNS(NS_SVG, 'text');
         detail.style.visibility = 'hidden';
         detail.textContent = 'MOw';
         fig.viewport.node.parentNode.appendChild(textBg);
         fig.viewport.node.parentNode.appendChild(detail);
+        fig.viewport.node.parentNode.appendChild(time);
         var mBBox = detail.getBBox();
         fig.charWidthM = mBBox.width / 3;
         detail.textContent = 'night';
@@ -417,6 +423,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.setAttribute('id', figId + '-details');
         detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        time.setAttribute('x', fig.width - fig.charWidthM * 10);
+        time.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
@@ -448,8 +457,18 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
+            var time = details.nextElementSibling;
             details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            if (fig.delay) {
+                var count = Math.round(rect.width.baseVal.value / fig.xstep);
+                var t = count * (fig.tunit === 's' ? fig.delay :
+                    fig.tunit === 'ms' ? fig.delay * 1e3 :
+                        fig.tunit === 'us' || fig.tunit === 'μs' ? fig.delay * 1e6 : 1);
+                var tp = Math.round(t * 1000) / 1000;
+                time.textContent = 'Time: ' + tp + ' ' + fig.tunit;
+                time.style.display = 'inherit';
+            }
             details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -459,6 +478,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             text.style.strokeWidth = '0';
             details.style.display = 'none';
             details.previousElementSibling.style.display = 'none';
+            details.nextElementSibling.style.display = 'none';
         };
 
         var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
@@ -513,10 +533,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-248804b0ed2b4ecfb0c5ce893263b0a8");
+        ProfileSVG.initialize("fig-d22fcbbfa1084d1ba1570e8b006c8bd9");
     });
 } else {
-    ProfileSVG.initialize("fig-248804b0ed2b4ecfb0c5ce893263b0a8");
+    ProfileSVG.initialize("fig-d22fcbbfa1084d1ba1570e8b006c8bd9");
 }
 ]]></script>
 </svg>
@@ -527,53 +547,53 @@ ProfileSVG.view(StackFrameCategory())</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-ab720f8db71c4938bdc3831587692d6a">
+     xmlns="http://www.w3.org/2000/svg" id="fig-ed1381d761a44b038ceb8e2d112e3ea6">
 <defs>
-    <clipPath id="fig-ab720f8db71c4938bdc3831587692d6a-clip">
+    <clipPath id="fig-ed1381d761a44b038ceb8e2d112e3ea6-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-ab720f8db71c4938bdc3831587692d6a text {
+    #fig-ed1381d761a44b038ceb8e2d112e3ea6 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-ab720f8db71c4938bdc3831587692d6a-caption {
+    text#fig-ed1381d761a44b038ceb8e2d112e3ea6-caption {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-ab720f8db71c4938bdc3831587692d6a-bg {
+    #fig-ed1381d761a44b038ceb8e2d112e3ea6-bg {
         fill: #FFFFFF;
     }
-    #fig-ab720f8db71c4938bdc3831587692d6a-viewport rect, #fig-ab720f8db71c4938bdc3831587692d6a-viewport path {
+    #fig-ed1381d761a44b038ceb8e2d112e3ea6-viewport rect, #fig-ed1381d761a44b038ceb8e2d112e3ea6-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-ab720f8db71c4938bdc3831587692d6a-viewport text {
+    #fig-ed1381d761a44b038ceb8e2d112e3ea6-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-ab720f8db71c4938bdc3831587692d6a-viewport rect:hover, #fig-ab720f8db71c4938bdc3831587692d6a-viewport path:hover {
+    #fig-ed1381d761a44b038ceb8e2d112e3ea6-viewport rect:hover, #fig-ed1381d761a44b038ceb8e2d112e3ea6-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-ab720f8db71c4938bdc3831587692d6a-viewport + rect {
+    #fig-ed1381d761a44b038ceb8e2d112e3ea6-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-ab720f8db71c4938bdc3831587692d6a-details{
+    text#fig-ed1381d761a44b038ceb8e2d112e3ea6-details{
         fill: #000000;
     }
 </style>
-<g id="fig-ab720f8db71c4938bdc3831587692d6a-frame" clip-path="url(#fig-ab720f8db71c4938bdc3831587692d6a-clip)">
-<rect id="fig-ab720f8db71c4938bdc3831587692d6a-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-ab720f8db71c4938bdc3831587692d6a-caption" x="400" y="24">Profile results</text>
-<g id="fig-ab720f8db71c4938bdc3831587692d6a-viewport" transform="scale(1)">
+<g id="fig-ed1381d761a44b038ceb8e2d112e3ea6-frame" clip-path="url(#fig-ed1381d761a44b038ceb8e2d112e3ea6-clip)">
+<rect id="fig-ed1381d761a44b038ceb8e2d112e3ea6-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-ed1381d761a44b038ceb8e2d112e3ea6-caption" x="400" y="24">Profile results</text>
+<g id="fig-ed1381d761a44b038ceb8e2d112e3ea6-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#FFA500" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#4D4D4D" data-dinfo=".\"/>
@@ -901,6 +921,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         fig.viewport = svg.select('#' + figId + '-viewport');
 
+        fig.xstep = fig.viewport.node.getAttribute('data-xstep');
+        fig.tunit = fig.viewport.node.getAttribute('data-tunit');
+        fig.delay = fig.viewport.node.getAttribute('data-delay');
+
         var texts = fig.viewport.selectAll('text');
         fig.notext = false;
         if (texts[0]) {
@@ -924,10 +948,12 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var textBg = document.createElementNS(NS_SVG, 'rect');
         var detail = document.createElementNS(NS_SVG, 'text');
+        var time = document.createElementNS(NS_SVG, 'text');
         detail.style.visibility = 'hidden';
         detail.textContent = 'MOw';
         fig.viewport.node.parentNode.appendChild(textBg);
         fig.viewport.node.parentNode.appendChild(detail);
+        fig.viewport.node.parentNode.appendChild(time);
         var mBBox = detail.getBBox();
         fig.charWidthM = mBBox.width / 3;
         detail.textContent = 'night';
@@ -940,6 +966,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.setAttribute('id', figId + '-details');
         detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        time.setAttribute('x', fig.width - fig.charWidthM * 10);
+        time.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
@@ -971,8 +1000,18 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
+            var time = details.nextElementSibling;
             details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            if (fig.delay) {
+                var count = Math.round(rect.width.baseVal.value / fig.xstep);
+                var t = count * (fig.tunit === 's' ? fig.delay :
+                    fig.tunit === 'ms' ? fig.delay * 1e3 :
+                        fig.tunit === 'us' || fig.tunit === 'μs' ? fig.delay * 1e6 : 1);
+                var tp = Math.round(t * 1000) / 1000;
+                time.textContent = 'Time: ' + tp + ' ' + fig.tunit;
+                time.style.display = 'inherit';
+            }
             details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -982,6 +1021,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             text.style.strokeWidth = '0';
             details.style.display = 'none';
             details.previousElementSibling.style.display = 'none';
+            details.nextElementSibling.style.display = 'none';
         };
 
         var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
@@ -1036,10 +1076,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-ab720f8db71c4938bdc3831587692d6a");
+        ProfileSVG.initialize("fig-ed1381d761a44b038ceb8e2d112e3ea6");
     });
 } else {
-    ProfileSVG.initialize("fig-ab720f8db71c4938bdc3831587692d6a");
+    ProfileSVG.initialize("fig-ed1381d761a44b038ceb8e2d112e3ea6");
 }
 ]]></script>
 </svg>
@@ -1052,53 +1092,53 @@ ProfileSVG.view(fcolor)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-773ee38c94b94abf9335709cfd184870">
+     xmlns="http://www.w3.org/2000/svg" id="fig-5a024c936b564e7094cbd31a49aa0504">
 <defs>
-    <clipPath id="fig-773ee38c94b94abf9335709cfd184870-clip">
+    <clipPath id="fig-5a024c936b564e7094cbd31a49aa0504-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-773ee38c94b94abf9335709cfd184870 text {
+    #fig-5a024c936b564e7094cbd31a49aa0504 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #FFFFE0;
     }
-    text#fig-773ee38c94b94abf9335709cfd184870-caption {
+    text#fig-5a024c936b564e7094cbd31a49aa0504-caption {
         font-size: 16.8px;
         fill: #FFFFE0;
         text-anchor: middle;
     }
-    #fig-773ee38c94b94abf9335709cfd184870-bg {
+    #fig-5a024c936b564e7094cbd31a49aa0504-bg {
         fill: #4682B4;
     }
-    #fig-773ee38c94b94abf9335709cfd184870-viewport rect, #fig-773ee38c94b94abf9335709cfd184870-viewport path {
+    #fig-5a024c936b564e7094cbd31a49aa0504-viewport rect, #fig-5a024c936b564e7094cbd31a49aa0504-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-773ee38c94b94abf9335709cfd184870-viewport text {
+    #fig-5a024c936b564e7094cbd31a49aa0504-viewport text {
         stroke: #FFFFE0;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-773ee38c94b94abf9335709cfd184870-viewport rect:hover, #fig-773ee38c94b94abf9335709cfd184870-viewport path:hover {
+    #fig-5a024c936b564e7094cbd31a49aa0504-viewport rect:hover, #fig-5a024c936b564e7094cbd31a49aa0504-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #FFFFE0;
         stroke-width: 0.5;
     }
-    #fig-773ee38c94b94abf9335709cfd184870-viewport + rect {
+    #fig-5a024c936b564e7094cbd31a49aa0504-viewport + rect {
         fill: #4682B4;
         opacity: 0.8;
     }
-    text#fig-773ee38c94b94abf9335709cfd184870-details{
+    text#fig-5a024c936b564e7094cbd31a49aa0504-details{
         fill: #FFFFE0;
     }
 </style>
-<g id="fig-773ee38c94b94abf9335709cfd184870-frame" clip-path="url(#fig-773ee38c94b94abf9335709cfd184870-clip)">
-<rect id="fig-773ee38c94b94abf9335709cfd184870-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-773ee38c94b94abf9335709cfd184870-caption" x="400" y="24">Profile results</text>
-<g id="fig-773ee38c94b94abf9335709cfd184870-viewport" transform="scale(1)">
+<g id="fig-5a024c936b564e7094cbd31a49aa0504-frame" clip-path="url(#fig-5a024c936b564e7094cbd31a49aa0504-clip)">
+<rect id="fig-5a024c936b564e7094cbd31a49aa0504-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-5a024c936b564e7094cbd31a49aa0504-caption" x="400" y="24">Profile results</text>
+<g id="fig-5a024c936b564e7094cbd31a49aa0504-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#8397FA" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#FFA6FB" data-dinfo=".\"/>
@@ -1426,6 +1466,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         fig.viewport = svg.select('#' + figId + '-viewport');
 
+        fig.xstep = fig.viewport.node.getAttribute('data-xstep');
+        fig.tunit = fig.viewport.node.getAttribute('data-tunit');
+        fig.delay = fig.viewport.node.getAttribute('data-delay');
+
         var texts = fig.viewport.selectAll('text');
         fig.notext = false;
         if (texts[0]) {
@@ -1449,10 +1493,12 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var textBg = document.createElementNS(NS_SVG, 'rect');
         var detail = document.createElementNS(NS_SVG, 'text');
+        var time = document.createElementNS(NS_SVG, 'text');
         detail.style.visibility = 'hidden';
         detail.textContent = 'MOw';
         fig.viewport.node.parentNode.appendChild(textBg);
         fig.viewport.node.parentNode.appendChild(detail);
+        fig.viewport.node.parentNode.appendChild(time);
         var mBBox = detail.getBBox();
         fig.charWidthM = mBBox.width / 3;
         detail.textContent = 'night';
@@ -1465,6 +1511,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.setAttribute('id', figId + '-details');
         detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        time.setAttribute('x', fig.width - fig.charWidthM * 10);
+        time.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
@@ -1496,8 +1545,18 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
+            var time = details.nextElementSibling;
             details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            if (fig.delay) {
+                var count = Math.round(rect.width.baseVal.value / fig.xstep);
+                var t = count * (fig.tunit === 's' ? fig.delay :
+                    fig.tunit === 'ms' ? fig.delay * 1e3 :
+                        fig.tunit === 'us' || fig.tunit === 'μs' ? fig.delay * 1e6 : 1);
+                var tp = Math.round(t * 1000) / 1000;
+                time.textContent = 'Time: ' + tp + ' ' + fig.tunit;
+                time.style.display = 'inherit';
+            }
             details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -1507,6 +1566,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             text.style.strokeWidth = '0';
             details.style.display = 'none';
             details.previousElementSibling.style.display = 'none';
+            details.nextElementSibling.style.display = 'none';
         };
 
         var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
@@ -1561,10 +1621,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-773ee38c94b94abf9335709cfd184870");
+        ProfileSVG.initialize("fig-5a024c936b564e7094cbd31a49aa0504");
     });
 } else {
-    ProfileSVG.initialize("fig-773ee38c94b94abf9335709cfd184870");
+    ProfileSVG.initialize("fig-5a024c936b564e7094cbd31a49aa0504");
 }
 ]]></script>
 </svg>
@@ -1574,57 +1634,57 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-2e96f48c0a754832a9049f1601423467">
+     xmlns="http://www.w3.org/2000/svg" id="fig-903f7625f1ba4fe7886791cea7f71244">
 <defs>
-    <linearGradient id="fig-2e96f48c0a754832a9049f1601423467-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-903f7625f1ba4fe7886791cea7f71244-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-2e96f48c0a754832a9049f1601423467-clip">
+    <clipPath id="fig-903f7625f1ba4fe7886791cea7f71244-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-2e96f48c0a754832a9049f1601423467 text {
+    #fig-903f7625f1ba4fe7886791cea7f71244 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: black;
     }
-    text#fig-2e96f48c0a754832a9049f1601423467-caption {
+    text#fig-903f7625f1ba4fe7886791cea7f71244-caption {
         font-size: 16.8px;
         fill: black;
         text-anchor: middle;
     }
-    #fig-2e96f48c0a754832a9049f1601423467-bg {
-        fill: url(#fig-2e96f48c0a754832a9049f1601423467-background);
+    #fig-903f7625f1ba4fe7886791cea7f71244-bg {
+        fill: url(#fig-903f7625f1ba4fe7886791cea7f71244-background);
     }
-    #fig-2e96f48c0a754832a9049f1601423467-viewport rect, #fig-2e96f48c0a754832a9049f1601423467-viewport path {
+    #fig-903f7625f1ba4fe7886791cea7f71244-viewport rect, #fig-903f7625f1ba4fe7886791cea7f71244-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-2e96f48c0a754832a9049f1601423467-viewport text {
+    #fig-903f7625f1ba4fe7886791cea7f71244-viewport text {
         stroke: black;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-2e96f48c0a754832a9049f1601423467-viewport rect:hover, #fig-2e96f48c0a754832a9049f1601423467-viewport path:hover {
+    #fig-903f7625f1ba4fe7886791cea7f71244-viewport rect:hover, #fig-903f7625f1ba4fe7886791cea7f71244-viewport path:hover {
         fill-opacity: 0.75;
         stroke: black;
         stroke-width: 0.5;
     }
-    #fig-2e96f48c0a754832a9049f1601423467-viewport + rect {
+    #fig-903f7625f1ba4fe7886791cea7f71244-viewport + rect {
         fill: white;
         opacity: 0.8;
     }
-    text#fig-2e96f48c0a754832a9049f1601423467-details{
+    text#fig-903f7625f1ba4fe7886791cea7f71244-details{
         fill: black;
     }
 </style>
-<g id="fig-2e96f48c0a754832a9049f1601423467-frame" clip-path="url(#fig-2e96f48c0a754832a9049f1601423467-clip)">
-<rect id="fig-2e96f48c0a754832a9049f1601423467-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-2e96f48c0a754832a9049f1601423467-caption" x="400" y="24">Profile results</text>
-<g id="fig-2e96f48c0a754832a9049f1601423467-viewport" transform="scale(1)">
+<g id="fig-903f7625f1ba4fe7886791cea7f71244-frame" clip-path="url(#fig-903f7625f1ba4fe7886791cea7f71244-clip)">
+<rect id="fig-903f7625f1ba4fe7886791cea7f71244-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-903f7625f1ba4fe7886791cea7f71244-caption" x="400" y="24">Profile results</text>
+<g id="fig-903f7625f1ba4fe7886791cea7f71244-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -1952,6 +2012,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         fig.viewport = svg.select('#' + figId + '-viewport');
 
+        fig.xstep = fig.viewport.node.getAttribute('data-xstep');
+        fig.tunit = fig.viewport.node.getAttribute('data-tunit');
+        fig.delay = fig.viewport.node.getAttribute('data-delay');
+
         var texts = fig.viewport.selectAll('text');
         fig.notext = false;
         if (texts[0]) {
@@ -1975,10 +2039,12 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var textBg = document.createElementNS(NS_SVG, 'rect');
         var detail = document.createElementNS(NS_SVG, 'text');
+        var time = document.createElementNS(NS_SVG, 'text');
         detail.style.visibility = 'hidden';
         detail.textContent = 'MOw';
         fig.viewport.node.parentNode.appendChild(textBg);
         fig.viewport.node.parentNode.appendChild(detail);
+        fig.viewport.node.parentNode.appendChild(time);
         var mBBox = detail.getBBox();
         fig.charWidthM = mBBox.width / 3;
         detail.textContent = 'night';
@@ -1991,6 +2057,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.setAttribute('id', figId + '-details');
         detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        time.setAttribute('x', fig.width - fig.charWidthM * 10);
+        time.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
@@ -2022,8 +2091,18 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
+            var time = details.nextElementSibling;
             details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            if (fig.delay) {
+                var count = Math.round(rect.width.baseVal.value / fig.xstep);
+                var t = count * (fig.tunit === 's' ? fig.delay :
+                    fig.tunit === 'ms' ? fig.delay * 1e3 :
+                        fig.tunit === 'us' || fig.tunit === 'μs' ? fig.delay * 1e6 : 1);
+                var tp = Math.round(t * 1000) / 1000;
+                time.textContent = 'Time: ' + tp + ' ' + fig.tunit;
+                time.style.display = 'inherit';
+            }
             details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -2033,6 +2112,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             text.style.strokeWidth = '0';
             details.style.display = 'none';
             details.previousElementSibling.style.display = 'none';
+            details.nextElementSibling.style.display = 'none';
         };
 
         var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
@@ -2087,10 +2167,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-2e96f48c0a754832a9049f1601423467");
+        ProfileSVG.initialize("fig-903f7625f1ba4fe7886791cea7f71244");
     });
 } else {
-    ProfileSVG.initialize("fig-2e96f48c0a754832a9049f1601423467");
+    ProfileSVG.initialize("fig-903f7625f1ba4fe7886791cea7f71244");
 }
 ]]></script>
 </svg>
@@ -2100,53 +2180,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-110a988a66b6430abd2f78b7c459f7f8">
+     xmlns="http://www.w3.org/2000/svg" id="fig-7ca0a9b5b78b4974855315ce397b2d7a">
 <defs>
-    <clipPath id="fig-110a988a66b6430abd2f78b7c459f7f8-clip">
+    <clipPath id="fig-7ca0a9b5b78b4974855315ce397b2d7a-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-110a988a66b6430abd2f78b7c459f7f8 text {
+    #fig-7ca0a9b5b78b4974855315ce397b2d7a text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: currentcolor;
     }
-    text#fig-110a988a66b6430abd2f78b7c459f7f8-caption {
+    text#fig-7ca0a9b5b78b4974855315ce397b2d7a-caption {
         font-size: 16.8px;
         fill: currentcolor;
         text-anchor: middle;
     }
-    #fig-110a988a66b6430abd2f78b7c459f7f8-bg {
+    #fig-7ca0a9b5b78b4974855315ce397b2d7a-bg {
         fill: transparent;
     }
-    #fig-110a988a66b6430abd2f78b7c459f7f8-viewport rect, #fig-110a988a66b6430abd2f78b7c459f7f8-viewport path {
+    #fig-7ca0a9b5b78b4974855315ce397b2d7a-viewport rect, #fig-7ca0a9b5b78b4974855315ce397b2d7a-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-110a988a66b6430abd2f78b7c459f7f8-viewport text {
+    #fig-7ca0a9b5b78b4974855315ce397b2d7a-viewport text {
         stroke: currentcolor;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-110a988a66b6430abd2f78b7c459f7f8-viewport rect:hover, #fig-110a988a66b6430abd2f78b7c459f7f8-viewport path:hover {
+    #fig-7ca0a9b5b78b4974855315ce397b2d7a-viewport rect:hover, #fig-7ca0a9b5b78b4974855315ce397b2d7a-viewport path:hover {
         fill-opacity: 0.75;
         stroke: currentcolor;
         stroke-width: 0.5;
     }
-    #fig-110a988a66b6430abd2f78b7c459f7f8-viewport + rect {
+    #fig-7ca0a9b5b78b4974855315ce397b2d7a-viewport + rect {
         fill: transparent;
         opacity: 0.8;
     }
-    text#fig-110a988a66b6430abd2f78b7c459f7f8-details{
+    text#fig-7ca0a9b5b78b4974855315ce397b2d7a-details{
         fill: currentcolor;
     }
 </style>
-<g id="fig-110a988a66b6430abd2f78b7c459f7f8-frame" clip-path="url(#fig-110a988a66b6430abd2f78b7c459f7f8-clip)">
-<rect id="fig-110a988a66b6430abd2f78b7c459f7f8-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-110a988a66b6430abd2f78b7c459f7f8-caption" x="400" y="24">Profile results</text>
-<g id="fig-110a988a66b6430abd2f78b7c459f7f8-viewport" transform="scale(1)">
+<g id="fig-7ca0a9b5b78b4974855315ce397b2d7a-frame" clip-path="url(#fig-7ca0a9b5b78b4974855315ce397b2d7a-clip)">
+<rect id="fig-7ca0a9b5b78b4974855315ce397b2d7a-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-7ca0a9b5b78b4974855315ce397b2d7a-caption" x="400" y="24">Profile results</text>
+<g id="fig-7ca0a9b5b78b4974855315ce397b2d7a-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -2474,6 +2554,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         fig.viewport = svg.select('#' + figId + '-viewport');
 
+        fig.xstep = fig.viewport.node.getAttribute('data-xstep');
+        fig.tunit = fig.viewport.node.getAttribute('data-tunit');
+        fig.delay = fig.viewport.node.getAttribute('data-delay');
+
         var texts = fig.viewport.selectAll('text');
         fig.notext = false;
         if (texts[0]) {
@@ -2497,10 +2581,12 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var textBg = document.createElementNS(NS_SVG, 'rect');
         var detail = document.createElementNS(NS_SVG, 'text');
+        var time = document.createElementNS(NS_SVG, 'text');
         detail.style.visibility = 'hidden';
         detail.textContent = 'MOw';
         fig.viewport.node.parentNode.appendChild(textBg);
         fig.viewport.node.parentNode.appendChild(detail);
+        fig.viewport.node.parentNode.appendChild(time);
         var mBBox = detail.getBBox();
         fig.charWidthM = mBBox.width / 3;
         detail.textContent = 'night';
@@ -2513,6 +2599,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.setAttribute('id', figId + '-details');
         detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        time.setAttribute('x', fig.width - fig.charWidthM * 10);
+        time.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
@@ -2544,8 +2633,18 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
+            var time = details.nextElementSibling;
             details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            if (fig.delay) {
+                var count = Math.round(rect.width.baseVal.value / fig.xstep);
+                var t = count * (fig.tunit === 's' ? fig.delay :
+                    fig.tunit === 'ms' ? fig.delay * 1e3 :
+                        fig.tunit === 'us' || fig.tunit === 'μs' ? fig.delay * 1e6 : 1);
+                var tp = Math.round(t * 1000) / 1000;
+                time.textContent = 'Time: ' + tp + ' ' + fig.tunit;
+                time.style.display = 'inherit';
+            }
             details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -2555,6 +2654,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             text.style.strokeWidth = '0';
             details.style.display = 'none';
             details.previousElementSibling.style.display = 'none';
+            details.nextElementSibling.style.display = 'none';
         };
 
         var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
@@ -2609,10 +2709,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-110a988a66b6430abd2f78b7c459f7f8");
+        ProfileSVG.initialize("fig-7ca0a9b5b78b4974855315ce397b2d7a");
     });
 } else {
-    ProfileSVG.initialize("fig-110a988a66b6430abd2f78b7c459f7f8");
+    ProfileSVG.initialize("fig-7ca0a9b5b78b4974855315ce397b2d7a");
 }
 ]]></script>
 </svg>
@@ -2627,57 +2727,57 @@ ProfileSVG.view(mysfc, fontcolor=:bw)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-309c0b8ec3ab4d00b7225f1274bc871b">
+     xmlns="http://www.w3.org/2000/svg" id="fig-d2f42accd67448c5938a70dfdbe790ba">
 <defs>
-    <clipPath id="fig-309c0b8ec3ab4d00b7225f1274bc871b-clip">
+    <clipPath id="fig-d2f42accd67448c5938a70dfdbe790ba-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-309c0b8ec3ab4d00b7225f1274bc871b text {
+    #fig-d2f42accd67448c5938a70dfdbe790ba text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: black;
     }
-    text#fig-309c0b8ec3ab4d00b7225f1274bc871b-caption {
+    text#fig-d2f42accd67448c5938a70dfdbe790ba-caption {
         font-size: 16.8px;
         fill: white;
         text-anchor: middle;
     }
-    #fig-309c0b8ec3ab4d00b7225f1274bc871b-bg {
+    #fig-d2f42accd67448c5938a70dfdbe790ba-bg {
         fill: #696969;
     }
-    #fig-309c0b8ec3ab4d00b7225f1274bc871b-viewport rect, #fig-309c0b8ec3ab4d00b7225f1274bc871b-viewport path {
+    #fig-d2f42accd67448c5938a70dfdbe790ba-viewport rect, #fig-d2f42accd67448c5938a70dfdbe790ba-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-309c0b8ec3ab4d00b7225f1274bc871b-viewport text {
+    #fig-d2f42accd67448c5938a70dfdbe790ba-viewport text {
         stroke: black;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-309c0b8ec3ab4d00b7225f1274bc871b-viewport rect:hover, #fig-309c0b8ec3ab4d00b7225f1274bc871b-viewport path:hover {
+    #fig-d2f42accd67448c5938a70dfdbe790ba-viewport rect:hover, #fig-d2f42accd67448c5938a70dfdbe790ba-viewport path:hover {
         fill-opacity: 0.75;
         stroke: black;
         stroke-width: 0.5;
     }
-    #fig-309c0b8ec3ab4d00b7225f1274bc871b-viewport + rect {
+    #fig-d2f42accd67448c5938a70dfdbe790ba-viewport + rect {
         fill: #696969;
         opacity: 0.8;
     }
-    text#fig-309c0b8ec3ab4d00b7225f1274bc871b-details{
+    text#fig-d2f42accd67448c5938a70dfdbe790ba-details{
         fill: white;
     }
-    #fig-309c0b8ec3ab4d00b7225f1274bc871b-viewport text.w {
+    #fig-d2f42accd67448c5938a70dfdbe790ba-viewport text.w {
         fill: white;
         stroke: white;
     }
 </style>
-<g id="fig-309c0b8ec3ab4d00b7225f1274bc871b-frame" clip-path="url(#fig-309c0b8ec3ab4d00b7225f1274bc871b-clip)">
-<rect id="fig-309c0b8ec3ab4d00b7225f1274bc871b-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-309c0b8ec3ab4d00b7225f1274bc871b-caption" x="400" y="24">Profile results</text>
-<g id="fig-309c0b8ec3ab4d00b7225f1274bc871b-viewport" transform="scale(1)">
+<g id="fig-d2f42accd67448c5938a70dfdbe790ba-frame" clip-path="url(#fig-d2f42accd67448c5938a70dfdbe790ba-clip)">
+<rect id="fig-d2f42accd67448c5938a70dfdbe790ba-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-d2f42accd67448c5938a70dfdbe790ba-caption" x="400" y="24">Profile results</text>
+<g id="fig-d2f42accd67448c5938a70dfdbe790ba-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#B0E0E6" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#B0E0E6" data-dinfo=".\"/>
@@ -3005,6 +3105,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         fig.viewport = svg.select('#' + figId + '-viewport');
 
+        fig.xstep = fig.viewport.node.getAttribute('data-xstep');
+        fig.tunit = fig.viewport.node.getAttribute('data-tunit');
+        fig.delay = fig.viewport.node.getAttribute('data-delay');
+
         var texts = fig.viewport.selectAll('text');
         fig.notext = false;
         if (texts[0]) {
@@ -3028,10 +3132,12 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var textBg = document.createElementNS(NS_SVG, 'rect');
         var detail = document.createElementNS(NS_SVG, 'text');
+        var time = document.createElementNS(NS_SVG, 'text');
         detail.style.visibility = 'hidden';
         detail.textContent = 'MOw';
         fig.viewport.node.parentNode.appendChild(textBg);
         fig.viewport.node.parentNode.appendChild(detail);
+        fig.viewport.node.parentNode.appendChild(time);
         var mBBox = detail.getBBox();
         fig.charWidthM = mBBox.width / 3;
         detail.textContent = 'night';
@@ -3044,6 +3150,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.setAttribute('id', figId + '-details');
         detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        time.setAttribute('x', fig.width - fig.charWidthM * 10);
+        time.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
@@ -3075,8 +3184,18 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
+            var time = details.nextElementSibling;
             details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            if (fig.delay) {
+                var count = Math.round(rect.width.baseVal.value / fig.xstep);
+                var t = count * (fig.tunit === 's' ? fig.delay :
+                    fig.tunit === 'ms' ? fig.delay * 1e3 :
+                        fig.tunit === 'us' || fig.tunit === 'μs' ? fig.delay * 1e6 : 1);
+                var tp = Math.round(t * 1000) / 1000;
+                time.textContent = 'Time: ' + tp + ' ' + fig.tunit;
+                time.style.display = 'inherit';
+            }
             details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -3086,6 +3205,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             text.style.strokeWidth = '0';
             details.style.display = 'none';
             details.previousElementSibling.style.display = 'none';
+            details.nextElementSibling.style.display = 'none';
         };
 
         var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
@@ -3140,10 +3260,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-309c0b8ec3ab4d00b7225f1274bc871b");
+        ProfileSVG.initialize("fig-d2f42accd67448c5938a70dfdbe790ba");
     });
 } else {
-    ProfileSVG.initialize("fig-309c0b8ec3ab4d00b7225f1274bc871b");
+    ProfileSVG.initialize("fig-d2f42accd67448c5938a70dfdbe790ba");
 }
 ]]></script>
 </svg>
@@ -3153,53 +3273,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-86896b4c9bf14395be1976a76e87fdda">
+     xmlns="http://www.w3.org/2000/svg" id="fig-f3784ade409941c4afa39d86aff427a4">
 <defs>
-    <clipPath id="fig-86896b4c9bf14395be1976a76e87fdda-clip">
+    <clipPath id="fig-f3784ade409941c4afa39d86aff427a4-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-86896b4c9bf14395be1976a76e87fdda text {
+    #fig-f3784ade409941c4afa39d86aff427a4 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: currentcolor;
     }
-    text#fig-86896b4c9bf14395be1976a76e87fdda-caption {
+    text#fig-f3784ade409941c4afa39d86aff427a4-caption {
         font-size: 16.8px;
         fill: currentcolor;
         text-anchor: middle;
     }
-    #fig-86896b4c9bf14395be1976a76e87fdda-bg {
+    #fig-f3784ade409941c4afa39d86aff427a4-bg {
         fill: transparent;
     }
-    #fig-86896b4c9bf14395be1976a76e87fdda-viewport rect, #fig-86896b4c9bf14395be1976a76e87fdda-viewport path {
+    #fig-f3784ade409941c4afa39d86aff427a4-viewport rect, #fig-f3784ade409941c4afa39d86aff427a4-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 0.5;
     }
-    #fig-86896b4c9bf14395be1976a76e87fdda-viewport text {
+    #fig-f3784ade409941c4afa39d86aff427a4-viewport text {
         stroke: currentcolor;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-86896b4c9bf14395be1976a76e87fdda-viewport rect:hover, #fig-86896b4c9bf14395be1976a76e87fdda-viewport path:hover {
+    #fig-f3784ade409941c4afa39d86aff427a4-viewport rect:hover, #fig-f3784ade409941c4afa39d86aff427a4-viewport path:hover {
         fill-opacity: 0.75;
         stroke: currentcolor;
         stroke-width: 0.5;
     }
-    #fig-86896b4c9bf14395be1976a76e87fdda-viewport + rect {
+    #fig-f3784ade409941c4afa39d86aff427a4-viewport + rect {
         fill: transparent;
         opacity: 0.8;
     }
-    text#fig-86896b4c9bf14395be1976a76e87fdda-details{
+    text#fig-f3784ade409941c4afa39d86aff427a4-details{
         fill: currentcolor;
     }
 </style>
-<g id="fig-86896b4c9bf14395be1976a76e87fdda-frame" clip-path="url(#fig-86896b4c9bf14395be1976a76e87fdda-clip)">
-<rect id="fig-86896b4c9bf14395be1976a76e87fdda-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-86896b4c9bf14395be1976a76e87fdda-caption" x="400" y="24">Profile results</text>
-<g id="fig-86896b4c9bf14395be1976a76e87fdda-viewport" transform="scale(1)">
+<g id="fig-f3784ade409941c4afa39d86aff427a4-frame" clip-path="url(#fig-f3784ade409941c4afa39d86aff427a4-clip)">
+<rect id="fig-f3784ade409941c4afa39d86aff427a4-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-f3784ade409941c4afa39d86aff427a4-caption" x="400" y="24">Profile results</text>
+<g id="fig-f3784ade409941c4afa39d86aff427a4-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -3527,6 +3647,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         fig.viewport = svg.select('#' + figId + '-viewport');
 
+        fig.xstep = fig.viewport.node.getAttribute('data-xstep');
+        fig.tunit = fig.viewport.node.getAttribute('data-tunit');
+        fig.delay = fig.viewport.node.getAttribute('data-delay');
+
         var texts = fig.viewport.selectAll('text');
         fig.notext = false;
         if (texts[0]) {
@@ -3550,10 +3674,12 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 
         var textBg = document.createElementNS(NS_SVG, 'rect');
         var detail = document.createElementNS(NS_SVG, 'text');
+        var time = document.createElementNS(NS_SVG, 'text');
         detail.style.visibility = 'hidden';
         detail.textContent = 'MOw';
         fig.viewport.node.parentNode.appendChild(textBg);
         fig.viewport.node.parentNode.appendChild(detail);
+        fig.viewport.node.parentNode.appendChild(time);
         var mBBox = detail.getBBox();
         fig.charWidthM = mBBox.width / 3;
         detail.textContent = 'night';
@@ -3566,6 +3692,9 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
         detail.setAttribute('id', figId + '-details');
         detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        time.setAttribute('x', fig.width - fig.charWidthM * 10);
+        time.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
@@ -3597,8 +3726,18 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
+            var time = details.nextElementSibling;
             details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            if (fig.delay) {
+                var count = Math.round(rect.width.baseVal.value / fig.xstep);
+                var t = count * (fig.tunit === 's' ? fig.delay :
+                    fig.tunit === 'ms' ? fig.delay * 1e3 :
+                        fig.tunit === 'us' || fig.tunit === 'μs' ? fig.delay * 1e6 : 1);
+                var tp = Math.round(t * 1000) / 1000;
+                time.textContent = 'Time: ' + tp + ' ' + fig.tunit;
+                time.style.display = 'inherit';
+            }
             details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -3608,6 +3747,7 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
             text.style.strokeWidth = '0';
             details.style.display = 'none';
             details.previousElementSibling.style.display = 'none';
+            details.nextElementSibling.style.display = 'none';
         };
 
         var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
@@ -3662,13 +3802,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-86896b4c9bf14395be1976a76e87fdda");
+        ProfileSVG.initialize("fig-f3784ade409941c4afa39d86aff427a4");
     });
 } else {
-    ProfileSVG.initialize("fig-86896b4c9bf14395be1976a76e87fdda");
+    ProfileSVG.initialize("fig-f3784ade409941c4afa39d86aff427a4");
 }
 ]]></script>
 </svg>
 </body>
 </html>
-</div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../other-options/">Other Options »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 11 December 2020 09:27">Friday 11 December 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../other-options/">Other Options »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 21 April 2021 03:55">Wednesday 21 April 2021</span>. Using Julia version 1.6.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
