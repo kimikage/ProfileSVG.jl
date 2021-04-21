@@ -213,6 +213,10 @@
 
         fig.viewport = svg.select('#' + figId + '-viewport');
 
+        fig.xstep = fig.viewport.node.getAttribute('data-xstep');
+        fig.tunit = fig.viewport.node.getAttribute('data-tunit');
+        fig.delay = fig.viewport.node.getAttribute('data-delay');
+
         var texts = fig.viewport.selectAll('text');
         fig.notext = false;
         if (texts[0]) {
@@ -236,10 +240,12 @@
 
         var textBg = document.createElementNS(NS_SVG, 'rect');
         var detail = document.createElementNS(NS_SVG, 'text');
+        var time = document.createElementNS(NS_SVG, 'text');
         detail.style.visibility = 'hidden';
         detail.textContent = 'MOw';
         fig.viewport.node.parentNode.appendChild(textBg);
         fig.viewport.node.parentNode.appendChild(detail);
+        fig.viewport.node.parentNode.appendChild(time);
         var mBBox = detail.getBBox();
         fig.charWidthM = mBBox.width / 3;
         detail.textContent = 'night';
@@ -252,6 +258,9 @@
         detail.setAttribute('id', figId + '-details');
         detail.setAttribute('x', fig.charWidthM);
         detail.setAttribute('y', fig.height - fig.textHeight * 0.75);
+
+        time.setAttribute('x', fig.width - fig.charWidthM * 10);
+        time.setAttribute('y', fig.height - fig.textHeight * 0.75);
 
         textBg.setAttribute('x', 0);
         textBg.setAttribute('y', fig.height - fig.textHeight * 2);
@@ -283,8 +292,18 @@
             var i = sinfo.indexOf(' in ');
             var func = sinfo.slice(0, i + 4);
             var file = sinfo.slice(i + 4);
+            var time = details.nextElementSibling;
             details.textContent = 'Function: ' + func + dir + file;
             details.style.display = 'inherit';
+            if (fig.delay) {
+                var count = Math.round(rect.width.baseVal.value / fig.xstep);
+                var t = count * (fig.tunit === 's' ? fig.delay :
+                    fig.tunit === 'ms' ? fig.delay * 1e3 :
+                        fig.tunit === 'us' || fig.tunit === 'μs' ? fig.delay * 1e6 : 1);
+                var tp = Math.round(t * 1000) / 1000;
+                time.textContent = 'Time: ' + tp + ' ' + fig.tunit;
+                time.style.display = 'inherit';
+            }
             details.previousElementSibling.style.display = 'inherit';
         };
         var rectMouseOutHandler = function (e) {
@@ -294,6 +313,7 @@
             text.style.strokeWidth = '0';
             details.style.display = 'none';
             details.previousElementSibling.style.display = 'none';
+            details.nextElementSibling.style.display = 'none';
         };
 
         var rects = fig.viewport.selectAll(fig.roundradius > 0 ? 'rect' : 'path');
