@@ -269,6 +269,20 @@ function Base.show(io::IO, mime::Union{MIME"image/svg+xml", MIME"text/html"}, fg
     end
 end
 
+function extract_frameinfo(sf::StackFrame)
+    file = string(sf.file)
+    m = match(r"[^\\/]+$", file)
+    if m !== nothing
+        dirinfo = SubString(file, firstindex(file), m.offset - 1)
+        basename = m.match
+    else
+        dirinfo = ""
+        basename = file
+    end
+    shortinfo = "$(sf.func) in $basename:$(sf.line)"
+    return shortinfo, dirinfo
+end
+
 function show_flamegraph_body(io::IO, fg::FGConfig)
     ncols, nrows = length(fg.g.data.span), FlameGraphs.depth(fg.g)
     if nrows > fg.maxdepth
@@ -292,7 +306,6 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
         nextidx[end] += 1
 
         ndata = g.data
-        sf = ndata.sf
         color = fg.fcolor(nextidx, j, ndata)::Color
         bw = fg.fontcolor === :bw
         x = (first(ndata.span)-1) * xstep + leftmargin
@@ -303,16 +316,7 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
         end
         w = length(ndata.span) * xstep
         r = fg.roundradius
-        file = string(sf.file)
-        m = match(r"[^\\/]+$", file)
-        if m !== nothing
-            dirinfo = SubString(file, firstindex(file), m.offset - 1)
-            basename = m.match
-        else
-            dirinfo = ""
-            basename = file
-        end
-        shortinfo = "$(sf.func) in $basename:$(sf.line)"
+        shortinfo, dirinfo = extract_frameinfo(ndata.sf)
         write_svgflamerect(io, x, y, w, ystep, r, shortinfo, dirinfo, color, bw)
 
         for c in g
