@@ -97,7 +97,7 @@ function init()
                                      width=960,
                                      height=0,
                                      roundradius=2,
-                                     font="inherit",
+                                     font="system-ui",
                                      fontsize=12,
                                      notext=false,
                                      timeunit=:none,
