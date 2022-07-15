@@ -22,7 +22,7 @@ end
 function flamegraph_kwargs(kwargs)
     gopts = copy(default_config.graph_options)
 
-    keywords = (:lidict, :C, :combine, :recur, :norepl, :pruned, :filter)
+    keywords = (:lidict, :C, :combine, :recur, :norepl, :pruned, :filter, :threads)
     for (k, v) in kwargs
         if k in keywords
             gopts[k] = v
@@ -171,6 +171,7 @@ View profiling results.
 - `recur`
 - `pruned`
 - `filter`
+- `threads`
 See [FlameGraphs](https://timholy.github.io/FlameGraphs.jl/stable/reference/#FlameGraphs.flamegraph)
 for details.
 """
