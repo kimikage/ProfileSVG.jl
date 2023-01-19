@@ -34,7 +34,7 @@ end
 
 function write_svgheader(io::IO, fig_id, width, height,
                          bgcolor, fontcolor, frameopacity,
-                         font, fontsize, notext, xstep, timeunit, delay)
+                         font, fontsize, notext, xstep, timeunit, delay, title)
     w = simplify(width)
     h = simplify(height)
     caption_size = simplify(fontsize * 1.4)
@@ -123,7 +123,7 @@ function write_svgheader(io::IO, fig_id, width, height,
         </style>
         <g id="$fig_id-frame" clip-path="url(#$fig_id-clip)">
         <rect id="$fig_id-bg" x="0" y="0" width="$w" height="$h"/>
-        <text id="$fig_id-caption" x="$x_cap" y="$y_cap">Profile results</text>
+        <text id="$fig_id-caption" x="$x_cap" y="$y_cap">$title</text>
         <g id="$fig_id-viewport" transform="scale(1)"$dataxstep$datatunit$datadelay>
         """)
 end
