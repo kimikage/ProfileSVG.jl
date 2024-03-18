@@ -1,9 +1,19 @@
 using Documenter, ProfileSVG
 
+if :size_threshold in fieldnames(Documenter.HTML)
+    size_th = (
+        example_size_threshold = nothing,
+        size_threshold = nothing,
+    )
+else
+    size_th = ()
+end
+
 makedocs(
     clean = false,
     modules=[ProfileSVG],
-    format=Documenter.HTML(prettyurls = get(ENV, "CI", nothing) == "true",
+    format=Documenter.HTML(;prettyurls = get(ENV, "CI", nothing) == "true",
+                           size_th...,
                            assets = ["assets/profilesvg.css"]),
     sitename="ProfileSVG",
     pages=[

@@ -84,6 +84,11 @@ Note that the actual rendering results depend on the viewer.
 ProfileSVG.view(font="'Times New Roman', serif", fontsize=16)
 ProfileSVG.view(g, font="'Times New Roman', serif", fontsize=16) # hide
 ```
+
+!!! tip
+    By setting `font` to `"system-ui"`, `"ui-serif"`, `"ui-sans-serif"`, etc.,
+    the default user interface font may be used.
+
 ## `notext`
 
 The `notext` option specifies the visibility of overlaid texts on the frames. If
@@ -145,7 +150,7 @@ You can specify the default values for options with
 You can also reset the settings with [`ProfileSVG.init`](@ref).
 
 ```@example ex
-ProfileSVG.set_default(StackFrameCategory(), roundradius=0, fontsize=8)
+ProfileSVG.set_default(StackFrameCategory(), roundradius=0, font="system-ui", fontsize=8)
 ProfileSVG.view(width=300)
 ProfileSVG.view(g, width=300) # hide
 ```
