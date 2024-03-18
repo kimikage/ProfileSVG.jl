@@ -1,0 +1,11 @@
+
+article svg {
+  overflow: auto;
+  max-width: 100%;
+  min-width: 500px;
+  border: 1px solid rgba(192, 192, 192, 0.2);
+}
+
+article div.bg {
+  background: url('pattern.svg');
+}
