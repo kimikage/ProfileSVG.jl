@@ -3,7 +3,8 @@ using Base.StackTraces: StackFrame
 
 function stackframe(func, file, line; C=false, inlined=false)
     if func === :eval
-        mi = first(Base.method_instances(eval, Tuple{Expr}))
+        world = Base.get_world_counter()
+        mi = first(Base.method_instances(eval, Tuple{Expr}, world))
         mi.def.module = Core
     else
         mi = nothing
@@ -37,7 +38,9 @@ backtraces = UInt64[
     0,                              8,  9, 41, 40,  1,  3, 23, 13,
     0,                              8,  9, 41, 40,  1,  3, 23, 13,
     0]
-
+if isdefined(Profile, :add_fake_meta)
+    backtraces = Profile.add_fake_meta(backtraces)
+end
 lidict = Dict{UInt64,StackFrame}(
     1  => stackframe("#mapslices#115", ".\\abstractarray.jl", 2018),
     2  => stackframe("#mapslices#115", ".\\abstractarray.jl", 2029),
