@@ -83,6 +83,7 @@ end
     @test fg.notext == false
     @test fg.timeunit == :none
     @test fg.delay == 0.002
+    @test fg.title == "Profile results"
 
     Profile.init(delay=0.001)
 
@@ -101,6 +102,7 @@ end
     @test fg.notext == false
     @test fg.timeunit == :none
     @test fg.delay == 0.001
+    @test fg.title == "Profile results"
 
     g = flamegraph(backtraces, lidict=lidict)
 
@@ -118,9 +120,10 @@ end
     @test fg.notext == false
     @test fg.timeunit == :ms
     @test fg.delay == 0.001
+    @test fg.title == "Profile results"
 
     fg = ProfileSVG.view(g, C=true, yflip=true, font="serif", notext=true, delay=0.01,
-                         unknown=false)
+                         title="&' >< \"", unknown=false)
     @test FlameGraphs.depth(fg.g) == 4 # `C` option does not affect the graph
     @test fg.fcolor isa FlameColors
     @test fg.graph_options[:C] == true
@@ -133,6 +136,7 @@ end
     @test fg.notext == true
     @test fg.timeunit == :none
     @test fg.delay == 0.01
+    @test fg.title == "&' >< \""
 end
 
 @testset "save" begin
@@ -189,6 +193,7 @@ end
     @test svg_size(str) == ("960", "123.4")
     @test !has_filled_rect(str, "#FF0000")
     @test has_filled_path(str, "#FF0000")
+    @test occursin("Profile results", str)
     filename = tempname()
     ProfileSVG.save(sfc, filename, g, C=true, height=123.4, roundradius=0, unknown=true)
     str = read(filename, String)
@@ -196,21 +201,26 @@ end
     @test svg_size(str) == ("960", "123.4")
     @test !has_filled_rect(str, "#FF0000")
     @test has_filled_path(str, "#FF0000")
+    @test occursin("Profile results", str)
 
     ProfileSVG.save(io, g,
-                    C=true, yflip=true, font="serif", notext=true, unknown=false)
+                    C=true, yflip=true, font="serif", notext=true, title="&' >< \"",
+                    unknown=false)
     str = String(take!(io))
     @test svg_size(str) == ("960", "136")
     @test !has_filled_rect(str, "#FF0000")
     @test !has_filled_path(str, "#FF0000")
+    @test occursin(">&amp;&apos; &gt;&lt; &quot;</text>", str)
     filename = tempname()
     ProfileSVG.save(filename, g,
-                    C=true, yflip=true, font="serif", notext=true, unknown=false)
+                    C=true, yflip=true, font="serif", notext=true, title=title = "&' >< \"",
+                    unknown=false)
     str = read(filename, String)
     rm(filename)
     @test svg_size(str) == ("960", "136")
     @test !has_filled_rect(str, "#FF0000")
     @test !has_filled_path(str, "#FF0000")
+    @test occursin(">&amp;&apos; &gt;&lt; &quot;</text>", str)
 end
 
 @testset "color schemes" begin
@@ -259,8 +269,8 @@ end
         return color1 == color2 == color3 ? color1 : nothing
     end
 
-    function captioncolor(str)
-        m = match(r"text#fig-\w+-caption {([^}]+)", str)
+    function titlecolor(str)
+        m = match(r"text#fig-\w+-title {([^}]+)", str)
         m === nothing && return m
         m = match(r"fill: ([^;]+);\n", m[1])
         m === nothing && return m
@@ -286,14 +296,14 @@ end
     str = String(take!(io))
     @test bgcolor(str) == "#FFFFFF"
     @test fontcolor(str) == "#000000"
-    @test captioncolor(str) == "#000000"
+    @test titlecolor(str) == "#000000"
     @test opacity(str) == ("1", "0.75")
 
     ProfileSVG.save(fcolor, io, g, frameopacity=0.4f0)
     str = String(take!(io))
     @test bgcolor(str) == "#4682B4"
     @test fontcolor(str) == "#FFFFE0"
-    @test captioncolor(str) == "#FFFFE0"
+    @test titlecolor(str) == "#FFFFE0"
     @test opacity(str) == ("0.4", "0.65")
 
     ProfileSVG.save(sfc, io, g, bgcolor=:classic, fontcolor=:classic, frameopacity=0.75)
@@ -301,7 +311,7 @@ end
     @test occursin("<linearGradient", str)
     @test bgcolor(str) != "#FFFFFF"
     @test fontcolor(str) == "black"
-    @test captioncolor(str) == "black"
+    @test titlecolor(str) == "black"
     @test opacity(str) == ("0.75", "1")
 
     ProfileSVG.save(io, g, bgcolor=:transparent, fontcolor=:currentcolor, frameopacity=0.9)
@@ -314,7 +324,7 @@ end
     str = String(take!(io))
     @test bgcolor(str) == "white"
     @test fontcolor(str) == "black"
-    @test captioncolor(str) == "black"
+    @test titlecolor(str) == "black"
     @test opacity(str) == ("1", "0.75")
     @test count_element(r"<text [^/]+class=\"w\">", str) == 2
 
@@ -322,7 +332,7 @@ end
     str = String(take!(io))
     @test bgcolor(str) == "#4682B4"
     @test fontcolor(str) == "black"
-    @test captioncolor(str) == "white"
+    @test titlecolor(str) == "white"
     @test opacity(str) == ("1", "0.75")
     @test count_element(r"<text [^/]+class=\"w\">", str) == 5
 

@@ -143,6 +143,9 @@ ProfileSVG.view(g, timeunit=:µs, delay=3e-4) # hide
     match the measurement time by `@time` etc. The discrepancies may also occur
     if the profiling environment and the viewing environment are different.
 
+## `title`
+The `title` option specifies the title (caption) of the graph.
+
 ## Setting options as default
 You can specify the default values for options with
 [`ProfileSVG.set_default`](@ref).
@@ -150,7 +153,8 @@ You can specify the default values for options with
 You can also reset the settings with [`ProfileSVG.init`](@ref).
 
 ```@example ex
-ProfileSVG.set_default(StackFrameCategory(), roundradius=0, font="system-ui", fontsize=8)
+ProfileSVG.set_default(StackFrameCategory(), roundradius=0, title="<default>",
+                       font="system-ui", fontsize=8)
 ProfileSVG.view(width=300)
 ProfileSVG.view(g, width=300) # hide
 ```

@@ -104,7 +104,7 @@ function init()
                                      notext=false,
                                      timeunit=:none,
                                      delay=0.0,
-                                     title = "Profile results")
+                                     title="Profile results")
     nothing
 end
 
@@ -167,7 +167,7 @@ View profiling results.
   - The delay between backtraces, in seconds. If a non-positive number is
     specified, the current setting in `Profile.init()` will be used.
 - `title` (default: `"Profile results"`)
-  - The title of the profile plot.
+  - The title (caption) of the graph.
 
 # keywords for `flamegraph`
 - `lidict`
