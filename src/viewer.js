@@ -65,13 +65,6 @@
         return text.slice(0, nchars - 2) + '..';
     };
 
-    var unescapeHtml = function (str) {
-        return str
-            .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>')
-            .replace(/&amp;/g, '&');
-    };
-
     var isDarkColor = function (c) {
         var m = c.match(/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)/);
         if (m) {
@@ -320,8 +313,8 @@
         rects.forEach(function (r) {
             var rect = r.node;
             var text = rect.nextElementSibling;
-            rect.setAttribute('data-shortinfo', unescapeHtml(text.textContent));
-            var dir = unescapeHtml(rect.getAttribute('data-dinfo'));
+            rect.setAttribute('data-shortinfo', text.textContent);
+            var dir = rect.getAttribute('data-dinfo');
             rect.setAttribute('data-dinfo', dir);
             rect.addEventListener('dblclick', rectDblClickHandler, false);
             rect.addEventListener('mouseover', rectMouseOverHandler, false);

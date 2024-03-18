@@ -2,9 +2,11 @@ const snapsvgjs = joinpath(@__DIR__, "..", "deps", "snap.svg-min.js")
 const viewerjs = joinpath(@__DIR__, "viewer.js")
 
 function escape_html(str::AbstractString)
-    s = replace(str, '<' => "&lt;")
+    s = replace(str, '&' => "&amp;") # '&' must be first
+    s = replace(s, '\'' => "&apos;")
+    s = replace(s, '"' => "&quot;")
     s = replace(s, '>' => "&gt;")
-    s = replace(s, '&' => "&amp;")
+    s = replace(s, '<' => "&lt;")
     s
 end
 
