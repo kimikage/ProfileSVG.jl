@@ -15,7 +15,9 @@ backtraces = UInt[0, 4, 3, 2, 1,
                   0,    6, 5, 1,
                   0,       8, 7,
                   0]
-
+if isdefined(Profile, :add_fake_meta)
+    backtraces = Profile.add_fake_meta(backtraces)
+end
 lidict = Dict{UInt64,StackFrame}(1=>stackframe(:f1, :file1, 1),
                                  2=>stackframe(:jl_f, :filec, 55; C=true),
                                  3=>stackframe(:jl_invoke, :file2, 1; C=true),
