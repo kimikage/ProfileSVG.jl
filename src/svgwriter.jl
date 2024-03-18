@@ -34,18 +34,18 @@ end
 
 function write_svgheader(io::IO, fig_id, width, height,
                          bgcolor, fontcolor, frameopacity,
-                         font, fontsize, notext, xstep, timeunit, delay)
+                         font, fontsize, notext, xstep, timeunit, delay, title)
     w = simplify(width)
     h = simplify(height)
-    caption_size = simplify(fontsize * 1.4)
-    x_cap = simplify(width * 0.5)
-    y_cap = simplify(fontsize * 2)
+    title_size = simplify(fontsize * 1.4)
+    x_title = simplify(width * 0.5)
+    y_title = simplify(fontsize * 2)
     x_msg = simplify(fontsize * 0.8)
-    y_msg = height - caption_size
+    y_msg = height - title_size
     textcolor = isempty(fontcolor) ? "black" : fontcolor
-    caption_color = textcolor
+    title_color = textcolor
     if isempty(fontcolor) && startswith(bgcolor, "#") && isdarkcolor(parse(Gray, bgcolor))
-        caption_color = "white"
+        title_color = "white"
     end
     bg_fill = isempty(bgcolor) ? "url(#$fig_id-background)" : bgcolor
     details_bg_fill = isempty(bgcolor) ? "white" : bgcolor
@@ -78,9 +78,9 @@ function write_svgheader(io::IO, fig_id, width, height,
                 font-size: $(simplify(fontsize))px;
                 fill: $textcolor;
             }
-            text#$fig_id-caption {
-                font-size: $(caption_size)px;
-                fill: $caption_color;
+            text#$fig_id-title {
+                font-size: $(title_size)px;
+                fill: $title_color;
                 text-anchor: middle;
             }
             #$fig_id-bg {
@@ -105,7 +105,7 @@ function write_svgheader(io::IO, fig_id, width, height,
                 opacity: 0.8;
             }
             text#$fig_id-details{
-                fill: $caption_color;
+                fill: $title_color;
             }
         """)
     isempty(fontcolor) && print(io,
@@ -118,12 +118,13 @@ function write_svgheader(io::IO, fig_id, width, height,
     dataxstep = timeunit !== :none ? " data-xstep=\"$xstep\"" : ""
     datatunit = timeunit !== :none ? " data-tunit=\"$timeunit\"" : ""
     datadelay = timeunit !== :none ? " data-delay=\"$delay\"" : ""
+    stitle = escape_html(title)
     print(io,
         """
         </style>
         <g id="$fig_id-frame" clip-path="url(#$fig_id-clip)">
         <rect id="$fig_id-bg" x="0" y="0" width="$w" height="$h"/>
-        <text id="$fig_id-caption" x="$x_cap" y="$y_cap">Profile results</text>
+        <text id="$fig_id-title" x="$x_title" y="$y_title">$stitle</text>
         <g id="$fig_id-viewport" transform="scale(1)"$dataxstep$datatunit$datadelay>
         """)
 end

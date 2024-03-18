@@ -49,6 +49,7 @@ struct FGConfig
     notext::Bool
     timeunit::Symbol
     delay::Float64
+    title::String
 end
 
 function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
@@ -68,6 +69,7 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   notext::Bool         = default_config.notext,
                   timeunit::Symbol     = default_config.timeunit,
                   delay::Real          = default_config.delay,
+                  title::String        = default_config.title,
                   kwargs...)
 
     gopts = graph_options === nothing ? flamegraph_kwargs(kwargs) : graph_options
@@ -75,7 +77,7 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
     FGConfig(g, gopts, fcolor,
              bgcolor, fontcolor, frameopacity,
              yflip, maxdepth, maxframes, width, height, roundradius,
-             font, fontsize, notext, timeunit, delay)
+             font, fontsize, notext, timeunit, delay, title)
 end
 
 
@@ -101,7 +103,8 @@ function init()
                                      fontsize=12,
                                      notext=false,
                                      timeunit=:none,
-                                     delay=0.0)
+                                     delay=0.0,
+                                     title="Profile results")
     nothing
 end
 
@@ -163,6 +166,8 @@ View profiling results.
 - `delay` (default: `0.0`)
   - The delay between backtraces, in seconds. If a non-positive number is
     specified, the current setting in `Profile.init()` will be used.
+- `title` (default: `"Profile results"`)
+  - The title (caption) of the graph.
 
 # keywords for `flamegraph`
 - `lidict`
@@ -328,7 +333,7 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
 
     write_svgheader(io, fig_id, width, height,
                     bgcolor(fg), fontcolor(fg), fg.frameopacity,
-                    fg.font, fg.fontsize, fg.notext, xstep, fg.timeunit, fg.delay)
+                    fg.font, fg.fontsize, fg.notext, xstep, fg.timeunit, fg.delay, fg.title)
 
     nextidx = fill(1, nrows + 1) # nextidx[end]: framecount
     flamerects(io, fg.g, 1, nextidx)
