@@ -3,6 +3,11 @@ on:
   - push
   - pull_request
 
+# needed to allow julia-actions/cache to delete old caches that it has created
+permissions:
+  actions: write
+  contents: read
+
 jobs:
   test:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
@@ -10,7 +15,7 @@ jobs:
     strategy:
       matrix:
         version:
-          - '1.0'
+          - '1.6'
           - '1'
           - 'nightly'
         os:
@@ -27,7 +32,7 @@ jobs:
       - name: Install librsvg2-bin
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get install librsvg2-bin
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
@@ -43,17 +48,19 @@ jobs:
             ${{ runner.os }}-test-${{ env.cache-name }}-
             ${{ runner.os }}-test-
             ${{ runner.os }}-
+      - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@latest
       - uses: julia-actions/julia-processcoverage@v1
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v4
         with:
           file: lcov.info
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   docs:
     name: Documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v1
         with:
           version: '1'
