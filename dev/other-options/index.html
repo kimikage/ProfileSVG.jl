@@ -1,55 +1,55 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Other Options · ProfileSVG</title><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">ProfileSVG</a></span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../coloration-schemes/">Coloration Schemes</a></li><li class="is-active"><a class="tocitem" href>Other Options</a><ul class="internal"><li><a class="tocitem" href="#yflip"><span><code>yflip</code></span></a></li><li><a class="tocitem" href="#maxdepth-and-maxframes"><span><code>maxdepth</code> and <code>maxframes</code></span></a></li><li><a class="tocitem" href="#width-and-height"><span><code>width</code> and <code>height</code></span></a></li><li><a class="tocitem" href="#roundradius"><span><code>roundradius</code></span></a></li><li><a class="tocitem" href="#font-and-fontsize"><span><code>font</code> and <code>fontsize</code></span></a></li><li><a class="tocitem" href="#notext"><span><code>notext</code></span></a></li><li><a class="tocitem" href="#timeunit-and-delay"><span><code>timeunit</code> and <code>delay</code></span></a></li><li><a class="tocitem" href="#Setting-options-as-default"><span>Setting options as default</span></a></li></ul></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Other Options</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Other Options</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/other-options.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Other-Options"><a class="docs-heading-anchor" href="#Other-Options">Other Options</a><a id="Other-Options-1"></a><a class="docs-heading-anchor-permalink" href="#Other-Options" title="Permalink"></a></h1><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><h2 id="yflip"><a class="docs-heading-anchor" href="#yflip"><code>yflip</code></a><a id="yflip-1"></a><a class="docs-heading-anchor-permalink" href="#yflip" title="Permalink"></a></h2><p>The <code>yflip</code> option inverts the depth direction. It defaults to <code>false</code> and a &quot;flame&quot; graph with upward depth will be rendered. By setting <code>yflip</code> to <code>true</code>, a &quot;icicle&quot; graph with downward depth will be rendered.</p><pre><code class="language-julia hljs">ProfileSVG.view(yflip=true)</code></pre><!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Other Options · ProfileSVG</title><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">ProfileSVG</a></span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../coloration-schemes/">Coloration Schemes</a></li><li class="is-active"><a class="tocitem" href>Other Options</a><ul class="internal"><li><a class="tocitem" href="#yflip"><span><code>yflip</code></span></a></li><li><a class="tocitem" href="#maxdepth-and-maxframes"><span><code>maxdepth</code> and <code>maxframes</code></span></a></li><li><a class="tocitem" href="#width-and-height"><span><code>width</code> and <code>height</code></span></a></li><li><a class="tocitem" href="#roundradius"><span><code>roundradius</code></span></a></li><li><a class="tocitem" href="#font-and-fontsize"><span><code>font</code> and <code>fontsize</code></span></a></li><li><a class="tocitem" href="#notext"><span><code>notext</code></span></a></li><li><a class="tocitem" href="#timeunit-and-delay"><span><code>timeunit</code> and <code>delay</code></span></a></li><li><a class="tocitem" href="#title"><span><code>title</code></span></a></li><li><a class="tocitem" href="#Setting-options-as-default"><span>Setting options as default</span></a></li></ul></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Other Options</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Other Options</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/other-options.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Other-Options"><a class="docs-heading-anchor" href="#Other-Options">Other Options</a><a id="Other-Options-1"></a><a class="docs-heading-anchor-permalink" href="#Other-Options" title="Permalink"></a></h1><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><h2 id="yflip"><a class="docs-heading-anchor" href="#yflip"><code>yflip</code></a><a id="yflip-1"></a><a class="docs-heading-anchor-permalink" href="#yflip" title="Permalink"></a></h2><p>The <code>yflip</code> option inverts the depth direction. It defaults to <code>false</code> and a &quot;flame&quot; graph with upward depth will be rendered. By setting <code>yflip</code> to <code>true</code>, a &quot;icicle&quot; graph with downward depth will be rendered.</p><pre><code class="language-julia hljs">ProfileSVG.view(yflip=true)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-ed153702d35948cea7c5a4c9605db19a">
+     xmlns="http://www.w3.org/2000/svg" id="fig-c7c91a6ee5294d9c99e6fb8a36a77b53">
 <defs>
-    <clipPath id="fig-ed153702d35948cea7c5a4c9605db19a-clip">
+    <clipPath id="fig-c7c91a6ee5294d9c99e6fb8a36a77b53-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-ed153702d35948cea7c5a4c9605db19a text {
+    #fig-c7c91a6ee5294d9c99e6fb8a36a77b53 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-ed153702d35948cea7c5a4c9605db19a-caption {
+    text#fig-c7c91a6ee5294d9c99e6fb8a36a77b53-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-ed153702d35948cea7c5a4c9605db19a-bg {
+    #fig-c7c91a6ee5294d9c99e6fb8a36a77b53-bg {
         fill: #FFFFFF;
     }
-    #fig-ed153702d35948cea7c5a4c9605db19a-viewport rect, #fig-ed153702d35948cea7c5a4c9605db19a-viewport path {
+    #fig-c7c91a6ee5294d9c99e6fb8a36a77b53-viewport rect, #fig-c7c91a6ee5294d9c99e6fb8a36a77b53-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-ed153702d35948cea7c5a4c9605db19a-viewport text {
+    #fig-c7c91a6ee5294d9c99e6fb8a36a77b53-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-ed153702d35948cea7c5a4c9605db19a-viewport rect:hover, #fig-ed153702d35948cea7c5a4c9605db19a-viewport path:hover {
+    #fig-c7c91a6ee5294d9c99e6fb8a36a77b53-viewport rect:hover, #fig-c7c91a6ee5294d9c99e6fb8a36a77b53-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-ed153702d35948cea7c5a4c9605db19a-viewport + rect {
+    #fig-c7c91a6ee5294d9c99e6fb8a36a77b53-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-ed153702d35948cea7c5a4c9605db19a-details{
+    text#fig-c7c91a6ee5294d9c99e6fb8a36a77b53-details{
         fill: #000000;
     }
 </style>
-<g id="fig-ed153702d35948cea7c5a4c9605db19a-frame" clip-path="url(#fig-ed153702d35948cea7c5a4c9605db19a-clip)">
-<rect id="fig-ed153702d35948cea7c5a4c9605db19a-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-ed153702d35948cea7c5a4c9605db19a-caption" x="400" y="24">Profile results</text>
-<g id="fig-ed153702d35948cea7c5a4c9605db19a-viewport" transform="scale(1)">
+<g id="fig-c7c91a6ee5294d9c99e6fb8a36a77b53-frame" clip-path="url(#fig-c7c91a6ee5294d9c99e6fb8a36a77b53-clip)">
+<rect id="fig-c7c91a6ee5294d9c99e6fb8a36a77b53-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-c7c91a6ee5294d9c99e6fb8a36a77b53-title" x="400" y="24">Profile results</text>
+<g id="fig-c7c91a6ee5294d9c99e6fb8a36a77b53-viewport" transform="scale(1)">
 <rect x="8" y="36" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="47.25"> in :-1</text>
 <rect x="8" y="51" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -525,10 +525,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-ed153702d35948cea7c5a4c9605db19a");
+        ProfileSVG.initialize("fig-c7c91a6ee5294d9c99e6fb8a36a77b53");
     });
 } else {
-    ProfileSVG.initialize("fig-ed153702d35948cea7c5a4c9605db19a");
+    ProfileSVG.initialize("fig-c7c91a6ee5294d9c99e6fb8a36a77b53");
 }
 ]]></script>
 </svg>
@@ -538,53 +538,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="177" viewBox="0 0 800 177"
-     xmlns="http://www.w3.org/2000/svg" id="fig-1dab65d99e2a40bdb809be9a97c8e54b">
+     xmlns="http://www.w3.org/2000/svg" id="fig-eaf154b551b743209c7d6eab0b6976e5">
 <defs>
-    <clipPath id="fig-1dab65d99e2a40bdb809be9a97c8e54b-clip">
+    <clipPath id="fig-eaf154b551b743209c7d6eab0b6976e5-clip">
         <rect x="0" y="0" width="800" height="177"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-1dab65d99e2a40bdb809be9a97c8e54b text {
+    #fig-eaf154b551b743209c7d6eab0b6976e5 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-1dab65d99e2a40bdb809be9a97c8e54b-caption {
+    text#fig-eaf154b551b743209c7d6eab0b6976e5-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-1dab65d99e2a40bdb809be9a97c8e54b-bg {
+    #fig-eaf154b551b743209c7d6eab0b6976e5-bg {
         fill: #FFFFFF;
     }
-    #fig-1dab65d99e2a40bdb809be9a97c8e54b-viewport rect, #fig-1dab65d99e2a40bdb809be9a97c8e54b-viewport path {
+    #fig-eaf154b551b743209c7d6eab0b6976e5-viewport rect, #fig-eaf154b551b743209c7d6eab0b6976e5-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-1dab65d99e2a40bdb809be9a97c8e54b-viewport text {
+    #fig-eaf154b551b743209c7d6eab0b6976e5-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-1dab65d99e2a40bdb809be9a97c8e54b-viewport rect:hover, #fig-1dab65d99e2a40bdb809be9a97c8e54b-viewport path:hover {
+    #fig-eaf154b551b743209c7d6eab0b6976e5-viewport rect:hover, #fig-eaf154b551b743209c7d6eab0b6976e5-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-1dab65d99e2a40bdb809be9a97c8e54b-viewport + rect {
+    #fig-eaf154b551b743209c7d6eab0b6976e5-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-1dab65d99e2a40bdb809be9a97c8e54b-details{
+    text#fig-eaf154b551b743209c7d6eab0b6976e5-details{
         fill: #000000;
     }
 </style>
-<g id="fig-1dab65d99e2a40bdb809be9a97c8e54b-frame" clip-path="url(#fig-1dab65d99e2a40bdb809be9a97c8e54b-clip)">
-<rect id="fig-1dab65d99e2a40bdb809be9a97c8e54b-bg" x="0" y="0" width="800" height="177"/>
-<text id="fig-1dab65d99e2a40bdb809be9a97c8e54b-caption" x="400" y="24">Profile results</text>
-<g id="fig-1dab65d99e2a40bdb809be9a97c8e54b-viewport" transform="scale(1)">
+<g id="fig-eaf154b551b743209c7d6eab0b6976e5-frame" clip-path="url(#fig-eaf154b551b743209c7d6eab0b6976e5-clip)">
+<rect id="fig-eaf154b551b743209c7d6eab0b6976e5-bg" x="0" y="0" width="800" height="177"/>
+<text id="fig-eaf154b551b743209c7d6eab0b6976e5-title" x="400" y="24">Profile results</text>
+<g id="fig-eaf154b551b743209c7d6eab0b6976e5-viewport" transform="scale(1)">
 <rect x="8" y="126" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="137.25"> in :-1</text>
 <rect x="8" y="111" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -996,10 +996,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-1dab65d99e2a40bdb809be9a97c8e54b");
+        ProfileSVG.initialize("fig-eaf154b551b743209c7d6eab0b6976e5");
     });
 } else {
-    ProfileSVG.initialize("fig-1dab65d99e2a40bdb809be9a97c8e54b");
+    ProfileSVG.initialize("fig-eaf154b551b743209c7d6eab0b6976e5");
 }
 ]]></script>
 </svg>
@@ -1009,53 +1009,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="400" height="200" viewBox="0 0 400 200"
-     xmlns="http://www.w3.org/2000/svg" id="fig-de55eb7e0eb44399b492ac0b9343ab2e">
+     xmlns="http://www.w3.org/2000/svg" id="fig-bd360deba9ad4ee9a820670bbde480b0">
 <defs>
-    <clipPath id="fig-de55eb7e0eb44399b492ac0b9343ab2e-clip">
+    <clipPath id="fig-bd360deba9ad4ee9a820670bbde480b0-clip">
         <rect x="0" y="0" width="400" height="200"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-de55eb7e0eb44399b492ac0b9343ab2e text {
+    #fig-bd360deba9ad4ee9a820670bbde480b0 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-de55eb7e0eb44399b492ac0b9343ab2e-caption {
+    text#fig-bd360deba9ad4ee9a820670bbde480b0-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-de55eb7e0eb44399b492ac0b9343ab2e-bg {
+    #fig-bd360deba9ad4ee9a820670bbde480b0-bg {
         fill: #FFFFFF;
     }
-    #fig-de55eb7e0eb44399b492ac0b9343ab2e-viewport rect, #fig-de55eb7e0eb44399b492ac0b9343ab2e-viewport path {
+    #fig-bd360deba9ad4ee9a820670bbde480b0-viewport rect, #fig-bd360deba9ad4ee9a820670bbde480b0-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-de55eb7e0eb44399b492ac0b9343ab2e-viewport text {
+    #fig-bd360deba9ad4ee9a820670bbde480b0-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-de55eb7e0eb44399b492ac0b9343ab2e-viewport rect:hover, #fig-de55eb7e0eb44399b492ac0b9343ab2e-viewport path:hover {
+    #fig-bd360deba9ad4ee9a820670bbde480b0-viewport rect:hover, #fig-bd360deba9ad4ee9a820670bbde480b0-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-de55eb7e0eb44399b492ac0b9343ab2e-viewport + rect {
+    #fig-bd360deba9ad4ee9a820670bbde480b0-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-de55eb7e0eb44399b492ac0b9343ab2e-details{
+    text#fig-bd360deba9ad4ee9a820670bbde480b0-details{
         fill: #000000;
     }
 </style>
-<g id="fig-de55eb7e0eb44399b492ac0b9343ab2e-frame" clip-path="url(#fig-de55eb7e0eb44399b492ac0b9343ab2e-clip)">
-<rect id="fig-de55eb7e0eb44399b492ac0b9343ab2e-bg" x="0" y="0" width="400" height="200"/>
-<text id="fig-de55eb7e0eb44399b492ac0b9343ab2e-caption" x="200" y="24">Profile results</text>
-<g id="fig-de55eb7e0eb44399b492ac0b9343ab2e-viewport" transform="scale(1)">
+<g id="fig-bd360deba9ad4ee9a820670bbde480b0-frame" clip-path="url(#fig-bd360deba9ad4ee9a820670bbde480b0-clip)">
+<rect id="fig-bd360deba9ad4ee9a820670bbde480b0-bg" x="0" y="0" width="400" height="200"/>
+<text id="fig-bd360deba9ad4ee9a820670bbde480b0-title" x="200" y="24">Profile results</text>
+<g id="fig-bd360deba9ad4ee9a820670bbde480b0-viewport" transform="scale(1)">
 <rect x="4" y="149" width="392" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="4" dx="4" y="160.25"> in :-1</text>
 <rect x="4" y="134" width="392" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -1531,10 +1531,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-de55eb7e0eb44399b492ac0b9343ab2e");
+        ProfileSVG.initialize("fig-bd360deba9ad4ee9a820670bbde480b0");
     });
 } else {
-    ProfileSVG.initialize("fig-de55eb7e0eb44399b492ac0b9343ab2e");
+    ProfileSVG.initialize("fig-bd360deba9ad4ee9a820670bbde480b0");
 }
 ]]></script>
 </svg>
@@ -1544,53 +1544,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-b81a33086da2457a9e12a5478d65ee17">
+     xmlns="http://www.w3.org/2000/svg" id="fig-14c0346078ac4cfb88f19a516bbe1746">
 <defs>
-    <clipPath id="fig-b81a33086da2457a9e12a5478d65ee17-clip">
+    <clipPath id="fig-14c0346078ac4cfb88f19a516bbe1746-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-b81a33086da2457a9e12a5478d65ee17 text {
+    #fig-14c0346078ac4cfb88f19a516bbe1746 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-b81a33086da2457a9e12a5478d65ee17-caption {
+    text#fig-14c0346078ac4cfb88f19a516bbe1746-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-b81a33086da2457a9e12a5478d65ee17-bg {
+    #fig-14c0346078ac4cfb88f19a516bbe1746-bg {
         fill: #FFFFFF;
     }
-    #fig-b81a33086da2457a9e12a5478d65ee17-viewport rect, #fig-b81a33086da2457a9e12a5478d65ee17-viewport path {
+    #fig-14c0346078ac4cfb88f19a516bbe1746-viewport rect, #fig-14c0346078ac4cfb88f19a516bbe1746-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-b81a33086da2457a9e12a5478d65ee17-viewport text {
+    #fig-14c0346078ac4cfb88f19a516bbe1746-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-b81a33086da2457a9e12a5478d65ee17-viewport rect:hover, #fig-b81a33086da2457a9e12a5478d65ee17-viewport path:hover {
+    #fig-14c0346078ac4cfb88f19a516bbe1746-viewport rect:hover, #fig-14c0346078ac4cfb88f19a516bbe1746-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-b81a33086da2457a9e12a5478d65ee17-viewport + rect {
+    #fig-14c0346078ac4cfb88f19a516bbe1746-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-b81a33086da2457a9e12a5478d65ee17-details{
+    text#fig-14c0346078ac4cfb88f19a516bbe1746-details{
         fill: #000000;
     }
 </style>
-<g id="fig-b81a33086da2457a9e12a5478d65ee17-frame" clip-path="url(#fig-b81a33086da2457a9e12a5478d65ee17-clip)">
-<rect id="fig-b81a33086da2457a9e12a5478d65ee17-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-b81a33086da2457a9e12a5478d65ee17-caption" x="400" y="24">Profile results</text>
-<g id="fig-b81a33086da2457a9e12a5478d65ee17-viewport" transform="scale(1)">
+<g id="fig-14c0346078ac4cfb88f19a516bbe1746-frame" clip-path="url(#fig-14c0346078ac4cfb88f19a516bbe1746-clip)">
+<rect id="fig-14c0346078ac4cfb88f19a516bbe1746-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-14c0346078ac4cfb88f19a516bbe1746-title" x="400" y="24">Profile results</text>
+<g id="fig-14c0346078ac4cfb88f19a516bbe1746-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="6" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="6" fill="#00B58B" data-dinfo=".\"/>
@@ -2066,10 +2066,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-b81a33086da2457a9e12a5478d65ee17");
+        ProfileSVG.initialize("fig-14c0346078ac4cfb88f19a516bbe1746");
     });
 } else {
-    ProfileSVG.initialize("fig-b81a33086da2457a9e12a5478d65ee17");
+    ProfileSVG.initialize("fig-14c0346078ac4cfb88f19a516bbe1746");
 }
 ]]></script>
 </svg>
@@ -2079,53 +2079,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="416" viewBox="0 0 800 416"
-     xmlns="http://www.w3.org/2000/svg" id="fig-f109ac8e1bbd40af92aa5d42d0029d82">
+     xmlns="http://www.w3.org/2000/svg" id="fig-e985c3950f45441eb60cf072118c490d">
 <defs>
-    <clipPath id="fig-f109ac8e1bbd40af92aa5d42d0029d82-clip">
+    <clipPath id="fig-e985c3950f45441eb60cf072118c490d-clip">
         <rect x="0" y="0" width="800" height="416"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-f109ac8e1bbd40af92aa5d42d0029d82 text {
+    #fig-e985c3950f45441eb60cf072118c490d text {
         pointer-events: none;
         font-family: 'Times New Roman', serif;
         font-size: 16px;
         fill: #000000;
     }
-    text#fig-f109ac8e1bbd40af92aa5d42d0029d82-caption {
+    text#fig-e985c3950f45441eb60cf072118c490d-title {
         font-size: 22.4px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-f109ac8e1bbd40af92aa5d42d0029d82-bg {
+    #fig-e985c3950f45441eb60cf072118c490d-bg {
         fill: #FFFFFF;
     }
-    #fig-f109ac8e1bbd40af92aa5d42d0029d82-viewport rect, #fig-f109ac8e1bbd40af92aa5d42d0029d82-viewport path {
+    #fig-e985c3950f45441eb60cf072118c490d-viewport rect, #fig-e985c3950f45441eb60cf072118c490d-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-f109ac8e1bbd40af92aa5d42d0029d82-viewport text {
+    #fig-e985c3950f45441eb60cf072118c490d-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-f109ac8e1bbd40af92aa5d42d0029d82-viewport rect:hover, #fig-f109ac8e1bbd40af92aa5d42d0029d82-viewport path:hover {
+    #fig-e985c3950f45441eb60cf072118c490d-viewport rect:hover, #fig-e985c3950f45441eb60cf072118c490d-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-f109ac8e1bbd40af92aa5d42d0029d82-viewport + rect {
+    #fig-e985c3950f45441eb60cf072118c490d-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-f109ac8e1bbd40af92aa5d42d0029d82-details{
+    text#fig-e985c3950f45441eb60cf072118c490d-details{
         fill: #000000;
     }
 </style>
-<g id="fig-f109ac8e1bbd40af92aa5d42d0029d82-frame" clip-path="url(#fig-f109ac8e1bbd40af92aa5d42d0029d82-clip)">
-<rect id="fig-f109ac8e1bbd40af92aa5d42d0029d82-bg" x="0" y="0" width="800" height="416"/>
-<text id="fig-f109ac8e1bbd40af92aa5d42d0029d82-caption" x="400" y="32">Profile results</text>
-<g id="fig-f109ac8e1bbd40af92aa5d42d0029d82-viewport" transform="scale(1)">
+<g id="fig-e985c3950f45441eb60cf072118c490d-frame" clip-path="url(#fig-e985c3950f45441eb60cf072118c490d-clip)">
+<rect id="fig-e985c3950f45441eb60cf072118c490d-bg" x="0" y="0" width="800" height="416"/>
+<text id="fig-e985c3950f45441eb60cf072118c490d-title" x="400" y="32">Profile results</text>
+<g id="fig-e985c3950f45441eb60cf072118c490d-viewport" transform="scale(1)">
 <rect x="8" y="348" width="784" height="20" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="363"> in :-1</text>
 <rect x="8" y="328" width="784" height="20" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -2601,10 +2601,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-f109ac8e1bbd40af92aa5d42d0029d82");
+        ProfileSVG.initialize("fig-e985c3950f45441eb60cf072118c490d");
     });
 } else {
-    ProfileSVG.initialize("fig-f109ac8e1bbd40af92aa5d42d0029d82");
+    ProfileSVG.initialize("fig-e985c3950f45441eb60cf072118c490d");
 }
 ]]></script>
 </svg>
@@ -2614,53 +2614,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-144151aaf46e4a2fa744c8fc0d9d8b7c">
+     xmlns="http://www.w3.org/2000/svg" id="fig-f503da47db254a8c857bb624f14e81ed">
 <defs>
-    <clipPath id="fig-144151aaf46e4a2fa744c8fc0d9d8b7c-clip">
+    <clipPath id="fig-f503da47db254a8c857bb624f14e81ed-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-144151aaf46e4a2fa744c8fc0d9d8b7c text {
+    #fig-f503da47db254a8c857bb624f14e81ed text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-144151aaf46e4a2fa744c8fc0d9d8b7c-caption {
+    text#fig-f503da47db254a8c857bb624f14e81ed-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-144151aaf46e4a2fa744c8fc0d9d8b7c-bg {
+    #fig-f503da47db254a8c857bb624f14e81ed-bg {
         fill: #FFFFFF;
     }
-    #fig-144151aaf46e4a2fa744c8fc0d9d8b7c-viewport rect, #fig-144151aaf46e4a2fa744c8fc0d9d8b7c-viewport path {
+    #fig-f503da47db254a8c857bb624f14e81ed-viewport rect, #fig-f503da47db254a8c857bb624f14e81ed-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-144151aaf46e4a2fa744c8fc0d9d8b7c-viewport text {
+    #fig-f503da47db254a8c857bb624f14e81ed-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.0;
     }
-    #fig-144151aaf46e4a2fa744c8fc0d9d8b7c-viewport rect:hover, #fig-144151aaf46e4a2fa744c8fc0d9d8b7c-viewport path:hover {
+    #fig-f503da47db254a8c857bb624f14e81ed-viewport rect:hover, #fig-f503da47db254a8c857bb624f14e81ed-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-144151aaf46e4a2fa744c8fc0d9d8b7c-viewport + rect {
+    #fig-f503da47db254a8c857bb624f14e81ed-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-144151aaf46e4a2fa744c8fc0d9d8b7c-details{
+    text#fig-f503da47db254a8c857bb624f14e81ed-details{
         fill: #000000;
     }
 </style>
-<g id="fig-144151aaf46e4a2fa744c8fc0d9d8b7c-frame" clip-path="url(#fig-144151aaf46e4a2fa744c8fc0d9d8b7c-clip)">
-<rect id="fig-144151aaf46e4a2fa744c8fc0d9d8b7c-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-144151aaf46e4a2fa744c8fc0d9d8b7c-caption" x="400" y="24">Profile results</text>
-<g id="fig-144151aaf46e4a2fa744c8fc0d9d8b7c-viewport" transform="scale(1)">
+<g id="fig-f503da47db254a8c857bb624f14e81ed-frame" clip-path="url(#fig-f503da47db254a8c857bb624f14e81ed-clip)">
+<rect id="fig-f503da47db254a8c857bb624f14e81ed-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-f503da47db254a8c857bb624f14e81ed-title" x="400" y="24">Profile results</text>
+<g id="fig-f503da47db254a8c857bb624f14e81ed-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -3136,10 +3136,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-144151aaf46e4a2fa744c8fc0d9d8b7c");
+        ProfileSVG.initialize("fig-f503da47db254a8c857bb624f14e81ed");
     });
 } else {
-    ProfileSVG.initialize("fig-144151aaf46e4a2fa744c8fc0d9d8b7c");
+    ProfileSVG.initialize("fig-f503da47db254a8c857bb624f14e81ed");
 }
 ]]></script>
 </svg>
@@ -3149,53 +3149,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-9b193e9b929e47fd96ab1f31255c73f8">
+     xmlns="http://www.w3.org/2000/svg" id="fig-9d7f83a2fba043a2b92ffc3fcacab7b1">
 <defs>
-    <clipPath id="fig-9b193e9b929e47fd96ab1f31255c73f8-clip">
+    <clipPath id="fig-9d7f83a2fba043a2b92ffc3fcacab7b1-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-9b193e9b929e47fd96ab1f31255c73f8 text {
+    #fig-9d7f83a2fba043a2b92ffc3fcacab7b1 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-9b193e9b929e47fd96ab1f31255c73f8-caption {
+    text#fig-9d7f83a2fba043a2b92ffc3fcacab7b1-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-9b193e9b929e47fd96ab1f31255c73f8-bg {
+    #fig-9d7f83a2fba043a2b92ffc3fcacab7b1-bg {
         fill: #FFFFFF;
     }
-    #fig-9b193e9b929e47fd96ab1f31255c73f8-viewport rect, #fig-9b193e9b929e47fd96ab1f31255c73f8-viewport path {
+    #fig-9d7f83a2fba043a2b92ffc3fcacab7b1-viewport rect, #fig-9d7f83a2fba043a2b92ffc3fcacab7b1-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-9b193e9b929e47fd96ab1f31255c73f8-viewport text {
+    #fig-9d7f83a2fba043a2b92ffc3fcacab7b1-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-9b193e9b929e47fd96ab1f31255c73f8-viewport rect:hover, #fig-9b193e9b929e47fd96ab1f31255c73f8-viewport path:hover {
+    #fig-9d7f83a2fba043a2b92ffc3fcacab7b1-viewport rect:hover, #fig-9d7f83a2fba043a2b92ffc3fcacab7b1-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-9b193e9b929e47fd96ab1f31255c73f8-viewport + rect {
+    #fig-9d7f83a2fba043a2b92ffc3fcacab7b1-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-9b193e9b929e47fd96ab1f31255c73f8-details{
+    text#fig-9d7f83a2fba043a2b92ffc3fcacab7b1-details{
         fill: #000000;
     }
 </style>
-<g id="fig-9b193e9b929e47fd96ab1f31255c73f8-frame" clip-path="url(#fig-9b193e9b929e47fd96ab1f31255c73f8-clip)">
-<rect id="fig-9b193e9b929e47fd96ab1f31255c73f8-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-9b193e9b929e47fd96ab1f31255c73f8-caption" x="400" y="24">Profile results</text>
-<g id="fig-9b193e9b929e47fd96ab1f31255c73f8-viewport" transform="scale(1)" data-xstep="32.666666666666664" data-tunit="ticks" data-delay="0.001">
+<g id="fig-9d7f83a2fba043a2b92ffc3fcacab7b1-frame" clip-path="url(#fig-9d7f83a2fba043a2b92ffc3fcacab7b1-clip)">
+<rect id="fig-9d7f83a2fba043a2b92ffc3fcacab7b1-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-9d7f83a2fba043a2b92ffc3fcacab7b1-title" x="400" y="24">Profile results</text>
+<g id="fig-9d7f83a2fba043a2b92ffc3fcacab7b1-viewport" transform="scale(1)" data-xstep="32.666666666666664" data-tunit="ticks" data-delay="0.001">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -3671,10 +3671,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-9b193e9b929e47fd96ab1f31255c73f8");
+        ProfileSVG.initialize("fig-9d7f83a2fba043a2b92ffc3fcacab7b1");
     });
 } else {
-    ProfileSVG.initialize("fig-9b193e9b929e47fd96ab1f31255c73f8");
+    ProfileSVG.initialize("fig-9d7f83a2fba043a2b92ffc3fcacab7b1");
 }
 ]]></script>
 </svg>
@@ -3685,53 +3685,53 @@ ProfileSVG.view(timeunit=:ms)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-4bc31d60884e4a1fb2e4e119ab7d32b2">
+     xmlns="http://www.w3.org/2000/svg" id="fig-ace486bc9b9149289fa05e052c5b4c6d">
 <defs>
-    <clipPath id="fig-4bc31d60884e4a1fb2e4e119ab7d32b2-clip">
+    <clipPath id="fig-ace486bc9b9149289fa05e052c5b4c6d-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-4bc31d60884e4a1fb2e4e119ab7d32b2 text {
+    #fig-ace486bc9b9149289fa05e052c5b4c6d text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-4bc31d60884e4a1fb2e4e119ab7d32b2-caption {
+    text#fig-ace486bc9b9149289fa05e052c5b4c6d-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-4bc31d60884e4a1fb2e4e119ab7d32b2-bg {
+    #fig-ace486bc9b9149289fa05e052c5b4c6d-bg {
         fill: #FFFFFF;
     }
-    #fig-4bc31d60884e4a1fb2e4e119ab7d32b2-viewport rect, #fig-4bc31d60884e4a1fb2e4e119ab7d32b2-viewport path {
+    #fig-ace486bc9b9149289fa05e052c5b4c6d-viewport rect, #fig-ace486bc9b9149289fa05e052c5b4c6d-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-4bc31d60884e4a1fb2e4e119ab7d32b2-viewport text {
+    #fig-ace486bc9b9149289fa05e052c5b4c6d-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-4bc31d60884e4a1fb2e4e119ab7d32b2-viewport rect:hover, #fig-4bc31d60884e4a1fb2e4e119ab7d32b2-viewport path:hover {
+    #fig-ace486bc9b9149289fa05e052c5b4c6d-viewport rect:hover, #fig-ace486bc9b9149289fa05e052c5b4c6d-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-4bc31d60884e4a1fb2e4e119ab7d32b2-viewport + rect {
+    #fig-ace486bc9b9149289fa05e052c5b4c6d-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-4bc31d60884e4a1fb2e4e119ab7d32b2-details{
+    text#fig-ace486bc9b9149289fa05e052c5b4c6d-details{
         fill: #000000;
     }
 </style>
-<g id="fig-4bc31d60884e4a1fb2e4e119ab7d32b2-frame" clip-path="url(#fig-4bc31d60884e4a1fb2e4e119ab7d32b2-clip)">
-<rect id="fig-4bc31d60884e4a1fb2e4e119ab7d32b2-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-4bc31d60884e4a1fb2e4e119ab7d32b2-caption" x="400" y="24">Profile results</text>
-<g id="fig-4bc31d60884e4a1fb2e4e119ab7d32b2-viewport" transform="scale(1)" data-xstep="32.666666666666664" data-tunit="ms" data-delay="0.0001">
+<g id="fig-ace486bc9b9149289fa05e052c5b4c6d-frame" clip-path="url(#fig-ace486bc9b9149289fa05e052c5b4c6d-clip)">
+<rect id="fig-ace486bc9b9149289fa05e052c5b4c6d-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-ace486bc9b9149289fa05e052c5b4c6d-title" x="400" y="24">Profile results</text>
+<g id="fig-ace486bc9b9149289fa05e052c5b4c6d-viewport" transform="scale(1)" data-xstep="32.666666666666664" data-tunit="ms" data-delay="0.0001">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -4207,10 +4207,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-4bc31d60884e4a1fb2e4e119ab7d32b2");
+        ProfileSVG.initialize("fig-ace486bc9b9149289fa05e052c5b4c6d");
     });
 } else {
-    ProfileSVG.initialize("fig-4bc31d60884e4a1fb2e4e119ab7d32b2");
+    ProfileSVG.initialize("fig-ace486bc9b9149289fa05e052c5b4c6d");
 }
 ]]></script>
 </svg>
@@ -4220,53 +4220,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-a457147c8ff142a2bc19799f32fd3e89">
+     xmlns="http://www.w3.org/2000/svg" id="fig-dda1a279b92a40398b98b9042839166b">
 <defs>
-    <clipPath id="fig-a457147c8ff142a2bc19799f32fd3e89-clip">
+    <clipPath id="fig-dda1a279b92a40398b98b9042839166b-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-a457147c8ff142a2bc19799f32fd3e89 text {
+    #fig-dda1a279b92a40398b98b9042839166b text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-a457147c8ff142a2bc19799f32fd3e89-caption {
+    text#fig-dda1a279b92a40398b98b9042839166b-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-a457147c8ff142a2bc19799f32fd3e89-bg {
+    #fig-dda1a279b92a40398b98b9042839166b-bg {
         fill: #FFFFFF;
     }
-    #fig-a457147c8ff142a2bc19799f32fd3e89-viewport rect, #fig-a457147c8ff142a2bc19799f32fd3e89-viewport path {
+    #fig-dda1a279b92a40398b98b9042839166b-viewport rect, #fig-dda1a279b92a40398b98b9042839166b-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-a457147c8ff142a2bc19799f32fd3e89-viewport text {
+    #fig-dda1a279b92a40398b98b9042839166b-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-a457147c8ff142a2bc19799f32fd3e89-viewport rect:hover, #fig-a457147c8ff142a2bc19799f32fd3e89-viewport path:hover {
+    #fig-dda1a279b92a40398b98b9042839166b-viewport rect:hover, #fig-dda1a279b92a40398b98b9042839166b-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-a457147c8ff142a2bc19799f32fd3e89-viewport + rect {
+    #fig-dda1a279b92a40398b98b9042839166b-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-a457147c8ff142a2bc19799f32fd3e89-details{
+    text#fig-dda1a279b92a40398b98b9042839166b-details{
         fill: #000000;
     }
 </style>
-<g id="fig-a457147c8ff142a2bc19799f32fd3e89-frame" clip-path="url(#fig-a457147c8ff142a2bc19799f32fd3e89-clip)">
-<rect id="fig-a457147c8ff142a2bc19799f32fd3e89-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-a457147c8ff142a2bc19799f32fd3e89-caption" x="400" y="24">Profile results</text>
-<g id="fig-a457147c8ff142a2bc19799f32fd3e89-viewport" transform="scale(1)" data-xstep="32.666666666666664" data-tunit="μs" data-delay="0.0003">
+<g id="fig-dda1a279b92a40398b98b9042839166b-frame" clip-path="url(#fig-dda1a279b92a40398b98b9042839166b-clip)">
+<rect id="fig-dda1a279b92a40398b98b9042839166b-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-dda1a279b92a40398b98b9042839166b-title" x="400" y="24">Profile results</text>
+<g id="fig-dda1a279b92a40398b98b9042839166b-viewport" transform="scale(1)" data-xstep="32.666666666666664" data-tunit="μs" data-delay="0.0003">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -4742,67 +4742,68 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-a457147c8ff142a2bc19799f32fd3e89");
+        ProfileSVG.initialize("fig-dda1a279b92a40398b98b9042839166b");
     });
 } else {
-    ProfileSVG.initialize("fig-a457147c8ff142a2bc19799f32fd3e89");
+    ProfileSVG.initialize("fig-dda1a279b92a40398b98b9042839166b");
 }
 ]]></script>
 </svg>
 </body>
 </html>
-<div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The physical time displayed is an approximate value, and does not generally match the measurement time by <code>@time</code> etc. The discrepancies may also occur if the profiling environment and the viewing environment are different.</p></div></div><h2 id="Setting-options-as-default"><a class="docs-heading-anchor" href="#Setting-options-as-default">Setting options as default</a><a id="Setting-options-as-default-1"></a><a class="docs-heading-anchor-permalink" href="#Setting-options-as-default" title="Permalink"></a></h2><p>You can specify the default values for options with <a href="../reference/#ProfileSVG.set_default"><code>ProfileSVG.set_default</code></a>.</p><p>You can also reset the settings with <a href="../reference/#ProfileSVG.init"><code>ProfileSVG.init</code></a>.</p><pre><code class="language-julia hljs">ProfileSVG.set_default(StackFrameCategory(), roundradius=0, font=&quot;system-ui&quot;, fontsize=8)
+<div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The physical time displayed is an approximate value, and does not generally match the measurement time by <code>@time</code> etc. The discrepancies may also occur if the profiling environment and the viewing environment are different.</p></div></div><h2 id="title"><a class="docs-heading-anchor" href="#title"><code>title</code></a><a id="title-1"></a><a class="docs-heading-anchor-permalink" href="#title" title="Permalink"></a></h2><p>The <code>title</code> option specifies the title (caption) of the graph.</p><h2 id="Setting-options-as-default"><a class="docs-heading-anchor" href="#Setting-options-as-default">Setting options as default</a><a id="Setting-options-as-default-1"></a><a class="docs-heading-anchor-permalink" href="#Setting-options-as-default" title="Permalink"></a></h2><p>You can specify the default values for options with <a href="../reference/#ProfileSVG.set_default"><code>ProfileSVG.set_default</code></a>.</p><p>You can also reset the settings with <a href="../reference/#ProfileSVG.init"><code>ProfileSVG.init</code></a>.</p><pre><code class="language-julia hljs">ProfileSVG.set_default(StackFrameCategory(), roundradius=0, title=&quot;&lt;default&gt;&quot;,
+                       font=&quot;system-ui&quot;, fontsize=8)
 ProfileSVG.view(width=300)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="300" height="208" viewBox="0 0 300 208"
-     xmlns="http://www.w3.org/2000/svg" id="fig-dcfd44e88f134a6999000eea38d64a82">
+     xmlns="http://www.w3.org/2000/svg" id="fig-b6cf322e38074840930c84d8cc0b4c29">
 <defs>
-    <clipPath id="fig-dcfd44e88f134a6999000eea38d64a82-clip">
+    <clipPath id="fig-b6cf322e38074840930c84d8cc0b4c29-clip">
         <rect x="0" y="0" width="300" height="208"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-dcfd44e88f134a6999000eea38d64a82 text {
+    #fig-b6cf322e38074840930c84d8cc0b4c29 text {
         pointer-events: none;
         font-family: system-ui;
         font-size: 8px;
         fill: #000000;
     }
-    text#fig-dcfd44e88f134a6999000eea38d64a82-caption {
+    text#fig-b6cf322e38074840930c84d8cc0b4c29-title {
         font-size: 11.2px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-dcfd44e88f134a6999000eea38d64a82-bg {
+    #fig-b6cf322e38074840930c84d8cc0b4c29-bg {
         fill: #FFFFFF;
     }
-    #fig-dcfd44e88f134a6999000eea38d64a82-viewport rect, #fig-dcfd44e88f134a6999000eea38d64a82-viewport path {
+    #fig-b6cf322e38074840930c84d8cc0b4c29-viewport rect, #fig-b6cf322e38074840930c84d8cc0b4c29-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-dcfd44e88f134a6999000eea38d64a82-viewport text {
+    #fig-b6cf322e38074840930c84d8cc0b4c29-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-dcfd44e88f134a6999000eea38d64a82-viewport rect:hover, #fig-dcfd44e88f134a6999000eea38d64a82-viewport path:hover {
+    #fig-b6cf322e38074840930c84d8cc0b4c29-viewport rect:hover, #fig-b6cf322e38074840930c84d8cc0b4c29-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-dcfd44e88f134a6999000eea38d64a82-viewport + rect {
+    #fig-b6cf322e38074840930c84d8cc0b4c29-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-dcfd44e88f134a6999000eea38d64a82-details{
+    text#fig-b6cf322e38074840930c84d8cc0b4c29-details{
         fill: #000000;
     }
 </style>
-<g id="fig-dcfd44e88f134a6999000eea38d64a82-frame" clip-path="url(#fig-dcfd44e88f134a6999000eea38d64a82-clip)">
-<rect id="fig-dcfd44e88f134a6999000eea38d64a82-bg" x="0" y="0" width="300" height="208"/>
-<text id="fig-dcfd44e88f134a6999000eea38d64a82-caption" x="150" y="16">Profile results</text>
-<g id="fig-dcfd44e88f134a6999000eea38d64a82-viewport" transform="scale(1)">
+<g id="fig-b6cf322e38074840930c84d8cc0b4c29-frame" clip-path="url(#fig-b6cf322e38074840930c84d8cc0b4c29-clip)">
+<rect id="fig-b6cf322e38074840930c84d8cc0b4c29-bg" x="0" y="0" width="300" height="208"/>
+<text id="fig-b6cf322e38074840930c84d8cc0b4c29-title" x="150" y="16">&lt;default&gt;</text>
+<g id="fig-b6cf322e38074840930c84d8cc0b4c29-viewport" transform="scale(1)">
 <path d="M3,174v10h294v-10z" fill="#FFA500" data-dinfo=""/>
 <text x="3" dx="4" y="181.5"> in :-1</text>
 <path d="M3,164v10h294v-10z" fill="#4D4D4D" data-dinfo=".\"/>
@@ -5278,13 +5279,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-dcfd44e88f134a6999000eea38d64a82");
+        ProfileSVG.initialize("fig-b6cf322e38074840930c84d8cc0b4c29");
     });
 } else {
-    ProfileSVG.initialize("fig-dcfd44e88f134a6999000eea38d64a82");
+    ProfileSVG.initialize("fig-b6cf322e38074840930c84d8cc0b4c29");
 }
 ]]></script>
 </svg>
 </body>
 </html>
-</article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../coloration-schemes/">« Coloration Schemes</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Monday 18 March 2024 19:48">Monday 18 March 2024</span>. Using Julia version 1.10.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../coloration-schemes/">« Coloration Schemes</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Monday 18 March 2024 20:57">Monday 18 March 2024</span>. Using Julia version 1.10.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
