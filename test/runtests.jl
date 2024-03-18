@@ -22,7 +22,7 @@ lidict = Dict{UInt64,StackFrame}(1=>stackframe(:f1, :file1, 1),
                                  2=>stackframe(:jl_f, :filec, 55; C=true),
                                  3=>stackframe(:jl_invoke, :file2, 1; C=true),
                                  4=>stackframe(:_ZL, Symbol("libLLVM-8.0.so"), 15),
-                                 5=>stackframe(:f4, :file1, 20),
+                                 5=>stackframe(Symbol(">"), :file1, 20),
                                  6=>stackframe(:copy, Symbol(".\\expr.jl"), 1),
                                  7=>stackframe(:f1, :file1, 2),
                                  8=>stackframe(:typeinf, Symbol("./compiler/typeinfer.jl"), 10))
@@ -347,6 +347,7 @@ end
     show(io, "text/html", fg)
     str = String(take!(io))
     @test occursin(r"<html>.+(?=</html>)"s, str)
+    @test occursin(">&gt; in file1:20</text>", str)
 end
 
 @testset "set_default" begin
