@@ -1,78 +1,84 @@
 name: CI
 on:
-  - push
-  - pull_request
-
-# needed to allow julia-actions/cache to delete old caches that it has created
-permissions:
-  actions: write
-  contents: read
-
+  push:
+    branches:
+      - master
+    tags: ['*']
+  pull_request:
+  workflow_dispatch:
+concurrency:
+  # Skip intermediate builds: always.
+  # Cancel intermediate builds: only if it is a pull request build.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 jobs:
   test:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    permissions: # needed to allow julia-actions/cache to proactively delete old caches that it has created
+      actions: write
+      contents: read
     strategy:
+      fail-fast: false
       matrix:
         version:
           - '1.6'
+          - '1.10'
           - '1'
           - 'nightly'
         os:
           - ubuntu-latest
           - windows-latest
-          - macos-latest
+          - macos-15-intel
         arch:
           - x64
         include:
           - os: ubuntu-latest
             version: '1'
             arch: x86
+          - os: macos-latest
+            version: '1.10'
+            arch: aarch64
+          - os: macos-latest
+            version: '1'
+            arch: aarch64
+          - os: macos-latest
+            version: 'nightly'
+            arch: aarch64
     steps:
       - name: Install librsvg2-bin
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get install librsvg2-bin
-      - uses: actions/checkout@v4
-      - uses: julia-actions/setup-julia@v1
+      - uses: actions/checkout@v7
+      - uses: julia-actions/setup-julia@v3
         with:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
           show-versioninfo: true
-      - uses: actions/cache@v1
-        env:
-          cache-name: cache-artifacts
-        with:
-          path: ~/.julia/artifacts
-          key: ${{ runner.os }}-test-${{ env.cache-name }}-${{ hashFiles('**/Project.toml') }}
-          restore-keys: |
-            ${{ runner.os }}-test-${{ env.cache-name }}-
-            ${{ runner.os }}-test-
-            ${{ runner.os }}-
+      - uses: julia-actions/cache@v3
       - uses: julia-actions/julia-buildpkg@v1
-      - uses: julia-actions/julia-runtest@latest
+      - uses: julia-actions/julia-runtest@v1
       - uses: julia-actions/julia-processcoverage@v1
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v6
         with:
           file: lcov.info
           token: ${{ secrets.CODECOV_TOKEN }}
-
+          fail_ci_if_error: false
   docs:
     name: Documentation
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       statuses: write
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: julia-actions/setup-julia@v1
+      - uses: actions/checkout@v7
+      - uses: julia-actions/setup-julia@v3
         with:
           version: '1'
-      - run: |
-          julia --project=docs -e '
-            using Pkg
-            Pkg.develop(PackageSpec(path=pwd()))
-            Pkg.instantiate()'
-      - run: julia --project=docs --color=yes docs/make.jl
+      - uses: julia-actions/cache@v3
+      - uses: julia-actions/julia-buildpkg@v1
+      - uses: julia-actions/julia-docdeploy@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
