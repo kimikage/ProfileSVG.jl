@@ -1,56 +1,57 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Coloration Schemes · ProfileSVG</title><meta name="title" content="Coloration Schemes · ProfileSVG"/><meta property="og:title" content="Coloration Schemes · ProfileSVG"/><meta property="twitter:title" content="Coloration Schemes · ProfileSVG"/><meta name="description" content="Documentation for ProfileSVG."/><meta property="og:description" content="Documentation for ProfileSVG."/><meta property="twitter:description" content="Documentation for ProfileSVG."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">ProfileSVG</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li class="is-active"><a class="tocitem" href>Coloration Schemes</a><ul class="internal"><li><a class="tocitem" href="#Default-scheme"><span>Default scheme</span></a></li><li><a class="tocitem" href="#Stack-frame-category"><span>Stack frame category</span></a></li><li><a class="tocitem" href="#bgcolor-and-fontcolor-options"><span><code>bgcolor</code> and <code>fontcolor</code> options</span></a></li><li><a class="tocitem" href="#frameopacity-option"><span><code>frameopacity</code> option</span></a></li></ul></li><li><a class="tocitem" href="../other-options/">Other Options</a></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Coloration Schemes</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Coloration Schemes</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/kimikage/ProfileSVG.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/coloration-schemes.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Coloration-Schemes"><a class="docs-heading-anchor" href="#Coloration-Schemes">Coloration Schemes</a><a id="Coloration-Schemes-1"></a><a class="docs-heading-anchor-permalink" href="#Coloration-Schemes" title="Permalink"></a></h1><p>The output color of ProfileSVG can be customized with the functions provided by the <a href="https://timholy.github.io/FlameGraphs.jl/stable/"><code>FlameGraphs</code></a> package. See the <a href="https://timholy.github.io/FlameGraphs.jl/stable/#Rendering-a-flame-graph-1">FlameGraphs docmentation</a> for details.</p><h2 id="Default-scheme"><a class="docs-heading-anchor" href="#Default-scheme">Default scheme</a><a id="Default-scheme-1"></a><a class="docs-heading-anchor-permalink" href="#Default-scheme" title="Permalink"></a></h2><pre><code class="language-julia hljs">ProfileSVG.view()</code></pre><p>or</p><pre><code class="language-julia hljs">using FlameGraphs
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Coloration Schemes · ProfileSVG</title><meta name="title" content="Coloration Schemes · ProfileSVG"/><meta property="og:title" content="Coloration Schemes · ProfileSVG"/><meta property="twitter:title" content="Coloration Schemes · ProfileSVG"/><meta name="description" content="Documentation for ProfileSVG."/><meta property="og:description" content="Documentation for ProfileSVG."/><meta property="twitter:description" content="Documentation for ProfileSVG."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.63.2/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/profilesvg.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">ProfileSVG</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li class="is-active"><a class="tocitem" href>Coloration Schemes</a><ul class="internal"><li><a class="tocitem" href="#Default-scheme"><span>Default scheme</span></a></li><li><a class="tocitem" href="#Stack-frame-category"><span>Stack frame category</span></a></li><li><a class="tocitem" href="#bgcolor-and-fontcolor-options"><span><code>bgcolor</code> and <code>fontcolor</code> options</span></a></li><li><a class="tocitem" href="#frameopacity-option"><span><code>frameopacity</code> option</span></a></li></ul></li><li><a class="tocitem" href="../other-options/">Other Options</a></li><li><a class="tocitem" href="../reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Coloration Schemes</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Coloration Schemes</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/kimikage/ProfileSVG.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/kimikage/ProfileSVG.jl/blob/master/docs/src/coloration-schemes.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Coloration-Schemes"><a class="docs-heading-anchor" href="#Coloration-Schemes">Coloration Schemes</a><a id="Coloration-Schemes-1"></a><a class="docs-heading-anchor-permalink" href="#Coloration-Schemes" title="Permalink"></a></h1><p>The output color of ProfileSVG can be customized with the functions provided by the <a href="https://timholy.github.io/FlameGraphs.jl/stable/"><code>FlameGraphs</code></a> package. See the <a href="https://timholy.github.io/FlameGraphs.jl/stable/#Rendering-a-flame-graph-1">FlameGraphs docmentation</a> for details.</p><h2 id="Default-scheme"><a class="docs-heading-anchor" href="#Default-scheme">Default scheme</a><a id="Default-scheme-1"></a><a class="docs-heading-anchor-permalink" href="#Default-scheme" title="Permalink"></a></h2><pre><code class="language-julia hljs">ProfileSVG.view()</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">warning: address range table at offset 0x3900 has a premature terminator entry at offset 0x4260
+warning: address range table at offset 0x3900 has a premature terminator entry at offset 0x42c0</code></pre><p>or</p><pre><code class="language-julia hljs">using FlameGraphs
 ProfileSVG.view(FlameColors())</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-cec236d3a9754698826caf60aa45f972">
+     xmlns="http://www.w3.org/2000/svg" id="fig-3faedb65499542b6b3772a13b1398e07">
 <defs>
-    <clipPath id="fig-cec236d3a9754698826caf60aa45f972-clip">
+    <clipPath id="fig-3faedb65499542b6b3772a13b1398e07-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-cec236d3a9754698826caf60aa45f972 text {
+    #fig-3faedb65499542b6b3772a13b1398e07 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-cec236d3a9754698826caf60aa45f972-title {
+    text#fig-3faedb65499542b6b3772a13b1398e07-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-cec236d3a9754698826caf60aa45f972-bg {
+    #fig-3faedb65499542b6b3772a13b1398e07-bg {
         fill: #FFFFFF;
     }
-    #fig-cec236d3a9754698826caf60aa45f972-viewport rect, #fig-cec236d3a9754698826caf60aa45f972-viewport path {
+    #fig-3faedb65499542b6b3772a13b1398e07-viewport rect, #fig-3faedb65499542b6b3772a13b1398e07-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-cec236d3a9754698826caf60aa45f972-viewport text {
+    #fig-3faedb65499542b6b3772a13b1398e07-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-cec236d3a9754698826caf60aa45f972-viewport rect:hover, #fig-cec236d3a9754698826caf60aa45f972-viewport path:hover {
+    #fig-3faedb65499542b6b3772a13b1398e07-viewport rect:hover, #fig-3faedb65499542b6b3772a13b1398e07-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-cec236d3a9754698826caf60aa45f972-viewport + rect {
+    #fig-3faedb65499542b6b3772a13b1398e07-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-cec236d3a9754698826caf60aa45f972-details{
+    text#fig-3faedb65499542b6b3772a13b1398e07-details{
         fill: #000000;
     }
 </style>
-<g id="fig-cec236d3a9754698826caf60aa45f972-frame" clip-path="url(#fig-cec236d3a9754698826caf60aa45f972-clip)">
-<rect id="fig-cec236d3a9754698826caf60aa45f972-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-cec236d3a9754698826caf60aa45f972-title" x="400" y="24">Profile results</text>
-<g id="fig-cec236d3a9754698826caf60aa45f972-viewport" transform="scale(1)">
+<g id="fig-3faedb65499542b6b3772a13b1398e07-frame" clip-path="url(#fig-3faedb65499542b6b3772a13b1398e07-clip)">
+<rect id="fig-3faedb65499542b6b3772a13b1398e07-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-3faedb65499542b6b3772a13b1398e07-title" x="400" y="24">Profile results</text>
+<g id="fig-3faedb65499542b6b3772a13b1398e07-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -526,10 +527,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-cec236d3a9754698826caf60aa45f972");
+        ProfileSVG.initialize("fig-3faedb65499542b6b3772a13b1398e07");
     });
 } else {
-    ProfileSVG.initialize("fig-cec236d3a9754698826caf60aa45f972");
+    ProfileSVG.initialize("fig-3faedb65499542b6b3772a13b1398e07");
 }
 ]]></script>
 </svg>
@@ -540,53 +541,53 @@ ProfileSVG.view(StackFrameCategory())</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-e67e917818ec41a2b0880c0640369dd8">
+     xmlns="http://www.w3.org/2000/svg" id="fig-63a9d96caf6a42eea3ed0e3c6d9f80e8">
 <defs>
-    <clipPath id="fig-e67e917818ec41a2b0880c0640369dd8-clip">
+    <clipPath id="fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-e67e917818ec41a2b0880c0640369dd8 text {
+    #fig-63a9d96caf6a42eea3ed0e3c6d9f80e8 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #000000;
     }
-    text#fig-e67e917818ec41a2b0880c0640369dd8-title {
+    text#fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-title {
         font-size: 16.8px;
         fill: #000000;
         text-anchor: middle;
     }
-    #fig-e67e917818ec41a2b0880c0640369dd8-bg {
+    #fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-bg {
         fill: #FFFFFF;
     }
-    #fig-e67e917818ec41a2b0880c0640369dd8-viewport rect, #fig-e67e917818ec41a2b0880c0640369dd8-viewport path {
+    #fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-viewport rect, #fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-e67e917818ec41a2b0880c0640369dd8-viewport text {
+    #fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-viewport text {
         stroke: #000000;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-e67e917818ec41a2b0880c0640369dd8-viewport rect:hover, #fig-e67e917818ec41a2b0880c0640369dd8-viewport path:hover {
+    #fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-viewport rect:hover, #fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #000000;
         stroke-width: 0.5;
     }
-    #fig-e67e917818ec41a2b0880c0640369dd8-viewport + rect {
+    #fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-viewport + rect {
         fill: #FFFFFF;
         opacity: 0.8;
     }
-    text#fig-e67e917818ec41a2b0880c0640369dd8-details{
+    text#fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-details{
         fill: #000000;
     }
 </style>
-<g id="fig-e67e917818ec41a2b0880c0640369dd8-frame" clip-path="url(#fig-e67e917818ec41a2b0880c0640369dd8-clip)">
-<rect id="fig-e67e917818ec41a2b0880c0640369dd8-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-e67e917818ec41a2b0880c0640369dd8-title" x="400" y="24">Profile results</text>
-<g id="fig-e67e917818ec41a2b0880c0640369dd8-viewport" transform="scale(1)">
+<g id="fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-frame" clip-path="url(#fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-clip)">
+<rect id="fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-title" x="400" y="24">Profile results</text>
+<g id="fig-63a9d96caf6a42eea3ed0e3c6d9f80e8-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#FFA500" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#4D4D4D" data-dinfo=".\"/>
@@ -1062,69 +1063,69 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-e67e917818ec41a2b0880c0640369dd8");
+        ProfileSVG.initialize("fig-63a9d96caf6a42eea3ed0e3c6d9f80e8");
     });
 } else {
-    ProfileSVG.initialize("fig-e67e917818ec41a2b0880c0640369dd8");
+    ProfileSVG.initialize("fig-63a9d96caf6a42eea3ed0e3c6d9f80e8");
 }
 ]]></script>
 </svg>
 </body>
 </html>
-<p>In the default <code>StackFrameCategory</code> scheme, &quot;gray&quot; indicates time spent in <code>Core.Compiler</code> (mostly inference), &quot;dark gray&quot; in other <code>Core</code>, &quot;yellow&quot; in LLVM, &quot;orange&quot; in other <code>ccalls</code>, &quot;light blue&quot; in <code>Base</code>, and &quot;red&quot; is uncategorized (mostly package code).</p><h2 id="bgcolor-and-fontcolor-options"><a class="docs-heading-anchor" href="#bgcolor-and-fontcolor-options"><code>bgcolor</code> and <code>fontcolor</code> options</a><a id="bgcolor-and-fontcolor-options-1"></a><a class="docs-heading-anchor-permalink" href="#bgcolor-and-fontcolor-options" title="Permalink"></a></h2><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><p>The <code>bgcolor</code> option specifies the background color style and the <code>fontcolor</code> option specifies the font color style.</p><p>One of the following symbols is available for <code>bgcolor</code>:</p><ul><li><code>:fcolor</code><ul><li><code>fcolor(:bg)</code> (default)</li></ul></li><li><code>:classic</code><ul><li>pale color gradation which comes from the original <a href="http://www.brendangregg.com/flamegraphs.html">Flame Graphs</a></li></ul></li><li><code>:transparent</code><ul><li>fully transparent</li></ul></li></ul><p>One of the following symbols is available for <code>fontcolor</code>:</p><ul><li><code>:fcolor</code><ul><li><code>fcolor(:font)</code> (default)</li></ul></li><li><code>:classic</code><ul><li>black</li></ul></li><li><code>:currentcolor</code><ul><li>the <a href="https://www.w3.org/TR/css-color-3/#currentcolor"><code>currentcolor</code></a> CSS keyword</li></ul></li><li><code>:bw</code><ul><li>black or white depending on the frame color</li></ul></li></ul><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>You cannot specify a <code>Color</code> or a color name directly to <code>bgcolor</code> or <code>fontcolor</code>. The <code>colorbg</code> and <code>colorfont</code> options of <code>FlameGraphs.FlameColors</code> and <code>FlameGraphs.StackFrameCategory</code> are available.</p></div></div><h3 id=":fcolor-(default)"><a class="docs-heading-anchor" href="#:fcolor-(default)"><code>:fcolor</code> (default)</a><a id=":fcolor-(default)-1"></a><a class="docs-heading-anchor-permalink" href="#:fcolor-(default)" title="Permalink"></a></h3><pre><code class="language-julia hljs">using FlameGraphs, Colors
+<p>In the default <code>StackFrameCategory</code> scheme, &quot;gray&quot; indicates time spent in <code>Core.Compiler</code> (mostly inference), &quot;dark gray&quot; in other <code>Core</code>, &quot;yellow&quot; in LLVM, &quot;orange&quot; in other <code>ccalls</code>, &quot;light blue&quot; in <code>Base</code>, and &quot;red&quot; is uncategorized (mostly package code).</p><h2 id="bgcolor-and-fontcolor-options"><a class="docs-heading-anchor" href="#bgcolor-and-fontcolor-options"><code>bgcolor</code> and <code>fontcolor</code> options</a><a id="bgcolor-and-fontcolor-options-1"></a><a class="docs-heading-anchor-permalink" href="#bgcolor-and-fontcolor-options" title="Permalink"></a></h2><p><a href="../reference/#ProfileSVG.view"><code>ProfileSVG.view</code></a> and <a href="../reference/#ProfileSVG.save"><code>ProfileSVG.save</code></a> have optional keyword arguments for specifying the SVG styles.</p><p>The <code>bgcolor</code> option specifies the background color style and the <code>fontcolor</code> option specifies the font color style.</p><p>One of the following symbols is available for <code>bgcolor</code>:</p><ul><li><code>:fcolor</code><ul><li><code>fcolor(:bg)</code> (default)</li></ul></li><li><code>:classic</code><ul><li>pale color gradation which comes from the original <a href="http://www.brendangregg.com/flamegraphs.html">Flame Graphs</a></li></ul></li><li><code>:transparent</code><ul><li>fully transparent</li></ul></li></ul><p>One of the following symbols is available for <code>fontcolor</code>:</p><ul><li><code>:fcolor</code><ul><li><code>fcolor(:font)</code> (default)</li></ul></li><li><code>:classic</code><ul><li>black</li></ul></li><li><code>:currentcolor</code><ul><li>the <a href="https://www.w3.org/TR/css-color-3/#currentcolor"><code>currentcolor</code></a> CSS keyword</li></ul></li><li><code>:bw</code><ul><li>black or white depending on the frame color</li></ul></li></ul><div class="admonition is-info" id="Info-c9a379c2d5a02a13"><header class="admonition-header">Info<a class="admonition-anchor" href="#Info-c9a379c2d5a02a13" title="Permalink"></a></header><div class="admonition-body"><p>You cannot specify a <code>Color</code> or a color name directly to <code>bgcolor</code> or <code>fontcolor</code>. The <code>colorbg</code> and <code>colorfont</code> options of <code>FlameGraphs.FlameColors</code> and <code>FlameGraphs.StackFrameCategory</code> are available.</p></div></div><h3 id=":fcolor-(default)"><a class="docs-heading-anchor" href="#:fcolor-(default)"><code>:fcolor</code> (default)</a><a id=":fcolor-(default)-1"></a><a class="docs-heading-anchor-permalink" href="#:fcolor-(default)" title="Permalink"></a></h3><pre><code class="language-julia hljs">using FlameGraphs, Colors
 fcolor = FlameColors(colorbg=colorant&quot;steelblue&quot;, colorfont=colorant&quot;lightyellow&quot;)
 
 ProfileSVG.view(fcolor)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-c3dd874fb4ca4fbc95c67a5f3113b65d">
+     xmlns="http://www.w3.org/2000/svg" id="fig-751eabf016e849f1887ad64924d898fe">
 <defs>
-    <clipPath id="fig-c3dd874fb4ca4fbc95c67a5f3113b65d-clip">
+    <clipPath id="fig-751eabf016e849f1887ad64924d898fe-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-c3dd874fb4ca4fbc95c67a5f3113b65d text {
+    #fig-751eabf016e849f1887ad64924d898fe text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: #FFFFE0;
     }
-    text#fig-c3dd874fb4ca4fbc95c67a5f3113b65d-title {
+    text#fig-751eabf016e849f1887ad64924d898fe-title {
         font-size: 16.8px;
         fill: #FFFFE0;
         text-anchor: middle;
     }
-    #fig-c3dd874fb4ca4fbc95c67a5f3113b65d-bg {
+    #fig-751eabf016e849f1887ad64924d898fe-bg {
         fill: #4682B4;
     }
-    #fig-c3dd874fb4ca4fbc95c67a5f3113b65d-viewport rect, #fig-c3dd874fb4ca4fbc95c67a5f3113b65d-viewport path {
+    #fig-751eabf016e849f1887ad64924d898fe-viewport rect, #fig-751eabf016e849f1887ad64924d898fe-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-c3dd874fb4ca4fbc95c67a5f3113b65d-viewport text {
+    #fig-751eabf016e849f1887ad64924d898fe-viewport text {
         stroke: #FFFFE0;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-c3dd874fb4ca4fbc95c67a5f3113b65d-viewport rect:hover, #fig-c3dd874fb4ca4fbc95c67a5f3113b65d-viewport path:hover {
+    #fig-751eabf016e849f1887ad64924d898fe-viewport rect:hover, #fig-751eabf016e849f1887ad64924d898fe-viewport path:hover {
         fill-opacity: 0.75;
         stroke: #FFFFE0;
         stroke-width: 0.5;
     }
-    #fig-c3dd874fb4ca4fbc95c67a5f3113b65d-viewport + rect {
+    #fig-751eabf016e849f1887ad64924d898fe-viewport + rect {
         fill: #4682B4;
         opacity: 0.8;
     }
-    text#fig-c3dd874fb4ca4fbc95c67a5f3113b65d-details{
+    text#fig-751eabf016e849f1887ad64924d898fe-details{
         fill: #FFFFE0;
     }
 </style>
-<g id="fig-c3dd874fb4ca4fbc95c67a5f3113b65d-frame" clip-path="url(#fig-c3dd874fb4ca4fbc95c67a5f3113b65d-clip)">
-<rect id="fig-c3dd874fb4ca4fbc95c67a5f3113b65d-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-c3dd874fb4ca4fbc95c67a5f3113b65d-title" x="400" y="24">Profile results</text>
-<g id="fig-c3dd874fb4ca4fbc95c67a5f3113b65d-viewport" transform="scale(1)">
+<g id="fig-751eabf016e849f1887ad64924d898fe-frame" clip-path="url(#fig-751eabf016e849f1887ad64924d898fe-clip)">
+<rect id="fig-751eabf016e849f1887ad64924d898fe-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-751eabf016e849f1887ad64924d898fe-title" x="400" y="24">Profile results</text>
+<g id="fig-751eabf016e849f1887ad64924d898fe-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#8397FA" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#FFA6FB" data-dinfo=".\"/>
@@ -1600,10 +1601,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-c3dd874fb4ca4fbc95c67a5f3113b65d");
+        ProfileSVG.initialize("fig-751eabf016e849f1887ad64924d898fe");
     });
 } else {
-    ProfileSVG.initialize("fig-c3dd874fb4ca4fbc95c67a5f3113b65d");
+    ProfileSVG.initialize("fig-751eabf016e849f1887ad64924d898fe");
 }
 ]]></script>
 </svg>
@@ -1613,57 +1614,57 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-c8744062e8c54e1c9e1bb3e096f1a5fc">
+     xmlns="http://www.w3.org/2000/svg" id="fig-20c6a50c8d2841188efbfcae001036a6">
 <defs>
-    <linearGradient id="fig-c8744062e8c54e1c9e1bb3e096f1a5fc-background" y1="0" y2="1" x1="0" x2="0">
+    <linearGradient id="fig-20c6a50c8d2841188efbfcae001036a6-background" y1="0" y2="1" x1="0" x2="0">
         <stop stop-color="#eeeeee" offset="5%" />
         <stop stop-color="#eeeeb0" offset="95%" />
     </linearGradient>
-    <clipPath id="fig-c8744062e8c54e1c9e1bb3e096f1a5fc-clip">
+    <clipPath id="fig-20c6a50c8d2841188efbfcae001036a6-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-c8744062e8c54e1c9e1bb3e096f1a5fc text {
+    #fig-20c6a50c8d2841188efbfcae001036a6 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: black;
     }
-    text#fig-c8744062e8c54e1c9e1bb3e096f1a5fc-title {
+    text#fig-20c6a50c8d2841188efbfcae001036a6-title {
         font-size: 16.8px;
         fill: black;
         text-anchor: middle;
     }
-    #fig-c8744062e8c54e1c9e1bb3e096f1a5fc-bg {
-        fill: url(#fig-c8744062e8c54e1c9e1bb3e096f1a5fc-background);
+    #fig-20c6a50c8d2841188efbfcae001036a6-bg {
+        fill: url(#fig-20c6a50c8d2841188efbfcae001036a6-background);
     }
-    #fig-c8744062e8c54e1c9e1bb3e096f1a5fc-viewport rect, #fig-c8744062e8c54e1c9e1bb3e096f1a5fc-viewport path {
+    #fig-20c6a50c8d2841188efbfcae001036a6-viewport rect, #fig-20c6a50c8d2841188efbfcae001036a6-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-c8744062e8c54e1c9e1bb3e096f1a5fc-viewport text {
+    #fig-20c6a50c8d2841188efbfcae001036a6-viewport text {
         stroke: black;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-c8744062e8c54e1c9e1bb3e096f1a5fc-viewport rect:hover, #fig-c8744062e8c54e1c9e1bb3e096f1a5fc-viewport path:hover {
+    #fig-20c6a50c8d2841188efbfcae001036a6-viewport rect:hover, #fig-20c6a50c8d2841188efbfcae001036a6-viewport path:hover {
         fill-opacity: 0.75;
         stroke: black;
         stroke-width: 0.5;
     }
-    #fig-c8744062e8c54e1c9e1bb3e096f1a5fc-viewport + rect {
+    #fig-20c6a50c8d2841188efbfcae001036a6-viewport + rect {
         fill: white;
         opacity: 0.8;
     }
-    text#fig-c8744062e8c54e1c9e1bb3e096f1a5fc-details{
+    text#fig-20c6a50c8d2841188efbfcae001036a6-details{
         fill: black;
     }
 </style>
-<g id="fig-c8744062e8c54e1c9e1bb3e096f1a5fc-frame" clip-path="url(#fig-c8744062e8c54e1c9e1bb3e096f1a5fc-clip)">
-<rect id="fig-c8744062e8c54e1c9e1bb3e096f1a5fc-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-c8744062e8c54e1c9e1bb3e096f1a5fc-title" x="400" y="24">Profile results</text>
-<g id="fig-c8744062e8c54e1c9e1bb3e096f1a5fc-viewport" transform="scale(1)">
+<g id="fig-20c6a50c8d2841188efbfcae001036a6-frame" clip-path="url(#fig-20c6a50c8d2841188efbfcae001036a6-clip)">
+<rect id="fig-20c6a50c8d2841188efbfcae001036a6-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-20c6a50c8d2841188efbfcae001036a6-title" x="400" y="24">Profile results</text>
+<g id="fig-20c6a50c8d2841188efbfcae001036a6-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -2139,10 +2140,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-c8744062e8c54e1c9e1bb3e096f1a5fc");
+        ProfileSVG.initialize("fig-20c6a50c8d2841188efbfcae001036a6");
     });
 } else {
-    ProfileSVG.initialize("fig-c8744062e8c54e1c9e1bb3e096f1a5fc");
+    ProfileSVG.initialize("fig-20c6a50c8d2841188efbfcae001036a6");
 }
 ]]></script>
 </svg>
@@ -2152,53 +2153,53 @@ if (typeof require === 'function' && define.amd) {
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-db0df34a8c1f42a19d955721f62c4885">
+     xmlns="http://www.w3.org/2000/svg" id="fig-623c9ec29568450db3165c0fc99f78e8">
 <defs>
-    <clipPath id="fig-db0df34a8c1f42a19d955721f62c4885-clip">
+    <clipPath id="fig-623c9ec29568450db3165c0fc99f78e8-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-db0df34a8c1f42a19d955721f62c4885 text {
+    #fig-623c9ec29568450db3165c0fc99f78e8 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: currentcolor;
     }
-    text#fig-db0df34a8c1f42a19d955721f62c4885-title {
+    text#fig-623c9ec29568450db3165c0fc99f78e8-title {
         font-size: 16.8px;
         fill: currentcolor;
         text-anchor: middle;
     }
-    #fig-db0df34a8c1f42a19d955721f62c4885-bg {
+    #fig-623c9ec29568450db3165c0fc99f78e8-bg {
         fill: transparent;
     }
-    #fig-db0df34a8c1f42a19d955721f62c4885-viewport rect, #fig-db0df34a8c1f42a19d955721f62c4885-viewport path {
+    #fig-623c9ec29568450db3165c0fc99f78e8-viewport rect, #fig-623c9ec29568450db3165c0fc99f78e8-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-db0df34a8c1f42a19d955721f62c4885-viewport text {
+    #fig-623c9ec29568450db3165c0fc99f78e8-viewport text {
         stroke: currentcolor;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-db0df34a8c1f42a19d955721f62c4885-viewport rect:hover, #fig-db0df34a8c1f42a19d955721f62c4885-viewport path:hover {
+    #fig-623c9ec29568450db3165c0fc99f78e8-viewport rect:hover, #fig-623c9ec29568450db3165c0fc99f78e8-viewport path:hover {
         fill-opacity: 0.75;
         stroke: currentcolor;
         stroke-width: 0.5;
     }
-    #fig-db0df34a8c1f42a19d955721f62c4885-viewport + rect {
+    #fig-623c9ec29568450db3165c0fc99f78e8-viewport + rect {
         fill: transparent;
         opacity: 0.8;
     }
-    text#fig-db0df34a8c1f42a19d955721f62c4885-details{
+    text#fig-623c9ec29568450db3165c0fc99f78e8-details{
         fill: currentcolor;
     }
 </style>
-<g id="fig-db0df34a8c1f42a19d955721f62c4885-frame" clip-path="url(#fig-db0df34a8c1f42a19d955721f62c4885-clip)">
-<rect id="fig-db0df34a8c1f42a19d955721f62c4885-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-db0df34a8c1f42a19d955721f62c4885-title" x="400" y="24">Profile results</text>
-<g id="fig-db0df34a8c1f42a19d955721f62c4885-viewport" transform="scale(1)">
+<g id="fig-623c9ec29568450db3165c0fc99f78e8-frame" clip-path="url(#fig-623c9ec29568450db3165c0fc99f78e8-clip)">
+<rect id="fig-623c9ec29568450db3165c0fc99f78e8-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-623c9ec29568450db3165c0fc99f78e8-title" x="400" y="24">Profile results</text>
+<g id="fig-623c9ec29568450db3165c0fc99f78e8-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -2674,10 +2675,10 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-db0df34a8c1f42a19d955721f62c4885");
+        ProfileSVG.initialize("fig-623c9ec29568450db3165c0fc99f78e8");
     });
 } else {
-    ProfileSVG.initialize("fig-db0df34a8c1f42a19d955721f62c4885");
+    ProfileSVG.initialize("fig-623c9ec29568450db3165c0fc99f78e8");
 }
 ]]></script>
 </svg>
@@ -2692,57 +2693,57 @@ ProfileSVG.view(mysfc, fontcolor=:bw)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-c7945033e59c47a089145a9c51d97dbf">
+     xmlns="http://www.w3.org/2000/svg" id="fig-38c189b103ba44a9ad03ba209a373b08">
 <defs>
-    <clipPath id="fig-c7945033e59c47a089145a9c51d97dbf-clip">
+    <clipPath id="fig-38c189b103ba44a9ad03ba209a373b08-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-c7945033e59c47a089145a9c51d97dbf text {
+    #fig-38c189b103ba44a9ad03ba209a373b08 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: black;
     }
-    text#fig-c7945033e59c47a089145a9c51d97dbf-title {
+    text#fig-38c189b103ba44a9ad03ba209a373b08-title {
         font-size: 16.8px;
         fill: white;
         text-anchor: middle;
     }
-    #fig-c7945033e59c47a089145a9c51d97dbf-bg {
+    #fig-38c189b103ba44a9ad03ba209a373b08-bg {
         fill: #696969;
     }
-    #fig-c7945033e59c47a089145a9c51d97dbf-viewport rect, #fig-c7945033e59c47a089145a9c51d97dbf-viewport path {
+    #fig-38c189b103ba44a9ad03ba209a373b08-viewport rect, #fig-38c189b103ba44a9ad03ba209a373b08-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 1;
     }
-    #fig-c7945033e59c47a089145a9c51d97dbf-viewport text {
+    #fig-38c189b103ba44a9ad03ba209a373b08-viewport text {
         stroke: black;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-c7945033e59c47a089145a9c51d97dbf-viewport rect:hover, #fig-c7945033e59c47a089145a9c51d97dbf-viewport path:hover {
+    #fig-38c189b103ba44a9ad03ba209a373b08-viewport rect:hover, #fig-38c189b103ba44a9ad03ba209a373b08-viewport path:hover {
         fill-opacity: 0.75;
         stroke: black;
         stroke-width: 0.5;
     }
-    #fig-c7945033e59c47a089145a9c51d97dbf-viewport + rect {
+    #fig-38c189b103ba44a9ad03ba209a373b08-viewport + rect {
         fill: #696969;
         opacity: 0.8;
     }
-    text#fig-c7945033e59c47a089145a9c51d97dbf-details{
+    text#fig-38c189b103ba44a9ad03ba209a373b08-details{
         fill: white;
     }
-    #fig-c7945033e59c47a089145a9c51d97dbf-viewport text.w {
+    #fig-38c189b103ba44a9ad03ba209a373b08-viewport text.w {
         fill: white;
         stroke: white;
     }
 </style>
-<g id="fig-c7945033e59c47a089145a9c51d97dbf-frame" clip-path="url(#fig-c7945033e59c47a089145a9c51d97dbf-clip)">
-<rect id="fig-c7945033e59c47a089145a9c51d97dbf-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-c7945033e59c47a089145a9c51d97dbf-title" x="400" y="24">Profile results</text>
-<g id="fig-c7945033e59c47a089145a9c51d97dbf-viewport" transform="scale(1)">
+<g id="fig-38c189b103ba44a9ad03ba209a373b08-frame" clip-path="url(#fig-38c189b103ba44a9ad03ba209a373b08-clip)">
+<rect id="fig-38c189b103ba44a9ad03ba209a373b08-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-38c189b103ba44a9ad03ba209a373b08-title" x="400" y="24">Profile results</text>
+<g id="fig-38c189b103ba44a9ad03ba209a373b08-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#B0E0E6" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#B0E0E6" data-dinfo=".\"/>
@@ -3218,66 +3219,66 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-c7945033e59c47a089145a9c51d97dbf");
+        ProfileSVG.initialize("fig-38c189b103ba44a9ad03ba209a373b08");
     });
 } else {
-    ProfileSVG.initialize("fig-c7945033e59c47a089145a9c51d97dbf");
+    ProfileSVG.initialize("fig-38c189b103ba44a9ad03ba209a373b08");
 }
 ]]></script>
 </svg>
 </body>
 </html>
-<div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The decision whether to use black or white is based on the assumption that the frames are opaque. If the <a href="#frameopacity-option"><code>frameopacity</code> option</a> is set to a low value, the texts may be hard to read.</p></div></div><h2 id="frameopacity-option"><a class="docs-heading-anchor" href="#frameopacity-option"><code>frameopacity</code> option</a><a id="frameopacity-option-1"></a><a class="docs-heading-anchor-permalink" href="#frameopacity-option" title="Permalink"></a></h2><p>The <code>frameopacity</code> option specifyies the opacity of frames in [0, 1]. This option affects only the background of the frame, not the texts or the viewport background.</p><div class="bg"><p>The contextual background here has a pattern.</p><pre><code class="language-julia hljs">ProfileSVG.view(frameopacity=0.5, bgcolor=:transparent, fontcolor=:currentcolor)</code></pre><!DOCTYPE html>
+<div class="admonition is-info" id="Info-a30e17717543fc75"><header class="admonition-header">Info<a class="admonition-anchor" href="#Info-a30e17717543fc75" title="Permalink"></a></header><div class="admonition-body"><p>The decision whether to use black or white is based on the assumption that the frames are opaque. If the <a href="#frameopacity-option"><code>frameopacity</code> option</a> is set to a low value, the texts may be hard to read.</p></div></div><h2 id="frameopacity-option"><a class="docs-heading-anchor" href="#frameopacity-option"><code>frameopacity</code> option</a><a id="frameopacity-option-1"></a><a class="docs-heading-anchor-permalink" href="#frameopacity-option" title="Permalink"></a></h2><p>The <code>frameopacity</code> option specifyies the opacity of frames in [0, 1]. This option affects only the background of the frame, not the texts or the viewport background.</p><div class="bg"><p>The contextual background here has a pattern.</p><pre><code class="language-julia hljs">ProfileSVG.view(frameopacity=0.5, bgcolor=:transparent, fontcolor=:currentcolor)</code></pre><!DOCTYPE html>
 <html>
 <body>
 <svg version="1.1" width="800" height="312" viewBox="0 0 800 312"
-     xmlns="http://www.w3.org/2000/svg" id="fig-6cfffecb11ce483abfd0320f20ff772a">
+     xmlns="http://www.w3.org/2000/svg" id="fig-4d4d9ea1b4534e33a08bde2c0be776c2">
 <defs>
-    <clipPath id="fig-6cfffecb11ce483abfd0320f20ff772a-clip">
+    <clipPath id="fig-4d4d9ea1b4534e33a08bde2c0be776c2-clip">
         <rect x="0" y="0" width="800" height="312"/>
     </clipPath>
 </defs>
 <style type="text/css">
-    #fig-6cfffecb11ce483abfd0320f20ff772a text {
+    #fig-4d4d9ea1b4534e33a08bde2c0be776c2 text {
         pointer-events: none;
         font-family: inherit;
         font-size: 12px;
         fill: currentcolor;
     }
-    text#fig-6cfffecb11ce483abfd0320f20ff772a-title {
+    text#fig-4d4d9ea1b4534e33a08bde2c0be776c2-title {
         font-size: 16.8px;
         fill: currentcolor;
         text-anchor: middle;
     }
-    #fig-6cfffecb11ce483abfd0320f20ff772a-bg {
+    #fig-4d4d9ea1b4534e33a08bde2c0be776c2-bg {
         fill: transparent;
     }
-    #fig-6cfffecb11ce483abfd0320f20ff772a-viewport rect, #fig-6cfffecb11ce483abfd0320f20ff772a-viewport path {
+    #fig-4d4d9ea1b4534e33a08bde2c0be776c2-viewport rect, #fig-4d4d9ea1b4534e33a08bde2c0be776c2-viewport path {
         vector-effect: non-scaling-stroke;
         fill-opacity: 0.5;
     }
-    #fig-6cfffecb11ce483abfd0320f20ff772a-viewport text {
+    #fig-4d4d9ea1b4534e33a08bde2c0be776c2-viewport text {
         stroke: currentcolor;
         stroke-width: 0;
         stroke-opacity: 0.35;
     }
-    #fig-6cfffecb11ce483abfd0320f20ff772a-viewport rect:hover, #fig-6cfffecb11ce483abfd0320f20ff772a-viewport path:hover {
+    #fig-4d4d9ea1b4534e33a08bde2c0be776c2-viewport rect:hover, #fig-4d4d9ea1b4534e33a08bde2c0be776c2-viewport path:hover {
         fill-opacity: 0.75;
         stroke: currentcolor;
         stroke-width: 0.5;
     }
-    #fig-6cfffecb11ce483abfd0320f20ff772a-viewport + rect {
+    #fig-4d4d9ea1b4534e33a08bde2c0be776c2-viewport + rect {
         fill: transparent;
         opacity: 0.8;
     }
-    text#fig-6cfffecb11ce483abfd0320f20ff772a-details{
+    text#fig-4d4d9ea1b4534e33a08bde2c0be776c2-details{
         fill: currentcolor;
     }
 </style>
-<g id="fig-6cfffecb11ce483abfd0320f20ff772a-frame" clip-path="url(#fig-6cfffecb11ce483abfd0320f20ff772a-clip)">
-<rect id="fig-6cfffecb11ce483abfd0320f20ff772a-bg" x="0" y="0" width="800" height="312"/>
-<text id="fig-6cfffecb11ce483abfd0320f20ff772a-title" x="400" y="24">Profile results</text>
-<g id="fig-6cfffecb11ce483abfd0320f20ff772a-viewport" transform="scale(1)">
+<g id="fig-4d4d9ea1b4534e33a08bde2c0be776c2-frame" clip-path="url(#fig-4d4d9ea1b4534e33a08bde2c0be776c2-clip)">
+<rect id="fig-4d4d9ea1b4534e33a08bde2c0be776c2-bg" x="0" y="0" width="800" height="312"/>
+<text id="fig-4d4d9ea1b4534e33a08bde2c0be776c2-title" x="400" y="24">Profile results</text>
+<g id="fig-4d4d9ea1b4534e33a08bde2c0be776c2-viewport" transform="scale(1)">
 <rect x="8" y="261" width="784" height="15" rx="2" fill="#E1B2FF" data-dinfo=""/>
 <text x="8" dx="4" y="272.25"> in :-1</text>
 <rect x="8" y="246" width="784" height="15" rx="2" fill="#00B58B" data-dinfo=".\"/>
@@ -3753,13 +3754,13 @@ f+=g+"]",i[b]=f}return Function("val","return Snap.path.toString.call(["+i+"])")
 <script><![CDATA[
 if (typeof require === 'function' && define.amd) {
     require(['ProfileSVG'], function (ProfileSVG) {
-        ProfileSVG.initialize("fig-6cfffecb11ce483abfd0320f20ff772a");
+        ProfileSVG.initialize("fig-4d4d9ea1b4534e33a08bde2c0be776c2");
     });
 } else {
-    ProfileSVG.initialize("fig-6cfffecb11ce483abfd0320f20ff772a");
+    ProfileSVG.initialize("fig-4d4d9ea1b4534e33a08bde2c0be776c2");
 }
 ]]></script>
 </svg>
 </body>
 </html>
-</div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../other-options/">Other Options »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.3.0 on <span class="colophon-date" title="Monday 18 March 2024 21:32">Monday 18 March 2024</span>. Using Julia version 1.10.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../other-options/">Other Options »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.19.0 on <span class="colophon-date" title="Saturday 12 September 2026 03:16">Saturday 12 September 2026</span>. Using Julia version 1.13.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
