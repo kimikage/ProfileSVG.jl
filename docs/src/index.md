@@ -42,6 +42,7 @@ profile_test(1)   # run once to compile
 
 using Profile, ProfileSVG
 ProfileSVG.init() # hide
+ProfileSVG.set_default(maxdepth=100, maxframes=10^4) # hide
 
 @profview profile_test(10)
 nothing # hide
@@ -65,7 +66,7 @@ customize the output, you can call [`ProfileSVG.view`](@ref) directly.
 
 !!! info "Using ProfileSVG within VSCode"
     VS Code with Julia Extension has a
-    [profile viewing feature](https://www.julia-vscode.org/docs/stable/release-notes/v0_17/#Profile-viewing-support-1).
+    [profile viewing feature](https://www.julia-vscode.org/docs/stable/userguide/profiler/#Profiling-code).
     On the other hand, you can also display the SVG output of ProfileSVG in the
     Plot Pane in VS Code. Since `@profview` has a name collision with the
     Julia extension for VS Code, you need to explicitly specify
@@ -95,7 +96,7 @@ features are usually disabled.
 ## Other tools for displaying profiles
 - VS Code with [Julia extension](https://www.julia-vscode.org/), a development
   environment, which supports
-  [profile visualization](https://www.julia-vscode.org/docs/stable/release-notes/v0_17/#Profile-viewing-support-1).
+  [profile visualization](https://www.julia-vscode.org/docs/stable/userguide/profiler/#Profiling-code).
 - [PProf](https://github.com/JuliaPerf/PProf.jl), a web-based profile GUI
   explorer, implemented as a wrapper around
   [google/pprof](https://github.com/google/pprof).

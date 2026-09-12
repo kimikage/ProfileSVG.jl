@@ -12,6 +12,7 @@ include(joinpath("assets", "profile_test.jl"))
 Profile.clear()
 @profile (x -> log(x) * exp(x)).(fill(1.23, 10, 10))
 ProfileSVG.set_default(width=800)
+Profile.getdict(Profile.fetch())
 ```
 
 ## Default scheme
