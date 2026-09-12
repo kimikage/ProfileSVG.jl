@@ -39,6 +39,8 @@ struct FGConfig
     fontcolor::Symbol
     frameopacity::Float64
     yflip::Bool
+    align::Symbol
+    mindepth::Int
     maxdepth::Int
     maxframes::Int
     width::Float64
@@ -59,6 +61,8 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
                   fontcolor::Symbol    = default_config.fontcolor,
                   frameopacity::Real   = default_config.frameopacity,
                   yflip::Bool          = default_config.yflip,
+                  align::Symbol        = default_config.align,
+                  mindepth::Int        = default_config.mindepth,
                   maxdepth::Int        = default_config.maxdepth,
                   maxframes::Int       = default_config.maxframes,
                   width::Real          = default_config.width,
@@ -76,7 +80,7 @@ function FGConfig(g::Union{FlameGraph, Nothing} = nothing,
     delay = g === nothing || delay > 0 ? delay : last(Profile.init())
     FGConfig(g, gopts, fcolor,
              bgcolor, fontcolor, frameopacity,
-             yflip, maxdepth, maxframes, width, height, roundradius,
+             yflip, align, mindepth, maxdepth, maxframes, width, height, roundradius,
              font, fontsize, notext, timeunit, delay, title)
 end
 
@@ -94,6 +98,8 @@ function init()
                                      fontcolor=:fcolor,
                                      frameopacity=1,
                                      yflip=false,
+                                     align=:root,
+                                     mindepth=1,
                                      maxdepth=50,
                                      maxframes=2000,
                                      width=960,
@@ -141,8 +147,13 @@ View profiling results.
   - The opacity of frames in [0, 1].
 - `yflip` (default: `false`)
   - If `true`, the "icicle" graph will be rendered.
+- `align` (default: `:root`)
+  - The alignment of the flame graph. One of `:root`/`:tip`.
+- `mindepth` (default: `1`)
+  - The minimum level of the rows to be rendered.
 - `maxdepth` (default: `50`)
-  - The maximum number of the rendered rows.
+  - The maximum level of the rows to be rendered. The maximum number of rows is
+    `maxdepth - mindepth + 1`.
 - `maxframes` (default: `2000`)
   - The maximum number of the rendered frames.
 - `width` (default: `960`)
@@ -289,11 +300,13 @@ function extract_frameinfo(sf::StackFrame)
 end
 
 function show_flamegraph_body(io::IO, fg::FGConfig)
-    ncols, nrows = length(fg.g.data.span), FlameGraphs.depth(fg.g)
-    if nrows > fg.maxdepth
-        @warn """The depth of this graph is $nrows, exceeding the `maxdepth` (=$(fg.maxdepth)).
-                 The deeper frames will be truncated."""
-        nrows = fg.maxdepth
+    ncols, depth = length(fg.g.data.span), FlameGraphs.depth(fg.g)
+    nrows = depth - fg.mindepth + 1
+    if depth > fg.maxdepth
+        @warn """
+            The depth of this graph is $depth, exceeding the `maxdepth` (=$(fg.maxdepth)).
+            The deeper frames will be truncated."""
+        nrows = fg.maxdepth - fg.mindepth + 1
     end
     width = fg.width
     leftmargin = rightmargin = round(Int, width * 0.01)
@@ -303,27 +316,28 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
     xstep = Float64(rationalize(idealwidth / ncols, tol = 1 / ncols))
     ystep = round(Int, fg.fontsize * 1.25)
 
-    height = fg.height > 0.0 ? fg.height : ystep * nrows + botmargin * 2.0
+    height = fg.height > 0.0 ? fg.height : ystep * nrows + topmargin + botmargin
 
     function flamerects(io::IO, g::FlameGraph, j::Int, nextidx::Vector{Int})
         j > fg.maxdepth && return
         nextidx[end] > fg.maxframes && return
-        nextidx[end] += 1
-
-        ndata = g.data
-        color = fg.fcolor(nextidx, j, ndata)::Color
-        bw = fg.fontcolor === :bw
-        x = (first(ndata.span)-1) * xstep + leftmargin
-        if fg.yflip
-            y = topmargin + (j - 1) * ystep
-        else
-            y = height - j * ystep - botmargin
+        if j >= fg.mindepth
+            nextidx[end] += 1
+            ndata = g.data
+            color = fg.fcolor(nextidx, j, ndata)::Color
+            bw = fg.fontcolor === :bw
+            x = (first(ndata.span)-1) * xstep + leftmargin
+            row = fg.align === :tip ? nrows + fg.mindepth - j : j - fg.mindepth + 1
+            if fg.yflip ⊻ (fg.align === :tip)
+                y = topmargin + (row - 1) * ystep
+            else
+                y = height - botmargin - row * ystep
+            end
+            w = length(ndata.span) * xstep
+            r = fg.roundradius
+            shortinfo, dirinfo = extract_frameinfo(ndata.sf)
+            write_svgflamerect(io, x, y, w, ystep, r, shortinfo, dirinfo, color, bw)
         end
-        w = length(ndata.span) * xstep
-        r = fg.roundradius
-        shortinfo, dirinfo = extract_frameinfo(ndata.sf)
-        write_svgflamerect(io, x, y, w, ystep, r, shortinfo, dirinfo, color, bw)
-
         for c in g
             flamerects(io, c, j + 1, nextidx)
         end
@@ -335,7 +349,7 @@ function show_flamegraph_body(io::IO, fg::FGConfig)
                     bgcolor(fg), fontcolor(fg), fg.frameopacity,
                     fg.font, fg.fontsize, fg.notext, xstep, fg.timeunit, fg.delay, fg.title)
 
-    nextidx = fill(1, nrows + 1) # nextidx[end]: framecount
+    nextidx = fill(1, depth + 1) # nextidx[end]: framecount
     flamerects(io, fg.g, 1, nextidx)
 
     if nextidx[end] > fg.maxframes

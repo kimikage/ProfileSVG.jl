@@ -75,6 +75,7 @@ end
     @test fg.fontcolor == :fcolor
     @test fg.frameopacity == 1.0
     @test fg.yflip == false
+    @test fg.align == :root
     @test fg.width == 123.4
     @test fg.height == 0
     @test fg.roundradius == 2
@@ -94,6 +95,7 @@ end
     @test fg.graph_options[:C] == true
     @test fg.graph_options[:lidict] == lidict
     @test fg.yflip == false
+    @test fg.align == :root
     @test fg.width == 960
     @test fg.height == 0
     @test fg.roundradius == 2
@@ -107,11 +109,12 @@ end
     g = flamegraph(backtraces, lidict=lidict)
 
     fg = ProfileSVG.view(sfc, g, C=true, height=123.4, roundradius=0, timeunit=:ms,
-                         unknown=true)
+                         align=:tip, unknown=true)
     @test FlameGraphs.depth(fg.g) == 4 # `C` option does not affect the graph
     @test fg.fcolor isa StackFrameCategory
     @test fg.graph_options[:C] == true
     @test fg.yflip == false
+    @test fg.align == :tip
     @test fg.width == 960
     @test fg.height == 123.4
     @test fg.roundradius == 0
@@ -128,6 +131,7 @@ end
     @test fg.fcolor isa FlameColors
     @test fg.graph_options[:C] == true
     @test fg.yflip == true
+    @test fg.align == :root
     @test fg.width == 960
     @test fg.height == 0
     @test fg.roundradius == 2
@@ -344,11 +348,12 @@ end
 
     @test_logs(
         (:warn, r"The depth of this graph is 5, exceeding the `maxdepth` \(=4\)"),
-        (:warn, r"The maximum number of frames \(`maxframes`=8\) is reached"),
-        ProfileSVG.save(io, backtraces, C=true, lidict=lidict, maxdepth=4, maxframes=8))
+        (:warn, r"The maximum number of frames \(`maxframes`=7\) is reached"),
+        ProfileSVG.save(io, backtraces, C=true, lidict=lidict,
+                        mindepth=2, maxdepth=4, maxframes=7))
     str = String(take!(io))
-    @test occursin("""height="136" """, str)
-    @test count_element(r"<rect x=[^/]+/>", str) == 8
+    @test occursin("""height="121" """, str)
+    @test count_element(r"<rect x=[^/]+/>", str) == 7
 end
 
 @testset "show as html" begin
@@ -372,6 +377,7 @@ end
     @test fgc.graph_options[:C] == false
     @test fgc.graph_options[:lidict] == lidict
     @test fgc.yflip == false
+    @test fgc.align == :root
     @test fgc.width == 123.4
     @test fgc.height == 567.8
     @test fgc.roundradius == 2
@@ -381,14 +387,15 @@ end
     @test fgc.timeunit == :none
     @test fgc.delay == 0.001
 
-    ProfileSVG.set_default(fontsize=9, delay=0.01)
+    ProfileSVG.set_default(fontsize=9, delay=0.01, yflip=true, align=:tip)
     fgc = ProfileSVG.view(backtraces,
                           lidict=lidict, width=123.4, unknown=nothing)
     @test FlameGraphs.depth(fgc.g) == 5
     @test fgc.fcolor isa StackFrameCategory
     @test fgc.graph_options[:C] == true
     @test fgc.graph_options[:lidict] == lidict
-    @test fgc.yflip == false
+    @test fgc.yflip == true
+    @test fgc.align == :tip
     @test fgc.width == 123.4
     @test fgc.height == 567.8
     @test fgc.roundradius == 2
@@ -406,6 +413,7 @@ end
     @test fgc.graph_options[:C] == true
     @test fgc.graph_options[:lidict] == lidict
     @test fgc.yflip == false
+    @test fgc.align == :root
     @test fgc.width == 123.4
     @test fgc.height == 0
     @test fgc.roundradius == 2

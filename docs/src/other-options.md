@@ -11,18 +11,36 @@ Profile.clear()
 ProfileSVG.set_default(width=800)
 ```
 
-## `yflip`
+## `yflip` and `align`
 The `yflip` option inverts the depth direction. It defaults to `false` and a
 "flame" graph with upward depth will be rendered. By setting `yflip` to `true`,
 a "icicle" graph with downward depth will be rendered.
 
+The `align` option
+The `align` option specifies how the graph is aligned vertically with either
+`:root` (default) or `:tip`.
+When `:tip` is set, rendering is based on the deepest frame.
+This affects the result when the `height` option described later is specified.
 ```@example ex
 ProfileSVG.view(yflip=true)
 ProfileSVG.view(g, yflip=true) # hide
 ```
 
-## `maxdepth` and `maxframes`
-The `maxdepth` option limits the maximum number of the rendered rows of graph.
+```@example ex
+ProfileSVG.view(yflip=true, align=:tip, height=150)
+ProfileSVG.view(g, yflip=true, align=:tip, height=150) # hide
+```
+
+```@example ex
+ProfileSVG.view(align=:tip, height=150)
+ProfileSVG.view(g, align=:tip, height=150) # hide
+```
+
+## `mindepth`, `maxdepth` and `maxframes`
+The `mindepth`/`maxdepth` options limit the minimum/maximum level of the graph
+to be rendered.
+The default value of `mindepth` is `1`, meaning that the graph is rendered from
+the root.
 The frames deeper than `maxdepth` (i.e. away from the root) will be truncated.
 
 The `maxframes` option limits the maximum number of the rendered frames. Since
@@ -32,8 +50,8 @@ tend to be omitted.
 When `maxdepth` and/or `maxframes` are reached, warnings will be displayed.
 
 ```@example ex
-ProfileSVG.view(maxdepth=7, maxframes=12)
-ProfileSVG.view(g, maxdepth=7, maxframes=12) # hide
+ProfileSVG.view(mindepth=2, maxdepth=7, maxframes=12)
+ProfileSVG.view(g, mindepth=2, maxdepth=7, maxframes=12) # hide
 ```
 
 !!! warning
